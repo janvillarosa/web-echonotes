@@ -66,6 +66,7 @@ a:focus {
     border-bottom: 1px solid rgba(255,255,255,.5);
     font-family: "ARS Maquette Pro", "Helvetica Neue",Helvetica,Arial,sans-serif;
     background-color: #13a37f;
+    height: 70px;
     font-size: 18px;
 }
 
@@ -98,7 +99,7 @@ a:focus {
 }
 
 .navbar-toggle {
-    padding: 4px 6px;
+    padding: 0px 0px;
     font-size: 18px;
     color: #fff;
 }
@@ -112,7 +113,7 @@ a:focus {
     .navbar {
         padding: 20px 0;
         border-bottom: 0;
-        letter-spacing: 1px;
+        letter-spacing: 0px;
         background: 0 0;
         color: #fff;
         -webkit-transition: background .5s ease-in-out,padding .5s ease-in-out;
@@ -137,7 +138,7 @@ a:focus {
     padding: 100px 0;
     text-align: center;
     color: #fff;
-    background: url(../img/frontpage/intro-bg.jpg) no-repeat center center scroll;
+    background: url(../img/frontpage/intro-bg.png) no-repeat center center scroll;
     background-color: #fff;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -148,7 +149,7 @@ a:focus {
 .intro-body {
     display: table-cell;
     vertical-align: middle;
-    padding: 60px 0;
+    padding: 100px 0;
 }
 
 .brand-heading {
@@ -250,26 +251,46 @@ a:focus {
 }
 
 .content-section {
-    padding-top: 100px;
+    padding-top: 10px;
     background-color: #fff;
 }
 
 .download-section {
     width: 100%;
-    padding: 50px 0;
+    height: 100%;
     color: #fff;
-    background: url(../img/frontpage/downloads-bg.jpg) no-repeat center center fixed;
-    background-color: #000;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
+    background-color: #13a37f;
 }
 
-#map {
-    width: 100%;
-    height: 200px;
-    margin-top: 100px;
+.signup-section {
+    height: 50%;
+    vertical-align: top;
+    padding: 10px 0;
+}
+
+.sign-up{
+    width: 70%;
+    height: 50%;
+    vertical-align: top;
+    margin-bottom: 100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.sign-up b{
+    padding-left: 80px;
+
+}
+
+.form-control {
+    border: 1px solid #000;
+    color: #000;
+    width: 70%;
+    margin-bottom: 30px;
+    margin-left: auto;
+    margin-right: auto;
+
+
 }
 
 @media(min-width:767px) {
@@ -278,13 +299,23 @@ a:focus {
     }
 
     .download-section {
-        padding: 100px 0;
+        padding: 250px 0;
     }
 
     #map {
         height: 400px;
         margin-top: 250px;
     }
+    .sign-up-section {
+        padding-top: 10px;
+        height: 300px;
+    }
+}
+
+#map {
+    width: 100%;
+    height: 200px;
+    margin-top: 100px;
 }
 
 .btn {
@@ -298,7 +329,7 @@ a:focus {
 .btn-default {
     border: 1px solid black;
     color: black;
-    background-color: transparent;
+    background-color: #1aca79;
 }
 
 .btn-default-white{
@@ -328,26 +359,15 @@ a:focus {
     font-size: 26px;
 }
 
-.banner-social-buttons {
-    margin-top: 0;
-}
-
-@media(max-width:1199px) {
-    ul.banner-social-buttons {
-        margin-top: 15px;
-    }
-}
-
-@media(max-width:767px) {
-    ul.banner-social-buttons>li {
+ul.banner-social-buttons {
         display: block;
         margin-bottom: 20px;
-        padding: 0;
-    }
+        margin-top: 20px;
+        padding: 10 10;
+}
 
-    ul.banner-social-buttons>li:last-child {
+ul.banner-social-buttons>li:last-child {
         margin-bottom: 0;
-    }
 }
 
 ::-moz-selection {
