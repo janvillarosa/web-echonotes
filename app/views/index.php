@@ -29,14 +29,14 @@
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
                 </button>
-                <a class="navbar-brand" href="index.html" style="color:white"><img src="img\homepage\echonotes-logo.png" height=31.33 width=16.67>Echonotes</a>
+                <a class="navbar-brand" href="index.html" style="color:white"><img src="img\homepage\echonotes-logo.png" height=31.33 width=16.67> Echonotes</a>
             </div>
             <!-- /.navbar-header -->
 
             <ul class="nav navbar-top-links navbar-right">
                 <li class="dropdown">
-                    <a class="dropdown-toggle user-toggle" data-toggle="dropdown" href="#">
-                        Hi, Jan Villarosa
+                    <a class="dropdown-toggle user-toggle" data-toggle="dropdown" href="/logout">
+                        Hi, <?php echo Auth::user()->name; ?>
                     </a>
                     
             <!-- /.navbar-top-links -->
@@ -80,16 +80,40 @@
 		<ul class="nav" id="side-menu">
 			<center>
             <li class="search">
-                        <div class="input-group custom-search-form">
-                            <input name="searchBox" type="text" class="form-control" placeholder="Search for your notes...">
-                            <span class="input-group-btn">
-                                <button class="btn btn-default" type="button">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </span>
-                        </div>
+                <div class="input-group custom-search-form">
+                    <input name="searchBox" type="text" class="form-control" placeholder="Search for your notes...">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button">
+                            <i class="fa fa-search"></i
+                        </button>
+                    </span>
+                </div>
+            </li>
+            </center>
+    <div class="span5">
+    <a href="note.html"><img data-src="js/holder.js/150x150/auto" alt="Generic placeholder image"></a>
+    <img data-src="js/holder.js/150x150/auto" alt="Generic placeholder image">
+    <img data-src="js/holder.js/150x150/auto" alt="Generic placeholder image">
+    <img data-src="js/holder.js/150x150/auto" alt="Generic placeholder image">
+    <img data-src="js/holder.js/150x150/auto" alt="Generic placeholder image">
+    <img data-src="js/holder.js/150x150/auto" alt="Generic placeholder image">
+    <img data-src="js/holder.js/150x150/auto" alt="Generic placeholder image">
+    <img data-src="js/holder.js/150x150/auto" alt="Generic placeholder image">
+    <img data-src="js/holder.js/150x150/auto" alt="Generic placeholder image">
+    <img data-src="js/holder.js/150x150/auto" alt="Generic placeholder image">
+    <img data-src="js/holder.js/150x150/auto" alt="Generic placeholder image">
+    <img data-src="js/holder.js/150x150/auto" alt="Generic placeholder image">
+
+    <img data-src="js/holder.js/150x150/auto" alt="Generic placeholder image">
+    <img data-src="js/holder.js/150x150/auto" alt="Generic placeholder image">
+    <img data-src="js/holder.js/150x150/auto" alt="Generic placeholder image">
+    <img data-src="js/holder.js/150x150/auto" alt="Generic placeholder image">
+    <img data-src="js/holder.js/150x150/auto" alt="Generic placeholder image">
+    <img data-src="js/holder.js/150x150/auto" alt="Generic placeholder image">
+    </div>
+    <script src="bootstrap.min.js"></script>
+    <script src="holder.js"></script>    
                         <!-- /input-group -->
-                    </li>
 			</center>
 		</ul>
         </div>

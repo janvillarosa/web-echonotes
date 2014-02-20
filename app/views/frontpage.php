@@ -47,7 +47,7 @@
                         <a href="#download">Mobile</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="login.html"><b>Sign in</b></a>
+                        <a href="/login"><b>Sign in</b></a>
                     </li>
                 </ul>
             </div>
@@ -115,18 +115,18 @@
                 <h2>Start using Echonotes today</h2>
                 <p>Register for a free account. All you need is an email, and your own name.</p>
                 </center>
-                        <form class = "sign-up">
+                        <form class = "sign-up" action="/register" method="post">
                             <b>Full Name<br>
-                            <input class="form-control" type="text" placeholder="Full Name">
+                            <input name="username" class="form-control" type="text" placeholder="Full Name">
                             <b>Email<br>
-                            <input class="form-control" type="email" placeholder="example@email.com">
+                            <input name="email" class="form-control" type="email" placeholder="example@email.com">
                             <b>Password<br>
-                            <input class="form-control" type="password" placeholder="Password">
+                            <input name="password"class="form-control" type="password" placeholder="Password">
                             <b>Confirm Password<br>
-                            <input class="form-control" type="password" placeholder="Confirm Password">
+                            <input name="confirm_password" class="form-control" type="password" placeholder="Confirm Password">
                         </form>
                         <center>
-                        <a href="index.html" class="btn btn-default btn-lg">Register</a>
+                        <input type="submit" value="Register" class="btn btn-default btn-lg">
                         </center>
             </div>
         </div>

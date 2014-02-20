@@ -11,6 +11,8 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	 * @var string
 	 */
 	protected $table = 'users';
+	protected $primaryKey = 'email';
+	public $timestamps = false;
 
 	/**
 	 * The attributes excluded from the model's JSON form.
@@ -39,6 +41,10 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 		return $this->password;
 	}
 
+	public function setAuthPassword($input){
+		$this->password = Hash::make($input);
+	}
+
 	/**
 	 * Get the e-mail address where password reminders are sent.
 	 *
@@ -48,5 +54,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	{
 		return $this->email;
 	}
+
+
 
 }
