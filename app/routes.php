@@ -13,8 +13,6 @@
 
 Route::get('/', function()
 {
-HEAD
-HEAD
 	if(Auth::check()){
 		return View::make('index');
 	}
@@ -37,8 +35,6 @@ Route::post('/register', 'UserController@register');
 Route::get('/main', function()
 {
 	return View::make('main');
- 98ac51edc27f11e989909e6c49a156eef559e57f
- 98ac51edc27f11e989909e6c49a156eef559e57f
 });
 
 Route::get('/note', function()
