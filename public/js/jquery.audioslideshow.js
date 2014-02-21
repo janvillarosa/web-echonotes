@@ -3,7 +3,11 @@
   $.fn.audioSlideshow = function( options ) {
       
     var settings = {
+<<<<<<< HEAD
                       jPlayerPath: "/lib/swf",
+=======
+                      jPlayerPath: "jplayer",
+>>>>>>> origin/timed-anno
                       suppliedFileType: "mp3",
                       playSelector: ".audio-play",
 											pauseSelector: ".audio-pause",
