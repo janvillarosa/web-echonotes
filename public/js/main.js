@@ -172,4 +172,15 @@ function initAudio() {
         });
 }
 
+function getBufferCallback( buffers ) {
+    var newSource = audioContext.createBufferSource();
+    var newBuffer = audioContext.createBuffer( 2, buffers[0].length, audioContext.sampleRate );
+    newBuffer.getChannelData(0).set(buffers[0]);
+    newBuffer.getChannelData(1).set(buffers[1]);
+    newSource.buffer = newBuffer;
+
+    newSource.connect( audioContext.destination );
+    newSource.start(0);
+}
+
 window.addEventListener('load', initAudio );
