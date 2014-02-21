@@ -136,7 +136,7 @@ Page-Level Plugin CSS - Dashboard
                 <div class="navbar-title">
                     ALGOCOM - Master's Method
                 </div>
-                <a class="navbar-play" href="#">
+                <a class="navbar-play" onClick="toggleRecording(this)">
                     <i class="fa fa-play fa-fw"></i>
                 </a>
                 <li class="divider"></li>
@@ -158,6 +158,9 @@ Page-Level Plugin CSS - Dashboard
 
         <!-- Page-Level Demo Scripts - Dashboard - Use for reference -->
         <script src="js/demo/dashboard-demo.js"></script>
+        <script src="js/audiodisplay.js"></script>
+        <script src="js/recorderjs/recorder.js"></script>
+        <script src="js/main.js"></script>
 
     </body>
 

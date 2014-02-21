@@ -16,7 +16,7 @@ Route::get('/', function()
 	return View::make('frontpage');
 });
 
-Route::get('/main', function()
+Route::get('/note', function()
 {
-	return View::make('main');
+	return View::make('note');
 });
