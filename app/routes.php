@@ -16,7 +16,7 @@ Route::get('/', function()
 	return View::make('frontpage');
 });
 
-Route::get('/login', function()
+Route::get('/main', function()
 {
-	return View::make('login');
+	return View::make('main');
 });

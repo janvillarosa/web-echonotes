@@ -60,13 +60,9 @@
 	</style>
 </head>
 <body>
-	<div id="viz">
-		<canvas id="analyser" width="1024" height="500"></canvas>
-		<canvas id="wavedisplay" width="1024" height="500"></canvas>
-	</div>
 	<div id="controls">
-		<img id="record" src="img/mic128.png" onclick="toggleRecording(this);">
-		<a id="save" href="#"><img src="img/save.svg"></a>
+		<img id="record" src="img/recorderplayer/mic128.png" onclick="toggleRecording(this);">
+		<a id="save" href="#"><img src="img/recorderplayer/save.svg"></a>
 	</div>
 </body>
 </html>
