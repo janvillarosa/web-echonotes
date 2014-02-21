@@ -151,17 +151,10 @@ $(document).ready(function() {
             <a class="navbar-play" onClick="toggleRecording(this)">
                 <i class="fa fa-play fa-fw"></i> 
             </a> -->
-<<<<<<< HEAD
-            <!--<script>
-              // By default the plugin searches for a data-retina attribute on the image
-              $('#test-1 img').retina();
-                      </script>-->
-=======
             <!-- <script>
               // By default the plugin searches for a data-retina attribute on the image
               $('#test-1 img').retina();
           </script> -->
->>>>>>> origin/timed-anno
           <div id="audio-slideshow" class="audio-slideshow" data-audio="Kurt_Vile_-_01_-_Freeway.mp3" data-audio-duration="161">
             <div class="audio-slides">
                 <img src="http://farm2.staticflickr.com/1012/3175040364_7eef7d257f_z.jpg?zz=1" alt="[Dalen, Telemarken (i.e, Telemark), Norway] (LOC)" data-thumbnail="http://farm2.staticflickr.com/1012/3175040364_7eef7d257f_t.jpg" data-slide-time="0">

@@ -1,71 +1,73 @@
 (function( $ ) {
   
-	$.fn.audioSlideshow = function( options ) {
+  $.fn.audioSlideshow = function( options ) {
       
-		var settings = {
-			jPlayerPath: "/js",
-			suppliedFileType: "mp3",
-			playSelector: ".audio-play",
-			pauseSelector: ".audio-pause",
-			currentTimeSelector: ".play-time",
-			durationSelector: ".total-time",
-			playheadSelector: ".playhead",
-			timelineSelector: ".timeline"
-		};
-	  
-		if(options){
-		  jQuery.extend(settings,options);
-		}
-		
-		// Begin to iterate over the jQuery collection that the method was called on
-		return this.each(function () {
-		  
-			// Cache `this`
-			var $that = $(this),
-				$slides = $that.find('.audio-slides').children(),
-				
-				$currentTime = $that.find(settings.currentTimeSelector),
-				$duration = $that.find(settings.durationSelector),
-				$playhead = $that.find(settings.playheadSelector),
-				$timeline = $that.find(settings.timelineSelector),
-				$playButton = $that.find(settings.playSelector),
-				$pauseButton = $that.find(settings.pauseSelector),
-
-				slidesCount = $slides.length,
-				slideTimes = new Array(),
-				audioDurationinSeconds = parseInt($that.attr('data-audio-duration')),
-				isPlaying = false,
-				currentSlide = -1;
-
+    var settings = {
+                      jPlayerPath: "ahhh",
+                      suppliedFileType: "mp3",
+                      playSelector: ".audio-play",
+											pauseSelector: ".audio-pause",
+											currentTimeSelector: ".play-time",
+											durationSelector: ".total-time",
+											playheadSelector: ".playhead",
+											timelineSelector: ".timeline"
+                    };
+  
+    if(options){
+      jQuery.extend(settings,options);
+    }
+    
+    // Begin to iterate over the jQuery collection that the method was called on
+    return this.each(function () {
+      
+      // Cache `this`
+      var $that = $(this);
+      var $slides = $that.find('.audio-slides').children();
+			
+			var $currentTime = $that.find(settings.currentTimeSelector);
+			var $duration = $that.find(settings.durationSelector);
+			var $playhead = $that.find(settings.playheadSelector);
+			var $timeline = $that.find(settings.timelineSelector);
+			var $playButton = $that.find(settings.playSelector);
+			var $pauseButton = $that.find(settings.pauseSelector);
+			
+			var slidesCount = $slides.length;
+			var slideTimes = new Array();
+			var audioDurationinSeconds = parseInt($that.attr('data-audio-duration'));
+			var isPlaying = false;
+			var currentSlide = -1;
+			
 			$pauseButton.hide();
-				
+			
 			// Setup slides			
 			$slides.each(function(index,el){
 				var $el = $(el);
 				$el.hide();
 
-				var second = parseInt($el.attr('data-slide-time')),
-					thumbnail = $el.attr('data-thumbnail');
+				var second = parseInt($el.attr('data-slide-time'));
+				var thumbnail = $el.attr('data-thumbnail');
 				
 				if(index > 0){
 					slideTimes.push(second);
 				
-					var img = '<span><img src="' + thumbnail + '"></span>',
-						$marker = $('<a href="javascript:;" class="marker" data-time="' + second + '">' + img + '</a>'),
-						l = (second / audioDurationinSeconds) * $that.width();
-		  
-					$marker.css('left',l).click(function(e){
-						$jPlayerObj.jPlayer("play", parseInt($(this).attr('data-time')) + .5);
-					});
-
+					var img = '<span><img src="' + thumbnail + '"></span>';
+					var $marker = $('<a href="javascript:;" class="marker" data-time="' + second + '">' + img + '</a>');
+					var l = (second / audioDurationinSeconds) * $that.width();
+	      
+					$marker.css('left',l);
+				
+					$marker.click(function(e){
+		        $jPlayerObj.jPlayer("play", parseInt($(this).attr('data-time')) + .5);
+		      });
+	
 					$timeline.append($marker);
 				}
 			});
 
-			var $jPlayerObj = $('<div></div>');
-			$that.append($jPlayerObj);
-		
-			$jPlayerObj.jPlayer({
+    	var $jPlayerObj = $('<div></div>');
+      $that.append($jPlayerObj);
+    
+      $jPlayerObj.jPlayer({
 				ready: function () {
 					$.jPlayer.timeFormat.padMin = false;
 					$(this).jPlayer("setMedia", {
@@ -77,7 +79,7 @@
 				preload: 'auto',
 				cssSelectorAncestor: ""
 			});
-				
+			
 			$jPlayerObj.bind($.jPlayer.event.timeupdate, function(event) { // Add a listener to report the time play began
 				var curTime = event.jPlayer.status.currentTime;
 				audioDurationinSeconds = event.jPlayer.status.duration;
@@ -99,17 +101,9 @@
 					setAudioSlide(nxtSlide);
 				}
 			});
-				
+			
 			$jPlayerObj.bind($.jPlayer.event.play, function(event) { // Add a listener to report the time play began
 				isPlaying = true;
-				$playButton.hide();
-				$pauseButton.show();
-			});
-			
-			$jPlayerObj.bind($.jPlayer.event.pause, function(event) { // Add a listener to report the time pause began
-				isPlaying = false;
-				$pauseButton.hide();
-				$playButton.show();
 			});
 			
 			$slides.click(function(event){
@@ -117,10 +111,14 @@
 			});
 			
 			$playButton.click(function(event){
+				$playButton.hide();
+				$pauseButton.show();
 				$jPlayerObj.jPlayer("play");
 			});
-				
+			
 			$pauseButton.click(function(event){
+				$pauseButton.hide();
+				$playButton.show();
 				$jPlayerObj.jPlayer("pause");
 			});
 			
@@ -143,7 +141,7 @@
 					currentSlide = n;
 				}
 			}
-				
-		});
-	};
+			
+    });
+  };
 }(jQuery));
