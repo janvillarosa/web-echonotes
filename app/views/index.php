@@ -13,8 +13,8 @@
     <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
 
     <!-- Page-Level Plugin CSS - Dashboard -->
-    <link href="css/plugins/morris/morris-0.4.3.min.css" rel="stylesheet">
-    <link href="css/plugins/timeline/timeline.css" rel="stylesheet">
+    <!-- <link href="css/plugins/morris/morris-0.4.3.min.css" rel="stylesheet">
+    <link href="css/plugins/timeline/timeline.css" rel="stylesheet"> -->
 
     <!-- SB Admin CSS - Include with every page -->
     <link href="css/homepage.css" rel="stylesheet">
@@ -29,7 +29,7 @@
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
                 </button>
-                <a class="navbar-brand" href="index.html" style="color:white"><img src="img\homepage\echonotes-logo.png" height=31.33 width=16.67> Echonotes</a>
+                <a class="navbar-brand" href="index.html" style="color:white"><img src="img/homepage/echonotes-logo.png" height=31.33 width=16.67> Echonotes</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -48,26 +48,26 @@
             <div class="sidebar-collapse">
                 <ul class="nav" id="side-menu">
 				<div class="btn-start">
-                        <a href="index.html"><img src="img\homepage\start-button.png" width=100% height=100%></a>
+                        <a href="index.html"><img src="img/homepage/start-button.png" width=100% height=100%></a>
 						</div>
 						<br>
 					<b>My Tags</b>
                     <li>
-                        <a href=""><img src="img\homepage\tag-cyan.png" width=15 height=15> Home</a>
+                        <a href=""><img src="img/homepage/tag-cyan.png" width=15 height=15> Home</a>
                     </li>
                     <li>
-                        <a href=""><img src="img\homepage\tag-magenta.png" width=15 height=15></i> School</a>
+                        <a href=""><img src="img/homepage/tag-magenta.png" width=15 height=15></i> School</a>
                     </li>
                     <li>
-                        <a href=""><img src="img\homepage\tag-green.png" width=15 height=15></i> Work</a>
+                        <a href=""><img src="img/homepage/tag-green.png" width=15 height=15></i> Work</a>
                     </li>
                     <li>
-                        <a href=""><img src="img\homepage\tag-red.png" width=15 height=15></i> Miscellaneous</a>
+                        <a href=""><img src="img/homepage/tag-red.png" width=15 height=15></i> Miscellaneous</a>
                     </li>
 					<br>
 					<b>Shared</b>
                     <li>
-                        <a href=""><img src="img\homepage\tag-blue.png" width=15 height=15> Notes shared with me</a>
+                        <a href=""><img src="img/homepage/tag-blue.png" width=15 height=15> Notes shared with me</a>
                     </li>
                 </ul>
                 <!-- /#side-menu -->
@@ -91,13 +91,25 @@
             </li>
             </center>
     <div class="span5">
-    <?php 
-        $notes = Auth::user()->echonotes;
-        foreach ($notes as $note) {
-        echo '<a href="note.html"><img data-src="js/holder.js/150x150/auto" alt="';
-        echo $note->noteName;
-        echo '"></a>';
-    }?>
+    <a href="note.html"><img data-src="js/holder.js/150x150/auto" alt="Generic placeholder image"></a>
+    <img data-src="js/js/holder.js/150x150/auto" alt="Generic placeholder image">
+    <img data-src="js/holder.js/150x150/auto" alt="Generic placeholder image">
+    <img data-src="js/holder.js/150x150/auto" alt="Generic placeholder image">
+    <img data-src="js/holder.js/150x150/auto" alt="Generic placeholder image">
+    <img data-src="js/holder.js/150x150/auto" alt="Generic placeholder image">
+    <img data-src="js/holder.js/150x150/auto" alt="Generic placeholder image">
+    <img data-src="js/holder.js/150x150/auto" alt="Generic placeholder image">
+    <img data-src="js/holder.js/150x150/auto" alt="Generic placeholder image">
+    <img data-src="js/holder.js/150x150/auto" alt="Generic placeholder image">
+    <img data-src="js/holder.js/150x150/auto" alt="Generic placeholder image">
+    <img data-src="js/holder.js/150x150/auto" alt="Generic placeholder image">
+
+    <img data-src="js/holder.js/150x150/auto" alt="Generic placeholder image">
+    <img data-src="js/holder.js/150x150/auto" alt="Generic placeholder image">
+    <img data-src="js/holder.js/150x150/auto" alt="Generic placeholder image">
+    <img data-src="js/holder.js/150x150/auto" alt="Generic placeholder image">
+    <img data-src="js/holder.js/150x150/auto" alt="Generic placeholder image">
+    <img data-src="js/holder.js/150x150/auto" alt="Generic placeholder image">
     </div>
     <script src="bootstrap.min.js"></script>
     <script src="holder.js"></script>    
