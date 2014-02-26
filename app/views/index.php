@@ -91,21 +91,37 @@
             </li>
             </center>
     <div class="span5">
-    <a href="note.html">
-            <img src="img/homepage/note-icon.png" alt="Generic placeholder image" height = "150" width = "150">
-    </a>
-    <img src="img/homepage/note-icon.png" alt="Generic placeholder image" height = "150" width = "150">
-    <img src="img/homepage/note-icon.png" alt="Generic placeholder image" height = "150" width = "150">
-    <img src="img/homepage/note-icon.png" alt="Generic placeholder image" height = "150" width = "150">
-    <img src="img/homepage/note-icon.png" alt="Generic placeholder image" height = "150" width = "150">
-    <img src="img/homepage/note-icon.png" alt="Generic placeholder image" height = "150" width = "150">
-    <img src="img/homepage/note-icon.png" alt="Generic placeholder image" height = "150" width = "150">
-    <img src="img/homepage/note-icon.png" alt="Generic placeholder image" height = "150" width = "150">
-    <img src="img/homepage/note-icon.png" alt="Generic placeholder image" height = "150" width = "150">
-    <img src="img/homepage/note-icon.png" alt="Generic placeholder image" height = "150" width = "150">
-    <img src="img/homepage/note-icon.png" alt="Generic placeholder image" height = "150" width = "150">
-    <img src="img/homepage/note-icon.png" alt="Generic placeholder image" height = "150" width = "150">
-    <img src="img/homepage/note-icon.png" alt="Generic placeholder image" height = "150" width = "150">
+        <ul>
+            <li><a href="note.html">
+                <img src="img/homepage/note-icon.png" alt="Generic placeholder image" height = "150" width = "150">
+                <span>Note 1</span><span>5 annotations</span>
+            </a></li>
+            <li><a href="note.html">
+                <img src="img/homepage/note-icon.png" alt="Generic placeholder image" height = "150" width = "150">
+                <span>Note 2</span><span>5 annotations</span>
+            </a></li>
+            <li><a href="note.html">
+                <img src="img/homepage/note-icon.png" alt="Generic placeholder image" height = "150" width = "150">
+                <span>Note 3</span><span>5 annotations</span>
+            </a></li>
+            <li><a href="note.html">
+                <img src="img/homepage/note-icon.png" alt="Generic placeholder image" height = "150" width = "150">
+                <span>Note 4</span><span>5 annotations</span>
+            </a></li>
+            <li><a href="note.html">
+                <img src="img/homepage/note-icon.png" alt="Generic placeholder image" height = "150" width = "150">
+                <span>Note 5</span><span>5 annotations</span>
+            </a></li>
+            <li><a href="note.html">
+                <img src="img/homepage/note-icon.png" alt="Generic placeholder image" height = "150" width = "150">
+                <span>Note 6</span><span>5 annotations</span>
+            </a></li>
+            <li><a href="note.html">
+                <img src="img/homepage/note-icon.png" alt="Generic placeholder image" height = "150" width = "150">
+                <span>Note 7</span><span>5 annotations</span>
+            </a></li>
+
+        </ul>
     </div>
     <script src="bootstrap.min.js"></script>
     <script src="holder.js"></script>    
