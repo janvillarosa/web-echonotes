@@ -13,8 +13,8 @@
         <link rel="stylesheet" type="text/css" href="css/style.css" />
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700,300,300italic' rel='stylesheet' type='text/css' />
 		<script src="http://code.jquery.com/jquery.js"></script>
-		<script src="js/jquery-1.7.2.min.js"></script>
-		<script>window.jQuery || document.write('<script src="js/jquery-1.7.2.min.js"><\/script>')</script>
+		<script src="js/jquery-1.10.2.js"></script>
+		<script>window.jQuery || document.write('<script src="js/jquery-1.10.2.js"><\/script>')</script>
 		<script src="js/jplayer/jquery.jplayer.js"></script>
 		<script src="js/jquery.audioslideshow.js"></script>
 		<script>
