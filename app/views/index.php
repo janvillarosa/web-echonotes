@@ -29,7 +29,7 @@
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
                 </button>
-                <a class="navbar-brand" href="index.html" style="color:white"><img src="img/homepage/echonotes-logo.png" height=31.33 width=16.67> Echonotes</a>
+                <a class="navbar-brand" href="index.html" style="color:white"><span><img src="img/homepage/echonotes-logo.png" height=31.33 width=16.67> Echonotes</span></a>
             </div>
             <!-- /.navbar-header -->
 
