@@ -146,6 +146,8 @@
                 </a>
                 <li class="divider"></li>
             </nav>-->
+                    <div class="container">
+
             <section>
                 <div id="audio-slideshow" class="audio-slideshow" data-audio="Kurt_Vile_-_01_-_Freeway.mp3" data-audio-duration="161">
                     <div class="audio-slides">
@@ -175,6 +177,7 @@
                     </div>
                 </div>
             </section>
+        </div>
         </div>
 
 
