@@ -38,7 +38,7 @@ var ratio = dpr / bsr;
 
 var settings = {
 	domain: "holder.js",
-	images: "img",
+	images: "/img/homepage/note-icon.png",
 	bgnodes: ".holderjs",
 	themes: {
 		"gray": {

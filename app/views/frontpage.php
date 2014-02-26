@@ -61,7 +61,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
-                        <img src="img/frontpage/branding-intro-logo.png" alt="Echonotes logo" height="250" width="250">
+                        <img src="img/frontpage/branding-intro-logo.png" alt="Echonotes logo">
                         <h1 class="brand-heading">Echonotes</h1>
                         <p class="intro-text">Never miss a word ever again. Echonotes takes advantage of audio, photos
                             and text annotations to make note taking and reviewing easier and more effective. <br>It's free. Register today.</p>

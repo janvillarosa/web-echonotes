@@ -91,25 +91,21 @@
             </li>
             </center>
     <div class="span5">
-    <a href="note.html"><img data-src="js/holder.js/150x150/auto" alt="Generic placeholder image"></a>
-    <img data-src="js/js/holder.js/150x150/auto" alt="Generic placeholder image">
-    <img data-src="js/holder.js/150x150/auto" alt="Generic placeholder image">
-    <img data-src="js/holder.js/150x150/auto" alt="Generic placeholder image">
-    <img data-src="js/holder.js/150x150/auto" alt="Generic placeholder image">
-    <img data-src="js/holder.js/150x150/auto" alt="Generic placeholder image">
-    <img data-src="js/holder.js/150x150/auto" alt="Generic placeholder image">
-    <img data-src="js/holder.js/150x150/auto" alt="Generic placeholder image">
-    <img data-src="js/holder.js/150x150/auto" alt="Generic placeholder image">
-    <img data-src="js/holder.js/150x150/auto" alt="Generic placeholder image">
-    <img data-src="js/holder.js/150x150/auto" alt="Generic placeholder image">
-    <img data-src="js/holder.js/150x150/auto" alt="Generic placeholder image">
-
-    <img data-src="js/holder.js/150x150/auto" alt="Generic placeholder image">
-    <img data-src="js/holder.js/150x150/auto" alt="Generic placeholder image">
-    <img data-src="js/holder.js/150x150/auto" alt="Generic placeholder image">
-    <img data-src="js/holder.js/150x150/auto" alt="Generic placeholder image">
-    <img data-src="js/holder.js/150x150/auto" alt="Generic placeholder image">
-    <img data-src="js/holder.js/150x150/auto" alt="Generic placeholder image">
+    <a href="note.html">
+            <img src="img/homepage/note-icon.png" alt="Generic placeholder image" height = "150" width = "150">
+    </a>
+    <img src="img/homepage/note-icon.png" alt="Generic placeholder image" height = "150" width = "150">
+    <img src="img/homepage/note-icon.png" alt="Generic placeholder image" height = "150" width = "150">
+    <img src="img/homepage/note-icon.png" alt="Generic placeholder image" height = "150" width = "150">
+    <img src="img/homepage/note-icon.png" alt="Generic placeholder image" height = "150" width = "150">
+    <img src="img/homepage/note-icon.png" alt="Generic placeholder image" height = "150" width = "150">
+    <img src="img/homepage/note-icon.png" alt="Generic placeholder image" height = "150" width = "150">
+    <img src="img/homepage/note-icon.png" alt="Generic placeholder image" height = "150" width = "150">
+    <img src="img/homepage/note-icon.png" alt="Generic placeholder image" height = "150" width = "150">
+    <img src="img/homepage/note-icon.png" alt="Generic placeholder image" height = "150" width = "150">
+    <img src="img/homepage/note-icon.png" alt="Generic placeholder image" height = "150" width = "150">
+    <img src="img/homepage/note-icon.png" alt="Generic placeholder image" height = "150" width = "150">
+    <img src="img/homepage/note-icon.png" alt="Generic placeholder image" height = "150" width = "150">
     </div>
     <script src="bootstrap.min.js"></script>
     <script src="holder.js"></script>    
