@@ -19,7 +19,7 @@ class UserController extends BaseController{
 			return Redirect::to('/');
 		}
 		else{
-			return Redirect::to('/login');
+			return Redirect::to('/login');//Redirect to incorrect login page
 		}
 	}
 

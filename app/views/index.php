@@ -91,25 +91,13 @@
             </li>
             </center>
     <div class="span5">
-    <a href="note.html"><img data-src="js/holder.js/150x150/auto" alt="Generic placeholder image"></a>
-    <img data-src="js/holder.js/150x150/auto" alt="Generic placeholder image">
-    <img data-src="js/holder.js/150x150/auto" alt="Generic placeholder image">
-    <img data-src="js/holder.js/150x150/auto" alt="Generic placeholder image">
-    <img data-src="js/holder.js/150x150/auto" alt="Generic placeholder image">
-    <img data-src="js/holder.js/150x150/auto" alt="Generic placeholder image">
-    <img data-src="js/holder.js/150x150/auto" alt="Generic placeholder image">
-    <img data-src="js/holder.js/150x150/auto" alt="Generic placeholder image">
-    <img data-src="js/holder.js/150x150/auto" alt="Generic placeholder image">
-    <img data-src="js/holder.js/150x150/auto" alt="Generic placeholder image">
-    <img data-src="js/holder.js/150x150/auto" alt="Generic placeholder image">
-    <img data-src="js/holder.js/150x150/auto" alt="Generic placeholder image">
-
-    <img data-src="js/holder.js/150x150/auto" alt="Generic placeholder image">
-    <img data-src="js/holder.js/150x150/auto" alt="Generic placeholder image">
-    <img data-src="js/holder.js/150x150/auto" alt="Generic placeholder image">
-    <img data-src="js/holder.js/150x150/auto" alt="Generic placeholder image">
-    <img data-src="js/holder.js/150x150/auto" alt="Generic placeholder image">
-    <img data-src="js/holder.js/150x150/auto" alt="Generic placeholder image">
+    <?php 
+        $notes = Auth::user()->echonotes;
+        foreach ($notes as $note) {
+        echo '<a href="note.html"><img data-src="js/holder.js/150x150/auto" alt="';
+        echo $note->noteName;
+        echo '"></a>';
+    }?>
     </div>
     <script src="bootstrap.min.js"></script>
     <script src="holder.js"></script>    
