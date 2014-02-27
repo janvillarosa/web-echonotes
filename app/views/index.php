@@ -92,11 +92,18 @@
             </center>
     <div class="span5">
         <ul>
-            <li><a href="note.html">
-                <img src="img/homepage/note-icon.png" alt="Generic placeholder image" height = "150" width = "150">
-                <span>Note 1</span><span>5 annotations</span>
-            </a></li>
-            <li><a href="note.html">
+            <?php
+                
+                $notes = Echonote::where('userid','=',Auth::user()->email)->get();
+                foreach($notes as $note){
+                    echo '<li><a href="note.html"><img src="img/homepage/note-icon.png" alt="Generic placeholder image" height = "150" width = "150"><span>';
+                    echo $note->noteName;
+                    echo "</span><span>";
+                    echo "? annotations";//<==COUNT ANNOTATIONS HERE(WIP)
+                    echo "</span></a></li>";
+                }
+            ?>
+            <!--<li><a href="note.html">
                 <img src="img/homepage/note-icon.png" alt="Generic placeholder image" height = "150" width = "150">
                 <span>Note 2</span><span>5 annotations</span>
             </a></li>
@@ -119,7 +126,7 @@
             <li><a href="note.html">
                 <img src="img/homepage/note-icon.png" alt="Generic placeholder image" height = "150" width = "150">
                 <span>Note 7</span><span>5 annotations</span>
-            </a></li>
+            </a></li>-->
 
         </ul>
     </div>
