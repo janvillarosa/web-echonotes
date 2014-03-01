@@ -42,11 +42,11 @@
 	position: absolute;
 }
 .audio-slideshow .play-pause-container a.audio-play {
-	background: transparent url(../images/play.png) no-repeat center center;
+	background: transparent url(../img/demo/play.png) no-repeat center center;
 }
 
 .audio-slideshow .play-pause-container a.audio-pause {
-	background: transparent url(../images/pause.png) no-repeat center center;
+	background: transparent url(../img/demo/pause.png) no-repeat center center;
 }
 
 .audio-slideshow .audio-control-interface .time-container {

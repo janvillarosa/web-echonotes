@@ -9,6 +9,6 @@ class Echonote extends Eloquent {
 	 */
 	protected $table = 'echonotes';
 	protected $primaryKey = 'noteId';
-
+	public $timestamps = false;
 
 }

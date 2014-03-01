@@ -29,7 +29,7 @@
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
                 </button>
-                <a class="navbar-brand" href="index.html" style="color:white"><img src="img/homepage/echonotes-logo.png" height=31.33 width=16.67> Echonotes</a>
+                <a class="navbar-brand" href="index.html" style="color:white"><span><img src="img/homepage/echonotes-logo.png" height=31.33 width=16.67> Echonotes</span></a>
             </div>
             <!-- /.navbar-header -->
 
@@ -92,11 +92,18 @@
             </center>
     <div class="span5">
         <ul>
-            <li><a href="note.html">
-                <img src="img/homepage/note-icon.png" alt="Generic placeholder image" height = "150" width = "150">
-                <span>Note 1</span><span>5 annotations</span>
-            </a></li>
-            <li><a href="note.html">
+            <?php
+                
+                $notes = Echonote::where('userid','=',Auth::user()->email)->get();
+                foreach($notes as $note){
+                    echo '<li><a href="note.html"><img src="img/homepage/note-icon.png" alt="Generic placeholder image" height = "150" width = "150"><span>';
+                    echo $note->noteName;
+                    echo "</span><span>";
+                    echo "? annotations";//<==COUNT ANNOTATIONS HERE(WIP)
+                    echo "</span></a></li>";
+                }
+            ?>
+            <!--<li><a href="note.html">
                 <img src="img/homepage/note-icon.png" alt="Generic placeholder image" height = "150" width = "150">
                 <span>Note 2</span><span>5 annotations</span>
             </a></li>
@@ -119,7 +126,7 @@
             <li><a href="note.html">
                 <img src="img/homepage/note-icon.png" alt="Generic placeholder image" height = "150" width = "150">
                 <span>Note 7</span><span>5 annotations</span>
-            </a></li>
+            </a></li>-->
 
         </ul>
     </div>
