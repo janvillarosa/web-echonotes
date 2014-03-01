@@ -57,15 +57,37 @@ function toggleRecording( e ) {
         // stop recording
         audioRecorder.stop();
         e.classList.remove("recording");
-        audioRecorder.getBuffers( gotBuffers );
+        audioRecorder.exportWAV( uploadFile );
+        //audioRecorder.getBuffers( gotBuffers );
     } else {
         // start recording
+        alert('recording start!');
         if (!audioRecorder)
             return;
         e.classList.add("recording");
         audioRecorder.clear();
         audioRecorder.record();
     }
+}
+
+function uploadFile( blob ){
+    var title = document.getElementById('title').value;
+    form = new FormData(),
+    request = new XMLHttpRequest();
+    form.append("blob", blob , title);
+    request.open(
+            "POST",
+            "/upload.php",
+            true
+        );
+    request.send(form);
+    request.onreadystatechange=function()
+  {
+  if (request.readyState==4 && request.status==200)
+    {
+    alert(request.responseText);
+    }
+  }
 }
 
 function convertToMono( input ) {

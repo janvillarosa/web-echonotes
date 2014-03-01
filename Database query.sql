@@ -19,10 +19,8 @@ CREATE TABLE Users(
 CREATE TABLE Echonotes(
 	noteId integer  NOT NULL AUTO_INCREMENT,
 	noteName char(255)  NOT NULL,
-	audioBlob longblob  NOT NULL,
+	audioURL char(255)  NOT NULL,
 	userId char(64)  NOT NULL,
-	updated_at Datetime  NOT NULL,
-	created_at Datetime  NOT NULL,
 	PRIMARY KEY (noteId),
 	FOREIGN KEY (userId)
 		REFERENCES Users(email)

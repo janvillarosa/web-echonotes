@@ -134,18 +134,16 @@
                     </li>
                 </ul>
             </li>
-        <!-- </nav>
-            <nav class="navbar-toolbar" role="navigation" style="margin-bottom: 0"> -->
-                <!--
+        </nav>
+            <nav class="navbar-toolbar" role="navigation" style="margin-bottom: 0">
                 <li class="divider"></li>
-                <div class="navbar-title">
-                    ALGOCOM - Master's Method
-                </div>
+                <input id="title" placeholder="title"></br>
                 <a class="navbar-play" onClick="toggleRecording(this)">
                     <i class="fa fa-play fa-fw"></i>
                 </a>
                 <li class="divider"></li>
-            </nav>-->
+            </nav>
+            <!--
             <section>
                 <div id="audio-slideshow" class="audio-slideshow" data-audio="Kurt_Vile_-_01_-_Freeway.mp3" data-audio-duration="161">
                     <div class="audio-slides">
@@ -175,6 +173,7 @@
                     </div>
                 </div>
             </section>
+        -->
         </div>
 
 
