@@ -24,10 +24,19 @@
     <script src="js/jquery-1.10.2.js"></script>
     <script>window.jQuery || document.write('<script src="js/jquery-1.10.2.js"><\/script>')</script>
     <script src="js/jplayer/jquery.jplayer.js"></script>
-    <script src="js/jquery.audiosli*deshow.js"></script>
+    <script src="js/jquery.audioslideshow.js"></script>
     <script>
     $(document).ready(function() {
         $('.audio-slideshow').audioSlideshow();
+    });
+    </script>
+
+    <script>
+    $(document).ready(function(){
+        $('.navbar-play').live('click', function(event) { 
+           document.write('asidhunaklmdl,asd,saz');       
+           $('.note-div').toggle('show');
+       });
     });
     </script>
 </head>
@@ -153,6 +162,12 @@
             </a>
             <li class="divider"></li>                
         </nav>
+
+        <div class="note-div">
+            <div id="note-canvas">
+                <textarea class="note-textarea" placeholder="Your notes here..."></textarea>
+            </div>
+        </div>
             <!--
             <section>
                 <div id="audio-slideshow" class="audio-slideshow" data-audio="Kurt_Vile_-_01_-_Freeway.mp3" data-audio-duration="161">

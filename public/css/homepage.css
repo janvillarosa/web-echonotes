@@ -194,6 +194,31 @@ body {
   color: #333333;
   background-color: transparent;
 }
+
+.note-div{
+    display:-webkit-box;
+-webkit-box-pack:center;
+-webkit-box-align:center;
+ margin-top: 30px;
+}
+
+.note-textarea{
+    width: inherit;
+    height: inherit;
+    padding: 40px 40px 40px 40px;
+}
+
+.note-textarea:focus{
+    outline: none;
+}
+
+#note-canvas{
+    height: 1000px;
+    width: 800px;
+    background-color: white;
+}
+
+
 /* Sidebar Menu Styles */
 
 .search {
