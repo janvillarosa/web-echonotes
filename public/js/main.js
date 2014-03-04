@@ -77,17 +77,17 @@ function uploadFile( blob ){
     form.append("blob", blob , title);
     request.open(
             "POST",
-            "/upload.php",
+            "/uploadrecord",
             true
         );
     request.send(form);
-    request.onreadystatechange=function()
-  {
-  if (request.readyState==4 && request.status==200)
-    {
-    alert(request.responseText);
+
+    request.onreadystatechange=function(){
+        if (request.readyState==4 && request.status==200)
+        {
+            alert(request.responseText);
+        }
     }
-  }
 }
 
 function convertToMono( input ) {
