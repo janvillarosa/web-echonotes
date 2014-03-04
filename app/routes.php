@@ -47,7 +47,8 @@ Route::get('/demo', function()
 	return View::make('/demo');
 });
 
-Route::get('/uploadrecord', function()
+Route::post('/uploadrecord', function()
 {
-	return Response::make('upload');
+	$content = View::make('upload');
+	return Response::make($content);
 });
