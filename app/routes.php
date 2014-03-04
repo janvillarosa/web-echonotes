@@ -46,3 +46,8 @@ Route::get('/demo', function()
 {
 	return View::make('/demo');
 });
+
+Route::get('/upload', function()
+{
+	return View::make('upload');
+});
