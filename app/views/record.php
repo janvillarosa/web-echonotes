@@ -15,21 +15,21 @@
     <link href="css/homepage.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
 
-<!-- SB Admin CSS - Include with every page -->
-<link href="css/sb-admin.css" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="css/demo.css" />
-        <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <!-- SB Admin CSS - Include with every page -->
+    <link href="css/sb-admin.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/demo.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
 
-        <script src="http://code.jquery.com/jquery.js"></script>
-        <script src="js/jquery-1.10.2.js"></script>
-        <script>window.jQuery || document.write('<script src="js/jquery-1.10.2.js"><\/script>')</script>
-        <script src="js/jplayer/jquery.jplayer.js"></script>
-        <script src="js/jquery.audioslideshow.js"></script>
-        <script>
-            $(document).ready(function() {
-                $('.audio-slideshow').audioSlideshow();
-            });
-        </script>
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="js/jquery-1.10.2.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.10.2.js"><\/script>')</script>
+    <script src="js/jplayer/jquery.jplayer.js"></script>
+    <script src="js/jquery.audiosli*deshow.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('.audio-slideshow').audioSlideshow();
+    });
+    </script>
 </head>
 
 <body>
@@ -135,14 +135,24 @@
                 </ul>
             </li>
         </nav>
-            <nav class="navbar-toolbar" role="navigation" style="margin-bottom: 0">
-                <li class="divider"></li>
-                <input id="title" placeholder="title"></br>
-                <a class="navbar-play" onClick="toggleRecording(this)">
-                    <i class="fa fa-play fa-fw"></i>
-                </a>
-                <li class="divider"></li>
-            </nav>
+        <nav class="navbar-toolbar" role="navigation" style="margin-bottom: 0">
+            <li class="divider"></li>
+            <a class="navbar-play" onClick="toggleRecording(this)">
+                <i class="fa fa-microphone fa-fw"></i>
+            </a>
+            <span id="divtitle">
+                <input id="title" placeholder="Echonote Title..."></br>
+            </span>
+            <li class="divider"></li>
+            <a class="navbar-play">
+                <i class="fa fa-file-text fa-fw"></i>
+            </a>
+
+            <a class="navbar-play">
+                <i class="fa fa-camera fa-fw"></i>
+            </a>
+            <li class="divider"></li>                
+        </nav>
             <!--
             <section>
                 <div id="audio-slideshow" class="audio-slideshow" data-audio="Kurt_Vile_-_01_-_Freeway.mp3" data-audio-duration="161">
@@ -174,12 +184,12 @@
                 </div>
             </section>
         -->
-        </div>
+    </div>
 
 
-        <!-- Core Scripts - Include with every page -->
-        <script src="js/jquery-1.10.2.js"></script>
-        <script src="js/bootstrap.min.js"></script>
+    <!-- Core Scripts - Include with every page -->
+    <script src="js/jquery-1.10.2.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 
         <!--<script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
 

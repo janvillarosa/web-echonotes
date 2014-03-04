@@ -37,9 +37,9 @@ Route::get('/main', function()
 	return View::make('main');
 });
 
-Route::get('/note', function()
+Route::get('/record', function()
 {
-	return View::make('note');
+	return View::make('record');
 });
 
 Route::get('/demo', function()
