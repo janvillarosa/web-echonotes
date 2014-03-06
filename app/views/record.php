@@ -49,7 +49,7 @@
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
                 </button>
-                <a class="navbar-brand" href="#top_page" style="color:white"><img src="img\homepage\echonotes-logo.png" height=31.33 width=16.67> Echonotes</a>
+                <a class="navbar-brand" href="/" style="color:white"><img src="img\homepage\echonotes-logo.png" height=31.33 width=16.67> Echonotes</a>
             </div>
         </nav>
         <nav class="navbar-toolbar" role="navigation" style="margin-bottom: 0">

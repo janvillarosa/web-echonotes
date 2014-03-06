@@ -75,9 +75,10 @@ function uploadFile( blob ){
     form = new FormData(),
     request = new XMLHttpRequest();
     form.append("blob", blob , title);
+    form.append("title", title);
     request.open(
             "POST",
-            "/uploadrecord",
+            "/record/upload",
             true
         );
     request.send(form);

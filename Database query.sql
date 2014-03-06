@@ -5,7 +5,6 @@ USE echonotes;
 DROP TABLE IF EXISTS Tags;
 DROP TABLE IF EXISTS ImageAnnotations;
 DROP TABLE IF EXISTS TextAnnotations;
-DROP TABLE IF EXISTS Annotations;
 DROP TABLE IF EXISTS Echonotes;
 DROP TABLE IF EXISTS Users;
 

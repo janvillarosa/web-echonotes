@@ -44,10 +44,23 @@ Route::get('/record', function()
 
 Route::get('/demo', function()
 {
-	return View::make('/demo');
+	return View::make('demo');
 });
 
-Route::get('/uploadrecord', function()
+Route::post('/record/upload', function()
 {
-	return Response::make('upload');
+	$file = Input::file('blob');
+	$name = $file->getClientOriginalName();
+	$destination = 'upload/';
+
+	$file->move($destination, $name.'.wav');
+
+	$note = new Echonote;
+
+	$note->notename =  $name;
+	$note->audiourl = $destination.$name.'.wav';
+	$note->userid = Auth::user()->email;
+
+	$note->save();
+	return Response::make($note->audiourl);
 });

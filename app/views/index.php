@@ -48,7 +48,7 @@
             <div class="sidebar-collapse">
                 <ul class="nav" id="side-menu">
 				<div class="btn-start">
-                        <a href="index.html"><img src="img/homepage/start-button.png" width=100% height=100%></a>
+                        <a href="/record"><img src="img/homepage/start-button.png" width=100% height=100%></a>
 						</div>
 						<br>
 					<b>My Tags</b>
