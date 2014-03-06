@@ -202,20 +202,30 @@ body {
  margin-top: 30px;
 }
 
-.note-textarea{
+.note-text-div{
+    height: 1000px;
+    width: 800px;
+    background-color: white;
+}
+
+.note-text-div textarea{
     width: inherit;
     height: inherit;
     padding: 40px 40px 40px 40px;
 }
 
-.note-textarea:focus{
+.note-text-div textarea:focus{
     outline: none;
 }
 
-#note-canvas{
+.note-img-div{
     height: 1000px;
     width: 800px;
     background-color: white;
+    display:-webkit-box;
+-webkit-box-pack:center;
+-webkit-box-align:center;
+ margin-top: 30px;
 }
 
 

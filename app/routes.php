@@ -47,6 +47,11 @@ Route::get('/demo', function()
 	return View::make('demo');
 });
 
+Route::get('/imagetest', function()
+{
+	return View::make('D&DImage');
+});
+
 Route::post('/record/upload', function()
 {
 	$file = Input::file('blob');
