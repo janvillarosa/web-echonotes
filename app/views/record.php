@@ -6,13 +6,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Note #1</title>
+    <title> Echonotes - Untitled Note</title>
 
     <!-- Core CSS - Include with every page -->
     <link href="css/Framework/bootstrap.min.css" rel="stylesheet">
 
     <!-- Page Level CSS - Include with every page -->
-    <link href="css/homepage.css" rel="stylesheet">
+    <link href="css/record.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
 
     <!-- SB Admin CSS - Include with every page -->
@@ -20,11 +20,6 @@
     <link rel="stylesheet" type="text/css" href="css/demo.css" />
     <link rel="stylesheet" type="text/css" href="css/style.css" />
 
-    <script src="http://code.jquery.com/jquery.js"></script>
-    <script src="js/jquery-1.10.2.js"></script>
-    <script>window.jQuery || document.write('<script src="js/jquery-1.10.2.js"><\/script>')</script>
-    <script src="js/jplayer/jquery.jplayer.js"></script>
-    <script src="js/jquery.audioslideshow.js"></script>
     <script>
     $(document).ready(function() {
         $('.audio-slideshow').audioSlideshow();
@@ -49,118 +44,30 @@
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
                 </button>
-                <a class="navbar-brand" href="/" style="color:white"><img src="img\homepage\echonotes-logo.png" height=31.33 width=16.67> Echonotes</a>
+                <a class="navbar-brand" href="index.html" style="color:white"><span><img src="img/homepage/echonotes-logo.png" height=31.33 width=16.67> Echonotes</span></a>
             </div>
+            <!-- /.navbar-header -->
+            <ul class="nav navbar-top-links navbar-right">
+                <li class="dropdown">
+                    <a class="dropdown-toggle user-toggle" data-toggle="dropdown" href="/logout">
+                        Jan Villarosa
+                    </a>
+                </li>
+            </ul>
+            <!-- /.navbar-top-links -->
         </nav>
-        <nav class="navbar-toolbar" role="navigation" style="margin-bottom: 0">
-            <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                    File
-                </a>
-                <ul class="dropdown-menu dropdown-messages">
-                    <li>
-                        <a href="#">
-                            <div>New</div>        
-                        </a>
-                    </li>
-                    <li class="divider"></li>
-                    <li>
-                        <a href="#">
-                            Open
-                        </a>
-                    </li>
-                    <li class="divider"></li>
-                    <li>
-                        <a href="#">
-                            Save
-                        </a>
-                    </li>
-                    <li class="divider"></li>
-                    <li>
-                        <a href="#">
-                            Save as...
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                    Edit
-                </a>
-                <ul class="dropdown-menu dropdown-tasks">
-                    <li>
-                        <a href="#">
-                            <div>New</div>        
-                        </a>
-                    </li>
-                    <li class="divider"></li>
-                    <li>
-                        <a href="#">
-                            Open
-                        </a>
-                    </li>
-                    <li class="divider"></li>
-                    <li>
-                        <a href="#">
-                            Save
-                        </a>
-                    </li>
-                    <li class="divider"></li>
-                    <li>
-                        <a href="#">
-                            Save as...
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                    Share
-                </a>
-                <ul class="dropdown-menu dropdown-alerts">
-                    <li>
-                        <a href="#">
-                            <div>New</div>        
-                        </a>
-                    </li>
-                    <li class="divider"></li>
-                    <li>
-                        <a href="#">
-                            Open
-                        </a>
-                    </li>
-                    <li class="divider"></li>
-                    <li>
-                        <a href="#">
-                            Save
-                        </a>
-                    </li>
-                    <li class="divider"></li>
-                    <li>
-                        <a href="#">
-                            Save as...
-                        </a>
-                    </li>
-                </ul>
-            </li>
-        </nav>
-        <nav class="navbar-toolbar" role="navigation" style="margin-bottom: 0">
-            <li class="divider"></li>
-            <a class="navbar-play" onClick="toggleRecording(this)">
-                <i class="fa fa-microphone fa-fw"></i>
-            </a>
-            <span id="divtitle">
-                <input id="title" placeholder="Echonote Title..."></br>
-            </span>
-            <li class="divider"></li>
-            <a class="navbar-play">
-                <i class="fa fa-file-text fa-fw"></i>
-            </a>
+        <!-- /.navbar-static-top -->
 
-            <a class="navbar-play">
-                <i class="fa fa-camera fa-fw"></i>
+        <nav class="navbar-toolbar" role="navigation" style="margin-bottom: 0">
+            <li class="divider"></li>
+            <span id="divtitle">
+                <input id="title" placeholder="Untitled Note">
+                <div id = "divtitle"> 2 annotations<br>Tags: Home</div>
+                
+            </span>
+            <a class="navbar-play navbar-right" onClick="toggleRecording(this)">
+                    <i class="fa fa-microphone fa-fw"></i>
             </a>
-            <li class="divider"></li>                
         </nav>
 
         <div class="note-div">
@@ -205,6 +112,8 @@
     <!-- Core Scripts - Include with every page -->
     <script src="js/jquery-1.10.2.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/jplayer/jquery.jplayer.js"></script>
+    <script src="js/jquery.audioslideshow.js"></script>
 
         <!--<script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
 
@@ -223,6 +132,7 @@
         <script src="js/audiodisplay.js"></script>
         <script src="js/recorderjs/recorder.js"></script>
         <script src="js/main.js"></script>
+
 
     </body>
 

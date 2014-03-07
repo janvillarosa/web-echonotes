@@ -60,14 +60,129 @@ a:focus {
     font-weight: 400;
 }
 
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  position: relative;
+  float: right;
+}
+
+nav #login-trigger,
+nav #signup a {
+  display: inline-block;
+  line-height: 25px;
+  font-weight: bold;
+  text-decoration: none;
+  padding-top: 12px;
+  padding-bottom: 14px; 
+}
+
+nav #login-trigger:hover,
+nav #login .active,
+nav #signup a:hover {
+  background-color: rgba(255,255,255,.2);
+}
+
+nav #login-content {
+  display: none;
+  position: absolute;
+  top: 50px;
+  right: 13px;
+  z-index: 999;    
+  background: #fff;
+  background-image: linear-gradient(top, #fff, #eee);  
+  padding: 10px;
+  padding-bottom: 20px;
+  box-shadow: 0 2px 2px -1px rgba(0,0,0,.9);
+  border-radius: 3px 3px 3px 3px;
+  font-size: 14px;
+  width: 300px;
+  height: 150px;
+}
+
+nav li #login-content {
+  right: 0;
+  width: 300px;
+  height: 150px;  
+}
+
+/*--------------------*/
+
+#inputs input {
+  background: #f1f1f1;
+  padding: 6px 5px;
+  margin: 0 0 5px 0;
+  width: 280px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-shadow: 0 1px 1px #ccc inset;
+}
+
+#inputs input:focus {
+  background-color: #fff;
+  border-color: #e8c291;
+  outline: none;
+  box-shadow: 0 0 0 1px #e8c291 inset;
+}
+
+/*--------------------*/
+
+#login #actions {
+  margin: 10px 0 0 0;
+}
+
+#login #submit {    
+  background-color: #d14545;
+  background-image: linear-gradient(top, #e97171, #d14545);
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;    
+  border: 1px solid #7e1515;
+  float: left;
+  height: 30px;
+  padding: 0;
+  width: 100px;
+  cursor: pointer;
+  font: bold 14px Arial, Helvetica;
+  color: #fff;
+}
+
+#login #submit:hover,
+#login #submit:focus {    
+  background-color: #e97171;
+  background-image: linear-gradient(top, #d14545, #e97171);
+} 
+
+#login #submit:active {   
+  outline: none;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;   
+}
+
+#login #submit::-moz-focus-inner {
+  border: none;
+}
+
+#login label {
+  float: right;
+  line-height: 30px;
+}
+
+#login label input {
+  position: relative;
+  top: 2px;
+  right: 2px;
+}
+
 .navbar {
     margin-bottom: 0;
-    letter-spacing: -1px;
     border-bottom: 1px solid rgba(255,255,255,.5);
-    font-family: "ARS Maquette Pro", "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     background-color: #13a37f;
-    height: 70px;
+    height: 50px;
     font-size: 18px;
+    vertical-align: middle;
 }
 
 .navbar-brand {
@@ -75,6 +190,7 @@ a:focus {
     letter-spacing: -1px;
     margin-left: 10px;
     font-size: 25px;
+    padding: 5px 15px;
 }
 
 .navbar-brand:focus {
@@ -135,7 +251,7 @@ a:focus {
     display: table;
     width: 100%;
     height: auto;
-    padding: 100px 0;
+    padding: 50px 0;
     text-align: center;
     color: #fff;
     background: url(../img/frontpage/intro-bg.png) no-repeat center center scroll;
@@ -149,7 +265,7 @@ a:focus {
 .intro-body {
     display: table-cell;
     vertical-align: middle;
-    padding: 100px 0;
+    padding: 50px 0;
 }
 
 .brand-heading {
@@ -295,7 +411,7 @@ a:focus {
 
 @media(min-width:767px) {
     .content-section {
-        padding-top: 250px;
+        padding-top: 100px;
     }
 
     .download-section {
@@ -319,7 +435,7 @@ a:focus {
 }
 
 .btn {
-    font-family: Avenir,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: Helvetica,Arial,sans-serif;
     font-weight: 400;
     -webkit-transition: all .3s ease-in-out;
     -moz-transition: all .3s ease-in-out;
@@ -330,6 +446,13 @@ a:focus {
     border: 1px solid black;
     color: black;
     background-color: #1aca79;
+}
+
+.btn-default-login {
+    border: 1px solid black;
+    color: black;
+    background-color: #1aca79;
+    padding: 5px;
 }
 
 .btn-default-white{

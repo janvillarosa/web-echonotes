@@ -47,7 +47,20 @@
                         <a href="#download">Mobile</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="/login"><b>Sign in</b></a>
+                        <a id = "login-trigger" href="#"><b>Sign in</b><span></span></a>
+                        <div id="login-content">
+                        <form role="form" method="post">
+                            <fieldset id="inputs">
+                                <input id="username" type="email" name="email" placeholder="Your email address" required>   
+                                <input id="password" type="password" name="password" placeholder="Password" required>
+                            </fieldset>
+                            <fieldset id="actions">
+                                <label style="color:black; font-weight: normal"><input type="checkbox" checked="checked"> Keep me signed in</label><br>
+                                <input type="submit" class="btn btn-default-login" value="    Sign in    " style="float:right">
+                            </fieldset>
+                        </form>
+      </div>                     
+    </li>
                     </li>
                 </ul>
             </div>
@@ -61,7 +74,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
-                        <img src="img/frontpage/branding-intro-logo.png" alt="Echonotes logo">
+                        <img src="img/frontpage/branding-intro-logo.png" alt="Echonotes logo" height = "300" width = "300">
                         <h1 class="brand-heading">Echonotes</h1>
                         <p class="intro-text">Never miss a word ever again. Echonotes takes advantage of audio, photos
                             and text annotations to make note taking and reviewing easier and more effective. <br>It's free. Register today.</p>
@@ -138,6 +151,18 @@
     <script src="js/Framework/jquery-1.10.2.js"></script>
     <script src="js/Framework/bootstrap.min.js"></script>
     <script src="js/jquery.easing.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+        $('#login-trigger').click(function(){
+        $(this).next('#login-content').slideToggle();
+        $(this).toggleClass('active');          
+    
+        if ($(this).hasClass('active')) $(this).find('span').html('')
+        else $(this).find('span').html('')
+        })
+        });
+    </script>
 
     <!-- Google Maps API Key - You will need to use your own API key to use the map feature -->
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&sensor=false"></script>

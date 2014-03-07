@@ -17,7 +17,7 @@
     <link href="css/plugins/timeline/timeline.css" rel="stylesheet"> -->
 
     <!-- SB Admin CSS - Include with every page -->
-    <link href="css/homepage.css" rel="stylesheet">
+    <link href="css/record.css" rel="stylesheet">
 
 </head>
 
@@ -36,9 +36,10 @@
             <ul class="nav navbar-top-links navbar-right">
                 <li class="dropdown">
                     <a class="dropdown-toggle user-toggle" data-toggle="dropdown" href="/logout">
-                        Hi, <?php echo Auth::user()->name; ?>
+                        <?php echo Auth::user()->name; ?>
                     </a>
-                    
+                </li>
+            </ul>
             <!-- /.navbar-top-links -->
 
         </nav>
