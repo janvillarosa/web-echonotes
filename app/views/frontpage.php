@@ -28,9 +28,7 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="#page-top">
-                    <img src="img/frontpage/branding-intro-logo.png" alt="Echonotes logo" height="40" width="40"> Echonotes
-                </a>
+                <a class="navbar-brand" href="/" style="color:white"><span><img src="img/homepage/echonotes-logo.png" height=35% width=35%></span></a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
