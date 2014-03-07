@@ -58,14 +58,14 @@
 
         <nav class="navbar-toolbar" role="navigation" style="margin-bottom: 0">
             <li class="divider"></li>
-            <span id="divtitle">
+            <a class="navbar-play navbar-right" onClick="toggleRecording(this)" style="float:right; margin-right: -115px;">
+                    <img src="img/homepage/record-button.png" height=40% width=40% style="float:right; margin-top: 25px;"></span></a>
+                </a>
+            <span id="divtitle" style="display:inline">
                 <input id="title" placeholder="Untitled Note">
                 <div id = "divtitle"> 2 annotations<br>Tags: Home</div>
                 
             </span>
-            <a class="navbar-play navbar-right" onClick="toggleRecording(this)">
-                    <i class="fa fa-microphone fa-fw"></i>
-            </a>
         </nav>
 
         <div class="note-div">

@@ -54,7 +54,7 @@ body {
 
 .navbar-toolbar {
     margin-bottom: 0;
-    border-bottom: 1px solid rgba(255,255,255,.5);
+    box-shadow: 0 2px 2px -1px rgba(0,0,0,.5);
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     background-color: #ffffff;
     font-size: 14px;
@@ -173,12 +173,12 @@ body {
 }
 
 .navbar-play {
-    letter-spacing: -1px;
-    font-size: 30px;
-    min-height: 50px;
+    font-size: 50px;
     color: #AAAAAA;
     vertical-align: middle;
     float:right;
+    width: 400px;
+    height:90px;
 }
 
 .navbar-play:hover {
