@@ -44,17 +44,19 @@
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
                 </button>
-                <a class="navbar-brand" href="index.html" style="color:white"><span><img src="img/homepage/echonotes-logo.png" height=31.33 width=16.67> Echonotes</span></a>
+                <a class="navbar-brand" href="/" style="color:white"><span><img src="img/homepage/echonotes-logo.png" height=31.33 width=16.67> Echonotes</span></a>
+            <!-- /.navbar-top-links -->
+
             </div>
-            <!-- /.navbar-header -->
-            <ul class="nav navbar-top-links navbar-right">
+
+            <ul class="nav navbar-top-links navbar-right" style = "padding-bottom:30px; margin-top:0px;">
                 <li class="dropdown">
-                    <a class="dropdown-toggle user-toggle" data-toggle="dropdown" href="/logout">
-                        Jan Villarosa
+                    <a class="dropdown-toggle user-toggle" href="/logout">
+                        Hi, <?php echo Auth::user()->name; ?>
                     </a>
                 </li>
             </ul>
-            <!-- /.navbar-top-links -->
+            <!-- /.navbar-header -->
         </nav>
         <!-- /.navbar-static-top -->
 
