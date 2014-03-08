@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Echonotes</title>
+    <title>Welcome to Echonotes - Notes with sound.</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/Framework/bootstrap-responsive.min.css" rel="stylesheet" type="text/css">
@@ -194,7 +194,7 @@
         <div class="signup-section" style="height:20%">
             <div class="col-lg-8 col-lg-offset-2">
                 <center>
-                <h2>Start using Echonotes today</h2>
+                <h2 style = "font-weight: 400; font-size: 50px; color: #13a37f;">Start using Echonotes today.</h2>
                 <p>Register for a free account. All you need is an email, and your own name.</p>
                 </center>
                         <form class = "sign-up" action="/register" method="post">
@@ -232,7 +232,7 @@
         </div>
     </div>
 </div>
-    <p style = "font-weight:50px; font-size:13px; margin-bottom:0px"> Echonotes - Copyright 2014<br> Made in the great city of Manila </p>
+    <p style = "font-weight:50px; font-size:12px; margin-bottom:0px"> Echonotes - Copyright 2014<br> Lovingly created in the great city of Manila, Philippines </p>
 </footer>
 
     <!-- Core JavaScript Files -->
