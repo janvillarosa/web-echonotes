@@ -10,6 +10,7 @@
     <title>Echonotes</title>
 
     <!-- Bootstrap Core CSS -->
+    <link href="css/Framework/bootstrap-responsive.min.css" rel="stylesheet" type="text/css">
     <link href="css/Framework/bootstrap.min.css" rel="stylesheet" type="text/css">
 
     <!-- Fonts -->
@@ -28,11 +29,11 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="/" style="color:white"><span><img src="img/homepage/echonotes-logo.png" height=35% width=35%></span></a>
+                <a class="navbar-brand" href="#page-top"><img src="img/frontpage/logo.png"></a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+            <div class="collapse navbar-collapse navbar-right navbar-main-collapse" style="height:auto; margin-left:20px">
                 <ul class="nav navbar-nav">
                     <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
                     <li class="hidden">
@@ -72,7 +73,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
-                        <img src="img/frontpage/branding-intro-logo.png" alt="Echonotes logo" height = "300" width = "300">
+                        <img src="img/frontpage/branding-intro-logo.png" alt="Echonotes logo" height = "50%" width = "50%">
                         <h1 class="brand-heading">Echonotes</h1>
                         <p class="intro-text">Never miss a word ever again. Echonotes takes advantage of audio, photos
                             and text annotations to make note taking and reviewing easier and more effective. <br>It's free. Register today.</p>
@@ -89,21 +90,77 @@
         </div>
     </section>
 
-    <section id="about" class="container content-section text-center">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2">
-                <img src="img/frontpage/3steps.png" alt="Record. Annotate. Review." height="100%" width="100%">
-                <br><br><br><br>
-                <h2>It's note taking reimagined.</h2>
-                <p>It started with a simple question: how can we take notes more effectively? 
-                    We carefully studied how students take notes inside the classroom - and came up with Echonotes. It uses your phone’s camera, microphone and on-screen keyboard to make note-taking more comprehensive.
-                </p>
-                <p>Echonotes also stores all your notes in the cloud so you can take notes
-                        whenever and wherever you go. Reviewing is also easier because Echonotes remembers when you
-                        paused your session, so you can pick up where you left off.
-                </p>
+    <section id="about" class="container content-section">
+        <!-- About Section -->
+<div id="about" class="page-alternate">
+<div class="container">
+    <!-- Title Page -->
+    <div class="row text-center">
+        <div class="span12">
+            <img src="img/frontpage/web-echonotes-hero.png" alt="Echonotes on the Web" height = "70%" width = "70%" style="margin-bottom: 20px">
+            <div class="title-page">
+                <h2 class="title" style = "font-weight: 400; color: #13a37f; font-size: 50px;">It's note taking. With a twist.</h2>
+                <h3 class="title-description"></h3>
+                
+                <div class="page-description">
+                    <p>It started with a simple question: how can we take notes more effectively? 
+                    We carefully studied how students take notes inside the classroom - and
+                    came up with Echonotes. It uses your phone’s camera, microphone 
+                    and on-screen keyboard to make note-taking more comprehensive.</p>
+                </div>
+                
             </div>
         </div>
+    </div>
+    <!-- End Title Page -->
+    
+    <!-- Services Boxes -->
+    <div class="row text-center">
+        <div class="span4">
+            <div class="services-box">
+                <div class="icon">
+                    <span><img src="img/frontpage/record icon.png" alt="Record" height = "150" width = "150" style="margin-bottom: 30px"></span>
+                </div>
+                <h3 style = "font-weight: 400; color: #13a37f; font-size: 30px;">Record.</h3>
+                <p>Record your professor’s lecture 
+                    before you start taking notes. 
+                    Echonotes records the
+                    whole lecture so you never 
+                    miss a single word ever again.</p>
+            </div>
+        </div>
+        
+        <div class="span4">
+            <div class="services-box">
+                <div class="icon">
+                    <span><img src="img/frontpage/annotate icon.png" alt="Annotate" height = "150" width = "160" style="margin-bottom: 30px"></span>
+                </div>
+                <h3 style = "font-weight: 400; color: #13a37f; font-size: 30px;">Annotate.</h3>
+                <p>Take notes while the app is
+                    recording.There are text 
+                    annotations for summarizing 
+                    complicated concepts, and 
+                    picture annotations for quick 
+                    snapshots of the blackboard.</p>
+            </div>
+        </div>
+        
+        <div class="span4">
+            <div class="services-box">
+                <div class="icon">
+                    <span><img src="img/frontpage/play icon.png" alt="Review" height = "150" width = "150" style="margin-bottom: 30px"></span>
+                </div>
+                <h3 style = "font-weight: 400; color: #13a37f; font-size: 30px;">Review.</h3>
+                <p>Review easier with Echonotes’ 
+                    biggest feature - timed 
+                    annotations. Your notes only 
+                    appear at the time you 
+                    originally took it, so your
+                    notes make more sense.</p>
+            </div>
+        </div>
+    </div>
+    <!-- End Services Boxes -->
     </section>
 
     <section id="download" class="content-section text-center">

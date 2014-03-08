@@ -27,11 +27,7 @@
 
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
-                </button>
                 <a class="navbar-brand" href="/" style="color:white"><span><img src="img/homepage/echonotes-logo.png" height=32% width=32%></span></a>
-            <!-- /.navbar-top-links -->
-
             </div>
 
             <ul class="nav navbar-top-links navbar-right">
