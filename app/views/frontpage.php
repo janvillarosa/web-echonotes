@@ -46,7 +46,7 @@
                         <a href="#download">Mobile</a>
                     </li>
                     <li class="page-scroll">
-                        <a id = "login-trigger" href="#"><b>Sign in</b><span></span></a>
+                        <a id = "login-trigger"><b>Sign in</b><span></span></a>
                         <div id="login-content">
                         <form role="form" method="post">
                             <fieldset id="inputs">
@@ -73,7 +73,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
-                        <img src="img/frontpage/branding-intro-logo.png" alt="Echonotes logo" height = "50%" width = "50%">
+                        <img src="img/frontpage/branding-intro-logo.png" alt="Echonotes logo" height = "40%" width = "40%">
                         <h1 class="brand-heading">Echonotes</h1>
                         <p class="intro-text">Never miss a word ever again. Echonotes takes advantage of audio, photos
                             and text annotations to make note taking and reviewing easier and more effective. <br>It's free. Register today.</p>
@@ -163,15 +163,28 @@
     <!-- End Services Boxes -->
     </section>
 
-    <section id="download" class="content-section text-center">
+    <section id="download" class="content-section">
         <div class="download-section">
             <div class="container">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <h2>Take your notes anywhere.</h2>
-                    <p>Echonotes is also available on Android. Your notes in your laptop and in your phone are synced automatically, no need to upload and update. Get it now on the Google Play Store today.</p>
-
-                    <a href="http://startbootstrap.com/grayscale" class="btn btn-default-white btn-lg">Download Echonotes for Android</a>
-                </div>
+            <div class="row margin-40">
+            <div class="span9">
+            <h3 style = "font-weight: 400; font-size: 50px;">Take your notes wherever you go.</h3>
+            <p>Echonotes is not just available on the web. It's also available on your smartphone. It's
+                everything you love in the full web application, but designed to be more portable and easier to use in a smaller screen.
+                With the Echonotes app, you can take notes easier and faster anywhere you go.</p>
+            
+            <p>With cloud storage and cloud syncing built into every account, you can review the notes you took on your laptop, right into
+                your smartphone. Syncing is automatically done for you. No more fiddling around, so you can focus on studying your notes.
+            </p>
+            
+        </div>
+        
+        <div class="span3">
+            <center>
+            <img src="img/frontpage/mobile-echonotes-hero.png" alt="Echonotes Mobile">
+            </center>
+        </div>
+    </div>
             </div>
         </div>
     </section>
