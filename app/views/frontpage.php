@@ -15,6 +15,7 @@
 
     <!-- Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="font-awesome/css/fonts.css" rel="stylesheet" />
 
     <!-- Custom Theme CSS -->
     <link href="css/grayscale.css" rel="stylesheet">
@@ -209,11 +210,30 @@
                         <center>
                         <input type="submit" value="Register" class="btn btn-default btn-lg">
                         </center>
+                        </b></b></b></b>
             </div>
         </div>
     </section>
 
-    <div id="map"></div>
+<!-- Footer -->
+<footer>
+    <div id="social-area" class="page">
+    <div class="container" style="padding-right:0px;">
+        <div class="row">
+            <div class="span12" style="margin-left:40px;">
+                <nav id="social">
+                    <ul>
+                        <li><a href="https://twitter.com/" title="Follow Us on Twitter" target="_blank"><span class="font-icon-social-twitter"></span></a></li>
+                        <li><a href="https://www.facebook.com/echonotesapp" title="Follow Us on Facebook" target="_blank"><span class="font-icon-social-facebook"></span></a></li>
+                        <li><a href="https://plus.google.com/" title="Follow Us on Google Plus" target="_blank"><span class="font-icon-social-google-plus"></span></a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+    <p style = "font-weight:50px; font-size:13px; margin-bottom:0px"> Echonotes - Copyright 2014<br> Made in the great city of Manila </p>
+</footer>
 
     <!-- Core JavaScript Files -->
     <script src="js/Framework/jquery-1.10.2.js"></script>
@@ -231,9 +251,6 @@
         })
         });
     </script>
-
-    <!-- Google Maps API Key - You will need to use your own API key to use the map feature -->
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&sensor=false"></script>
 
     <!-- Custom Theme JavaScript -->
     <script src="js/grayscale.js"></script>
