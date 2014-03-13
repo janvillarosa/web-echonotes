@@ -26,7 +26,7 @@ Route::get('/login', function()
 	return View::make('login');
 });
 
-Route::post('/login', 'UserController@login');
+Route::post('/', 'UserController@login');
 
 Route::get('/logout', 'UserController@logout');
 
@@ -48,3 +48,9 @@ Route::get('/demo', function()
 });
 
 Route::post('/record/upload', 'NoteController@upload');
+
+Route::get('/imagetest', function()
+{
+	return View::make('D&DImage');
+});
+

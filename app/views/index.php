@@ -17,7 +17,7 @@
     <link href="css/plugins/timeline/timeline.css" rel="stylesheet"> -->
 
     <!-- SB Admin CSS - Include with every page -->
-    <link href="css/homepage.css" rel="stylesheet">
+    <link href="css/record.css" rel="stylesheet">
 
 </head>
 
@@ -27,20 +27,17 @@
 
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
-                </button>
-                <a class="navbar-brand" href="index.html" style="color:white"><span><img src="img/homepage/echonotes-logo.png" height=31.33 width=16.67> Echonotes</span></a>
+                <a class="navbar-brand" href="/" style="color:white"><span><img src="img/homepage/echonotes-logo.png" height=32% width=32%></span></a>
             </div>
-            <!-- /.navbar-header -->
 
             <ul class="nav navbar-top-links navbar-right">
-                <li class="dropdown">
-                    <a class="dropdown-toggle user-toggle" data-toggle="dropdown" href="/logout">
+                <li class="dropdown" style = "padding:0 15px 0 0; margin-top:0px; height: 50px">
+                    <a class="user-toggle" href="/logout" style = "padding:15px; height: 50px">
                         Hi, <?php echo Auth::user()->name; ?>
                     </a>
-                    
-            <!-- /.navbar-top-links -->
-
+                </li>
+            </ul>
+            <!-- /.navbar-header -->
         </nav>
         <!-- /.navbar-static-top -->
 
