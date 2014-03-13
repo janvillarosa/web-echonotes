@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title> New Echonote - Echonotes</title>
+    <title> Untitled Note - Echonotes</title>
 
     <!-- Core CSS - Include with every page -->
     <link href="css/Framework/bootstrap.min.css" rel="stylesheet">
@@ -58,21 +58,19 @@
 
         <nav class="navbar-toolbar" role="navigation" style="margin-bottom: 0">
             <li class="divider"></li>
-            <a class="navbar-play navbar-right" onClick="toggleRecording(this)" style="float:right; margin-right: -115px;">
-                    <img src="img/homepage/record-button.png" height=40% width=40% style="float:right; margin-top: 25px;"></span></a>
+            <a class="navbar-play navbar-right" style="float:right; margin-right: -115px;">
+                    <img src="img/homepage/annotate-button.png" height=40% width=40% style="float:right; margin-top: 25px;"></span></a>
                 </a>
             <span id="divtitle" style="display:inline">
-                <input id="title" placeholder="Untitled Note">
+                <div id = "title"> Untitled Note </div>
                 <div id = "divtitle"> 2 annotations<br>Tags: Home</div>
                 
             </span>
         </nav>
 
-        <div class="stopwatch" id="test-timer"></div>
-
         <div class="note-div">
             <div id="note-canvas">
-                <textarea id="annotation-text" class="note-textarea" placeholder="Your notes here..."></textarea>
+                <textarea class="note-textarea" placeholder="Your notes here..."></textarea>
             </div>
         </div>
             <!--
@@ -130,7 +128,6 @@
         <!-- Page-Level Demo Scripts - Dashboard - Use for reference -->
         <!--<script src="js/demo/dashboard-demo.js"></script>-->
         <script src="js/audiodisplay.js"></script>
-        <script src="js/recorderjs/recorder.js"></script>
         <script src="js/main.js"></script>
 
 

@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Echonotes - Home</title>
+    <title>Home - Echonotes</title>
 
     <!-- Core CSS - Include with every page -->
     <link href="css/Framework/bootstrap.min.css" rel="stylesheet">
@@ -100,30 +100,10 @@
                     echo "</span></a></li>";
                 }
             ?>
-            <!--<li><a href="note.html">
+            <li><a href="/note">
                 <img src="img/homepage/note-icon.png" alt="Generic placeholder image" height = "150" width = "150">
-                <span>Note 2</span><span>5 annotations</span>
+                <span>Test Note</span><span>5 annotations</span>
             </a></li>
-            <li><a href="note.html">
-                <img src="img/homepage/note-icon.png" alt="Generic placeholder image" height = "150" width = "150">
-                <span>Note 3</span><span>5 annotations</span>
-            </a></li>
-            <li><a href="note.html">
-                <img src="img/homepage/note-icon.png" alt="Generic placeholder image" height = "150" width = "150">
-                <span>Note 4</span><span>5 annotations</span>
-            </a></li>
-            <li><a href="note.html">
-                <img src="img/homepage/note-icon.png" alt="Generic placeholder image" height = "150" width = "150">
-                <span>Note 5</span><span>5 annotations</span>
-            </a></li>
-            <li><a href="note.html">
-                <img src="img/homepage/note-icon.png" alt="Generic placeholder image" height = "150" width = "150">
-                <span>Note 6</span><span>5 annotations</span>
-            </a></li>
-            <li><a href="note.html">
-                <img src="img/homepage/note-icon.png" alt="Generic placeholder image" height = "150" width = "150">
-                <span>Note 7</span><span>5 annotations</span>
-            </a></li>-->
 
         </ul>
     </div>

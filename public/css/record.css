@@ -70,6 +70,7 @@ body {
   height:40px;
   width:400px;
   padding-left: -40px;
+  padding-top: 5px;
 }
 
 #title:focus{

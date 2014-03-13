@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Welcome to Echonotes - Notes with sound.</title>
+    <title>Welcome to Echonotes - Notes with sound</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/Framework/bootstrap-responsive.min.css" rel="stylesheet" type="text/css">
@@ -41,7 +41,7 @@
                         <a href="#page-top"></a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#about">About</a>
+                        <a href="#about">What is Echonotes?</a>
                     </li>
                     <li class="page-scroll">
                         <a href="#download">Mobile</a>
@@ -80,7 +80,7 @@
                             and text annotations to make note taking and reviewing easier and more effective. <br>It's free. Register today.</p>
                         <div class="page-scroll">
                         <a href="#signup" class="btn btn-default-white btn-lg">Get started</a>       
-                            <br><br><br>
+                            <br><br>
                             <a href="#about" class="btn btn-circle">
                                 <i class="fa fa-angle-double-down animated"></i>
                             </a>
@@ -182,7 +182,7 @@
         
         <div class="span3">
             <center>
-            <img src="img/frontpage/mobile-echonotes-hero.png" alt="Echonotes Mobile">
+            <img id = "mob" src="img/frontpage/mobile-echonotes-hero.png" alt="Echonotes Mobile" style="position:relative; right: -500px">
             </center>
         </div>
     </div>
@@ -249,6 +249,8 @@
         if ($(this).hasClass('active')) $(this).find('span').html('')
         else $(this).find('span').html('')
         })
+
+        $("#mob").animate({right: "40px"}, 500);
         });
     </script>
 
