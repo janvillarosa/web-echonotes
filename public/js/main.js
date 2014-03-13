@@ -160,13 +160,13 @@ function toggleRecording( e ) {
 
 function uploadFile( blob ){
     var title = document.getElementById('title').value;
-    var annotation = document.getElementById('annotation-text').value;
+    //var annotation = document.getElementById('annotation-text').value;
     form = new FormData(),
     request = new XMLHttpRequest();
     form.append("blob", blob , title);
     form.append("title", title);
-    form.append("annotation", annotation);
-    form.append("timestamp", Timer.timer.innerHTML);
+    //form.append("annotation", annotation);
+    //form.append("timestamp", Timer.timer.innerHTML);
     request.open(
             "POST",
             "/record/upload",
