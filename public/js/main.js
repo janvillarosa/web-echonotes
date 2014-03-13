@@ -1,3 +1,89 @@
+/*Stopwatch*/
+var Stopwatch = function(elem, options) {
+  
+  var timer       = createTimer(),
+      startButton = createButton("start", start),
+      stopButton  = createButton("stop", stop),
+      resetButton = createButton("reset", reset),
+      offset,
+      clock,
+      interval;
+  var test = 1;
+  
+  // default options
+  options = options || {};
+  options.delay = options.delay || 1;
+ 
+  // append elements     
+  elem.appendChild(timer);
+  //elem.appendChild(startButton);
+  //elem.appendChild(stopButton);
+  //elem.appendChild(resetButton);
+  
+  // initialize
+  reset();
+  
+  // private functions
+  function createTimer() {
+    return document.createElement("span");
+  }
+  
+  function createButton(action, handler) {
+    var a = document.createElement("a");
+    a.href = "#" + action;
+    a.innerHTML = action;
+    a.addEventListener("click", function(event) {
+      handler();
+      event.preventDefault();
+    });
+    return a;
+  }
+  
+  function start() {
+    offset   = Date.now();
+    interval = setInterval(update, options.delay);
+  }
+  
+  function stop() {
+    if (interval) {
+      clearInterval(interval);
+    }
+  }
+  
+  function reset() {
+    clock = 0;
+    render(0);
+  }
+  
+  function update() {
+    clock += delta();
+    render();
+  }
+  
+  function render() {
+    timer.innerHTML = Math.floor(clock/1000); 
+  }
+  
+  function delta() {
+    var now = Date.now(),
+        d   = now - offset;
+    
+    offset = now;
+    return d;
+  }
+  
+  // public API
+  this.start  = start;
+  this.stop   = stop;
+  this.reset  = reset;
+};
+
+
+// Prepare Timer
+var d = document.getElementById("test-timer");
+var Timer = new Stopwatch(d, {delay: 1000});
+
+
 /* Copyright 2013 Chris Wilson
 
    Licensed under the Apache License, Version 2.0 (the "License");
@@ -56,12 +142,14 @@ function toggleRecording( e ) {
     if (e.classList.contains("recording")) {
         // stop recording
         audioRecorder.stop();
+        Timer.stop();
         e.classList.remove("recording");
         audioRecorder.exportWAV( uploadFile );
         //audioRecorder.getBuffers( gotBuffers );
     } else {
         // start recording
-        alert('recording start!');
+        Timer.reset();
+        Timer.start();
         if (!audioRecorder)
             return;
         e.classList.add("recording");
@@ -72,10 +160,13 @@ function toggleRecording( e ) {
 
 function uploadFile( blob ){
     var title = document.getElementById('title').value;
+    var annotation = document.getElementById('annotation-text').value;
     form = new FormData(),
     request = new XMLHttpRequest();
     form.append("blob", blob , title);
     form.append("title", title);
+    form.append("annotation", annotation);
+    form.append("timestamp", Timer.timer.innerHTML);
     request.open(
             "POST",
             "/record/upload",

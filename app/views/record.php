@@ -163,9 +163,11 @@
             <li class="divider"></li>                
         </nav>
 
+        <div class="stopwatch" id="test-timer"></div>
+
         <div class="note-div">
             <div id="note-canvas">
-                <textarea class="note-textarea" placeholder="Your notes here..."></textarea>
+                <textarea id="annotation-text" class="note-textarea" placeholder="Your notes here..."></textarea>
             </div>
         </div>
             <!--
