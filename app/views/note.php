@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title> New Echonote - Echonotes</title>
+    <title> Untitled Note - Echonotes</title>
 
     <!-- Core CSS - Include with every page -->
     <link href="css/Framework/bootstrap.min.css" rel="stylesheet">
@@ -19,6 +19,8 @@
     <link href="css/sb-admin.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/demo.css" />
     <link rel="stylesheet" type="text/css" href="css/style.css" />
+
+    <link rel="stylesheet" type="text/css" href="/skin/jplayer.blue.monday.css" />
 
     <script>
     $(document).ready(function() {
@@ -58,21 +60,54 @@
 
         <nav class="navbar-toolbar" role="navigation" style="margin-bottom: 0">
             <li class="divider"></li>
-            <a class="navbar-play navbar-right" onClick="toggleRecording(this)" style="float:right; margin-right: -115px;">
-                    <img src="img/homepage/record-button.png" height=40% width=40% style="float:right; margin-top: 25px;"></span></a>
+            <a class="navbar-play navbar-right" style="float:right; margin-right: -115px;">
+                    <img src="img/homepage/annotate-button.png" height=40% width=40% style="float:right; margin-top: 25px;"></span></a>
                 </a>
             <span id="divtitle" style="display:inline">
-                <input id="title" placeholder="Untitled Note">
+                <div id = "title"> Untitled Note </div>
                 <div id = "divtitle"> 2 annotations<br>Tags: Home</div>
                 
             </span>
         </nav>
+        <nav class="navbar-toolbar" role="navigation">
+            <body>
+  <div id="jquery_jplayer_1" class="jp-jplayer"></div>
+  <div id="jp_container_1" class="jp-audio">
+    <div class="jp-type-single">
+      <div class="jp-gui jp-interface">
+        <ul class="jp-controls">
+          <li><a href="javascript:;" class="jp-play" tabindex="1">play</a></li>
+          <li><a href="javascript:;" class="jp-pause" tabindex="1">pause</a></li>
+          <li><a href="javascript:;" class="jp-stop" tabindex="1">stop</a></li>
+          <li><a href="javascript:;" class="jp-mute" tabindex="1" title="mute">mute</a></li>
+          <li><a href="javascript:;" class="jp-unmute" tabindex="1" title="unmute">unmute</a></li>
+        </ul>
+        <div class="jp-progress">
+          <div class="jp-seek-bar">
+            <div class="jp-play-bar"></div>
+          </div>
+        </div>
+        <div class="jp-volume-bar">
+          <div class="jp-volume-bar-value"></div>
+        </div>
+        <div class="jp-time-holder">
+          <div class="jp-current-time"></div>
+          <div class="jp-duration"></div>
+          <ul class="jp-toggles">
+          </ul>
+        </div>
+      </div>
+      <div class="jp-no-solution">
+        <span>Update Required</span>
+        To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
+      </div>
+    </div>
+  </div>
+        </nav>
 
-        <div class="stopwatch" id="test-timer"></div>
-        <input type="button" id="next_annotation" value="submit">
         <div class="note-div">
             <div id="note-canvas">
-                <textarea id="annotation-text" class="note-textarea" placeholder="Your notes here..."></textarea>
+                <textarea class="note-textarea" placeholder="Your notes here..."></textarea>
             </div>
         </div>
             <!--
@@ -112,8 +147,22 @@
     <!-- Core Scripts - Include with every page -->
     <script src="js/jquery-1.10.2.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/jplayer/jquery.jplayer.js"></script>
+    <script src="js/jquery.jplayer.min.js"></script>
     <script src="js/jquery.audioslideshow.js"></script>
+
+    <script type="text/javascript">
+    $(document).ready(function(){
+      $("#jquery_jplayer_1").jPlayer({
+        ready: function () {
+          $(this).jPlayer("setMedia", {
+            mp3: "test.mp3",
+          });
+        },
+        swfPath: "/js",
+        supplied: "mp3"
+      });
+    });
+    </script>
 
         <!--<script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
 
@@ -130,7 +179,6 @@
         <!-- Page-Level Demo Scripts - Dashboard - Use for reference -->
         <!--<script src="js/demo/dashboard-demo.js"></script>-->
         <script src="js/audiodisplay.js"></script>
-        <script src="js/recorderjs/recorder.js"></script>
         <script src="js/main.js"></script>
 
 

@@ -37,6 +37,11 @@ Route::get('/record', function()
 	return View::make('record');
 });
 
+Route::get('/note', function()
+{
+	return View::make('note');
+});
+
 Route::get('/demo', function()
 {
 	return View::make('demo');
