@@ -28,4 +28,20 @@ class NoteController extends BaseController{
 
 		return Response::make('Uploaded as '.$filename);
 	}
+
+	function share($noteid, $email){
+
+		$destination = 'upload/';
+		$note = Echonote::where('noteid','=',$noteid)->firstorfail();
+		$file = File::get($note->audiourl);
+
+		$file->copy($destination, $name.'.wav');
+
+		$note = new Echonote;
+
+		$note->notename =  $name;
+		$note->audiourl = $destination.$name.'.wav';
+		$note->userid = $email;
+		$note->save();	
+	}
 }
