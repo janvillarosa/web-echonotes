@@ -1,4 +1,7 @@
 /*Stopwatch*/
+
+var timestamp;
+
 var Stopwatch = function(elem, options) {
   
   var timer       = createTimer(),
@@ -62,6 +65,7 @@ var Stopwatch = function(elem, options) {
   
   function render() {
     timer.innerHTML = Math.floor(clock/1000); 
+    timestamp = Math.floor(clock/1000);
   }
   
   function delta() {
@@ -138,11 +142,17 @@ function doneEncoding( blob ) {
     recIndex++;
 }
 
+var annotationList[] = new array();
+var aIndex = 0;
+
+/*TOGGLE RECORDING*/
 function toggleRecording( e ) {
     if (e.classList.contains("recording")) {
         // stop recording
         audioRecorder.stop();
         Timer.stop();
+        annotationList = new array();
+        aIndex = 0;
         e.classList.remove("recording");
         audioRecorder.exportWAV( uploadFile );
         //audioRecorder.getBuffers( gotBuffers );
@@ -158,15 +168,14 @@ function toggleRecording( e ) {
     }
 }
 
+/*UPLOAD RECORDING*/
 function uploadFile( blob ){
     var title = document.getElementById('title').value;
-    //var annotation = document.getElementById('annotation-text').value;
+    var annotation = document.getElementById('annotation-text').value;
     form = new FormData(),
     request = new XMLHttpRequest();
     form.append("blob", blob , title);
     form.append("title", title);
-    //form.append("annotation", annotation);
-    //form.append("timestamp", Timer.timer.innerHTML);
     request.open(
             "POST",
             "/record/upload",
@@ -180,6 +189,10 @@ function uploadFile( blob ){
             alert(request.responseText);
         }
     }
+}
+
+function submitAnnotation(){
+
 }
 
 function convertToMono( input ) {

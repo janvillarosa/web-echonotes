@@ -69,7 +69,7 @@
         </nav>
 
         <div class="stopwatch" id="test-timer"></div>
-
+        <input type="button" id="next_annotation" value="submit">
         <div class="note-div">
             <div id="note-canvas">
                 <textarea id="annotation-text" class="note-textarea" placeholder="Your notes here..."></textarea>

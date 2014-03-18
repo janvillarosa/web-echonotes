@@ -29,7 +29,7 @@ CREATE TABLE TextAnnotations(
 	annotationId integer NOT NULL AUTO_INCREMENT,
 	timestamp integer NOT NULL,
 	content Text NOT NULL,
-	noteId integer,
+	noteId integer NOT NULL,
 	PRIMARY KEY (annotationId),
 	FOREIGN KEY (noteId)
 		REFERENCES Echonotes(noteId)
@@ -40,7 +40,7 @@ CREATE TABLE ImageAnnotations(
 	annotationId integer NOT NULL,
 	timestamp integer NOT NULL,
 	imageBlob longblob NOT NULL,
-	noteId integer,
+	noteId integer NOT NULL,
 	PRIMARY KEY (annotationId),
 	FOREIGN KEY (noteId)
 		REFERENCES Echonotes(noteId)

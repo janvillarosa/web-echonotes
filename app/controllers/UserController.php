@@ -15,12 +15,9 @@ class UserController extends BaseController{
 	function login(){
 		$email = Input::get('email');
 		$password = Input::get('password');
-		if (Auth::attempt(array('email' => $email, 'password' => $password))){
-			return Redirect::to('/');
-		}
-		else{
-			return Redirect::to('/login');//Redirect to incorrect login page
-		}
+		Auth::attempt(array('email' => $email, 'password' => $password));
+		return Redirect::to('/');
+		//Implement redirect to incorrect error
 	}
 
 	function logout(){
