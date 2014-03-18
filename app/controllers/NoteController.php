@@ -3,25 +3,28 @@
 class NoteController extends BaseController{
 
 	function upload(){
+		$email = Auth::user()->email;
 		$file = Input::file('blob');
 		$name = $file->getClientOriginalName();
 		$destination = 'upload/';
-
-		$file->move($destination, $name.'.wav');
 
 		$note = new Echonote;
 
 		$note->notename =  $name;
 		$note->audiourl = $destination.$name.'.wav';
-		$note->userid = Auth::user()->email;
+		$note->userid = $email;
 		$note->save();
 
-		$annotation = new Textannotation;
-		$annotation->content = Input::get('annotation');
-		$annotation->timestamp = Input::get('timestamp');
-		$annotation->noteid = $note->noteId;
-		$annotation->save();
+		$filename = $note->noteId.'-'.$name.'-'.$email.'.wav';
 
-		return Response::make('File uploaded in '.$note->audiourl);
+		$file->move($destination, $filename);
+
+		//$annotation = new Textannotation;
+		//$annotation->content = Input::get('annotation');
+		//$annotation->timestamp = Input::get('timestamp');
+		//$annotation->noteid = $note->noteId;
+		//$annotation->save();
+
+		return Response::make('Uploaded as '.$filename);
 	}
 }

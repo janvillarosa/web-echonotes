@@ -142,8 +142,6 @@ function doneEncoding( blob ) {
     recIndex++;
 }
 
-var annotationList[] = new array();
-var aIndex = 0;
 
 /*TOGGLE RECORDING*/
 function toggleRecording( e ) {
@@ -151,8 +149,6 @@ function toggleRecording( e ) {
         // stop recording
         audioRecorder.stop();
         Timer.stop();
-        annotationList = new array();
-        aIndex = 0;
         e.classList.remove("recording");
         audioRecorder.exportWAV( uploadFile );
         //audioRecorder.getBuffers( gotBuffers );
@@ -191,9 +187,6 @@ function uploadFile( blob ){
     }
 }
 
-function submitAnnotation(){
-
-}
 
 function convertToMono( input ) {
     var splitter = audioContext.createChannelSplitter(2);
