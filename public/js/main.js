@@ -142,20 +142,12 @@ function doneEncoding( blob ) {
     recIndex++;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/master
 /*TOGGLE RECORDING*/
 function toggleRecording( e ) {
     if (e.classList.contains("recording")) {
         // stop recording
         audioRecorder.stop();
         Timer.stop();
-<<<<<<< HEAD
-=======
-        annotationList = new array();
->>>>>>> origin/master
         e.classList.remove("recording");
         audioRecorder.exportWAV( uploadFile );
         //audioRecorder.getBuffers( gotBuffers );
@@ -192,13 +184,6 @@ function uploadFile( blob ){
         }
     }
 }
-
-<<<<<<< HEAD
-=======
-function submitAnnotation(){
-    var annotation = document.getElementById('annotation-text').value;
-}
->>>>>>> origin/master
 
 function convertToMono( input ) {
     var splitter = audioContext.createChannelSplitter(2);
