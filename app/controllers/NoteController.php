@@ -16,11 +16,11 @@ class NoteController extends BaseController{
 		$note->userid = Auth::user()->email;
 		$note->save();
 
-		$annotation = new Textannotation;
-		$annotation->content = Input::get('annotation');
-		$annotation->timestamp = Input::get('timestamp');
-		$annotation->noteid = $note->noteId;
-		$annotation->save();
+		//$annotation = new Textannotation;
+		//$annotation->content = Input::get('annotation');
+		//$annotation->timestamp = Input::get('timestamp');
+		//$annotation->noteid = $note->noteId;
+		//$annotation->save();
 
 		return Response::make('File uploaded in '.$note->audiourl);
 	}

@@ -142,9 +142,6 @@ function doneEncoding( blob ) {
     recIndex++;
 }
 
-var annotationList[] = new array();
-var aIndex = 0;
-
 /*TOGGLE RECORDING*/
 function toggleRecording( e ) {
     if (e.classList.contains("recording")) {
@@ -152,7 +149,6 @@ function toggleRecording( e ) {
         audioRecorder.stop();
         Timer.stop();
         annotationList = new array();
-        aIndex = 0;
         e.classList.remove("recording");
         audioRecorder.exportWAV( uploadFile );
         //audioRecorder.getBuffers( gotBuffers );
@@ -171,7 +167,6 @@ function toggleRecording( e ) {
 /*UPLOAD RECORDING*/
 function uploadFile( blob ){
     var title = document.getElementById('title').value;
-    var annotation = document.getElementById('annotation-text').value;
     form = new FormData(),
     request = new XMLHttpRequest();
     form.append("blob", blob , title);
@@ -192,7 +187,7 @@ function uploadFile( blob ){
 }
 
 function submitAnnotation(){
-
+    var annotation = document.getElementById('annotation-text').value;
 }
 
 function convertToMono( input ) {

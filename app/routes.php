@@ -53,14 +53,3 @@ Route::get('/imagetest', function()
 {
 	return View::make('D&DImage');
 });
-
-Route::get('/annotation_test', function()
-{
-	$annotation = new Textannotation;
-	$annotation->content = "Test annotation";
-	$annotation->timestamp = 37;
-	$annotation->noteid = 1;
-	$annotation->save();
-	return $annotation->noteid;
-});
-
