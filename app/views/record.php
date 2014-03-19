@@ -20,20 +20,52 @@
     <link rel="stylesheet" type="text/css" href="css/demo.css" />
     <link rel="stylesheet" type="text/css" href="css/style.css" />
 
-    <script>
-    $(document).ready(function() {
-        $('.audio-slideshow').audioSlideshow();
-    });
-    </script>
 
+    <script src="js/jquery-1.10.2.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/h5utils.js"></script>
+
+    <!-- Swap annotation display -->
     <script>
+    $(document).ready(function(){
+    $('#change-annotation').click(function() {
+    if ($(this).attr('name') == 'showText') {
+        $('#note-textarea').css('visibility','hidden');
+        $('#note-imagearea').css('visibility','visible');
+        $('#annotation-button-text').text('Add Text Annotation');
+        $(this).attr('name', 'showImage');
+    } else {
+        $('#note-textarea').css('visibility','visible');
+        $('#note-imagearea').css('visibility','hidden');
+        $('#annotation-button-text').text('Add Image Annotation');
+        $(this).attr('name', 'showText');
+      }
+    });
+  });
+
+
+    // function showImg(){
+    //     document.getElementById("note-textarea").style.visibility = "hidden";
+    //     document.getElementById("note-imgarea").style.visibility = "visible";
+    //     $('#change-annotation').click(function() { showTxt(); });
+    // }
+
+    // function showTxt(){
+    //     document.getElementById("note-textarea").style.visibility = "visible";
+    //     document.getElementById("note-imgarea").style.visibility = "hidden";
+    //     $('#change-annotation').click(function() { showImg(); });
+
+    // }
+    </script> 
+
+   <!-- <script>
     $(document).ready(function(){
         $('.navbar-play').live('click', function(event) { 
            document.write('asidhunaklmdl,asd,saz');       
            $('.note-div').toggle('show');
        });
     });
-    </script>
+    </script>-->
 </head>
 
 <body>
@@ -59,8 +91,8 @@
         <nav class="navbar-toolbar" role="navigation" style="margin-bottom: 0">
             <li class="divider"></li>
             <a class="navbar-play navbar-right" onClick="toggleRecording(this)" style="float:right; margin-right: -115px;">
-                    <img src="img/homepage/record-button.png" height=40% width=40% style="float:right; margin-top: 25px;"></span></a>
-                </a>
+                <img src="img/homepage/record-button.png" height=40% width=40% style="float:right; margin-top: 25px;"></span></a>
+            </a>
             <span id="divtitle" style="display:inline">
                 <input id="title" placeholder="Untitled Note">
                 <div id = "divtitle"> 2 annotations<br>Tags: Home</div>
@@ -70,50 +102,158 @@
 
         <div class="stopwatch" id="test-timer"></div>
         <input type="button" value="submit" onclick="submitAnnotation()">
-        <div class="note-div">
-            <div id="note-canvas">
-                <textarea id="annotation-text" class="note-textarea" placeholder="Your notes here..."></textarea>
-            </div>
-        </div>
-            <!--
-            <section>
-                <div id="audio-slideshow" class="audio-slideshow" data-audio="Kurt_Vile_-_01_-_Freeway.mp3" data-audio-duration="161">
-                    <div class="audio-slides">
-                        <img src="http://farm2.staticflickr.com/1012/3175040364_7eef7d257f_z.jpg?zz=1" alt="[Dalen, Telemarken (i.e, Telemark), Norway] (LOC)" data-thumbnail="http://farm2.staticflickr.com/1012/3175040364_7eef7d257f_t.jpg" data-slide-time="0">
-                        <img src="http://farm2.staticflickr.com/1145/3175012896_02056f183d_z.jpg?zz=1" alt="[Near Hjelmso, Fuglebjerget, Norway] (LOC)" data-thumbnail="http://farm2.staticflickr.com/1145/3175012896_02056f183d_t.jpg" data-slide-time="10">
-                        <img src="http://farm4.staticflickr.com/3108/3175013342_54f5b20138_z.jpg?zz=1" alt="[The Seven Sisters, Geiranger Fjord, Norway] (LOC)" data-thumbnail="http://farm4.staticflickr.com/3108/3175013342_54f5b20138_t.jpg" data-slide-time="30">
-                        <img src="http://farm2.staticflickr.com/1192/3175013574_0f485bdb7f_z.jpg?zz=1" alt="[Praekestolen, Geiranger Fjord, Norway] (LOC)" data-thumbnail="http://farm2.staticflickr.com/1192/3175013574_0f485bdb7f_t.jpg" data-slide-time="45">
-                        <img src="http://farm2.staticflickr.com/1019/3174174579_0c6a63ca70_z.jpg?zz=1" alt="[Kongen og Dronningen, Bispen, Norway] (LOC)" data-thumbnail="http://farm2.staticflickr.com/1019/3174174579_0c6a63ca70_t.jpg?" data-slide-time="70">
-                        <img src="http://farm4.staticflickr.com/3117/3175014052_7484da1205_z.jpg?zz=1" alt="[Merok, Geiranger Fjord, Norway] (LOC)" data-thumbnail="http://farm4.staticflickr.com/3117/3175014052_7484da1205_t.jpg" data-slide-time="90">
-                        <img src="http://farm2.staticflickr.com/1078/3175018738_03f949816c_z.jpg?zz=1" alt="[Buerbrae Glacier, Odde, Hardanger Fjord, Norway] (LOC)" data-thumbnail="http://farm2.staticflickr.com/1078/3175018738_03f949816c_t.jpg" data-slide-time="110">
-                        <img src="http://farm2.staticflickr.com/1139/3174180591_a5e318c84b_z.jpg?zz=1" alt="[Folgefond Glacier, Hardanger Fjord, Norway] (LOC)" data-thumbnail="http://farm2.staticflickr.com/1139/3174180591_a5e318c84b_t.jpg" data-slide-time="130">
-                        <img src="http://farm2.staticflickr.com/1091/3174186405_4654a14ae4_z.jpg?zz=1" alt="[Naerodalen, Hardanger Fjord, Norway] (LOC)" data-thumbnail="http://farm2.staticflickr.com/1091/3174186405_4654a14ae4_t.jpg" data-slide-time="150">
-                    </div>
-                    <div class="audio-control-interface">
-                        <div class="play-pause-container">
-                            <a href="javascript:;" class="audio-play" tabindex="1">Play</a>
-                            <a href="javascript:;" class="audio-pause" tabindex="1">Pause</a>
+
+        <div class="row">
+            <div class="note-span">
+                <div class="col-lg-8 row-textarea">
+                    <div class="panel panel-annotation">
+                        <div class="panel-heading">
+                                Annotation #X
                         </div>
-                        <div class="time-container">
-                            <span class="play-time"></span> / <span class="total-time"></span>
+                        <!-- Annotation Body -->
+                        <div class="panel-body-note">
+                            <textarea id="note-textarea" placeholder="Your notes here..." resizable="false"></textarea>
+                            <div id="note-imagearea">
+                                <h1> Drag Image to Upload </h1>
+                                <div id="holder">
+                                </div> 
+                                <p id="upload" class="hidden"><label>Drag & drop not supported, but you can still upload via this input field:<br><input type="file"></label></p>
+                                <p id="filereader">File API & FileReader API not supported</p>
+                                <p id="formdata">XHR2's FormData is not supported</p>
+                                <p id="progress">XHR2's upload progress isn't supported</p>
+                                <p>Drag an image from your desktop to the drop zone above to upload an image annotation.</p>
+                            </div>
                         </div>
-                        <div class="timeline">
-                            <div class="timeline-controls"></div>
-                            <div class="playhead"></div>
-                        </div>
-                        <div class="jplayer"></div>
                     </div>
                 </div>
-            </section>
-        -->
+                <div class="col-lg-2 row-textarea sidebar">
+                    <div class="panel panel-default">
+                        <div id="panel-body-note">
+                            <div class="list-group">
+                                <a href="#" class="list-group-item">
+                                    <i class="fa fa-picture-o"></i> Submit
+                                </a>
+                                <a href="#" class="list-group-item" id="change-annotation" name="showText">
+                                    <i class="fa fa-picture-o"></i> <span id="annotation-button-text">Add Image Annotation</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <!-- Drag and drop image annotation js -->
+
+
+    <script type="text/javascript">
+    var holder = document.getElementById('holder'),
+    tests = {
+      filereader: typeof FileReader != 'undefined',
+      dnd: 'draggable' in document.createElement('span'),
+      formdata: !!window.FormData,
+      progress: "upload" in new XMLHttpRequest
+    }, 
+    support = {
+      filereader: document.getElementById('filereader'),
+      formdata: document.getElementById('formdata'),
+      progress: document.getElementById('progress')
+    },
+    acceptedTypes = {
+      'image/png': true,
+      'image/jpeg': true,
+      'image/gif': true
+    },
+    progress = document.getElementById('uploadprogress'),
+    fileupload = document.getElementById('upload');
+
+    "filereader formdata progress".split(' ').forEach(function (api) {
+      if (tests[api] === false) {
+        support[api].className = 'fail';
+      } else {
+        // FFS. I could have done el.hidden = true, but IE doesn't support
+        // hidden, so I tried to create a polyfill that would extend the
+        // Element.prototype, but then IE10 doesn't even give me access
+        // to the Element object. Brilliant.
+        support[api].className = 'hidden';
+      }
+    });
+
+    function previewfile(file) {
+      if (tests.filereader === true && acceptedTypes[file.type] === true) {
+        var reader = new FileReader();
+        reader.onload = function (event) {
+          var image = new Image();
+          image.src = event.target.result;
+          image.width = 400; // a fake resize
+          // if(holder.hasChildNodes()){
+          //   holder.replaceChild(holder.lastChild, image);
+          // } else {
+          //   holder.appendChild(image);
+          // }
+
+          if(holder.hasChildNodes()){
+            holder.removeChild(holder.lastChild);
+          }
+          holder.appendChild(image);
+        };
+
+        reader.readAsDataURL(file);
+      }  else {
+        holder.innerHTML += '<p>Uploaded ' + file.name + ' ' + (file.size ? (file.size/1024|0) + 'K' : '');
+        console.log(file);
+      }
+    }
+
+    function readfiles(file) {
+      var formData = tests.formdata ? new FormData() : null;
+      for (var i = 0; i < file.length; i++) {
+        if (tests.formdata) formData.append('file', file[i]);
+        previewfile(file[i]);
+      }
+
+        // now post a new XHR request
+        // if (tests.formdata) {
+        //   var xhr = new XMLHttpRequest();
+        //   xhr.open('POST', '/devnull.php');
+        //   xhr.onload = function() {
+        //     progress.value = progress.innerHTML = 100;
+        //   };
+
+        //   if (tests.progress) {
+        //     xhr.upload.onprogress = function (event) {
+        //       if (event.lengthComputable) {
+        //         var complete = (event.loaded / event.total * 100 | 0);
+        //         progress.value = progress.innerHTML = complete;
+        //       }
+        //     }
+        //   }
+
+        //   xhr.send(formData);
+        // }
+      }
+
+      if (tests.dnd) { 
+      holder.ondragleave = function () { this.className = '';};
+      holder.ondragover = function () { this.className = 'hover'; return false; };
+      holder.ondragend = function () { return false; };
+      holder.ondrop = function (e) {
+        this.className = '';
+        e.preventDefault();
+        readfiles(e.dataTransfer.files);
+      }
+    } else {
+      fileupload.className = 'hidden';
+      fileupload.querySelector('input').onchange = function () {
+        readfiles(this.files);
+      };
+    }
+
+</script>
 
 
     <!-- Core Scripts - Include with every page -->
-    <script src="js/jquery-1.10.2.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jplayer/jquery.jplayer.js"></script>
-    <script src="js/jquery.audioslideshow.js"></script>
 
         <!--<script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
 
