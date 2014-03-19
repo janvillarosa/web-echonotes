@@ -142,9 +142,9 @@ function doneEncoding( blob ) {
     recIndex++;
 }
 
-var annotations = new Array(),
-    timestamps = new Array();
-var aIndex = 0;
+var annotations = ["One", "Two"];
+var timestamps = [6,21];
+var aIndex = 2;
 
 /*TOGGLE RECORDING*/
 function toggleRecording( e ) {
@@ -155,9 +155,6 @@ function toggleRecording( e ) {
         e.classList.remove("recording");
         audioRecorder.exportWAV( uploadFile );
 
-        annotations = new Array();
-        timestamps = new Array();
-        aIndex = 0;
         //audioRecorder.getBuffers( gotBuffers );
     } else {
         // start recording
@@ -178,6 +175,9 @@ function uploadFile( blob ){
     request = new XMLHttpRequest();
     form.append("blob", blob , title);
     form.append("title", title);
+    alert(annotations[0]);
+    alert(timestamps[0]);
+
     form.append("annotations", annotations);
     form.append("timestamps", timestamps);
     form.append("aCount", aIndex);
@@ -197,10 +197,9 @@ function uploadFile( blob ){
 }
 
 function submitAnnotation(){
-    annotations[aIndex] = document.getElementById('annotation-text').value;
-    timestamps[aIndex] = timestamp;
+    var obj = {"content": document.getElementById('annotation-text').value, "timestamp": timestamp};
+    annotations.push(obj);
     aIndex = aIndex + 1;
-    alert(aIndex);
     document.getElementById('annotation-text').value = "";
 }
 

@@ -9,26 +9,23 @@ class NoteController extends BaseController{
 		$destination = 'upload/';
 
 		$note = new Echonote;
-
 		$note->notename =  $name;
-		$note->audiourl = $destination.$name.'.wav';
+		$note->audiourl = $destination.$name.'-'.$email.'.wav';
 		$note->userid = $email;
 		$note->save();
-
 
 		$filename = $note->noteId.'-'.$name.'-'.$email.'.wav';
 
 		$file->move($destination, $filename);
 
-		$aCount = Input::get('aCount');
+		$note->audiourl = $destination.$filename;
+		$note->save();
 
-		//for($i = 0; $i < aCount; $i++){
 			$annotation = new Textannotation;
 			$annotation->content = Input::get('annotations.0');
-			$annotation->timestamp = Input::get('timestamps.0');
+			$annotation->timestamp = Input::get('timestamps.0');;
 			$annotation->noteid = $note->noteId;
 			$annotation->save();
-		//}
 
 		return Response::make('Uploaded as '.$filename);
 	}
