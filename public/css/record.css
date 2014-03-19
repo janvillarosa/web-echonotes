@@ -201,27 +201,111 @@ body {
   background-color: transparent;
 }
 
-.note-div{
+
+/* Text Annotation */
+
+.row-textarea{
+    height: 500px;
+}
+
+
+.note-span{
     display:-webkit-box;
 -webkit-box-pack:center;
 -webkit-box-align:center;
  margin-top: 30px;
 }
 
-.note-textarea{
-    width: inherit;
-    height: inherit;
-    padding: 40px 40px 40px 40px;
+.list-group {
+  padding-left: 0;
+  margin-bottom: 0px;
 }
 
-.note-textarea:focus{
+.panel-heading {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 20px;
+}
+
+#note-textarea{
+    position: absolute;
+    height: 100%;
+    width: 96.75%;
+    padding: 40px 40px 40px 40px;
+    border: 0px;
+    resize: none;
+    visibility: visible;
+}
+
+#note-textarea:focus{
     outline: none;
 }
 
-#note-canvas{
-    height: 1000px;
-    width: 800px;
-    background-color: white;
+.panel-annotation{
+    height: 100%;
+      border: 0px;
+
+}
+
+.panel-annotation > .panel-heading {
+  color: #333333;
+  background-color: #5eb;
+}
+
+.panel-body-note{
+    padding: 0px;
+    height: 100%;
+    width: 100%;
+    background-color: #fff;
+}
+
+/* Drag and Drop Image Annotation */
+
+#note-imgarea{
+    margin-left: 20px;
+    margin-right: 20px;
+    position: absolute;
+    height: 100%;
+    width: 96.75%;
+    visibility: hidden;
+}
+
+#holder { 
+    border: 10px dashed #ccc;
+    width: 500px;
+    min-height: 300px;
+    margin: 20px auto;
+}
+
+#holder.hover { 
+    border: 10px dashed #13a37f; 
+}
+
+#holder img {
+    display: block;
+    margin: 5% auto 5% auto;
+}
+
+#holder p {
+    margin: 10px;
+    font-size: 14px;
+}
+
+progress {
+    width: 100%;
+}
+
+progress:after {
+    content: '%';
+}
+
+.fail {
+    background: #c00;
+    padding: 2px;
+    color: #fff;
+}
+
+.hidden {
+    display: none !important;
 }
 
 
