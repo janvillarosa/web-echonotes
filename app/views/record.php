@@ -27,19 +27,35 @@
 
     <!-- Swap annotation display -->
     <script>
+    $(document).ready(function(){
+    $('#change-annotation').click(function() {
+    if ($(this).attr('name') == 'showText') {
+        $('#note-textarea').css('visibility','hidden');
+        $('#note-imagearea').css('visibility','visible');
+        $('#annotation-button-text').text('Add Text Annotation');
+        $(this).attr('name', 'showImage');
+    } else {
+        $('#note-textarea').css('visibility','visible');
+        $('#note-imagearea').css('visibility','hidden');
+        $('#annotation-button-text').text('Add Image Annotation');
+        $(this).attr('name', 'showText');
+      }
+    });
+  });
 
-    function showImg(){
-        document.getElementById("note-textarea").style.visibility = "hidden";
-        document.getElementById("note-imgarea").style.visibility = "visible";
-        $('#change-annotation').click(function() { showTxt(); });
-    }
 
-    function showTxt(){
-        document.getElementById("note-textarea").style.visibility = "visible";
-        document.getElementById("note-imgarea").style.visibility = "hidden";
-        $('#change-annotation').click(function() { showImg(); });
+    // function showImg(){
+    //     document.getElementById("note-textarea").style.visibility = "hidden";
+    //     document.getElementById("note-imgarea").style.visibility = "visible";
+    //     $('#change-annotation').click(function() { showTxt(); });
+    // }
 
-    }
+    // function showTxt(){
+    //     document.getElementById("note-textarea").style.visibility = "visible";
+    //     document.getElementById("note-imgarea").style.visibility = "hidden";
+    //     $('#change-annotation').click(function() { showImg(); });
+
+    // }
     </script> 
 
    <!-- <script>
@@ -93,7 +109,7 @@
                         <!-- Annotation Body -->
                         <div class="panel-body-note">
                             <textarea id="note-textarea" placeholder="Your notes here..." resizable="false"></textarea>
-                            <div id="note-imgarea">
+                            <div id="note-imagearea">
                                 <h1> Drag Image to Upload </h1>
                                 <div id="holder">
                                 </div> 
@@ -106,15 +122,15 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-2 row-textarea">
+                <div class="col-lg-2 row-textarea sidebar">
                     <div class="panel panel-default">
                         <div id="panel-body-note">
                             <div class="list-group">
                                 <a href="#" class="list-group-item">
                                     <i class="fa fa-picture-o"></i> Submit
                                 </a>
-                                <a href="#" class="list-group-item" id="change-annotation" onClick="showImg()">
-                                    <i class="fa fa-picture-o"></i> Add Image Annotation
+                                <a href="#" class="list-group-item" id="change-annotation" name="showText">
+                                    <i class="fa fa-picture-o"></i> <span id="annotation-button-text">Add Image Annotation</span>
                                 </a>
                             </div>
                         </div>

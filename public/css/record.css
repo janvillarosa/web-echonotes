@@ -208,6 +208,9 @@ body {
     height: 500px;
 }
 
+.sidebar {
+    width: 15%;
+}
 
 .note-span{
     display:-webkit-box;
@@ -260,7 +263,7 @@ body {
 
 /* Drag and Drop Image Annotation */
 
-#note-imgarea{
+#note-imagearea{
     margin-left: 20px;
     margin-right: 20px;
     position: absolute;
