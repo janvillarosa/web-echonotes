@@ -142,6 +142,10 @@ function doneEncoding( blob ) {
     recIndex++;
 }
 
+var annotations = new Array(),
+    timestamps = new Array();
+var aIndex = 0;
+
 /*TOGGLE RECORDING*/
 function toggleRecording( e ) {
     if (e.classList.contains("recording")) {
@@ -150,6 +154,10 @@ function toggleRecording( e ) {
         Timer.stop();
         e.classList.remove("recording");
         audioRecorder.exportWAV( uploadFile );
+
+        annotations = new Array();
+        timestamps = new Array();
+        aIndex = 0;
         //audioRecorder.getBuffers( gotBuffers );
     } else {
         // start recording
@@ -170,6 +178,9 @@ function uploadFile( blob ){
     request = new XMLHttpRequest();
     form.append("blob", blob , title);
     form.append("title", title);
+    form.append("annotations", annotations);
+    form.append("timestamps", timestamps);
+    form.append("aCount", aIndex);
     request.open(
             "POST",
             "/record/upload",
@@ -183,6 +194,14 @@ function uploadFile( blob ){
             alert(request.responseText);
         }
     }
+}
+
+function submitAnnotation(){
+    annotations[aIndex] = document.getElementById('annotation-text').value;
+    timestamps[aIndex] = timestamp;
+    aIndex = aIndex + 1;
+    alert(aIndex);
+    document.getElementById('annotation-text').value = "";
 }
 
 function convertToMono( input ) {

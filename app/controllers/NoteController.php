@@ -20,11 +20,15 @@ class NoteController extends BaseController{
 
 		$file->move($destination, $filename);
 
-		//$annotation = new Textannotation;
-		//$annotation->content = Input::get('annotation');
-		//$annotation->timestamp = Input::get('timestamp');
-		//$annotation->noteid = $note->noteId;
-		//$annotation->save();
+		$aCount = Input::get('aCount');
+
+		//for($i = 0; $i < aCount; $i++){
+			$annotation = new Textannotation;
+			$annotation->content = Input::get('annotations.0');
+			$annotation->timestamp = Input::get('timestamps.0');
+			$annotation->noteid = $note->noteId;
+			$annotation->save();
+		//}
 
 		return Response::make('Uploaded as '.$filename);
 	}
