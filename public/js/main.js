@@ -197,7 +197,7 @@ function uploadFile( blob ){
 }
 
 function submitAnnotation(){
-    var obj = {"content": document.getElementById('annotation-text').value, "timestamp": timestamp};
+    var obj = {"content": document.getElementById('note-textarea').value, "timestamp": timestamp};
     annotations.push(obj);
     aIndex = aIndex + 1;
     document.getElementById('annotation-text').value = "";
