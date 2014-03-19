@@ -21,11 +21,11 @@ class NoteController extends BaseController{
 		$note->audiourl = $destination.$filename;
 		$note->save();
 
-			$annotation = new Textannotation;
-			$annotation->content = Input::get('annotations.0');
-			$annotation->timestamp = Input::get('timestamps.0');;
-			$annotation->noteid = $note->noteId;
-			$annotation->save();
+		//$annotation = new Textannotation;
+		//$annotation->content = Input::get('annotations.0');
+		//$annotation->timestamp = Input::get('timestamps.0');;
+		//$annotation->noteid = $note->noteId;
+		//$annotation->save();
 
 		return Response::make('Uploaded as '.$filename);
 	}

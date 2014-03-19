@@ -175,9 +175,6 @@ function uploadFile( blob ){
     request = new XMLHttpRequest();
     form.append("blob", blob , title);
     form.append("title", title);
-    alert(annotations[0]);
-    alert(timestamps[0]);
-
     form.append("annotations", annotations);
     form.append("timestamps", timestamps);
     form.append("aCount", aIndex);
