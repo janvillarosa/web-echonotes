@@ -142,8 +142,26 @@ function doneEncoding( blob ) {
     recIndex++;
 }
 
+
+
+
 var annotations = [];
 var timestamps = [];
+var nextTimestamp = 0;
+
+var timeFunc;
+var tagTimestamp = function() {
+    nextTimestamp = timestamp;
+    timeFunc = function() {
+      if(document.getElementById('note-textarea').value == ""){
+        nextTimestamp = timestamp;
+        timeFunc = tagTimestamp;
+      }
+    }
+};
+
+timeFunc = tagTimestamp;
+
 var aIndex = 0;
 
 /*TOGGLE RECORDING*/
@@ -194,6 +212,7 @@ function uploadFile( blob ){
         if (request.readyState==4 && request.status==200)
         {
             alert(request.responseText);
+            location.reload();
         }
     }
 }
@@ -203,7 +222,10 @@ function submitAnnotation(){
     timestamps.push(timestamp);
     aIndex = aIndex + 1;
     document.getElementById('note-textarea').value = "";
+    timeFunc = tagTimestamp;
 }
+
+
 
 function convertToMono( input ) {
     var splitter = audioContext.createChannelSplitter(2);

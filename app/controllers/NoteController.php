@@ -5,7 +5,7 @@ class NoteController extends BaseController{
 	function upload(){
 		$email = Auth::user()->email;
 		$file = Input::file('blob');
-		$name = $file->getClientOriginalName();
+		$name = Input::input('title');
 		$destination = 'upload/';
 
 		$note = new Echonote;

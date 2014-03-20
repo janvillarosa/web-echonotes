@@ -103,7 +103,6 @@
         </nav>
 
         <div class="stopwatch" id="test-timer"></div>
-        <input type="button" value="submit" onclick="submitAnnotation()">
 
         <div class="row">
             <div class="note-span">
@@ -114,7 +113,7 @@
                         </div>
                         <!-- Annotation Body -->
                         <div class="panel-body-note">
-                            <textarea id="note-textarea" placeholder="Your notes here..." resizable="false"></textarea>
+                            <textarea id="note-textarea" placeholder="Your notes here..." resizable="false" oninput="timeFunc()"></textarea>
                             <div id="note-imagearea">
                                 <div id="holder" style = "vertically-align:middle;">
                                   <h1 style = "text-align:center;"> Drag Image to Upload</h1>
