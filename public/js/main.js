@@ -142,9 +142,9 @@ function doneEncoding( blob ) {
     recIndex++;
 }
 
-var annotations = ["One", "Two"];
-var timestamps = [6,21];
-var aIndex = 2;
+var annotations = [];
+var timestamps = [];
+var aIndex = 0;
 
 /*TOGGLE RECORDING*/
 function toggleRecording( e ) {
@@ -175,8 +175,13 @@ function uploadFile( blob ){
     request = new XMLHttpRequest();
     form.append("blob", blob , title);
     form.append("title", title);
-    form.append("annotations", annotations);
-    form.append("timestamps", timestamps);
+    form.append("aCount", aIndex);
+
+    for(var i = 0; i < aIndex; i++){
+      form.append("annotations["+i+"]", annotations[i]);
+      form.append("timestamps["+i+"]", timestamps[i]);
+    }
+
     form.append("aCount", aIndex);
     request.open(
             "POST",
@@ -194,10 +199,10 @@ function uploadFile( blob ){
 }
 
 function submitAnnotation(){
-    var obj = {"content": document.getElementById('note-textarea').value, "timestamp": timestamp};
-    annotations.push(obj);
+    annotations.push(document.getElementById('note-textarea').value);
+    timestamps.push(timestamp);
     aIndex = aIndex + 1;
-    document.getElementById('annotation-text').value = "";
+    document.getElementById('note-textarea').value = "";
 }
 
 function convertToMono( input ) {
