@@ -214,14 +214,25 @@ body {
 
 .note-span{
     display:-webkit-box;
--webkit-box-pack:center;
--webkit-box-align:center;
- margin-top: 30px;
+    margin-top: 8px;
+}
+
+.note-card{
+    display:-webkit-box;
+    width:800px;
+    height:400px;
+    margin-left:5%;
 }
 
 .list-group {
   padding-left: 0;
   margin-bottom: 0px;
+  width:70px;
+}
+
+.list-group-item {
+  height: 70px;
+    width:70px;
 }
 
 .panel-heading {
@@ -243,10 +254,15 @@ body {
     outline: none;
 }
 
+.panel{
+    height: 140px;
+    width:70px;
+}
+
 .panel-annotation{
     height: 100%;
+    width:101%;
       border: 0px;
-
 }
 
 .panel-annotation > .panel-heading {
@@ -257,7 +273,7 @@ body {
 .panel-body-note{
     padding: 0px;
     height: 100%;
-    width: 100%;
+    width: 70px;
     background-color: #fff;
 }
 
@@ -274,9 +290,10 @@ body {
 
 #holder { 
     border: 10px dashed #ccc;
-    width: 500px;
-    min-height: 300px;
-    margin: 20px auto;
+    width: 800px;
+    min-height: 350px;
+    margin-top: 40px;
+    margin-left: 50px;
 }
 
 #holder.hover { 

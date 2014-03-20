@@ -74,7 +74,9 @@
 
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
-                <a class="navbar-brand" href="/" style="color:white"><span><img src="img/homepage/echonotes-logo.png" height=32% width=32%></span></a>
+                <a href="/" class="navbar-brand" style="color:white">
+                  <img src="img/homepage/echonotes-logo.png" height=32% width=32%>
+                </a>
             </div>
 
             <ul class="nav navbar-top-links navbar-right" style = "padding-bottom:30px; margin-top:0px;">
@@ -90,7 +92,7 @@
 
         <nav class="navbar-toolbar" role="navigation" style="margin-bottom: 0">
             <li class="divider"></li>
-            <a class="navbar-play navbar-right" onClick="toggleRecording(this)" style="float:right; margin-right: -115px;">
+            <a href="#" class="navbar-play navbar-right" onClick="toggleRecording(this)" style="float:right; margin-right: -115px;">
                 <img src="img/homepage/record-button.png" height=40% width=40% style="float:right; margin-top: 25px;"></span></a>
             </a>
             <span id="divtitle" style="display:inline">
@@ -105,7 +107,7 @@
 
         <div class="row">
             <div class="note-span">
-                <div class="col-lg-8 row-textarea">
+                <div class="col-lg-8 row-textarea note-card">
                     <div class="panel panel-annotation">
                         <div class="panel-heading">
                                 Annotation #X
@@ -114,14 +116,13 @@
                         <div class="panel-body-note">
                             <textarea id="note-textarea" placeholder="Your notes here..." resizable="false"></textarea>
                             <div id="note-imagearea">
-                                <h1> Drag Image to Upload </h1>
-                                <div id="holder">
+                                <div id="holder" style = "vertically-align:middle;">
+                                  <h1 style = "text-align:center;"> Drag Image to Upload</h1>
                                 </div> 
                                 <p id="upload" class="hidden"><label>Drag & drop not supported, but you can still upload via this input field:<br><input type="file"></label></p>
                                 <p id="filereader">File API & FileReader API not supported</p>
                                 <p id="formdata">XHR2's FormData is not supported</p>
                                 <p id="progress">XHR2's upload progress isn't supported</p>
-                                <p>Drag an image from your desktop to the drop zone above to upload an image annotation.</p>
                             </div>
                         </div>
                     </div>
@@ -130,11 +131,11 @@
                     <div class="panel panel-default">
                         <div id="panel-body-note">
                             <div class="list-group">
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-picture-o"></i> Submit
+                                <a href="#" class="list-group-item" onclick="submitAnnotation()">
+                                    <i class="fa fa-picture-o"></i>Go
                                 </a>
                                 <a href="#" class="list-group-item" id="change-annotation" name="showText">
-                                    <i class="fa fa-picture-o"></i> <span id="annotation-button-text">Add Image Annotation</span>
+                                    <i class="fa fa-picture-o"></i> <span id="annotation-button-text">Add</span>
                                 </a>
                             </div>
                         </div>
