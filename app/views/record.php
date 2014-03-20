@@ -8,21 +8,17 @@
 
     <title> New Echonote - Echonotes</title>
 
-    <!-- Core CSS - Include with every page -->
     <link href="css/Framework/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Page Level CSS - Include with every page -->
-    <link href="css/record.css" rel="stylesheet">
+    <link href="css/froala_editor.min.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
-
-    <!-- SB Admin CSS - Include with every page -->
-    <link href="css/sb-admin.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/demo.css" />
     <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link href="css/record.css" rel="stylesheet">
 
 
     <script src="js/jquery-1.10.2.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/froala_editor.min.js"></script>
     <script src="js/h5utils.js"></script>
 
     <!-- Swap annotation display -->
@@ -42,30 +38,7 @@
       }
     });
   });
-
-
-    // function showImg(){
-    //     document.getElementById("note-textarea").style.visibility = "hidden";
-    //     document.getElementById("note-imgarea").style.visibility = "visible";
-    //     $('#change-annotation').click(function() { showTxt(); });
-    // }
-
-    // function showTxt(){
-    //     document.getElementById("note-textarea").style.visibility = "visible";
-    //     document.getElementById("note-imgarea").style.visibility = "hidden";
-    //     $('#change-annotation').click(function() { showImg(); });
-
-    // }
-    </script> 
-
-   <!-- <script>
-    $(document).ready(function(){
-        $('.navbar-play').live('click', function(event) { 
-           document.write('asidhunaklmdl,asd,saz');       
-           $('.note-div').toggle('show');
-       });
-    });
-    </script>-->
+    </script>
 </head>
 
 <body>
@@ -109,13 +82,23 @@
             <div class="note-span">
                 <div class="col-lg-8 row-textarea note-card">
                     <div class="panel panel-annotation">
-                        <div class="panel-heading">
+                        <!-- <div class="panel-heading">
                                 Annotation #X
-                        </div>
+                        </div> -->
                         <!-- Annotation Body -->
                         <div class="panel-body-note">
-                            <textarea id="note-textarea" placeholder="Your notes here..." resizable="false"></textarea>
-                            <div id="note-imagearea">
+                          <section id="editor">
+                            <div class="body-overflow">
+                          <textarea id='edit'>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis diam in odio iaculis blandit. Nunc eu mauris sit amet purus viverra gravida ut a dui. Vivamus nec rutrum augue, pharetra faucibus purus. Maecenas non orci sagittis, vehicula lorem et, dignissim nunc. Suspendisse suscipit, diam non varius facilisis, enim libero tincidunt magna, sit amet iaculis eros libero sit amet eros. Vestibulum a rhoncus felis. Nam lacus nulla, consequat ac lacus sit amet, accumsan pellentesque risus. Aenean viverra mi at urna mattis fermentum. Curabitur porta metus in tortor elementum, in semper nulla ullamcorper. Vestibulum mattis tempor tortor quis gravida. In rhoncus risus nibh. Nullam condimentum dapibus massa vel fringilla. Sed hendrerit sed est quis facilisis. Ut sit amet nibh sem. Pellentesque imperdiet mollis libero.</p>
+
+          <p><a href="http://google.com" title="Aenean sed hendrerit">Aenean sed hendrerit</a> velit. Nullam eu mi dolor. Maecenas et erat risus. Nulla ac auctor diam, non aliquet ante. Fusce ullamcorper, ipsum id tempor lacinia, sem tellus malesuada libero, quis ornare sem massa in orci. Sed dictum dictum tristique. Proin eros turpis, ultricies eu sapien eget, ornare rutrum ipsum. Pellentesque eros nisl, ornare nec ipsum sed, aliquet sollicitudin erat. Nulla tincidunt porta vehicula.</p>
+
+          <p>Nullam laoreet imperdiet orci ac euismod. Curabitur vel lectus nisi. Phasellus accumsan aliquet augue, eu rutrum tellus iaculis in. Nunc viverra ultrices mollis. Curabitur malesuada nunc massa, ut imperdiet arcu lobortis sed. Cras ac arcu mauris. Maecenas id lectus nisl. Donec consectetur scelerisque quam at ultricies. Nam quis magna iaculis, condimentum metus ut, elementum metus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus id tempus nisi.</p>
+      </textarea>
+    </div>
+  </section>
+                          <div id="note-imagearea">
                                 <div id="holder" style = "vertically-align:middle;">
                                   <h1 style = "text-align:center;"> Drag Image to Upload</h1>
                                 </div> 
@@ -253,10 +236,14 @@
 
 </script>
 
-
+    <script>
+    $(function(){
+      $('#edit').editable({ inlineMode: false })
+      });
+    </script>
     <!-- Core Scripts - Include with every page -->
 
-        <!--<script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+        <!--<script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>-->
 
 
         <!-- Page-Level Plugin Scripts - Dashboard -->

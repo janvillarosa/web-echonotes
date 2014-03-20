@@ -204,6 +204,17 @@ body {
 
 /* Text Annotation */
 
+.froala-editor {
+    background-color: #eec;
+    border: 0px;
+    border-top: solid 5px #5eb !important;
+}
+
+.froala-element.f-basic {
+    border: 0px;
+    padding: 25px 25px 25px 25px;
+}
+
 .row-textarea{
     height: 500px;
 }
@@ -273,8 +284,16 @@ body {
 .panel-body-note{
     padding: 0px;
     height: 100%;
-    width: 70px;
+    width: 100%;
     background-color: #fff;
+}
+
+#edit {
+    white-space:nowrap; 
+}
+
+.body-overflow{    
+    overflow: scroll; 
 }
 
 /* Drag and Drop Image Annotation */
