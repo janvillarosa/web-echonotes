@@ -86,6 +86,7 @@
                         </div> -->
                         <!-- Annotation Body -->
                         <div class="panel-body-note">
+                          <div id="note-textarea">
                           <section id="editor">
                           <textarea id='edit'>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis diam in odio iaculis blandit. Nunc eu mauris sit amet purus viverra gravida ut a dui. Vivamus nec rutrum augue, pharetra faucibus purus. Maecenas non orci sagittis, vehicula lorem et, dignissim nunc. Suspendisse suscipit, diam non varius facilisis, enim libero tincidunt magna, sit amet iaculis eros libero sit amet eros. Vestibulum a rhoncus felis. Nam lacus nulla, consequat ac lacus sit amet, accumsan pellentesque risus. Aenean viverra mi at urna mattis fermentum. Curabitur porta metus in tortor elementum, in semper nulla ullamcorper. Vestibulum mattis tempor tortor quis gravida. In rhoncus risus nibh. Nullam condimentum dapibus massa vel fringilla. Sed hendrerit sed est quis facilisis. Ut sit amet nibh sem. Pellentesque imperdiet mollis libero.</p>
@@ -95,6 +96,7 @@
           <p>Nullam laoreet imperdiet orci ac euismod. Curabitur vel lectus nisi. Phasellus accumsan aliquet augue, eu rutrum tellus iaculis in. Nunc viverra ultrices mollis. Curabitur malesuada nunc massa, ut imperdiet arcu lobortis sed. Cras ac arcu mauris. Maecenas id lectus nisl. Donec consectetur scelerisque quam at ultricies. Nam quis magna iaculis, condimentum metus ut, elementum metus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus id tempus nisi.</p>
       </textarea>
   </section>
+</div>
                           <div id="note-imagearea">
                                 <div id="holder" style = "vertically-align:middle;">
                                   <h1 style = "text-align:center;"> Drag Image to Upload</h1>
@@ -235,7 +237,9 @@
 
     <script>
     $(function(){
-      $('#edit').editable({ inlineMode: false })
+      $('#edit').editable({ inlineMode: false, buttons: ['bold', 'italic', 'strikeThrough', 'fontSize', 'color', 'sep', 
+        'formatBlock', 'align', 'insertOrderedList', 'insertUnorderedList', 'outdent', 'indent', 'sep',
+        'undo', 'redo'],   })
       });
     </script>
     <!-- Core Scripts - Include with every page -->

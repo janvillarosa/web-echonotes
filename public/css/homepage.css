@@ -369,7 +369,7 @@ body {
     height: 100%;
     padding-left: 40px;
     padding-right: 20px;
-    overflow: auto;
+    overflow: scroll;
 }
 .span5 ul li {
   list-style-type: none;

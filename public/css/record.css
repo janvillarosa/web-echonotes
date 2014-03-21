@@ -254,10 +254,8 @@ body {
 #note-textarea{
     position: absolute;
     height: 100%;
-    width: 96.75%;
-    padding: 40px 40px 40px 40px;
+    width: 97.25%;
     border: 0px;
-    resize: none;
     visibility: visible;
 }
 
@@ -304,8 +302,8 @@ body {
 }
 
 #holder { 
-    border: 10px dashed #ccc;
-    width: 800px;
+    border: 6px dashed #ccc;
+    width: 80%;
     min-height: 350px;
     margin-top: 40px;
     margin-left: 50px;
