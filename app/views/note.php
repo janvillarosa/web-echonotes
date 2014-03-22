@@ -10,6 +10,7 @@
 
     <!-- Core CSS - Include with every page -->
     <link href="css/Framework/bootstrap.min.css" rel="stylesheet">
+    <link href="css/froala_editor.min.css" rel="stylesheet">
 
     <!-- Page Level CSS - Include with every page -->
     <link href="css/record.css" rel="stylesheet">
@@ -58,15 +59,12 @@
         </nav>
         <!-- /.navbar-static-top -->
 
-        <nav class="navbar-toolbar" role="navigation" style="margin-bottom: 0">
+        <nav class="navbar-toolbar" role="navigation" style="margin-bottom: 0; height: 65px">
             <li class="divider"></li>
-            <a href="#" class="navbar-play navbar-right" style="float:right; margin-right: -115px;">
-                    <img src="img/homepage/annotate-button.png" height=40% width=40% style="float:right; margin-top: 25px;">
-                </a>
+                <button type="button" class="navbar-play btn btn-default" onclick="toggleRecording(this)" style="float:right;">New Annotation</button>
             <span id="divtitle" style="display:inline">
-                <div id = "title"> Untitled Note </div>
-                <div id = "divtitle"> 2 annotations<br>Tags: Home</div>
-                
+                <input id="title" placeholder="Untitled Note">
+                <div class="stopwatch" id="test-timer"></div>
             </span>
         </nav>
         <nav class="navbar-toolbar" role="navigation">
@@ -105,42 +103,31 @@
   </div>
         </nav>
 
-        <div class="row">
-            <div class="note-span">
-                <div class="col-lg-8 row-textarea">
-                    <div class="panel panel-annotation">
-                        <div class="panel-heading">
-                                Annotation #X
-                        </div>
-                        <!-- Annotation Body -->
+        <div class="note-span">
+                <div class="col-lg-8 row-textarea note-card">
+                    <div class="panel panel-annotation" style = "position: relative;">
                         <div class="panel-body-note">
-                            <textarea id="note-textarea" placeholder="Your notes here..." resizable="false"></textarea>
-                            <div id="note-imagearea">
-                                <h1> Drag Image to Upload </h1>
+                          <div id="note-textarea" style="margin: 20px 20px">
+                            <section id="editor">
+                              <textarea id='edit'></textarea>
+                            </section>
+                          </div>
+                          <div id="note-imagearea">
                                 <div id="holder">
+                                  <h1 style = "text-align:center;"> Drag Image to Upload</h1>
                                 </div> 
                                 <p id="upload" class="hidden"><label>Drag & drop not supported, but you can still upload via this input field:<br><input type="file"></label></p>
                                 <p id="filereader">File API & FileReader API not supported</p>
                                 <p id="formdata">XHR2's FormData is not supported</p>
                                 <p id="progress">XHR2's upload progress isn't supported</p>
-                                <p>Drag an image from your desktop to the drop zone above to upload an image annotation.</p>
-                            </div>
+                          </div>
                         </div>
+                      <div class = "panel-submit">
+                            <button type="button" class="btn btn-default" onclick="submitAnnotation()" style="right:10px">Edit Annotation</button>
+                      </div>
                     </div>
                 </div>
-                <div class="col-lg-2 row-textarea sidebar">
-                    <div class="panel panel-default">
-                        <div id="panel-body-note">
-                            <div class="list-group">
-                                <a href="#" class="list-group-item" id="change-annotation" name="showText">
-                                    <i class="fa fa-picture-o"></i> <span id="annotation-button-text">Edit this annotation</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+              </div>
     </div>
 
 
@@ -164,22 +151,18 @@
     });
     </script>
 
-        <!--<script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+        <script>
+    $(function(){
+      $('#edit').editable({ inlineMode: true, buttons: ['bold', 'italic', 'strikeThrough', 'fontSize', 'color', 'sep', 
+        'formatBlock', 'align', 'insertOrderedList', 'insertUnorderedList', 'outdent', 'indent', 'sep',
+        'undo', 'redo'],   })
+      });
+    </script>
 
-
-        <!-- Page-Level Plugin Scripts - Dashboard -->
-        <!--
-        <script src="js/plugins/morris/raphael-2.1.0.min.js"></script>
-        <script src="js/plugins/morris/morris.js"></script>
-
-        <!-- SB Admin Scripts - Include with every page -->
-        <!--
-        <script src="js/sb-admin.js"></script>
-
-        <!-- Page-Level Demo Scripts - Dashboard - Use for reference -->
-        <!--<script src="js/demo/dashboard-demo.js"></script>-->
         <script src="js/audiodisplay.js"></script>
         <script src="js/main.js"></script>
+        <script src="js/froala_editor.min.js"></script>
+        <script src="js/h5utils.js"></script>
 
 
     </body>

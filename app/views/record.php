@@ -72,7 +72,6 @@
             </span>
         </nav>
 
-        <div class="row">
             <div class="note-span">
                 <div class="col-lg-8 row-textarea note-card">
                     <div class="panel panel-annotation" style = "position: relative;">
@@ -103,7 +102,6 @@
                     </div>
                 </div>
               </div>
-          </div>
         </div>
     </div>
 
