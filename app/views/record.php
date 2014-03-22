@@ -63,67 +63,47 @@
         </nav>
         <!-- /.navbar-static-top -->
 
-        <nav class="navbar-toolbar" role="navigation" style="margin-bottom: 0">
+        <nav class="navbar-toolbar" role="navigation" style="margin-bottom: 0; height: 65px">
             <li class="divider"></li>
-            <a href="#" class="navbar-play navbar-right" onClick="toggleRecording(this)" style="float:right; margin-right: -115px;">
-                <img src="img/homepage/record-button.png" height=40% width=40% style="float:right; margin-top: 25px;"></span></a>
-            </a>
+                <button type="button" class="navbar-play btn btn-default" onclick="toggleRecording(this)" style="float:right;">Start Recording</button>
             <span id="divtitle" style="display:inline">
                 <input id="title" placeholder="Untitled Note">
-                <div id = "divtitle"> 2 annotations<br>Tags: Home</div>
-                
+                <div class="stopwatch" id="test-timer"></div>
             </span>
         </nav>
-
-        <div class="stopwatch" id="test-timer"></div>
 
         <div class="row">
             <div class="note-span">
                 <div class="col-lg-8 row-textarea note-card">
-                    <div class="panel panel-annotation">
-                        <!-- <div class="panel-heading">
-                                Annotation #X
-                        </div> -->
-                        <!-- Annotation Body -->
+                    <div class="panel panel-annotation" style = "position: relative;">
                         <div class="panel-body-note">
                           <div id="note-textarea">
-                          <section id="editor">
-                          <textarea id='edit'>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis diam in odio iaculis blandit. Nunc eu mauris sit amet purus viverra gravida ut a dui. Vivamus nec rutrum augue, pharetra faucibus purus. Maecenas non orci sagittis, vehicula lorem et, dignissim nunc. Suspendisse suscipit, diam non varius facilisis, enim libero tincidunt magna, sit amet iaculis eros libero sit amet eros. Vestibulum a rhoncus felis. Nam lacus nulla, consequat ac lacus sit amet, accumsan pellentesque risus. Aenean viverra mi at urna mattis fermentum. Curabitur porta metus in tortor elementum, in semper nulla ullamcorper. Vestibulum mattis tempor tortor quis gravida. In rhoncus risus nibh. Nullam condimentum dapibus massa vel fringilla. Sed hendrerit sed est quis facilisis. Ut sit amet nibh sem. Pellentesque imperdiet mollis libero.</p>
-
-          <p><a href="http://google.com" title="Aenean sed hendrerit">Aenean sed hendrerit</a> velit. Nullam eu mi dolor. Maecenas et erat risus. Nulla ac auctor diam, non aliquet ante. Fusce ullamcorper, ipsum id tempor lacinia, sem tellus malesuada libero, quis ornare sem massa in orci. Sed dictum dictum tristique. Proin eros turpis, ultricies eu sapien eget, ornare rutrum ipsum. Pellentesque eros nisl, ornare nec ipsum sed, aliquet sollicitudin erat. Nulla tincidunt porta vehicula.</p>
-
-          <p>Nullam laoreet imperdiet orci ac euismod. Curabitur vel lectus nisi. Phasellus accumsan aliquet augue, eu rutrum tellus iaculis in. Nunc viverra ultrices mollis. Curabitur malesuada nunc massa, ut imperdiet arcu lobortis sed. Cras ac arcu mauris. Maecenas id lectus nisl. Donec consectetur scelerisque quam at ultricies. Nam quis magna iaculis, condimentum metus ut, elementum metus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus id tempus nisi.</p>
-      </textarea>
-  </section>
-</div>
+                            <section id="editor">
+                              <textarea id='edit'></textarea>
+                            </section>
+                          </div>
                           <div id="note-imagearea">
-                                <div id="holder" style = "vertically-align:middle;">
+                                <div id="holder">
                                   <h1 style = "text-align:center;"> Drag Image to Upload</h1>
                                 </div> 
                                 <p id="upload" class="hidden"><label>Drag & drop not supported, but you can still upload via this input field:<br><input type="file"></label></p>
                                 <p id="filereader">File API & FileReader API not supported</p>
                                 <p id="formdata">XHR2's FormData is not supported</p>
                                 <p id="progress">XHR2's upload progress isn't supported</p>
-                            </div>
+                          </div>
                         </div>
+                      <div class = "panel-bottom">
+                            <a href="#" id="change-annotation" name="showText">
+                              <i class="fa fa-picture-o" style = "font-size:25px"></i>
+                            </a>
+                      </div>
+                      <div class = "panel-submit">
+                            <button type="button" class="btn btn-default" onclick="submitAnnotation()" style="right:10px">Submit</button>
+                      </div>
                     </div>
                 </div>
-                <div class="col-lg-2 row-textarea sidebar">
-                    <div class="panel panel-default">
-                        <div id="panel-body-note">
-                            <div class="list-group">
-                                <a href="#" class="list-group-item" onclick="submitAnnotation()">
-                                    <i class="fa fa-picture-o"></i>Go
-                                </a>
-                                <a href="#" class="list-group-item" id="change-annotation" name="showText">
-                                    <i class="fa fa-picture-o"></i> <span id="annotation-button-text">Add</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+              </div>
+          </div>
         </div>
     </div>
 
