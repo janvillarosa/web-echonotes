@@ -21,19 +21,23 @@
     <link rel="stylesheet" type="text/css" href="css/demo.css" />
     <link rel="stylesheet" type="text/css" href="css/style.css" />
 
-    <!-- SM2 core -->
     <!-- Sound Manager -->
+    <!-- Page player core CSS -->
     <script src="player/script/soundmanager2-nodebug-jsmin.js"></script>
     <script>
         soundManager.setup({
         url: 'player/swf/',
-        flashVersion: 9, preferFlash: false,
+        flashVersion: 9,
         onready: function() {}});
     </script>
+
+    <link rel="stylesheet" type="text/css" href="player/page-player.css" />
+    <link rel="stylesheet" type="text/css" href="player/optional-annotations.css" />
+    <link rel="stylesheet" type="text/css" href="player/optional-themes.css" />
+
+    <script src="player/page-player.js"></script>
+    <script src="player/optional-page-player-metadata.js"></script>
     <!-- Sound Manager end -->
-<!-- SM2 page player -->
-<link rel="stylesheet" type="text/css" href="player/page-player.css" />
-<script src="player/page-player.js"></script>
 
 </head>
 
@@ -68,9 +72,20 @@
 
         <nav class="navbar-toolbar" role="navigation" style="margin-bottom: 0;">
             <div style="height: 50px; width:100%; padding-right:30px;">
-            <ul id="inline-playlist" class="playlist">
-                <li style="height:px;vertical-align:middle;" class="songli"><a href="http://techhouse.org/~dmorris/music/mp3/single_camera_blues.mp3" class="button-exclude inline-exclude threesixty-exclude">Play note</a></li>
-            </ul>
+                <ul class="playlist">
+                 <li>
+                  <a href="test.mp3">Test</a>
+                  <div class="metadata">
+                   <div class="duration">2:41</div> <!-- total track time (for positioning while loading, until determined -->
+                   <ul>
+                    <li><p>Timed Annotation 1</p><span>0:20</span></li>
+                    <li><p>Timed Annotation 2</p><span>)0:50</span></li>
+                    <li><p>Timed Annotation 3</p><span>1:40</span></li>
+                    <li><p>Timed Annotation 4</p><span>2:00</span></li>
+                    <li><p>Timed Annotation 4</p><span>2:20</span></li>
+                   </ul>
+                  </div>
+                 </li>
             </div>
         </nav>
 
