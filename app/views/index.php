@@ -93,17 +93,19 @@
                 
                 $notes = Echonote::where('userid','=',Auth::user()->email)->get();
                 foreach($notes as $note){
-                    echo '<li><a href="note.html"><img src="img/homepage/note-icon.png" alt="Generic placeholder image" height = "150" width = "150"><span>';
+                    echo '<li><a href="/';
+                    echo  $note->noteId;
+                    echo '"><img src="img/homepage/note-icon.png" alt="Generic placeholder image" height = "150" width = "150"><span>';
                     echo $note->noteName;
                     echo "</span><span>";
                     echo "? annotations";//<==COUNT ANNOTATIONS HERE(WIP)
                     echo "</span></a></li>";
                 }
             ?>
-            <li><a href="/note">
+            <!--<li><a href="/note">
                 <img src="img/homepage/note-icon.png" alt="Generic placeholder image" height = "150" width = "150">
                 <span>Test Note</span><span>5 annotations</span>
-            </a></li>
+            </a></li>-->
 
         </ul>
     </div>

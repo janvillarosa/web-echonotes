@@ -218,10 +218,12 @@ function uploadFile( blob ){
 }
 
 function submitAnnotation(){
-    annotations.push(document.getElementById('note-textarea').value);
+    annotations.push(document.getElementById('edit').value);
     timestamps.push(timestamp);
     aIndex = aIndex + 1;
-    document.getElementById('note-textarea').value = "";
+    var cusid_ele = document.getElementsByClassName('froala-element f-basic');
+    var item = cusid_ele[0];  
+    item.innerHTML = '';
     timeFunc = tagTimestamp;
 }
 

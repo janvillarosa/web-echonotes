@@ -42,6 +42,11 @@ Route::get('/note', function()
 	return View::make('note');
 });
 
+Route::get('/{noteId}', function($noteId)
+{
+	return View::make('note')->with('noteId', $noteId);
+})->where('noteId', '[0-9]+');
+
 Route::get('/demo', function()
 {
 	return View::make('demo');
@@ -53,18 +58,3 @@ Route::get('/imagetest', function()
 {
 	return View::make('D&DImage');
 });
-
-Route::get('annotation_test', function()
-{
-	$aCount = Input::get('aCount');
-
-		//for($i = 0; $i < aCount; $i++){
-			$annotation = new Textannotation;
-			$annotation->content = "hello world";
-			$annotation->timestamp = 1;
-			$annotation->noteid = 1;
-			$annotation->save();
-		//}
-	return $annotation->noteId;
-}
-);

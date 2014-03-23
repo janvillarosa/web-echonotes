@@ -39,7 +39,6 @@
 </head>
 
 <body>
-
     <div id="wrapper" style="position: fixed">
 
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
