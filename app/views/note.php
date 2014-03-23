@@ -21,22 +21,20 @@
     <link rel="stylesheet" type="text/css" href="css/demo.css" />
     <link rel="stylesheet" type="text/css" href="css/style.css" />
 
-    <link rel="stylesheet" type="text/css" href="/skin/jplayer.blue.monday.css" />
-
+    <!-- SM2 core -->
+    <!-- Sound Manager -->
+    <script src="player/script/soundmanager2-nodebug-jsmin.js"></script>
     <script>
-    $(document).ready(function() {
-        $('.audio-slideshow').audioSlideshow();
-    });
+        soundManager.setup({
+        url: 'player/swf/',
+        flashVersion: 9, preferFlash: false,
+        onready: function() {}});
     </script>
+    <!-- Sound Manager end -->
+<!-- SM2 page player -->
+<link rel="stylesheet" type="text/css" href="player/page-player.css" />
+<script src="player/page-player.js"></script>
 
-    <script>
-    $(document).ready(function(){
-        $('.navbar-play').live('click', function(event) { 
-           document.write('asidhunaklmdl,asd,saz');       
-           $('.note-div').toggle('show');
-       });
-    });
-    </script>
 </head>
 
 <body>
@@ -67,40 +65,13 @@
                 <div class="stopwatch" id="test-timer"></div>
             </span>
         </nav>
-        <nav class="navbar-toolbar" role="navigation">
-            <body>
-  <div id="jquery_jplayer_1" class="jp-jplayer"></div>
-  <div id="jp_container_1" class="jp-audio">
-    <div class="jp-type-single">
-      <div class="jp-gui jp-interface">
-        <ul class="jp-controls">
-          <li><a href="javascript:;" class="jp-play" tabindex="1">play</a></li>
-          <li><a href="javascript:;" class="jp-pause" tabindex="1">pause</a></li>
-          <li><a href="javascript:;" class="jp-stop" tabindex="1">stop</a></li>
-          <li><a href="javascript:;" class="jp-mute" tabindex="1" title="mute">mute</a></li>
-          <li><a href="javascript:;" class="jp-unmute" tabindex="1" title="unmute">unmute</a></li>
-        </ul>
-        <div class="jp-progress">
-          <div class="jp-seek-bar">
-            <div class="jp-play-bar"></div>
-          </div>
-        </div>
-        <div class="jp-volume-bar">
-          <div class="jp-volume-bar-value"></div>
-        </div>
-        <div class="jp-time-holder">
-          <div class="jp-current-time"></div>
-          <div class="jp-duration"></div>
-          <ul class="jp-toggles">
-          </ul>
-        </div>
-      </div>
-      <div class="jp-no-solution">
-        <span>Update Required</span>
-        To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
-      </div>
-    </div>
-  </div>
+
+        <nav class="navbar-toolbar" role="navigation" style="margin-bottom: 0;">
+            <div style="height: 50px; width:100%; padding-right:30px;">
+            <ul id="inline-playlist" class="playlist">
+                <li style="height:px;vertical-align:middle;" class="songli"><a href="http://techhouse.org/~dmorris/music/mp3/single_camera_blues.mp3" class="button-exclude inline-exclude threesixty-exclude">Play note</a></li>
+            </ul>
+            </div>
         </nav>
 
         <div class="note-span">
@@ -137,21 +108,7 @@
     <script src="js/jquery.jplayer.min.js"></script>
     <script src="js/jquery.audioslideshow.js"></script>
 
-    <script type="text/javascript">
-    $(document).ready(function(){
-      $("#jquery_jplayer_1").jPlayer({
-        ready: function () {
-          $(this).jPlayer("setMedia", {
-            mp3: "test.mp3",
-          });
-        },
-        swfPath: "/js",
-        supplied: "mp3"
-      });
-    });
-    </script>
-
-        <script>
+    <script>
     $(function(){
       $('#edit').editable({ inlineMode: true, buttons: ['bold', 'italic', 'strikeThrough', 'fontSize', 'color', 'sep', 
         'formatBlock', 'align', 'insertOrderedList', 'insertUnorderedList', 'outdent', 'indent', 'sep',
