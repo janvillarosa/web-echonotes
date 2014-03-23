@@ -61,20 +61,14 @@
         </nav>
         <!-- /.navbar-static-top -->
 
-        <nav class="navbar-toolbar" role="navigation" style="margin-bottom: 0; height: 65px">
+        <nav class="navbar-toolbar" role="navigation" style="margin-bottom: 0; height: 100px">
             <li class="divider"></li>
-                <button type="button" class="navbar-play btn btn-default" onclick="toggleRecording(this)" style="float:right;">New Annotation</button>
+                <button type="button" class="navbar-ctanote btn btn-default" onclick="" style="float:right; margin-top:15px">Add New Annotation</button>
             <span id="divtitle" style="display:inline">
-                <input id="title" placeholder="Untitled Note">
-                <div class="stopwatch" id="test-timer"></div>
-            </span>
-        </nav>
-
-        <nav class="navbar-toolbar" role="navigation" style="margin-bottom: 0;">
-            <div style="height: 50px; width:100%; padding-right:30px;">
-                <ul class="playlist">
+                <div style="width:80%;">
+                <ul class="playlist" style = "height: 20px;">
                  <li>
-                  <a href="test.mp3">Test</a>
+                  <a href="test.mp3">Untitled Note (Click to Play)</a>
                   <div class="metadata">
                    <div class="duration">2:41</div> <!-- total track time (for positioning while loading, until determined -->
                    <ul>
@@ -87,6 +81,7 @@
                   </div>
                  </li>
             </div>
+            </span>
         </nav>
 
         <div class="note-span">
