@@ -61,7 +61,7 @@
         </nav>
         <!-- /.navbar-static-top -->
 
-        <nav class="navbar-toolbar" role="navigation" style="margin-bottom: 0; height: 100px">
+        <nav class="navbar-toolbar" role="navigation" style="margin-bottom: 0; height: 120px">
             <li class="divider"></li>
                 <button type="button" class="navbar-ctanote btn btn-default" onclick="" style="float:right; margin-top:15px">Add New Annotation</button>
             <span id="divtitle" style="display:inline">
