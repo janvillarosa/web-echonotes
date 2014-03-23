@@ -100,16 +100,14 @@ ul.playlist li .controls .statusbar .annotation span.bubble {
 
 ul.playlist li .controls .statusbar .annotation span {
  display:block;
- background:transparent url(image/divot.png) no-repeat 50% 0px;
+ background-color:#088960;
  width:15px;
  margin-left:-15px;
- height:12px;
+ height:25px;
  text-align:center;
 }
 
 ul.playlist li .controls .statusbar .annotation.alt {
- top:auto;
- bottom:0px;
 }
 
 ul.playlist li .controls .statusbar .annotation span:hover {
@@ -122,7 +120,10 @@ ul.playlist li .controls .statusbar .annotation.alt span:hover {
 }
 
 ul.playlist li .controls .statusbar .annotation.alt span {
- background:transparent url(image/divot-bottom.png) no-repeat 50% bottom;
+background-color:#088960;
+width:15px;
+margin-left:-15px;
+height:50px;
 }
 
 ul.playlist li .note {
