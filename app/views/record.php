@@ -64,7 +64,7 @@
 
         <nav class="navbar-toolbar" role="navigation" style="margin-bottom: 0; height: 65px">
             <li class="divider"></li>
-                <button type="button" class="navbar-play btn btn-default" onclick="toggleRecording(this)">Start Recording</button>
+                <button type="button" id = "recordButton" class="navbar-play btn btn-default" onclick="toggleRecording(this)">Start Recording</button>
             <span id="divtitle" style="display:inline">
                 <input id="title" placeholder="Untitled Note">
                 <div class="stopwatch" id="test-timer"></div>
