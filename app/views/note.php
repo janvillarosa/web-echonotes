@@ -46,13 +46,8 @@
 
 </head>
 
-<<<<<<< HEAD
 <body>
     <div id="wrapper">
-=======
-<body><?php echo $noteId;?>
-    <div id="wrapper" style="position: fixed">
->>>>>>> FETCH_HEAD
 
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
@@ -83,7 +78,7 @@
                 <div style="width:80%;">
                 <ul class="playlist" style = "height: 20px;">
                  <li>
-                  <a href="test.mp3">Untitled Note (Click to Play)</a>
+                  <a href="test.mp3">Note ID: <?php echo $noteId;?> (Click to Play)</a>
                   <div class="metadata">
                    <div class="duration">2:41</div> <!-- total track time (for positioning while loading, until determined -->
                    <ul>
