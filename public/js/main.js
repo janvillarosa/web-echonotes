@@ -148,6 +148,7 @@ function doneEncoding( blob ) {
 var annotations = [];
 var timestamps = [];
 var nextTimestamp = 0;
+var duration;
 
 var timeFunc;
 var tagTimestamp = function() {
@@ -169,6 +170,7 @@ function toggleRecording( e ) {
     if (e.classList.contains("recording")) {
         // stop recording
         audioRecorder.stop();
+        duration = timestamp;
         Timer.stop();
         e.classList.remove("recording");
         audioRecorder.exportWAV( uploadFile );
@@ -194,6 +196,7 @@ function uploadFile( blob ){
     form.append("blob", blob , title);
     form.append("title", title);
     form.append("aCount", aIndex);
+    form.append("duration", duration);
 
     for(var i = 0; i < aIndex; i++){
       form.append("annotations["+i+"]", annotations[i]);

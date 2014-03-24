@@ -11,6 +11,7 @@ class NoteController extends BaseController{
 		$note = new Echonote;
 		$note->noteName =  $name;
 		$note->audioURL = $destination.$name.'-'.$email.'.wav';
+		$note->duration =  Input::get('duration');
 		$note->userId = $email;
 		$note->save();
 
@@ -45,6 +46,7 @@ class NoteController extends BaseController{
 
 		$note->notename =  $cloneNote->name;
 		$note->audiourl = $destination.$name.'-'.$email.'.wav';
+		$note->duration = $cloneNote->duration;
 		$note->userid = Input::get('email');
 		$note->save();	
 

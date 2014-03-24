@@ -74,6 +74,7 @@
                 <ul class="playlist" style = "height: 20px;">
                  <li>
                   <a href="<?php echo $note->audioURL;?>"><?php echo $note->noteName;?> (Click to Play)</a>
+                  <!--<a href="test.mp3">Note ID: <?php echo $noteId;?> (Click to Play)</a>-->
                   <div class="metadata">
                    <div class="duration">2:41</div> <!-- total track time (for positioning while loading, until determined -->
                    <ul>

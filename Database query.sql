@@ -19,6 +19,7 @@ CREATE TABLE Echonotes(
 	noteId integer  NOT NULL AUTO_INCREMENT,
 	noteName char(255)  NOT NULL,
 	audioURL char(255)  NOT NULL,
+	duration integer NOT NULL,
 	userId char(64)  NOT NULL,
 	PRIMARY KEY (noteId),
 	FOREIGN KEY (userId)
