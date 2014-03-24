@@ -191,7 +191,6 @@ function uploadFile( blob ){
     var title = document.getElementById('title').value;
     form = new FormData(),
     request = new XMLHttpRequest();
-    alert(title);
     form.append("blob", blob , title);
     form.append("title", title);
     form.append("aCount", aIndex);
@@ -203,10 +202,12 @@ function uploadFile( blob ){
 
     form.append("aCount", aIndex);
 
-    /*$.ajax({
+    $.ajax({
                 url: "/record/upload",
                 type: 'POST',
-                data: $('form').serialize(),
+                processData: false,
+                contentType: false,
+                data: form,
                 success: function(msg) {
                   alert(msg);
                   window.location = "/";
@@ -216,9 +217,9 @@ function uploadFile( blob ){
                   alert(thrownError);
                   alert(xhr.responseText);
                 }
-    });*/
+    });
 
-    request.open(
+    /*request.open(
             "POST",
             "/record/upload",
             true
@@ -231,7 +232,7 @@ function uploadFile( blob ){
             alert(request.responseText);
             window.location = "/";
         }
-    }
+    }*/
 }
 
 function submitAnnotation(){
