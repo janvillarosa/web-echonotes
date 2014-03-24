@@ -28,7 +28,9 @@ var Stopwatch = function(elem, options) {
   
   // private functions
   function createTimer() {
-    return document.createElement("span");
+    var timer = document.createElement("span");
+    timer.id = "timer";
+    return timer;
   }
   
   function createButton(action, handler) {
@@ -64,7 +66,7 @@ var Stopwatch = function(elem, options) {
   }
   
   function render() {
-    timer.innerHTML = Math.floor(clock/1000); 
+    timer.innerHTML = getTime(Math.floor(clock),true); 
     timestamp = Math.floor(clock/1000);
   }
   
@@ -185,6 +187,7 @@ function toggleRecording( e ) {
         e.classList.add("recording");
         audioRecorder.clear();
         audioRecorder.record();
+        document.getElementById("recordButton").innerHTML = "Stop Recording";
     }
 }
 
@@ -238,10 +241,38 @@ function uploadFile( blob ){
     }*/
 }
 
+function getTime(nMSec, bAsString) {
+    // convert milliseconds to mm:ss, return as object literal or string
+    var nSec = Math.floor(nMSec/1000),
+        min = Math.floor(nSec/60),
+        sec = nSec-(min*60);
+    // if (min === 0 && sec === 0) return null; // return 0:00 as null
+    return (bAsString?(min+':'+(sec<10?'0'+sec:sec)):{'min':min,'sec':sec});
+};
+
+function createAnnotationCard(){
+
+    var card = document.createElement("li");
+    card.className = "annotation-grid-child";
+    var heading = document.createElement("div");
+    heading.className = "timeline-heading";
+    var body = document.createElement("div");
+    body.className = "annotation-body";
+    body.innerHTML = document.getElementById('edit').value;
+    heading.innerHTML = "Annotation " + aIndex +" ("+getTime(timestamp*1000,true)+")";
+    card.appendChild(heading);
+    card.appendChild(body);
+
+    document.getElementById("cardlist").appendChild(card);
+}
+
 function submitAnnotation(){
     annotations.push(document.getElementById('edit').value);
     timestamps.push(timestamp);
     aIndex = aIndex + 1;
+
+    createAnnotationCard();
+
     var cusid_ele = document.getElementsByClassName('froala-element f-basic');
     var item = cusid_ele[0];  
     item.innerHTML = '';

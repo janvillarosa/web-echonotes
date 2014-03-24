@@ -76,13 +76,27 @@
                   <a href="<?php echo $note->audioURL;?>"><?php echo $note->noteName;?> (Click to Play)</a>
                   <!--<a href="test.mp3">Note ID: <?php echo $noteId;?> (Click to Play)</a>-->
                   <div class="metadata">
-                   <div class="duration">2:41</div> <!-- total track time (for positioning while loading, until determined -->
+                   <div class="duration"><?php echo (floor($note->duration / 60));echo ":"; echo str_pad(($note->duration % 60), 2, "0", STR_PAD_LEFT);?></div> <!-- total track time (for positioning while loading, until determined -->
                    <ul>
-                    <li><p>Timed Annotation 1</p><span>0:40</span></li>
-                    <li><p>Timed Annotation 2</p><span>)0:59</span></li>
+                    <?php
+                        $annotations =  $note->textannotation()->get();
+                        $i = 1;
+                        foreach($annotations as $annotation){
+                            echo "<li><p> Timed Annotation ";
+                            echo $i;
+                            echo "</p><span>";
+                            echo (floor($annotation->timestamp / 60));
+                            echo ":"; 
+                            echo str_pad(($annotation->timestamp % 60), 2, "0", STR_PAD_LEFT);
+                            echo "</span></li>";
+                            $i++;
+                        }
+                    ?>
+                    <!--<li><p>Timed Annotation 1</p><span>0:40</span></li>
+                    <li><p>Timed Annotation 2</p><span>0:59</span></li>
                     <li><p>Timed Annotation 3</p><span>1:40</span></li>
                     <li><p>Timed Annotation 4</p><span>2:00</span></li>
-                    <li><p>Timed Annotation 5</p><span>2:20</span></li>
+                    <li><p>Timed Annotation 5</p><span>2:20</span></li>-->
                    </ul>
                   </div>
                  </li>

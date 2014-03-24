@@ -64,7 +64,7 @@
 
         <nav class="navbar-toolbar" role="navigation" style="margin-bottom: 0; height: 65px">
             <li class="divider"></li>
-                <button type="button" class="navbar-play btn btn-default" onclick="toggleRecording(this)">Start Recording</button>
+                <button type="button" id = "recordButton" class="navbar-play btn btn-default" onclick="toggleRecording(this)">Start Recording</button>
             <span id="divtitle" style="display:inline">
                 <input id="title" placeholder="Untitled Note">
                 <div class="stopwatch" id="test-timer"></div>
@@ -102,31 +102,7 @@
 
                     <div class="span5 spanNote">
                     <center>
-                    <ul>
-                        <li class = "annotation-grid-child">
-                            <div class="timeline-heading">
-                              <h4 class="annotation-title">Annotation 1 (0:40)</h4>
-                            </div>
-                            <div class="annotation-body">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed gravida ligula iaculis neque ornare vehicula. Suspendisse potenti. Nunc non porttitor massa, ac egestas felis. Sed pulvinar nibh et ornare pulvinar. Suspendisse varius sagittis mauris iaculis dictum. In est turpis, rhoncus id tristique et, consequat vel augue. Curabitur aliquet fermentum lacus sit amet congue.</p>
-                            </div>
-                        </li>
-                        <li class = "annotation-grid-child">
-                            <div class="timeline-heading">
-                                  <h4 class="annotation-title">Annotation 2 (0:50)</h4>
-                                </div>
-                                <div class="annotation-body">
-                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed gravida ligula iaculis neque ornare vehicula. Suspendisse potenti. Nunc non porttitor massa, ac egestas felis. Sed pulvinar nibh et ornare pulvinar. Suspendisse varius sagittis mauris iaculis dictum. In est turpis, rhoncus id tristique et, consequat vel augue. Curabitur aliquet fermentum lacus sit amet congue.</p>
-                                </div>
-                        </li>
-                        <li class = "annotation-grid-child">
-                            <div class="timeline-heading">
-                                  <h4 class="annotation-title">Annotation 3 (1:00)</h4>
-                                </div>
-                                <div class="annotation-body">
-                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed gravida ligula iaculis neque ornare vehicula. Suspendisse potenti. Nunc non porttitor massa, ac egestas felis. Sed pulvinar nibh et ornare pulvinar. Suspendisse varius sagittis mauris iaculis dictum. In est turpis, rhoncus id tristique et, consequat vel augue. Curabitur aliquet fermentum lacus sit amet congue.</p>
-                                </div>
-                        </li>
+                    <ul id = "cardlist">
                     </ul>
                 </center>
                 </div>

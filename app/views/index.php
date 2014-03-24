@@ -96,10 +96,6 @@
                     echo "</span></a></li>";
                 }
             ?>
-            <!--<li><a href="/note">
-                <img src="img/homepage/note-icon.png" alt="Generic placeholder image" height = "150" width = "150">
-                <span>Test Note</span><span>5 annotations</span>
-            </a></li>-->
 
         </ul>
     </div>
