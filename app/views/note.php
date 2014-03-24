@@ -39,10 +39,20 @@
     <script src="player/optional-page-player-metadata.js"></script>
     <!-- Sound Manager end -->
 
+    <?php
+        $note = Echonote::where('noteid','=', $noteId)->firstOrFail();
+        
+    ?>
+
 </head>
 
+<<<<<<< HEAD
 <body>
     <div id="wrapper">
+=======
+<body><?php echo $noteId;?>
+    <div id="wrapper" style="position: fixed">
+>>>>>>> FETCH_HEAD
 
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
