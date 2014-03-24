@@ -44,7 +44,6 @@
 <body>
 
     <div id="wrapper" style="position: fixed">
-
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
                 <a href="/" class="navbar-brand" style="color:white">
@@ -73,7 +72,6 @@
         </nav>
 
             <div class="note-span">
-                <div class="col-lg-8 row-textarea note-card">
                     <div class="panel panel-annotation" style = "position: relative;">
                         <div class="panel-body-note">
                           <div id="note-textarea">
@@ -100,7 +98,6 @@
                             <button type="button" class="btn btn-default" onclick="submitAnnotation()" style="right:10px">Submit</button>
                       </div>
                     </div>
-                </div>
               </div>
         </div>
     </div>

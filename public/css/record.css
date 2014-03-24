@@ -4,6 +4,7 @@
 
 body {
     background-color: #f8f8f8;
+    overflow: scroll;
 }
 
 /* Wrappers */
@@ -17,7 +18,6 @@ body {
 
 #page-wrapper {
     padding: 0 15px;
-    min-height: 568px;
     background-color: #fff;
 }
 
@@ -25,7 +25,6 @@ body {
     #page-wrapper {
         margin: 0 0 0 250px;
         padding: 0 30px;
-        min-height: 1300px;
         border-left: 1px solid #e7e7e7;
     }
 }
@@ -172,16 +171,25 @@ body {
     padding-right: 0px;
 }
 
+.navbar-panel-side{
+    margin-right:-115px;
+    vertical-align: middle;
+    float:right;
+}
+
+.navbar-sharelinks{
+    float:right;
+    font-size:16px;
+    margin-top:13px;
+    margin-right:5px;
+}
+
 .navbar-ctanote {
     background-color:#2ab1d8;
     font-size:16px;
     color:#ffffff;
-    margin-top:10px;
-    margin-right:-115px;
-    vertical-align: middle;
-    float:right;
     width: auto;
-    height:45px;
+    height:50px;
 }
 
 .navbar-play {
@@ -245,8 +253,9 @@ padding: 15px 29px;
 
 .note-span{
     margin-top: 8px;
-    height: 800px;
     width:100%;
+    height: 800px;
+    overflow:scroll;
 }
 
 .note-card{
@@ -290,11 +299,25 @@ padding: 15px 29px;
 }
 
 .panel-annotation{
-    height: 60%;
-    width:100%;
-    border: 1px;
-    box-shadow: 3px 3px 2px -1px rgba(0,0,0,.5);
-
+    height: 200px;
+    width:700px;
+    border: 2px;
+    box-shadow: 3px 3px 2px 0px rgba(0,0,0,.5);
+    margin: 20px auto;
+    font-family: "Roboto Slab", serif;
+}
+.annotation-grid-child{
+    height:200px;
+    width:350px;
+    background-color:#fff;
+    border: 2px;
+    border-radius: 3px;
+    box-shadow: 2px 2px 2px 0px rgba(0,0,0,.5);
+    font-family: "Roboto Slab", serif;
+    font-weight:lighter;
+    font-size: 25px;
+    padding: 10px 10px;
+    margin: 5px;
 }
 
 .panel-annotation > .panel-heading {
@@ -516,15 +539,21 @@ progress:after {
 /* Home Page */
 .span5{
     height: 100%;
-    padding-left: 40px;
-    padding-right: 20px;
     overflow: auto;
+    margin: 10px auto;
+    width:100%;
+    padding-left: 10%;
+    padding-right: 10%;
 }
-.span5 ul li {
-  list-style-type: none;
-  float: left;
-  padding: 0 10px 0 0;
-  text-align:center;
+.span5 ul{
+    list-style-type: none;
+    float:center;
+    margin: 0px auto;
+    text-align:center;
+}
+.span5 li {
+    list-style-type: none;
+    float:left;
 }
 
 .span5 span {
