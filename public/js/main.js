@@ -267,15 +267,14 @@ function createAnnotationCard(){
 }
 
 function submitAnnotation(){
-    var cusid_ele = document.getElementsByClassName('froala-element f-basic');
-    var item = cusid_ele[0];
-
-    annotations.push(item.innerHTML);
+    annotations.push(document.getElementById('edit').value);
     timestamps.push(timestamp);
     aIndex = aIndex + 1;
 
     createAnnotationCard();
 
+    var cusid_ele = document.getElementsByClassName('froala-element f-basic');
+    var item = cusid_ele[0];  
     item.innerHTML = '';
     timeFunc = tagTimestamp;
 }
