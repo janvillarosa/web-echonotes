@@ -35,19 +35,35 @@ class NoteController extends BaseController{
 		return Response::make('Uploaded as '.$filename);
 	}
 
-	function share($noteid, $email){
+	function share(){
 
 		$destination = 'upload/';
-		$note = Echonote::where('noteid','=',$noteid)->firstorfail();
-		$file = File::get($note->audiourl);
-
-		$file->copy($destination, $name.'.wav');
+		$cloneNote = Echonote::where('noteid','=', Input::get('noteid'))->firstorfail();
+		$file = File::get($cloneNote->audiourl);
 
 		$note = new Echonote;
 
-		$note->notename =  $name;
-		$note->audiourl = $destination.$name.'.wav';
-		$note->userid = $email;
+		$note->notename =  $cloneNote->name;
+		$note->audiourl = $destination.$name.'-'.$email.'.wav';
+		$note->userid = Input::get('email');
 		$note->save();	
+
+		$filename = $note->noteId.'-'.$note->name.'-'.$email.'.wav';
+
+		$file->copy($destination, $name.'.wav');
+
+		$note->audiourl = $destination.$filename;
+		$note->save();
+
+		$tAnnotations = Textannotation::where('noteid','=', $note->noteId)->get();
+
+		foreach($tAnnotations as $tAnno){
+			$annotation = new Textannotation;
+			$annotation->content = $tAnno->content;
+			$annotation->timestamp = $tAnno->timestamp;
+			$annotation->noteid = $note->noteId;
+			$annotation->save();
+        }
+
 	}
 }
