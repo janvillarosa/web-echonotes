@@ -196,6 +196,7 @@ function uploadFile( blob ){
     form.append("aCount", aIndex);
 
     for(var i = 0; i < aIndex; i++){
+      alert(annotations[i]);
       form.append("annotations["+i+"]", annotations[i]);
       form.append("timestamps["+i+"]", timestamps[i]);
     }
@@ -212,7 +213,7 @@ function uploadFile( blob ){
         if (request.readyState==4 && request.status==200)
         {
             alert(request.responseText);
-            location.reload();
+            window.location = "/";
         }
     }
 }

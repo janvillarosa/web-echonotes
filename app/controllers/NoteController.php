@@ -20,7 +20,7 @@ class NoteController extends BaseController{
 
 		$note->audiourl = $destination.$filename;
 		$note->save();
-
+		
 		$aCount = Input::get('aCount');
 
 		for($i=0; $i<$aCount; $i++){
