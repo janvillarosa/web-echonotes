@@ -10,7 +10,7 @@
 
     <link href="css/Framework/bootstrap.min.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
-    <link href="css/record.css" rel="stylesheet">
+    <link href="css/homepage.css" rel="stylesheet">
 
 </head>
 
@@ -101,6 +101,7 @@
             </a></li>-->
 
         </ul>
+    </div>
     </div>
     <script src="bootstrap.min.js"></script>
     <script src="holder.js"></script>    

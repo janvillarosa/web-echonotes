@@ -62,7 +62,13 @@
 
         <nav class="navbar-toolbar" role="navigation" style="margin-bottom: 0; height: 120px">
             <li class="divider"></li>
-                <button type="button" class="navbar-ctanote btn btn-default" onclick="" style="float:right; margin-top:15px">Add New Annotation</button>
+            <div class = "navbar-panel-side">
+                <button type="button" class="navbar-ctanote btn btn-default" onclick="" style="margin-top:15px;">Add New Annotation</button><br>
+                <span class = "navbar-sharelinks">
+                    <a href="" style="padding-right:5px; color:#2ab1d8;">Share</a>     
+                    <a href = "" style="padding-left:5px; color:#2ab1d8;">Delete</a>
+                </span>
+            </div>
             <span id="divtitle" style="display:inline">
                 <div style="width:80%;">
                 <ul class="playlist" style = "height: 20px;">
@@ -71,11 +77,11 @@
                   <div class="metadata">
                    <div class="duration">2:41</div> <!-- total track time (for positioning while loading, until determined -->
                    <ul>
-                    <li><p>Timed Annotation 1</p><span>0:20</span></li>
-                    <li><p>Timed Annotation 2</p><span>)0:50</span></li>
+                    <li><p>Timed Annotation 1</p><span>0:40</span></li>
+                    <li><p>Timed Annotation 2</p><span>)0:59</span></li>
                     <li><p>Timed Annotation 3</p><span>1:40</span></li>
                     <li><p>Timed Annotation 4</p><span>2:00</span></li>
-                    <li><p>Timed Annotation 4</p><span>2:20</span></li>
+                    <li><p>Timed Annotation 5</p><span>2:20</span></li>
                    </ul>
                   </div>
                  </li>
@@ -84,7 +90,6 @@
         </nav>
 
         <div class="note-span">
-                <div class="col-lg-8 row-textarea note-card">
                     <div class="panel panel-annotation" style = "position: relative;">
                         <div class="panel-body-note">
                           <div id="note-textarea" style="margin: 20px 20px">
@@ -106,6 +111,30 @@
                             <button type="button" class="btn btn-default" onclick="submitAnnotation()" style="right:10px">Edit Annotation</button>
                       </div>
                     </div>
+                <div class="span5 spanNote">
+                    <center>
+                    <ul>
+                        <li class = "annotation-grid-child" style="height:410px;">
+                            <div style = "text-align: left;">Hello World. Lorem Ipsum.</div>
+                        </li>
+                        <li class = "annotation-grid-child">
+                            <div style = "text-align: left;">Lorem Ipsum dolor sit amet blah blah.</div>
+                        </li>
+                        <li class = "annotation-grid-child">
+                            <div style = "text-align: left;">Echonotes - note taking reimagined.</div>
+                        </li>
+                        <li class = "annotation-grid-child" style="height:410px;">
+                            <div style = "text-align: left;">Test Annotation 1</div>
+                        </li>
+                        <li class = "annotation-grid-child">
+                            <div style = "text-align: left;">Test Annotation 2</div>
+                        </li>
+                        <li class = "annotation-grid-child">
+                            <div style = "text-align: left;">Test Annotation 3</div>
+                        </li>
+
+                    </ul>
+                </center>
                 </div>
               </div>
     </div>
