@@ -13,12 +13,12 @@
     <link href="css/froala_editor.min.css" rel="stylesheet">
 
     <!-- Page Level CSS - Include with every page -->
-    <link href="css/record.css" rel="stylesheet">
+    <link href="css/note.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
 
     <!-- SB Admin CSS - Include with every page -->
     <link href="css/sb-admin.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/demo.css" />
+    <link rel="stylesheet" type="text/css" href="css/timeline.css" />
     <link rel="stylesheet" type="text/css" href="css/style.css" />
 
     <!-- Sound Manager -->
@@ -89,7 +89,7 @@
             </span>
         </nav>
 
-        <div class="note-span">
+        <div id ="page-wrapper">
                     <div class="panel panel-annotation" style = "position: relative;">
                         <div class="panel-body-note">
                           <div id="note-textarea" style="margin: 20px 20px">
@@ -111,31 +111,138 @@
                             <button type="button" class="btn btn-default" onclick="submitAnnotation()" style="right:10px">Edit Annotation</button>
                       </div>
                     </div>
-                <div class="span5 spanNote">
-                    <center>
-                    <ul>
-                        <li class = "annotation-grid-child" style="height:410px;">
-                            <div style = "text-align: left;">Hello World. Lorem Ipsum.</div>
-                        </li>
-                        <li class = "annotation-grid-child">
-                            <div style = "text-align: left;">Lorem Ipsum dolor sit amet blah blah.</div>
-                        </li>
-                        <li class = "annotation-grid-child">
-                            <div style = "text-align: left;">Echonotes - note taking reimagined.</div>
-                        </li>
-                        <li class = "annotation-grid-child" style="height:410px;">
-                            <div style = "text-align: left;">Test Annotation 1</div>
-                        </li>
-                        <li class = "annotation-grid-child">
-                            <div style = "text-align: left;">Test Annotation 2</div>
-                        </li>
-                        <li class = "annotation-grid-child">
-                            <div style = "text-align: left;">Test Annotation 3</div>
-                        </li>
-
-                    </ul>
-                </center>
-                </div>
+                <ul class="timeline">
+                                <li>
+                                    <div class="timeline-badge info"><i class="fa fa-clock-o"></i>
+                                    </div>
+                                    <div class="timeline-panel">
+                                        <div class="timeline-heading">
+                                            <h4 class="timeline-title">Annotation 1 (0:40)</h4>
+                                        </div>
+                                        <div class="timeline-body">
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed gravida ligula iaculis neque ornare vehicula. Suspendisse potenti. Nunc non porttitor massa, ac egestas felis. Sed pulvinar nibh et ornare pulvinar. Suspendisse varius sagittis mauris iaculis dictum. In est turpis, rhoncus id tristique et, consequat vel augue. Curabitur aliquet fermentum lacus sit amet congue.</p>
+                                            <hr>
+                                            <div class="btn-group">
+                                                <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">
+                                                    <i class="fa fa-cog"></i> 
+                                                    <span class="caret"></span>
+                                                </button>
+                                                <ul class="dropdown-menu" role="menu">
+                                                    <li><a href="#">Edit Annotation</a>
+                                                    </li>
+                                                    <li class="divider"></li>
+                                                    <li><a href="#">Delete Annotation</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class = "timeline-inverted">
+                                    <div class="timeline-badge info"><i class="fa fa-clock-o"></i>
+                                    </div>
+                                    <div class="timeline-panel">
+                                        <div class="timeline-heading">
+                                            <h4 class="timeline-title">Annotation 2 (0:59)</h4>
+                                        </div>
+                                        <div class="timeline-body">
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel justo eu mi scelerisque vulputate. Aliquam in metus eu lectus aliquet egestas.</p>
+                                            <hr>
+                                            <div class="btn-group">
+                                                <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">
+                                                    <i class="fa fa-cog"></i> 
+                                                    <span class="caret"></span>
+                                                </button>
+                                                <ul class="dropdown-menu" role="menu">
+                                                    <li><a href="#">Edit Annotation</a>
+                                                    </li>
+                                                    <li class="divider"></li>
+                                                    <li><a href="#">Delete Annotation</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="timeline-badge info"><i class="fa fa-clock-o"></i>
+                                    </div>
+                                    <div class="timeline-panel">
+                                        <div class="timeline-heading">
+                                            <h4 class="timeline-title">Annotation 3 (1:40)</h4>
+                                        </div>
+                                        <div class="timeline-body">
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel justo eu mi scelerisque vulputate. Aliquam in metus eu lectus aliquet egestas.</p>
+                                            <hr>
+                                            <div class="btn-group">
+                                                <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">
+                                                    <i class="fa fa-cog"></i> 
+                                                    <span class="caret"></span>
+                                                </button>
+                                                <ul class="dropdown-menu" role="menu">
+                                                    <li><a href="#">Edit Annotation</a>
+                                                    </li>
+                                                    <li class="divider"></li>
+                                                    <li><a href="#">Delete Annotation</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class = "timeline-inverted">
+                                    <div class="timeline-badge info"><i class="fa fa-clock-o"></i>
+                                    </div>
+                                    <div class="timeline-panel">
+                                        <div class="timeline-heading">
+                                            <h4 class="timeline-title">Annotation 4 (2:00)</h4>
+                                        </div>
+                                        <div class="timeline-body">
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed gravida ligula iaculis neque ornare vehicula. Suspendisse potenti. Nunc non porttitor massa, ac egestas felis. Sed pulvinar nibh et ornare pulvinar. Suspendisse varius sagittis mauris iaculis dictum. In est turpis, rhoncus id tristique et, consequat vel augue. Curabitur aliquet fermentum lacus sit amet congue.</p>
+                                            <hr>
+                                            <div class="btn-group">
+                                                <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">
+                                                    <i class="fa fa-cog"></i> 
+                                                    <span class="caret"></span>
+                                                </button>
+                                                <ul class="dropdown-menu" role="menu">
+                                                    <li><a href="#">Edit Annotation</a>
+                                                    </li>
+                                                    <li class="divider"></li>
+                                                    <li><a href="#">Delete Annotation</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="timeline-badge info"><i class="fa fa-clock-o"></i>
+                                    </div>
+                                    <div class="timeline-panel">
+                                        <div class="timeline-heading">
+                                            <h4 class="timeline-title">Annotation 5 (2:20)</h4>
+                                        </div>
+                                        <div class="timeline-body">
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel justo eu mi scelerisque vulputate. Aliquam in metus eu lectus aliquet egestas.</p>
+                                            <hr>
+                                            <div class="btn-group">
+                                                <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">
+                                                    <i class="fa fa-cog"></i> 
+                                                    <span class="caret"></span>
+                                                </button>
+                                                <ul class="dropdown-menu" role="menu">
+                                                    <li><a href="#">Edit Annotation</a>
+                                                    </li>
+                                                    <li class="divider"></li>
+                                                    <li><a href="#">Delete Annotation</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
               </div>
     </div>
 
