@@ -218,10 +218,29 @@ function uploadFile( blob ){
     }
 }
 
+function createAnnotationCard(){
+
+    var card = document.createElement("li");
+    card.className = "annotation-grid-child";
+    var heading = document.createElement("div");
+    heading.className = "timeline-heading";
+    var body = document.createElement("div");
+    body.className = "annotation-body";
+    body.innerHTML = document.getElementById('edit').value;
+    heading.innerHTML = "Annotation " + aIndex;
+    card.appendChild(heading);
+    card.appendChild(body);
+
+    document.getElementById("cardlist").appendChild(card);
+}
+
 function submitAnnotation(){
     annotations.push(document.getElementById('edit').value);
     timestamps.push(timestamp);
     aIndex = aIndex + 1;
+
+    createAnnotationCard();
+
     var cusid_ele = document.getElementsByClassName('froala-element f-basic');
     var item = cusid_ele[0];  
     item.innerHTML = '';
