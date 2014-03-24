@@ -11,4 +11,8 @@ class Echonote extends Eloquent {
 	protected $primaryKey = 'noteId';
 	public $timestamps = false;
 
+	public function textannotation(){
+		return $this->hasMany('Textannotation', 'noteId');
+	}
+
 }
