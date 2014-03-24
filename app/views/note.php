@@ -38,7 +38,7 @@
     <script src="player/page-player.js"></script>
     <script src="player/optional-page-player-metadata.js"></script>
     <!-- Sound Manager end -->
-
+    <?php $note = Echonote::where('noteId', '=', $noteId)->firstOrFail();?>
 </head>
 
 <body>
@@ -73,7 +73,7 @@
                 <div style="width:80%;">
                 <ul class="playlist" style = "height: 20px;">
                  <li>
-                  <a href="test.mp3">Untitled Note (Click to Play)</a>
+                  <a href="test.mp3"><?php echo $note->noteName;?> (Click to Play)</a>
                   <div class="metadata">
                    <div class="duration">2:41</div> <!-- total track time (for positioning while loading, until determined -->
                    <ul>
