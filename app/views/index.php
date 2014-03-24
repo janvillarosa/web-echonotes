@@ -16,7 +16,7 @@
 
 <body>
 
-    <div id="wrapper" style="position: fixed">
+    <div id="wrapper">
 
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
@@ -25,7 +25,7 @@
 
             <ul class="nav navbar-top-links navbar-right">
                 <li class="dropdown" style = "padding:0 15px 0 0; margin-top:0px; height: 50px">
-                    <a class="user-toggle" href="/logout" style = "padding:15px; height: 50px">
+                    <a class="user-toggle" href="/logout" style = "padding:15px; height: 50px; font-size:14px">
                         Hi, <?php echo Auth::user()->name; ?>
                     </a>
                 </li>
