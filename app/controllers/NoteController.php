@@ -5,13 +5,13 @@ class NoteController extends BaseController{
 	function upload(){
 		$email = Auth::user()->email;
 		$file = Input::file('blob');
-		$name = Input::input('title');
+		$name = $file->getClientOriginalName();
 		$destination = 'upload/';
 
 		$note = new Echonote;
-		$note->notename =  $name;
-		$note->audiourl = $destination.$name.'-'.$email.'.wav';
-		$note->userid = $email;
+		$note->noteName =  $name;
+		$note->audioURL = $destination.$name.'-'.$email.'.wav';
+		$note->userId = $email;
 		$note->save();
 
 		$filename = $note->noteId.'-'.$name.'-'.$email.'.wav';

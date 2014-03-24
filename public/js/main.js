@@ -191,17 +191,33 @@ function uploadFile( blob ){
     var title = document.getElementById('title').value;
     form = new FormData(),
     request = new XMLHttpRequest();
+    alert(title);
     form.append("blob", blob , title);
     form.append("title", title);
     form.append("aCount", aIndex);
 
     for(var i = 0; i < aIndex; i++){
-      alert(annotations[i]);
       form.append("annotations["+i+"]", annotations[i]);
       form.append("timestamps["+i+"]", timestamps[i]);
     }
 
     form.append("aCount", aIndex);
+
+    /*$.ajax({
+                url: "/record/upload",
+                type: 'POST',
+                data: $('form').serialize(),
+                success: function(msg) {
+                  alert(msg);
+                  window.location = "/";
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                  alert(xhr.status);
+                  alert(thrownError);
+                  alert(xhr.responseText);
+                }
+    });*/
+
     request.open(
             "POST",
             "/record/upload",
