@@ -91,7 +91,8 @@
                     echo '"><img src="img/homepage/note-icon.png" alt="Generic placeholder image" height = "150" width = "150"><span>';
                     echo $note->noteName;
                     echo "</span><span>";
-                    echo "? annotations";//<==COUNT ANNOTATIONS HERE(WIP)
+                    echo $note->textannotation()->count();
+                    echo " annotations";//<==COUNT ANNOTATIONS HERE(WIP)
                     echo "</span></a></li>";
                 }
             ?>

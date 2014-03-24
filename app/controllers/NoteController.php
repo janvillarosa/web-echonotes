@@ -38,7 +38,7 @@ class NoteController extends BaseController{
 	function share(){
 
 		$destination = 'upload/';
-		$cloneNote = Echonote::where('noteid','=', Input::get('noteid'))->firstorfail();
+		$cloneNote = Echonote::where('noteid','=', Input::get('noteid'))->firstOrFail();
 		$file = File::get($cloneNote->audiourl);
 
 		$note = new Echonote;

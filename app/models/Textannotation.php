@@ -11,4 +11,5 @@ class Textannotation extends Eloquent {
 	protected $primaryKey = 'annotationId';
 	public $timestamps = false;
 
+	
 }
