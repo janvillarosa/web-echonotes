@@ -42,7 +42,7 @@
 </head>
 
 <body>
-    <div id="wrapper">
+    <div id="wrapper" style="position: fixed">
 
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
@@ -127,39 +127,6 @@
                       </div>
                     </div>
                 <ul class="timeline">
-                    <?php
-                        $i = 1;
-                        foreach($annotations as $annotation){
-                            if($i % 2 == 1){echo    '<li>';}else{echo '<li class = "timeline-inverted">';}
-                                echo    '<div class="timeline-badge info"><i class="fa fa-clock-o"></i>
-                                        </div>
-                                        <div class="timeline-panel">
-                                            <div class="timeline-heading">
-                                                <h4 class="timeline-title">Annotation ';echo $i; echo '('; echo (floor($annotation->timestamp / 60));echo ":"; echo str_pad(($annotation->timestamp % 60), 2, "0", STR_PAD_LEFT);; echo ')</h4>
-                                            </div>
-                                            <div class="timeline-body">';
-                                                echo $annotation->content;
-                                        echo    '<hr>
-                                                <div class="btn-group">
-                                                    <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">
-                                                        <i class="fa fa-cog"></i> 
-                                                        <span class="caret"></span>
-                                                    </button>
-                                                    <ul class="dropdown-menu" role="menu">
-                                                        <li><a href="#">Edit Annotation</a>
-                                                        </li>
-                                                        <li class="divider"></li>
-                                                        <li><a href="#">Delete Annotation</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>';
-                            $i++;
-                        }
-                    ?>
-                    <!--
                                 <li>
                                     <div class="timeline-badge info"><i class="fa fa-clock-o"></i>
                                     </div>
@@ -290,7 +257,6 @@
                                         </div>
                                     </div>
                                 </li>
-                                -->
                             </ul>
               </div>
     </div>
