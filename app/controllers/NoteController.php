@@ -36,6 +36,21 @@ class NoteController extends BaseController{
 		return Response::make('Uploaded as '.$filename);
 	}
 
+	function delete(){
+		$file = Echonote::where('noteid','=', Input::get('noteid'))->firstOrFail();
+
+		$annotations = $file->textannotation()->get();
+		foreach ($annotations as $annotation){
+			$annotation->delete();
+		}
+
+		$file->delete();
+		
+		
+		return Response::make($file->noteName.' deleted');
+	}
+
+
 	function share(){
 
 		$destination = 'upload/';
