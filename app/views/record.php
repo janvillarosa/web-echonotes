@@ -179,6 +179,7 @@
         <script src="js/froala_editor.min.js"></script>
         <!--Main JS-->
         <script src="js/main.js"></script>
+        <script src="js/recorder.js"></script>
 
         <script>
             $(function(){
