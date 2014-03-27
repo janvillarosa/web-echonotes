@@ -1,5 +1,5 @@
 /*CREATE/RECREATE DB*/
-CREATE DATABASE IF NOT EXISTS echonotes;
+CREATE DATABASE IF NOT EXISTS echonotes DEFAULT CHARACTER SET utf8;
 USE echonotes;
 
 DROP TABLE IF EXISTS Tags;
@@ -38,9 +38,9 @@ CREATE TABLE TextAnnotations(
 
 
 CREATE TABLE ImageAnnotations(
-	annotationId integer NOT NULL,
+	annotationId integer NOT NULL AUTO_INCREMENT,
 	timestamp integer NOT NULL,
-	imageBlob longblob NOT NULL,
+	imageURL char(255) NOT NULL,
 	noteId integer NOT NULL,
 	PRIMARY KEY (annotationId),
 	FOREIGN KEY (noteId)
@@ -48,11 +48,22 @@ CREATE TABLE ImageAnnotations(
 );
 
 CREATE TABLE Tags(
-	tagId integer NOT NULL,
 	tagName char(255) NOT NULL,
 	color char(64) NOT NULL,
-	noteId integer NOT NULL,
-	PRIMARY KEY (tagId),
+	PRIMARY KEY (tagName, color),
 	FOREIGN KEY (noteId)
 		REFERENCES Echonotes (noteId)
+);
+
+CREATE TABLE Echonote_Tag(
+	noteId integer NOT NULL,
+	tagName tagName char(255) NOT NULL,
+	color char(64) NOT NULL,
+	PRIMARY KEY (noteId, tagName, color),
+	FOREIGN KEY (noteId)
+		REFERENCES Echonotes (noteId),
+	FOREIGN KEY (tagName)
+		REFERENCES Tags (tagName),
+	FOREIGN KEY (color)
+		REFERENCES Tags (color)
 );

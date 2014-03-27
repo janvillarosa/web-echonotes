@@ -27,6 +27,8 @@ class NoteController extends BaseController{
 		for($i=0; $i<$aCount; $i++){
 			$str = (string)$i;
 			$annotation = new Textannotation;
+			$aStr =Input::get('annotations.'.$str);
+			$aStr[4] = '';
 			$annotation->content = Input::get('annotations.'.$str);
 			$annotation->timestamp = Input::get('timestamps.'.$str);
 			$annotation->noteid = $note->noteId;
@@ -45,8 +47,7 @@ class NoteController extends BaseController{
 		}
 
 		$file->delete();
-		
-		
+				
 		return Response::make($file->noteName.' deleted');
 	}
 
