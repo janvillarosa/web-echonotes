@@ -50,7 +50,7 @@ class NoteController extends BaseController{
 		$note->userid = Input::get('email');
 		$note->save();	
 
-		$filename = $note->noteId.'-'.$note->name.'-'.$email.'.wav';
+		$filename = $note->noteId.'-'.$note->name.'-'.$note->userid.'.wav';
 
 		$file->copy($destination, $name.'.wav');
 
