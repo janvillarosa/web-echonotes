@@ -62,4 +62,3 @@ Route::get('/imagetest', function()
 Route::post('/note/share', 'NoteController@share');
 
 Route::post('note/delete', 'NoteController@delete');
-
