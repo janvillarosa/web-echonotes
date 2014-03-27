@@ -11,6 +11,7 @@ class NoteController extends BaseController{
 		$note = new Echonote;
 		$note->noteName =  $name;
 		$note->audioURL = $destination.$name.'-'.$email.'.wav';
+		$note->duration =  Input::get('duration');
 		$note->userId = $email;
 		$note->save();
 
@@ -35,6 +36,21 @@ class NoteController extends BaseController{
 		return Response::make('Uploaded as '.$filename);
 	}
 
+	function delete(){
+		$file = Echonote::where('noteid','=', Input::get('noteid'))->firstOrFail();
+
+		$annotations = $file->textannotation()->get();
+		foreach ($annotations as $annotation){
+			$annotation->delete();
+		}
+
+		$file->delete();
+		
+		
+		return Response::make($file->noteName.' deleted');
+	}
+
+
 	function share(){
 
 		$destination = 'upload/';
@@ -45,10 +61,11 @@ class NoteController extends BaseController{
 
 		$note->notename =  $cloneNote->name;
 		$note->audiourl = $destination.$name.'-'.$email.'.wav';
+		$note->duration = $cloneNote->duration;
 		$note->userid = Input::get('email');
 		$note->save();	
 
-		$filename = $note->noteId.'-'.$note->name.'-'.$email.'.wav';
+		$filename = $note->noteId.'-'.$note->name.'-'.$note->userid.'.wav';
 
 		$file->copy($destination, $name.'.wav');
 
