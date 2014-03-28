@@ -169,46 +169,36 @@
                 <!-- Main content -->
                 <section class="content">
                     <div class="row">
-                        <div class="col-md-4">
-                            <!-- Info box -->
-                            <a href = "/note">
-                                <div class="box box-info">
+                        <?php
+                            
+                            $notes = Echonote::where('userid','=',Auth::user()->email)->get();
+                            foreach($notes as $note){
+                                echo '<div class="col-md-4">
+                                            <a href = "/';
+                                echo  $note->noteId;
+                                echo '"><div class="box box-info">
                                     <div class="box-header">
-                                        <h1 class="box-title" style = "font-size:25px">Mom's interview</h1>
+                                        <h1 class="box-title" style = "font-size:25px">';
+                                echo $note->noteName;
+                                echo '</h1>
                                         <div class="box-tools pull-right">
                                             <div class="label bg-aqua">Home</div>
                                         </div>
                                     </div>
-                                    <div class="box-body" style = "font-size:18px; color:#444;">
-                                        3 annotations<br>
+                                    <div class="box-body" style = "font-size:18px; color:#444;">';
+                                echo $note->textannotation()->count();
+                                echo " annotations";//<==COUNT ANNOTATIONS HERE(WIP)
+                                echo '<br>
                                         <b>Duration: </b>45:15
-                                    </div><!-- /.box-body -->
+                                    </div>
                                     <div class="box-footer" style = "color:#444;">
                                         Modified on 12/12/14
-                                    </div><!-- /.box-footer-->
-                                </div><!-- /.box -->
-                            </a>
-                        </div><!-- /.col -->
-                        <div class="col-md-4">
-                            <!-- Info box -->
-                            <a href = "/note">
-                                <div class="box box-success">
-                                    <div class="box-header">
-                                        <h1 class="box-title" style = "font-size:25px ">All Hands Meeting</h1>
-                                        <div class="box-tools pull-right">
-                                            <div class="label bg-green">Work</div>
-                                        </div>
                                     </div>
-                                    <div class="box-body" style = "font-size:18px; color:#444;">
-                                        16 annotations<br>
-                                        <b>Duration: </b>30:00
-                                    </div><!-- /.box-body -->
-                                    <div class="box-footer" style = "color:#444;">
-                                        Modified on 12/10/14
-                                    </div><!-- /.box-footer-->
-                                </div><!-- /.box -->
-                            </a>
-                        </div><!-- /.col -->
+                                </div>
+                                </a>
+                            </div>';
+                            }
+                        ?>
                     </div>
                 </section><!-- /.content -->
             </aside><!-- /.right-side -->

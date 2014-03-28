@@ -2,7 +2,8 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>All Hands Meeting - Echonotes</title>
+        <?php $note = Echonote::where('noteId', '=', $noteId)->firstOrFail();?>
+        <title><?php echo $note->noteName;?> - Echonotes</title>
         <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
         <!-- bootstrap 3.0.2 -->
         <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -147,8 +148,8 @@
                 <!-- Content Header (Page header) -->
                 <section class="content-header" style = "height:85px">
                     <h1 style = "padding-bottom: 5px">
-                        All Hands Meeting
-                        <small>16 annotations</small>
+                        <?php echo $note->noteName;?>
+                        <small><?php echo $note->textannotation()->count();?> annotations</small>
                     </h1>
                     <input type="text" value="" class="slider form-control" data-slider-min="0" data-slider-max="500" data-slider-step="5" data-slider-value="20" data-slider-orientation="horizontal" data-slider-selection="before" data-slider-tooltip="show" data-slider-id="blue"/>
                 </section>
