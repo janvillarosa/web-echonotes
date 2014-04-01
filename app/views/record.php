@@ -149,7 +149,7 @@
                                 </div>
                                 <div class="box-footer" style = "height:35px">
                                     <div class="pull-left box-tools">
-                                        <button class="btn btn-default" data-widget='remove' data-toggle="tooltip" title="Remove"><i class="fa fa-picture-o"></i> Add Image</button>
+                                        <button class="btn btn-default" data-widget='remove' data-toggle="modal" data-target="#image-modal" title="Remove"><i class="fa fa-picture-o"></i> Add Image</button>
                                     </div>
                                     <!-- tools box -->
                                     <div class="pull-right box-tools">
@@ -161,6 +161,18 @@
                             </div>
                         </div>
                     </div>
+
+            <div class="modal fade" id="image-modal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title"><i class="fa fa-share-square-o"></i>Upload an Image</h4>
+                    </div>
+                </div>
+            </div>
+
+
                 </section><!-- /.content -->
             </aside><!-- /.right-side -->
             <a href="#" class="btn btn-default focusmode-toggle" data-toggle="offcanvas" role="button">
