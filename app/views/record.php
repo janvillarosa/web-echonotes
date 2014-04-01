@@ -136,7 +136,7 @@
             <aside class="right-side">                
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
-                    <input class="form-control input-lg" type="text" placeholder="Untitled Note" style = "height:60px; font-size:32px;"></input>
+                    <input id="title" class="form-control input-lg" type="text" placeholder="Untitled Note" style = "height:60px; font-size:32px;"></input>
                 </section>
 
                 <!-- Main content -->

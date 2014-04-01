@@ -187,13 +187,13 @@
                                     </div>
                                     <div class="box-body" style = "font-size:18px; color:#444;">';
                                 echo $note->textannotation()->count();
-                                echo " annotations";//<==COUNT ANNOTATIONS HERE(WIP)
+                                echo " annotations";
                                 echo '<br>
-                                        <b>Duration: </b>45:15
-                                    </div>
+                                        <b>Duration: </b>';echo (floor($note->duration / 60));echo ":"; echo str_pad(($note->duration % 60), 2, "0", STR_PAD_LEFT);
+                                echo    '</div>
                                     <div class="box-footer" style = "color:#444;">
-                                        Modified on 12/12/14
-                                    </div>
+                                        Modified on '; echo $note->updated_at;
+                                echo '</div>
                                 </div>
                                 </a>
                             </div>';

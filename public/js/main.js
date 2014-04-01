@@ -224,21 +224,6 @@ function uploadFile( blob ){
                   alert(xhr.responseText);
                 }
     });
-
-    /*request.open(
-            "POST",
-            "/record/upload",
-            true
-        );
-    request.send(form);
-
-    request.onreadystatechange=function(){
-        if (request.readyState==4 && request.status==200)
-        {
-            alert(request.responseText);
-            window.location = "/";
-        }
-    }*/
 }
 
 function getTime(nMSec, bAsString) {

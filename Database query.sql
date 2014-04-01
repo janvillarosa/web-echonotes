@@ -21,6 +21,8 @@ CREATE TABLE Echonotes(
 	audioURL char(255)  NOT NULL,
 	duration integer NOT NULL,
 	userId char(64)  NOT NULL,
+	created_at date NOT NULL,
+	updated_at date NOT NULL,
 	PRIMARY KEY (noteId),
 	FOREIGN KEY (userId)
 		REFERENCES Users(email)
@@ -50,20 +52,21 @@ CREATE TABLE ImageAnnotations(
 CREATE TABLE Tags(
 	tagName char(255) NOT NULL,
 	color char(64) NOT NULL,
+	noteId integer NOT NULL,
 	PRIMARY KEY (tagName, color),
 	FOREIGN KEY (noteId)
 		REFERENCES Echonotes (noteId)
 );
 
-CREATE TABLE Echonote_Tag(
-	noteId integer NOT NULL,
-	tagName tagName char(255) NOT NULL,
-	color char(64) NOT NULL,
-	PRIMARY KEY (noteId, tagName, color),
-	FOREIGN KEY (noteId)
-		REFERENCES Echonotes (noteId),
-	FOREIGN KEY (tagName)
-		REFERENCES Tags (tagName),
-	FOREIGN KEY (color)
-		REFERENCES Tags (color)
-);
+-- CREATE TABLE Echonote_Tag(
+-- 	noteId integer NOT NULL,
+-- 	tagName char(255) NOT NULL,
+-- 	color char(64) NOT NULL,
+-- 	PRIMARY KEY (noteId, tagName, color),
+-- 	FOREIGN KEY (noteId)
+-- 		REFERENCES Echonotes (noteId),
+-- 	FOREIGN KEY (tagName)
+-- 		REFERENCES Tags (tagName),
+-- 	FOREIGN KEY (color)
+-- 		REFERENCES Tags (color)
+-- );
