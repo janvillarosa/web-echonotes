@@ -152,11 +152,6 @@
           var image = new Image();
           image.src = event.target.result;
           image.width = 400; // a fake resize
-          // if(holder.hasChildNodes()){
-          //   holder.replaceChild(holder.lastChild, image);
-          // } else {
-          //   holder.appendChild(image);
-          // }
 
           if(holder.hasChildNodes()){
             holder.removeChild(holder.lastChild);
