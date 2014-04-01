@@ -252,18 +252,28 @@ function getTime(nMSec, bAsString) {
 
 function createAnnotationCard(){
 
-    var card = document.createElement("li");
-    card.className = "annotation-grid-child";
+    var card = document.createElement("div");
+    card.className = "box box-default";
     var heading = document.createElement("div");
-    heading.className = "timeline-heading";
+    heading.className = "box-header";
     var body = document.createElement("div");
-    body.className = "annotation-body";
-    body.innerHTML = document.getElementById('edit').value;
-    heading.innerHTML = "Annotation " + aIndex +" ("+getTime(timestamp*1000,true)+")";
+    body.className = "box-footer";
+    var content = document.createElement("div");
+    content.className = "box-body annotation-body";
+
+    content.innerHTML = document.getElementById('edit').value;
+    heading.innerHTML = "<h1 class='box-title annotation-title'>Annotation " +aIndex +"</h1>" + "<div class='box-tools pull-right'><div class='time-label'><i class='fa fa-clock-o'></i> "+ getTime(timestamp*1000,true) + "</div>";
+    body.appendChild(content);
     card.appendChild(heading);
     card.appendChild(body);
 
-    document.getElementById("cardlist").appendChild(card);
+    document.getElementById("notelist").appendChild(card);
+}
+
+function removeNotification(){
+  document.getElementById("notifs").innerHTML = "";
+  document.getElementById("notifs-head").innerHTML = "You have no new notifications";
+  document.getElementById("notif-bage").innerHTML = "";
 }
 
 function submitAnnotation(){
