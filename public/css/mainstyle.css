@@ -2765,3 +2765,82 @@ Component: timeline
 .pace-inactive {
   display: none;
 }
+
+/* Drag and Drop Image Annotations */
+
+/*#note-imagearea{
+    margin-left: 20px;
+    margin-right: 20px;
+    position: absolute;
+    height: 100%;
+    width: 96.75%;
+    visibility: hidden;
+}*/
+
+#holder { 
+    margin-left: auto;
+    margin-right: auto;
+    border: 6px dashed #999;
+    width: 80%;
+    height: 200px;
+    line-height: 200px;
+    min-height: 50px;
+    margin: auto;
+    text-align: center;
+    vertical-align: bottom;
+}
+
+#holder.hover { 
+    border: 6px dashed #13a37f; 
+}
+
+#holder img {
+    display: block;
+    margin: auto;
+}
+
+#holder span {
+  font-size: 20px;
+  margin: auto;
+  display: block;
+  vertical-align: middle;
+  line-height: normal;
+  font-weight: bold;
+  color: #ccc;    
+}
+
+
+#holder #plus{
+  margin-top: 8%;
+  font-size: 80px;
+}
+
+#holder p {
+  margin-top: auto;
+  margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 24px;
+}
+
+progress {
+    width: 100%;
+}
+
+progress:after {
+    content: '%';
+}
+
+.fail {
+    background: #c00;
+    padding: 2px;
+    color: #fff;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.image-div {
+  text-align: center;
+}

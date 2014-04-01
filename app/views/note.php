@@ -241,7 +241,7 @@
                         <h4 class="modal-title"><i class="fa fa-share-square-o"></i> Share this Note</h4>
                     </div>
                     <form action="#" method="post">
-                        <div class="modal-body">
+                        <div class="modal-body image-div">
                             <p>Share this note to a friend. The note will be duplicated for the recipient.</p>
                             <div class="form-group">
                                 <div class="input-group">

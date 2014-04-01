@@ -371,7 +371,7 @@ padding: 15px 29px;
 }
 
 #holder { 
-    border: 6px dashed #ccc;
+    border: 6px dashed #777;
     width: 80%;
     min-height: 50px;
     margin-top: 40px;
@@ -390,6 +390,7 @@ padding: 15px 29px;
 #holder p {
     margin: 10px;
     font-size: 14px;
+    color: #ccc;
 }
 
 progress {
