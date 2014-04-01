@@ -136,8 +136,8 @@
                         <li style="margin-left:15px"><a><input type="checkbox" class="minimal"/>  Miscellaneous</a></li>
                     </ul>
                     <div class="user-panel">
-                        <button class = "btn-warning btn">Share Note</button>
-                        <button class = "btn-danger btn">Delete Note</button>
+                        <button class = "btn-warning btn" data-toggle="modal" data-target="#share-modal">Share Note</button>
+                        <button class = "btn-danger btn" data-toggle="modal" data-target="#delete-modal">Delete Note</button>
                     </div>
                 </section>
                 <!-- /.sidebar -->
@@ -227,7 +227,54 @@
                     </div>
                 </section><!-- /.content -->
             </aside><!-- /.right-side -->
+            <a href="#" class="btn btn-default focusmode-toggle" data-toggle="offcanvas" role="button">
+                    <span class="sr-only">Focus Mode</span>
+                    <i class="fa fa-crosshairs"></i> Focus Mode
+            </a>
         </div><!-- ./wrapper -->
+
+        <div class="modal fade" id="share-modal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title"><i class="fa fa-share-square-o"></i> Share this Note</h4>
+                    </div>
+                    <form action="#" method="post">
+                        <div class="modal-body">
+                            <p>Share this note to a friend. The note will be duplicated for the recipient.</p>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon">Share to:</span>
+                                    <input name="email_to" type="email" class="form-control" placeholder="Recipient's E-mail" style="width:480px">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer clearfix">
+                            <button type="submit" class="btn btn-success pull-right">Share</button>
+                        </div>
+                    </form>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div>
+
+        <div class="modal fade" id="delete-modal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title"><i class="fa fa-trash-o"></i> Delete this Note</h4>
+                    </div>
+                        <div class="modal-body">
+                            <p>Are you sure you want to delete this note? This cannot be undone.</p>
+                        </div>
+                        <div class="modal-footer clearfix">
+                            <button type="submit" class="btn btn-danger pull-right">Delete</button>
+                        </div>
+                    </form>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div>
 
 
         <!-- jQuery 2.0.2 -->

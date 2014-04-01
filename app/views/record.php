@@ -163,6 +163,10 @@
                     </div>
                 </section><!-- /.content -->
             </aside><!-- /.right-side -->
+            <a href="#" class="btn btn-default focusmode-toggle" data-toggle="offcanvas" role="button">
+                    <span class="sr-only">Focus Mode</span>
+                    <i class="fa fa-crosshairs"></i> Focus Mode
+            </a>
         </div><!-- ./wrapper -->
 
 
