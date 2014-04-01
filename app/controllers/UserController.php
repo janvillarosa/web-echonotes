@@ -3,12 +3,8 @@
 class UserController extends BaseController{
 
 	function register(){
-		$user = new User;
-		$user->email = Input::get('email');
-		$user->name = Input::get('username');
-		$user->setAuthPassword(Input::get('password'));
-		$user->save();
-		Auth::attempt(array('email' => Input::get('email'), 'password' => Input::get('password')));
+		User::register(Input::get('email'), Input::get('username'), Input::get('password'));
+		$this->login();
 		return Redirect::to('/');
 	}
 

@@ -58,4 +58,13 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	public function echonotes(){
 		return $this->hasMany('Echonote', 'noteId');
 	}
+
+	public static function register($email, $username, $password){
+		$user = new User;
+		$user->email = Input::get('email');
+		$user->name = Input::get('username');
+		$user->setAuthPassword(Input::get('password'));
+		$user->save();
+	}
+
 }

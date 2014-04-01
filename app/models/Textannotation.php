@@ -11,5 +11,11 @@ class Textannotation extends Eloquent {
 	protected $primaryKey = 'annotationId';
 	public $timestamps = false;
 
-	
+	public static function add($noteId, $content, $timestamp){
+		$annotation = new Textannotation;
+		$annotation->content = $content;
+		$annotation->timestamp = $timestamp;
+		$annotation->noteid = $noteId;
+		$annotation->save();
+	}
 }

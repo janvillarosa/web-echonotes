@@ -59,7 +59,13 @@ Route::get('/imagetest', function()
 	return View::make('D&DImage');
 });
 
-Route::post('/note/share', 'NoteController@share');
+Route::get('/note/share', 'NoteController@share');
 
 Route::post('/note/delete', 'NoteController@delete');
+
+Route::get('/test', function(){
+	$cloneNote = Echonote::where('noteid','=', 1)->firstOrFail();
+	$file = File::get($cloneNote->audioURL);
+	return "true";
+});
 

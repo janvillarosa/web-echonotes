@@ -3,52 +3,22 @@
 class NoteController extends BaseController{
 
 	function upload(){
-		$email = Auth::user()->email;
-		$file = Input::file('blob');
-		$name = $file->getClientOriginalName();
-		$destination = 'upload/';
+		$note = Echonote::add(Input::file('blob'), Input::get('duration'), Auth::user()->email);
 
-		$note = new Echonote;
-		$note->noteName =  $name;
-		$note->audioURL = $destination.$name.'-'.$email.'.wav';
-		$note->duration =  Input::get('duration');
-		$note->userId = $email;
-		$note->save();
-
-		$filename = $note->noteId.'-'.$name.'-'.$email.'.wav';
-
-		$file->move($destination, $filename);
-
-		$note->audiourl = $destination.$filename;
-		$note->save();
-		
 		$aCount = Input::get('aCount');
-
 		for($i=0; $i<$aCount; $i++){
-			$str = (string)$i;
-			$annotation = new Textannotation;
-			$aStr =Input::get('annotations.'.$str);
-			$aStr[4] = '';
-			$annotation->content = Input::get('annotations.'.$str);
-			$annotation->timestamp = Input::get('timestamps.'.$str);
-			$annotation->noteid = $note->noteId;
-			$annotation->save();
+			$index = (string)$i;
+			$content = Input::get('annotations.'.$index);
+			Textannotation::add($note->noteId, $content, Input::get('timestamps.'.$index));
 		}
-
-		return Response::make('Uploaded as '.$filename);
+		return Response::make('Uploaded '.$note->noteName);
 	}
 
 	function delete(){
-		$file = Echonote::where('noteid','=', Input::get('noteid'))->firstOrFail();
+		$note = Echonote::where('noteid','=', Input::get('noteid'))->firstOrFail();
+		$note->deleteNote();
 
-		$annotations = $file->textannotation()->get();
-		foreach ($annotations as $annotation){
-			$annotation->delete();
-		}
-
-		$file->delete();
-
-		return Response::make($file->noteName.' deleted');
+		return Response::make(' Deleted');
 	}
 
 
@@ -56,7 +26,7 @@ class NoteController extends BaseController{
 
 		$destination = 'upload/';
 		$cloneNote = Echonote::where('noteid','=', Input::get('noteid'))->firstOrFail();
-		$file = File::get($cloneNote->audiourl);
+		$file = File::get($cloneNote->audioURL);
 
 		$note = new Echonote;
 
