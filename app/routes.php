@@ -14,7 +14,7 @@
 Route::get('/', function()
 {
 	if(Auth::check()){
-		return View::make('index');
+		return View::make('homepage');
 	}
 	else{
 		return View::make('frontpage');

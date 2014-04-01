@@ -10,15 +10,15 @@
     <title>Welcome to Echonotes - Notes with sound</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="css/Framework/bootstrap-responsive.min.css" rel="stylesheet" type="text/css">
-    <link href="css/Framework/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css">
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
 
     <!-- Fonts -->
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="font-awesome/css/fonts.css" rel="stylesheet" />
+    <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="css/fonts.css" rel="stylesheet" />
 
     <!-- Custom Theme CSS -->
-    <link href="css/grayscale.css" rel="stylesheet">
+    <link href="css/frontpage.css" rel="stylesheet">
 
 </head>
 
@@ -235,8 +235,8 @@
 </footer>
 
     <!-- Core JavaScript Files -->
-    <script src="js/Framework/jquery-1.10.2.js"></script>
-    <script src="js/Framework/bootstrap.min.js"></script>
+    <script src="js/jquery-1.10.2.js"></script>
+    <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.easing.min.js"></script>
 
     <script type="text/javascript">
