@@ -51,7 +51,7 @@ function PagePlayer() {
   };
 
   this.css = {              // CSS class names appended to link during various states
-    sDefault: 'sm2_link',   // default state
+    sDefault: 'sm2_loading',   // default state
     sLoading: 'sm2_loading',
     sPlaying: 'sm2_playing',
     sPaused: 'sm2_paused'

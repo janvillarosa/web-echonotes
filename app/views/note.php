@@ -21,6 +21,24 @@
         <!-- bootstrap slider -->
         <link href="css/bootstrap-slider/slider.css" rel="stylesheet" type="text/css" />
 
+        <!-- Sound Manager -->
+        <!-- Page player core CSS -->
+        <script src="player/script/soundmanager2-nodebug-jsmin.js"></script>
+        <script>
+            soundManager.setup({
+            url: 'player/swf/',
+            flashVersion: 9,
+            onready: function() {}});
+        </script>
+
+        <link rel="stylesheet" type="text/css" href="player/page-player.css" />
+        <link rel="stylesheet" type="text/css" href="player/optional-annotations.css" />
+        <link rel="stylesheet" type="text/css" href="player/optional-themes.css" />
+
+        <script src="player/page-player.js"></script>
+        <script src="player/optional-page-player-metadata.js"></script>
+        <!-- Sound Manager end -->
+
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -112,7 +130,7 @@
                 <section class="sidebar">
                     <!-- Sidebar user panel -->
                     <div class="user-panel">
-                        <button class = "btn-info btn-lg" style = "width:100%; height:65px">Play Echonote</button>
+                        <button class = "btn-info btn-lg" style = "width:100%; height:65px" onclick = "pl.playNext()">Play Echonote</button>
                     </div>
                     <!-- search form -->
                     <!-- /.search form -->
@@ -148,7 +166,8 @@
                 <!-- Content Header (Page header) -->
                 <section class="content-header" style = "height:85px">
                     <h1 style = "padding-bottom: 5px">
-                        <?php echo $note->noteName;?>
+                        <a href="test.mp3"><?php echo $note->noteName;?> (Click to Play)</a>
+                        <!--<?php //echo $note->audioURL;?>-->
                         <small><?php echo $note->textannotation()->count();?> annotations</small>
                     </h1>
                     <input type="text" value="" class="slider form-control" data-slider-min="0" data-slider-max="500" data-slider-step="5" data-slider-value="20" data-slider-orientation="horizontal" data-slider-selection="before" data-slider-tooltip="show" data-slider-id="blue"/>
