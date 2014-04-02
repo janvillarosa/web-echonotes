@@ -2791,15 +2791,45 @@ Component: timeline
 }
 
 #holder.hover { 
-    border: 6px dashed #13a37f; 
+    border: 6px dashed #13a37f;
+}
+
+#holder.withImage{
+      border: 6px dashed #999;
+}
+
+#holder.withImageHover {
+ border: 6px dashed #13a37f; 
+}
+
+#holder.withImageHover span{
+ position: absolute;
+ opacity: 0; 
+}
+
+
+#holder.withImage span{
+  position: absolute;
+  opacity: 0;
+}
+#holder.withImage img{
+  opacity: 1;
+}
+
+#holder.withImageHover img{
+  opacity: 1;
 }
 
 #holder img {
+  opacity: 0;
     display: block;
     margin: auto;
+    margin-top: 3.5%;
 }
 
 #holder span {
+  position: relative;
+  opacity: 100%;
   font-size: 20px;
   margin: auto;
   display: block;

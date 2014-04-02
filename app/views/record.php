@@ -173,79 +173,80 @@
                                 <div id="holder">
                                     <span id="plus">+</span>
                                     <span>Drag your image here</div>
-                                </div> 
-                                <p id="upload" class="hidden"><label>Drag & drop not supported, but you can still upload via this input field:<br><input type="file"></label></p>
-                                <p id="filereader">File API & FileReader API not supported</p>
-                                <p id="formdata">XHR2's FormData is not supported</p>
-                                <p id="progress">XHR2's upload progress isn't supported</p>
-                                <div class="modal-footer clearfix">
-                                    <button type="submit" class="btn btn-success pull-right">Submit</button>
+                                    </div> 
+                                    <p id="upload" class="hidden"><label>Drag & drop not supported, but you can still upload via this input field:<br><input type="file"></label></p>
+                                    <p id="filereader">File API & FileReader API not supported</p>
+                                    <p id="formdata">XHR2's FormData is not supported</p>
+                                    <p id="progress">XHR2's upload progress isn't supported</p>
+                                    <div class="modal-footer clearfix">
+                                        <button type="submit" class="btn btn-success pull-right">Submit</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
 
-            </section><!-- /.content -->
-        </aside><!-- /.right-side -->
-        <a href="#" class="btn btn-default focusmode-toggle" data-toggle="offcanvas" role="button">
-            <span class="sr-only">Focus Mode</span>
-            <i class="fa fa-crosshairs"></i> Focus Mode
-        </a>
-    </div><!-- ./wrapper -->
+                </section><!-- /.content -->
+            </aside><!-- /.right-side -->
+            <a href="#" class="btn btn-default focusmode-toggle" data-toggle="offcanvas" role="button">
+                <span class="sr-only">Focus Mode</span>
+                <i class="fa fa-crosshairs"></i> Focus Mode
+            </a>
+        </div><!-- ./wrapper -->
 
 
-    <!-- jQuery 2.0.2 -->
-    <script src="js/jquery-2.1.0.min.js"></script>
-    <!-- Bootstrap -->
-    <script src="js/bootstrap.min.js" type="text/javascript"></script>
-    <!-- AdminLTE App -->
-    <script src="js/AdminLTE/app.js" type="text/javascript"></script>
-    <!--iCheck-->
-    <script src="js/plugins/iCheck/icheck.min.js"></script>
-    <!--Froala Text Editor-->
-    <script src="js/jquery-1.10.2.js"></script>
-    <script src="js/froala_editor.min.js"></script>
-    <!--Main JS-->
-    <script src="js/main.js"></script>
-    <script src="js/recorder.js"></script>
+        <!-- jQuery 2.0.2 -->
+        <script src="js/jquery-2.1.0.min.js"></script>
+        <!-- Bootstrap -->
+        <script src="js/bootstrap.min.js" type="text/javascript"></script>
+        <!-- AdminLTE App -->
+        <script src="js/AdminLTE/app.js" type="text/javascript"></script>
+        <!--iCheck-->
+        <script src="js/plugins/iCheck/icheck.min.js"></script>
+        <!--Froala Text Editor-->
+        <script src="js/jquery-1.10.2.js"></script>
+        <script src="js/froala_editor.min.js"></script>
+        <!--Main JS-->
+        <script src="js/main.js"></script>
+        <script src="js/recorder.js"></script>
 
-    <script>
-    $(function(){
-        $("#edit").editable({inlineMode: false, height: 100, buttons: ['bold', 'italic', 'strikeThrough', 'fontSize', 'color', 'sep', 'formatBlock', 'align', 'insertOrderedList', 'insertUnorderedList', 'outdent', 'indent', 'sep',
-            'undo', 'redo'],})
-    });
-    </script>
+        <script>
+        $(function(){
+            $("#edit").editable({inlineMode: false, height: 100, buttons: ['bold', 'italic', 'strikeThrough', 'fontSize', 'color', 'sep', 'formatBlock', 'align', 'insertOrderedList', 'insertUnorderedList', 'outdent', 'indent', 'sep',
+                'undo', 'redo'],})
+        });
+        </script>
 
-    <!-- Drag and drop image annotation js -->
+        <!-- Drag and drop image annotation js -->
 
 
-    <script type="text/javascript">
-    var holder = document.getElementById('holder'),
-    tests = {
-      filereader: typeof FileReader != 'undefined',
-      dnd: 'draggable' in document.createElement('span'),
-      formdata: !!window.FormData,
-      progress: "upload" in new XMLHttpRequest
-  }, 
-  support = {
-      filereader: document.getElementById('filereader'),
-      formdata: document.getElementById('formdata'),
-      progress: document.getElementById('progress')
-  },
-  acceptedTypes = {
-      'image/png': true,
-      'image/jpeg': true,
-      'image/gif': true
-  },
-  progress = document.getElementById('uploadprogress'),
-  fileupload = document.getElementById('upload');
+        <script type="text/javascript">
 
-  "filereader formdata progress".split(' ').forEach(function (api) {
-      if (tests[api] === false) {
-        support[api].className = 'fail';
-    } else {
+        var holder = document.getElementById('holder'),
+        tests = {
+          filereader: typeof FileReader != 'undefined',
+          dnd: 'draggable' in document.createElement('span'),
+          formdata: !!window.FormData,
+          progress: "upload" in new XMLHttpRequest
+      }, 
+      support = {
+          filereader: document.getElementById('filereader'),
+          formdata: document.getElementById('formdata'),
+          progress: document.getElementById('progress')
+      },
+      acceptedTypes = {
+          'image/png': true,
+          'image/jpeg': true,
+          'image/gif': true
+      },
+      progress = document.getElementById('uploadprogress'),
+      fileupload = document.getElementById('upload');
+
+      "filereader formdata progress".split(' ').forEach(function (api) {
+          if (tests[api] === false) {
+            support[api].className = 'fail';
+        } else {
         // FFS. I could have done el.hidden = true, but IE doesn't support
         // hidden, so I tried to create a polyfill that would extend the
         // Element.prototype, but then IE10 doesn't even give me access
@@ -254,13 +255,13 @@
     }
 });
 
-  function previewfile(file) {
-      if (tests.filereader === true && acceptedTypes[file.type] === true) {
-        var reader = new FileReader();
-        reader.onload = function (event) {
-          var image = new Image();
-          image.src = event.target.result;
-          image.width = 250; // a fake resize
+      function previewfile(file) {
+          if (tests.filereader === true && acceptedTypes[file.type] === true) {
+            var reader = new FileReader();
+            reader.onload = function (event) {
+              var image = new Image();
+              image.src = event.target.result;
+          image.width = 280; // a fake resize
           // if(holder.hasChildNodes()){
           //   holder.replaceChild(holder.lastChild, image);
           // } else {
@@ -309,13 +310,13 @@ function readfiles(file) {
     }
 
     if (tests.dnd) { 
-        holder.onmouseenter = function () { this.className = 'hover'; return false; };
-        holder.onmouseleave = function () { this.className = '';};
-        holder.ondragleave = function () { this.className = '';};
-        holder.ondragover = function () { this.className = 'hover'; return false; };
+        holder.onmouseenter = function () { if(this.className != 'withImage') {this.className = 'hover'; } else { this.className = 'withImageHover'} return false; };
+        holder.onmouseleave = function () { if(this.className == 'withImageHover') { this.className = 'withImage'} else if(this.className != 'withImage') { this.className = '';} };
+        holder.ondragleave = function () {  if(this.className == 'withImageHover') { this.className = 'withImage'} else if(this.className != 'withImage') { this.className = '';} };
+        holder.ondragover = function () { if(this.className != 'withImage') {this.className = 'hover'; } else { this.className = 'withImageHover'} return false; };
         holder.ondragend = function () { return false; };
         holder.ondrop = function (e) {
-            this.className = '';
+            this.className = 'withImage';
             e.preventDefault();
             readfiles(e.dataTransfer.files);
         }
@@ -325,8 +326,13 @@ function readfiles(file) {
         readfiles(this.files);
     };
 }
-
 </script>
+
+<script>
+$(function () {
+   if($('#image-modal'). == true) { $('#holder').className = '' } 
+});
+</script>       
 
 </body>
 </html>
