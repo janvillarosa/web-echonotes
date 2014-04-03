@@ -259,18 +259,19 @@
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                         <h4 class="modal-title"><i class="fa fa-share-square-o"></i> Share this Note</h4>
                     </div>
-                    <form action="#" method="post">
+                    <form action="/note/share" method="post">
                         <div class="modal-body image-div">
                             <p>Share this note to a friend. The note will be duplicated for the recipient.</p>
                             <div class="form-group">
                                 <div class="input-group">
                                     <span class="input-group-addon">Share to:</span>
-                                    <input name="email_to" type="email" class="form-control" placeholder="Recipient's E-mail" style="width:480px">
+                                    <input name="email" type="email" class="form-control" placeholder="Recipient's E-mail" style="width:480px">
+                                    <input name="noteid" type="hidden" value="<?php echo $noteId;?>">
                                 </div>
                             </div>
                         </div>
                         <div class="modal-footer clearfix">
-                            <button type="submit" class="btn btn-success pull-right">Share</button>
+                            <input type="submit" class="btn btn-success pull-right" value="Share">
                         </div>
                     </form>
                 </div><!-- /.modal-content -->
