@@ -120,7 +120,7 @@
                     <ul class="sidebar-menu">
                         <li class="inactive">
                             <a>
-                                <i class="fa fa-clock-o"></i> <span><b>Duration: 00:00</b></span>
+                                <i class="fa fa-clock-o"></i> <span><b>Duration: <?php echo (floor($note->duration / 60));echo ":"; echo str_pad(($note->duration % 60), 2, "0", STR_PAD_LEFT);?></b></span>
                             </a>
                         </li>
                         <li class="inactive">
@@ -168,24 +168,28 @@
                                 </li>
                                 <!-- /.timeline-label -->
                                 <!-- timeline item -->
-                                <li>
-                                    <i class="fa  fa-file bg-green"></i>
-                                    <div class="timeline-item">
-                                        <span class="time"><i class="fa fa-clock-o"></i> 00:05</span>
-                                        <h3 class="timeline-header">Annotation 1</h3>
-                                        <div class="timeline-body">
-                                            Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles,
-                                            weebly ning heekya handango imeem plugg dopplr jibjab, movity
-                                            jajah plickers sifteo edmodo ifttt zimbra. Babblely odeo kaboodle
-                                            quora plaxo ideeli hulu weebly balihoo...
-                                        </div>
-                                        <div class='timeline-footer'>
-                                            <a class="btn btn-primary btn-xs">Edit Annotation</a>
-                                            <a class="btn btn-danger btn-xs">Delete</a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
+                                <?php
+                                $annotations =  $note->textannotation()->get();
+                                $index = 1;
+                                foreach($annotations as $annotation){
+                                    echo    '<li>
+                                                <i class="fa  fa-file bg-green"></i>
+                                                <div class="timeline-item">
+                                                    <span class="time"><i class="fa fa-clock-o"></i> ';echo (floor($annotation->timestamp / 60));echo ":"; echo str_pad(($note->timestamp % 60), 2, "0", STR_PAD_LEFT);echo '</span>
+                                                    <h3 class="timeline-header">Annotation ';echo $index;echo '</h3>
+                                                    <div class="timeline-body">';
+                                            echo    $annotation->content;
+                                            echo    '</div>
+                                                    <div class="timeline-footer">
+                                                        <a class="btn btn-primary btn-xs">Edit Annotation</a>
+                                                        <a class="btn btn-danger btn-xs">Delete</a>
+                                                    </div>
+                                                </div>
+                                            </li>';
+                                    $index++;
+                                }
+                                ?>
+                                <!--<li>
                                     <i class="fa  fa-picture-o bg-orange"></i>
                                     <div class="timeline-item timeline-item-pic">
                                         <span class="time"><i class="fa fa-clock-o"></i> 00:05</span>
@@ -200,24 +204,7 @@
                                             <a class="btn btn-danger btn-xs">Delete</a>
                                         </div>
                                     </div>
-                                </li>
-                                <li>
-                                    <i class="fa  fa-file bg-green"></i>
-                                    <div class="timeline-item">
-                                        <span class="time"><i class="fa fa-clock-o"></i> 00:05</span>
-                                        <h3 class="timeline-header">Annotation 3</h3>
-                                        <div class="timeline-body">
-                                            Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles,
-                                            weebly ning heekya handango imeem plugg dopplr jibjab, movity
-                                            jajah plickers sifteo edmodo ifttt zimbra. Babblely odeo kaboodle
-                                            quora plaxo ideeli hulu weebly balihoo...
-                                        </div>
-                                        <div class='timeline-footer'>
-                                            <a class="btn btn-primary btn-xs">Edit Annotation</a>
-                                            <a class="btn btn-danger btn-xs">Delete</a>
-                                        </div>
-                                    </div>
-                                </li>
+                                </li>-->
                                 <li>
                                     <i class="fa fa-clock-o"></i>
                                 </li>

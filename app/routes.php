@@ -65,7 +65,7 @@ Route::post('/note/delete', 'NoteController@delete');
 
 Route::get('/test', function(){
 	$cloneNote = Echonote::where('noteid','=', 1)->firstOrFail();
-	$file = File::get($cloneNote->audioURL);
+	$cloneNote->deleteNote();
+	//$file = File::copy("upload/1-Test note 1-rhettbuzon@gmail.com.wav", "upload/2-Test note 1-test@gmail.com.wav");
 	return "true";
 });
-

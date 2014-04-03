@@ -58,15 +58,13 @@ CREATE TABLE Tags(
 		REFERENCES Echonotes (noteId)
 );
 
--- CREATE TABLE Echonote_Tag(
--- 	noteId integer NOT NULL,
--- 	tagName char(255) NOT NULL,
--- 	color char(64) NOT NULL,
--- 	PRIMARY KEY (noteId, tagName, color),
--- 	FOREIGN KEY (noteId)
--- 		REFERENCES Echonotes (noteId),
--- 	FOREIGN KEY (tagName)
--- 		REFERENCES Tags (tagName),
--- 	FOREIGN KEY (color)
--- 		REFERENCES Tags (color)
--- );
+CREATE TABLE Echonote_Tag(
+	noteId integer NOT NULL,
+	tagName char(255) NOT NULL,
+	color char(64) NOT NULL,
+	PRIMARY KEY (noteId, tagName, color),
+	FOREIGN KEY (noteId)
+		REFERENCES Echonotes (noteId),
+	FOREIGN KEY (tagName, color)
+		REFERENCES Tags (tagName, color)
+);
