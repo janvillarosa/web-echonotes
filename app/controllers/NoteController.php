@@ -26,9 +26,11 @@ class NoteController extends BaseController{
 
 	function share(){
 		$note = Echonote::where('noteid','=', Input::get('noteid'))->firstOrFail();
-		$note->shareNote(Input::get(Input::get('email')));
 
-		return Response::make('Shared to '.Input::get('email'));
+		$note->shareNote(Input::get('email'));
+
+		//return Response::make('Shared to '.Input::get('email'));
+		return Redirect::to('/');
 	}
 
 }

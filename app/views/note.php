@@ -21,6 +21,24 @@
         <!-- bootstrap slider -->
         <link href="css/bootstrap-slider/slider.css" rel="stylesheet" type="text/css" />
 
+        <!-- Sound Manager -->
+        <!-- Page player core CSS -->
+        <script src="player/script/soundmanager2-nodebug-jsmin.js"></script>
+        <script>
+            soundManager.setup({
+            url: 'player/swf/',
+            flashVersion: 9,
+            onready: function() {}});
+        </script>
+
+        <link rel="stylesheet" type="text/css" href="player/page-player.css" />
+        <link rel="stylesheet" type="text/css" href="player/optional-annotations.css" />
+        <link rel="stylesheet" type="text/css" href="player/optional-themes.css" />
+
+        <script src="player/page-player.js"></script>
+        <script src="player/optional-page-player-metadata.js"></script>
+        <!-- Sound Manager end -->
+
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -112,7 +130,7 @@
                 <section class="sidebar">
                     <!-- Sidebar user panel -->
                     <div class="user-panel">
-                        <button class = "btn-info btn-lg" style = "width:100%; height:65px">Play Echonote</button>
+                        <button class = "btn-info btn-lg" style = "width:100%; height:65px" onclick = "pl.playNext()">Play Echonote</button>
                     </div>
                     <!-- search form -->
                     <!-- /.search form -->
@@ -136,8 +154,8 @@
                         <li style="margin-left:15px"><a><input type="checkbox" class="minimal"/>  Miscellaneous</a></li>
                     </ul>
                     <div class="user-panel">
-                        <button class = "btn-warning btn">Share Note</button>
-                        <button class = "btn-danger btn">Delete Note</button>
+                        <button class = "btn-warning btn" data-toggle="modal" data-target="#share-modal">Share Note</button>
+                        <button class = "btn-danger btn" data-toggle="modal" data-target="#delete-modal">Delete Note</button>
                     </div>
                 </section>
                 <!-- /.sidebar -->
@@ -148,7 +166,8 @@
                 <!-- Content Header (Page header) -->
                 <section class="content-header" style = "height:85px">
                     <h1 style = "padding-bottom: 5px">
-                        <?php echo $note->noteName;?>
+                        <a href="test.mp3"><?php echo $note->noteName;?> (Click to Play)</a>
+                        <!--<?php //echo $note->audioURL;?>-->
                         <small><?php echo $note->textannotation()->count();?> annotations</small>
                     </h1>
                     <input type="text" value="" class="slider form-control" data-slider-min="0" data-slider-max="500" data-slider-step="5" data-slider-value="20" data-slider-orientation="horizontal" data-slider-selection="before" data-slider-tooltip="show" data-slider-id="blue"/>
@@ -214,7 +233,55 @@
                     </div>
                 </section><!-- /.content -->
             </aside><!-- /.right-side -->
+            <a href="#" class="btn btn-default focusmode-toggle" data-toggle="offcanvas" role="button">
+                    <span class="sr-only">Focus Mode</span>
+                    <i class="fa fa-crosshairs"></i> Focus Mode
+            </a>
         </div><!-- ./wrapper -->
+
+        <div class="modal fade" id="share-modal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title"><i class="fa fa-share-square-o"></i> Share this Note</h4>
+                    </div>
+                    <form action="/note/share" method="post">
+                        <div class="modal-body image-div">
+                            <p>Share this note to a friend. The note will be duplicated for the recipient.</p>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon">Share to:</span>
+                                    <input name="email" type="email" class="form-control" placeholder="Recipient's E-mail" style="width:480px">
+                                    <input name="noteid" type="hidden" value="<?php echo $noteId;?>">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer clearfix">
+                            <input type="submit" class="btn btn-success pull-right" value="Share">
+                        </div>
+                    </form>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div>
+
+        <div class="modal fade" id="delete-modal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title"><i class="fa fa-trash-o"></i> Delete this Note</h4>
+                    </div>
+                        <div class="modal-body">
+                            <p>Are you sure you want to delete this note? This cannot be undone.</p>
+                        </div>
+                        <div class="modal-footer clearfix">
+                            <button type="submit" class="btn btn-danger pull-right">Delete</button>
+                        </div>
+                    </form>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div>
 
 
         <!-- jQuery 2.0.2 -->

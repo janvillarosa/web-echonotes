@@ -81,6 +81,12 @@ body > .header {
   .left-side.collapse-left {
     left: -220px;
   }
+  .sidebar-toggle {
+    visibility:hidden;
+  }
+  .focusmode-toggle{
+    visibility:visible;
+  }
 }
 /*Give content full width on xs screens*/
 @media screen and (max-width: 992px) {
@@ -90,7 +96,7 @@ body > .header {
 }
 /*
     By default the layout is not fixed but if you add the class .fixed to the body element
-    the sidebar and the navbar will automatically become poisitioned fixed
+    the sidebar and the navbar will automatically become positioned fixed
 */
 body.fixed > .header,
 body.fixed .left-side,
@@ -345,6 +351,11 @@ body > .header .navbar {
   margin-bottom: 0;
   margin-left: 220px;
 }
+body > .focusmode-toggle{
+  position: fixed;
+  right: 15px;
+  bottom: 15px;
+}
 body > .header .navbar .sidebar-toggle {
   float: left;
   padding: 9px 5px;
@@ -467,6 +478,12 @@ body > .header .logo .icon {
     float: none;
     background: #efefef;
   }
+  .sidebar-toggle {
+    visibility:visible;
+  }
+  .focusmode-toggle{
+    visibility:hidden;
+  }
 }
 @media (max-width: 767px) {
   .navbar .navbar-nav > li {
@@ -487,6 +504,12 @@ body > .header .logo .icon {
     .extra-pad{
     padding-left:30px;
     padding-right:30px;
+  }
+  .sidebar-toggle {
+    visibility:visible;
+  }
+  .focusmode-toggle{
+    visibility:hidden;
   }
 }
 @media screen and (max-width: 560px) {
@@ -512,6 +535,12 @@ body > .header .logo .icon {
   .extra-pad{
     padding-left:10px;
     padding-right:10px;
+  }
+  .sidebar-toggle {
+    visibility:visible;
+  }
+  .focusmode-toggle{
+    visibility:hidden;
   }
 }
 /*
@@ -1299,7 +1328,7 @@ body > .header .logo .icon {
   -moz-border-radius: 3px;
   border-radius: 3px;
   width: 100%;
-  padding: 5px 30px;
+  padding: 5px 35px;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
 }
 .box-annotation {
@@ -2735,4 +2764,113 @@ Component: timeline
 }
 .pace-inactive {
   display: none;
+}
+
+/* Drag and Drop Image Annotations */
+
+/*#note-imagearea{
+    margin-left: 20px;
+    margin-right: 20px;
+    position: absolute;
+    height: 100%;
+    width: 96.75%;
+    visibility: hidden;
+}*/
+
+#holder { 
+    margin-left: auto;
+    margin-right: auto;
+    border: 6px dashed #999;
+    width: 80%;
+    height: 200px;
+    line-height: 200px;
+    min-height: 50px;
+    margin: auto;
+    text-align: center;
+    vertical-align: bottom;
+}
+
+#holder.hover { 
+    border: 6px dashed #13a37f;
+}
+
+#holder.withImage{
+      border: 6px dashed #999;
+}
+
+#holder.withImageHover {
+ border: 6px dashed #13a37f; 
+}
+
+#holder.withImageHover span{
+ position: absolute;
+ opacity: 0; 
+}
+
+
+#holder.withImage span{
+  position: absolute;
+  opacity: 0;
+}
+#holder.withImage img{
+  opacity: 1;
+}
+
+#holder.withImageHover img{
+  opacity: 1;
+}
+
+#holder img {
+  opacity: 0;
+    display: block;
+    margin: auto;
+    margin-top: 3.5%;
+}
+
+#holder span {
+  position: relative;
+  opacity: 100%;
+  font-size: 20px;
+  margin: auto;
+  display: block;
+  vertical-align: middle;
+  line-height: normal;
+  font-weight: bold;
+  color: #ccc;    
+}
+
+
+#holder #plus{
+  margin-top: 8%;
+  font-size: 80px;
+}
+
+#holder p {
+  margin-top: auto;
+  margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 24px;
+}
+
+progress {
+    width: 100%;
+}
+
+progress:after {
+    content: '%';
+}
+
+.fail {
+    background: #c00;
+    padding: 2px;
+    color: #fff;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.image-div {
+  text-align: center;
 }

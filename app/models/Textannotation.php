@@ -18,4 +18,8 @@ class Textannotation extends Eloquent {
 		$annotation->noteid = $noteId;
 		$annotation->save();
 	}
+
+	public function editContent($content){
+		$this->content = $content;
+	}
 }
