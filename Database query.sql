@@ -2,6 +2,7 @@
 CREATE DATABASE IF NOT EXISTS echonotes DEFAULT CHARACTER SET utf8;
 USE echonotes;
 
+DROP TABLE IF EXISTS Echonote_Tag;
 DROP TABLE IF EXISTS Tags;
 DROP TABLE IF EXISTS ImageAnnotations;
 DROP TABLE IF EXISTS TextAnnotations;
@@ -21,8 +22,8 @@ CREATE TABLE Echonotes(
 	audioURL char(255)  NOT NULL,
 	duration integer NOT NULL,
 	userId char(64)  NOT NULL,
-	created_at date NOT NULL,
-	updated_at date NOT NULL,
+	created_at datetime NOT NULL,
+	updated_at datetime NOT NULL,
 	PRIMARY KEY (noteId),
 	FOREIGN KEY (userId)
 		REFERENCES Users(email)
