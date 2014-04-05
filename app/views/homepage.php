@@ -156,11 +156,11 @@
                         My Echonotes
                         <small>Sorted by Newest</small>
                     </h1>
-                    <form action="#" method="get" class="sidebar-form">
+                    <form action="/" method="get" class="sidebar-form">
                         <div class="input-group">
                             <input type="text" name="q" class="form-control" placeholder="Search for your notes..."/>
                             <span class="input-group-btn">
-                                <button type='submit' name='search' id='search-btn' class="btn btn-flat" style = "background-color:#5cb85c; color:white;"><i class="fa fa-search"></i></button>
+                                <button type='submit' id='search-btn' class="btn btn-flat" style = "background-color:#5cb85c; color:white;"><i class="fa fa-search"></i></button>
                             </span>
                         </div>
                     </form>
@@ -170,8 +170,12 @@
                 <section class="content">
                     <div class="row">
                         <?php
-                            
-                            $notes = Echonote::where('userid','=',Auth::user()->email)->get();
+                            if($q!=null){
+                                $notes = Echonote::where('userid','=',Auth::user()->email)->where('noteName','like','%'.$q.'%')->orderBy('updated_at', 'desc')->get();
+                            }
+                            else{
+                                $notes = Echonote::where('userid','=',Auth::user()->email)->orderBy('updated_at', 'desc')->get();
+                            }
                             foreach($notes as $note){
                                 echo '<div class="col-md-4">
                                             <a href = "/';

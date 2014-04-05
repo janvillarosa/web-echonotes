@@ -14,7 +14,12 @@
 Route::get('/', function()
 {
 	if(Auth::check()){
-		return View::make('homepage');
+		if(Input::has('q')){
+			return View::make('homepage')->with('q', Input::get('q'));	
+		}
+		else{
+			return View::make('homepage')->with('q', null);
+		}
 	}
 	else{
 		return View::make('frontpage');
