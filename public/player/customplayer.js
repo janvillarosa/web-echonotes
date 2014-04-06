@@ -12,6 +12,7 @@ function getTime(nMSec, bAsString) {
 }
 
 function initSound(link){
+	var index = 0;
 	mySound = soundManager.createSound({
 		id: 'aSound',
 		url: link,
@@ -31,7 +32,6 @@ function initSound(link){
 			document.getElementById("playButton").innerHTML = '<i class = "glyphicon glyphicon-play"></i> Play Echonote';
 		},
 		whileplaying: function(){
-			var index = 0;
 			timer.innerHTML = getTime(Math.floor(this.position),true);
 			$slider = $('#slider');
 
@@ -42,8 +42,9 @@ function initSound(link){
 			$slider.slider('setValue', value);
 
 			//Timed annotation code, check if audio position matches timestamp
-			if(mySound.position==timestamps[index]){
-				alert("annotate!")//samplecode
+			if(mySound.position/1000>=timestamps[index]){
+				$('#anno'+(index)).find('#title').html("Annotation " + (index+1));
+				$('#anno'+(index+1)).find('#title').html("Annotation " + (index+1)+ " (Highlighted)");
 				index++;
 			}
 		}

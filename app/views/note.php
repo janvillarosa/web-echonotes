@@ -21,24 +21,6 @@
         <!-- bootstrap slider -->
         <link href="css/bootstrap-slider/slider.css" rel="stylesheet" type="text/css" />
 
-        <!-- Sound Manager -->
-        <!-- Page player core CSS -->
-        <script src="player/script/soundmanager2-nodebug-jsmin.js"></script>
-        <script>
-        soundManager.setup({
-          url: 'player/swf',
-          flashVersion: 9, // optional: shiny features (default = 8)
-          // optional: ignore Flash where possible, use 100% HTML5 mode
-          // preferFlash: false,
-          debugMode:true,
-          onready: function() {
-
-          }
-        });
-        </script>
-        <script src="player/customplayer.js"></script>
-        <!-- Sound Manager end -->
-
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -201,7 +183,7 @@
                                                 <i class="fa  fa-file bg-green"></i>
                                                 <div class="timeline-item" id = "'; echo 'anno'; echo $index; echo'">
                                                     <span class="time"><i class="fa fa-clock-o"></i> ';echo (floor($annotation->timestamp / 60));echo ":"; echo str_pad(($note->timestamp % 60), 2, "0", STR_PAD_LEFT);echo '</span>
-                                                    <h3 class="timeline-header">Annotation ';echo $index;echo '</h3>
+                                                    <h3 id = "title" class="timeline-header">Annotation ';echo $index;echo '</h3>
                                                     <div class="timeline-body">';
                                             echo    $annotation->content;
                                             echo    '</div>
@@ -278,6 +260,23 @@
 
         <!-- jQuery 2.0.2 -->
         <script src="js/jquery-2.1.0.min.js"></script>
+        <!-- Sound Manager -->
+        <!-- Page player core CSS -->
+        <script src="player/script/soundmanager2-nodebug-jsmin.js"></script>
+        <script>
+        soundManager.setup({
+          url: 'player/swf',
+          flashVersion: 9, // optional: shiny features (default = 8)
+          // optional: ignore Flash where possible, use 100% HTML5 mode
+          // preferFlash: false,
+          debugMode:true,
+          onready: function() {
+
+          }
+        });
+        </script>
+        <script src="player/customplayer.js"></script>
+        <!-- Sound Manager end -->
         <!-- Bootstrap -->
         <script src="js/bootstrap.min.js" type="text/javascript"></script>
         <!-- AdminLTE App -->
@@ -365,16 +364,19 @@
                 initSound('<?php echo $note->audioURL;?>');
             });
         </script>
+
+        <?php
+        $annotations =  $note->textannotation()->get();
+        $tsArr = array();
+        $index = 1;
+        foreach($annotations as $annotation){
+            $tsArr[] = floor($annotation->timestamp);
+            $index++;
+        }
+        ?>
+
         <script>
-            var timestamps = new Array();
-            <?php
-            $annotations =  $note->textannotation()->get();
-            $index = 1;
-            foreach($annotations as $annotation){
-                echo "timestamps["; echo $index; echo "]="; echo (floor($annotation->timestamp / 60)); echo ";";
-                $index++;
-            }
-            ?>
+            var timestamps = <?php echo json_encode($tsArr);?>;
             setTimestamp(timestamps);
 
         </script>
