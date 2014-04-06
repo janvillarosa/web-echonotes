@@ -50,26 +50,16 @@
                         <li class="dropdown notifications-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="fa fa-bell"></i>
-                                <span class="label label-danger" id="notif-badge" style="height: 15px; width: 15px; font-size: 12px">3</span>
+                                <span class="label label-danger" id="notif-badge" style="height: 15px; width: 15px; font-size: 12px">1</span>
                             </a>
                             <ul class="dropdown-menu">
-                                <li class="header" id = "notifs-head">You have 3 new notifications</li>
+                                <li class="header" id = "notifs-head">You have 1 new notification</li>
                                 <li>
                                     <!-- inner menu: contains the actual data -->
                                     <ul class="menu" id = "notifs">
                                         <li>
                                             <a href="#">
-                                                <i class="ion ion-ios7-people info"></i> Jan Villarosa shared a note with you
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="ion ion-ios7-people info"></i> Jane Doe shared a note with you
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="fa fa-users warning"></i> No more space? Join Echonotes+ today.
+                                                <i class="ion ion-ios7-people info"></i> John Appleseed shared a note with you
                                             </a>
                                         </li>
                                     </ul>
@@ -143,6 +133,7 @@
                     <!-- /.sidebar -->
                 </aside>
 
+<<<<<<< HEAD
                 <!-- Right side column. Contains the navbar and content of the page -->
                 <aside class="right-side">                
                     <!-- Content Header (Page header) -->
@@ -157,6 +148,19 @@
                             </div>
                             <div id = "timer" style ="display:inline-block; float:left; width:50px;">00:00</div>
                             <div id = "duration" style ="display:inline-block; float:right;"><?php echo (floor($note->duration / 60));echo ":"; echo str_pad(($note->duration % 60), 2, "0", STR_PAD_LEFT);?></div>
+=======
+            <!-- Right side column. Contains the navbar and content of the page -->
+            <aside class="right-side">                
+                <!-- Content Header (Page header) -->
+                <section class="content-header note-header">
+                    <h1 style = "padding-bottom: 5px; font-size:24px;">
+                        <?php echo $note->noteName;?>
+                        <small><?php echo $note->textannotation()->count();?> annotations</small>
+                    </h1>
+                    <div>
+                        <div class = "seekbar">
+                            <input id = "slider" type="text" value="" class="slider form-control" data-slider-min="0" data-slider-max="5000" data-slider-step="1" data-slider-value="0" data-slider-orientation="horizontal" data-slider-selection="before" data-slider-tooltip="show" data-slider-id="blue"/>
+>>>>>>> 0766225a5e6637d5168a41c58250c6b828a7b843
                         </div>
                     </section>
 
@@ -175,7 +179,11 @@
                                     <!-- /.timeline-label -->
                                     <!-- timeline item -->
 
+<<<<<<< HEAD
                                     <textarea id="edit" style="height:100px"></textarea>
+=======
+                                <textarea id="edit" style="height:100px"></textarea>
+>>>>>>> 0766225a5e6637d5168a41c58250c6b828a7b843
 
 
                                     <?php
@@ -194,6 +202,7 @@
 echo    $annotation->content;
 echo    '</div>
 
+<<<<<<< HEAD
 <div class="timeline-footer" style = "height:40px">
 <a class="btn btn-warning btn-xs editAnnotation" style = "float:left">Edit Annotation</a>
 <a class="btn btn-danger btn-xs" data-toggle="modal" style = "float:right" data-target="#deleteAnnotation-modal">Delete Annotation</a>
@@ -217,6 +226,31 @@ $index++;
     <i class="fa fa-crosshairs"></i> Focus Mode
 </a>
 </div><!-- ./wrapper -->
+=======
+                                                    <div class="timeline-footer" style = "height:40px">
+                                                        <a class="btn btn-danger btn-xs" data-toggle="modal" style = "float:right; margin-left: 5px;" data-target="#deleteAnnotation-modal">Delete</a>
+                                                        <a class="btn btn-warning btn-xs editAnnotation" style = "float:right;">Edit Annotation</a>
+                                                    </div>
+                                                </div>
+                                            </li>';
+                                    $index++;
+                                }
+                                ?>
+                                <li>
+                                    <i class="fa fa-clock-o"></i>
+                                </li>
+                            </ul>
+                        </div><!-- /.col -->
+                        </div>
+                    </div>
+                </section><!-- /.content -->
+            </aside><!-- /.right-side -->
+            <a href="#" class="btn btn-default focusmode-toggle" data-toggle="offcanvas" role="button">
+                    <span class="sr-only">Focus Mode</span>
+                    <i class="fa fa-crosshairs"></i> Focus Mode
+            </a>
+        </div><!-- ./wrapper -->
+>>>>>>> 0766225a5e6637d5168a41c58250c6b828a7b843
 
 <div class="modal fade" id="share-modal" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">

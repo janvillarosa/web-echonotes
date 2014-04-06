@@ -46,8 +46,8 @@
                         <a href="#download">Mobile</a>
                     </li>
                     <li class="page-scroll">
-                        <a id = "login-trigger"><b>Sign in</b><span></span></a>
-                        <div id="login-content">
+                        <a id = "login-trigger" style = "cursor:pointer;"><b>Sign in</b><span></span></a>
+                        <div id="login-content" style = "height:170px;">
                         <form role="form" method="post">
                             <fieldset id="inputs">
                                 <input id="username" type="email" name="email" placeholder="Your email address" required>   
@@ -55,6 +55,7 @@
                             </fieldset>
                             <fieldset id="actions">
                                 <label style="color:black; font-weight: normal"><input type="checkbox" checked="checked"> Keep me signed in</label><br>
+                                <a href = "#" style="color:#60abf8; font-weight: normal">I forgot my password </a><br>
                                 <input type="submit" class="btn btn-default-login" value="    Sign in    " style="float:right">
                             </fieldset>
                         </form>
