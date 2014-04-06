@@ -174,9 +174,14 @@
                                 </li>
                                 <!-- /.timeline-label -->
                                 <!-- timeline item -->
+
+                                                                                  <textarea id="edit" style="height:100px"></textarea>
+
+
                                 <?php
                                 $annotations =  $note->textannotation()->get();
                                 $index = 1;
+
                                 foreach($annotations as $annotation){
                                     echo    '<li>
                                                 <i class="fa fa-file bg-green" onclick="scrubToTimestamp('; echo floor($annotation->timestamp);
@@ -188,7 +193,9 @@
                                                     <div class="timeline-body">';
                                             echo    $annotation->content;
                                             echo    '</div>
+
                                                     <div class="timeline-footer" style = "height:40px">
+                                                        <a class="btn btn-warning btn-xs editAnnotation" style = "float:left">Edit Annotation</a>
                                                         <a class="btn btn-danger btn-xs" data-toggle="modal" style = "float:right" data-target="#deleteAnnotation-modal">Delete Annotation</a>
                                                     </div>
                                                 </div>
@@ -305,6 +312,7 @@
         <script src="js/plugins/iCheck/icheck.min.js"></script>
         <!--Froala Text Editor-->
         <script src="js/jquery-1.10.2.js"></script>
+                <script src="js/froala_editor.min.js"></script>
 
         <!-- Ion Slider -->
         <script src="js/plugins/ionslider/ion.rangeSlider.min.js" type="text/javascript"></script>
@@ -400,6 +408,17 @@
             setTimestamp(timestamps);
 
         </script>
-
+    
+        <script>
+        $(function(){
+            $("#edit").editable({inlineMode: false, height: 100, buttons: ['bold', 'italic', 'strikeThrough', 'fontSize', 'color', 'sep', 'formatBlock', 'align', 'insertOrderedList', 'insertUnorderedList', 'outdent', 'indent', 'sep',
+                'undo', 'redo'],});
+            $(".froala-box").css('display', 'none');
+            $(".editAnnotation").click(function(){
+                $(".froala-box").css('display', 'block'); 
+                $(".froala-box").prependTo($(this).closest('li').children('.timeline-body'));
+            });
+        });
+        </script>
     </body>
 </html>
