@@ -44,7 +44,6 @@ class NoteController extends BaseController{
 
 		$note->shareNote(Input::get('email'));
 
-		//return Response::make('Shared to '.Input::get('email'));
 		return Redirect::to('/');
 	}
 	

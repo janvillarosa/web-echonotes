@@ -35,11 +35,6 @@ Route::get('/logout', 'UserController@logout');
 
 Route::post('/register', 'UserController@register');
 
-Route::get('/main', function()
-{
-	return View::make('main');
-});
-
 Route::get('/record', function()
 {
 	return View::make('record');
@@ -52,34 +47,18 @@ Route::get('/note', function()
 
 Route::get('/{noteId}', function($noteId)
 {
-	return View::make('note')->with('noteId', $noteId);
+	if((Echonote::where('noteId', '=', $noteId)->where('userId', '=', Auth::user()->email)->first())!=null){
+		return View::make('note')->with('noteId', $noteId);
+	}
+	else{
+		return Redirect::to('/');
+	}
 })->where('noteId', '[0-9]+');
 
-Route::get('/demo', function()
-{
-	return View::make('demo');
-});
-
 Route::post('/record/upload', 'NoteController@upload');
-
-Route::get('/imagetest', function()
-{
-	return View::make('D&DImage');
-});
 
 Route::post('/note/share', 'NoteController@share');
 
 Route::post('/note/delete', 'NoteController@delete');
 
 Route::post('/note/deleteAnnotation', 'NoteController@deleteAnnotation');
-
-Route::get('/test', function(){
-	$note = Echonote::find(3);
-	$tag = Tag::whereHas("Echonote", function($q){
-                            $q->where('Echonotes.noteId', '=', 3);
-                        })->get();
-
-	foreach($tags as $tag){
-		echo $tag->tagName;
-	}
-});

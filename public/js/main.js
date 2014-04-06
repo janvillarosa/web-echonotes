@@ -19,9 +19,6 @@ var Stopwatch = function(elem, options) {
  
   // append elements     
   elem.appendChild(timer);
-  //elem.appendChild(startButton);
-  //elem.appendChild(stopButton);
-  //elem.appendChild(resetButton);
   
   // initialize
   reset();
@@ -143,9 +140,6 @@ function doneEncoding( blob ) {
     Recorder.setupDownload( blob, "myRecording" + ((recIndex<10)?"0":"") + recIndex + ".wav" );
     recIndex++;
 }
-
-
-
 
 var annotations = [];
 var timestamps = [];
@@ -299,8 +293,6 @@ function submitAnnotation(){
     item.innerHTML = '';
     timeFunc = tagTimestamp;
 }
-
-
 
 function convertToMono( input ) {
     var splitter = audioContext.createChannelSplitter(2);
