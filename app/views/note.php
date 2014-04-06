@@ -50,26 +50,16 @@
                         <li class="dropdown notifications-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="fa fa-bell"></i>
-                                <span class="label label-danger" id="notif-badge" style="height: 15px; width: 15px; font-size: 12px">3</span>
+                                <span class="label label-danger" id="notif-badge" style="height: 15px; width: 15px; font-size: 12px">1</span>
                             </a>
                             <ul class="dropdown-menu">
-                                <li class="header" id = "notifs-head">You have 3 new notifications</li>
+                                <li class="header" id = "notifs-head">You have 1 new notification</li>
                                 <li>
                                     <!-- inner menu: contains the actual data -->
                                     <ul class="menu" id = "notifs">
                                         <li>
                                             <a href="#">
-                                                <i class="ion ion-ios7-people info"></i> Jan Villarosa shared a note with you
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="ion ion-ios7-people info"></i> Jane Doe shared a note with you
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="fa fa-users warning"></i> No more space? Join Echonotes+ today.
+                                                <i class="ion ion-ios7-people info"></i> John Appleseed shared a note with you
                                             </a>
                                         </li>
                                     </ul>

@@ -42,30 +42,20 @@
                         <li class="dropdown notifications-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="fa fa-bell"></i>
-                                <span class="label label-danger" style="height: 15px; width: 15px; font-size: 12px">3</span>
+                                <span class="label label-danger" style="height: 15px; width: 15px; font-size: 12px">1</span>
                             </a>
                             <ul class="dropdown-menu">
                                 <li class="header">You have 3 notifications</li>
                                 <li>
                                     <!-- inner menu: contains the actual data -->
-                                    <ul class="menu">
+                                    <ul class="menu" id = "notifs">
                                         <li>
                                             <a href="#">
-                                                <i class="ion ion-ios7-people info"></i> Jan Villarosa shared a note with you
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="ion ion-ios7-people info"></i> Jane Doe shared a note with you
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="fa fa-users warning"></i> No more space? Join Echonotes+ today.
+                                                <i class="ion ion-ios7-people info"></i> John Appleseed shared a note with you
                                             </a>
                                         </li>
                                     </ul>
-                                <li class="footer"><a href="#">View all</a></li>
+                                <li class="footer"><a href="#">Dismiss All</a></li>
                             </ul>
                         </li>
                         <!-- User Account: style can be found in dropdown.less -->
@@ -118,7 +108,7 @@
                         <li class="treeview">
                             <a href="#">
                                 <i class="fa fa-tags"></i>
-                                <span>My Note Tags</span><small class = "badge pull-right bg-yellow">9</small>
+                                <span>My Note Tags</span><small class = "badge pull-right bg-yellow">6</small>
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
