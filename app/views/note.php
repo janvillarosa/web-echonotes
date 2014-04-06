@@ -128,13 +128,13 @@
                                 <i class="fa fa-tag"></i> <span><b>Tag this note</b></span>
                             </a>
                         </li>
-                        <?php $tags = EchonoteTag::where('noteId', $note->noteId);?>
-                        <li style="margin-left:15px"><a><input type="checkbox" class="minimal"<?php if(($tags->where('tagName','=', 'Home')->first())!=null){echo 'checked';}?>/>  Home</a></li>
-                        <li style="margin-left:15px"><a><input type="checkbox" class="minimal"<?php if(($tags->where('tagName','=', 'School')->first())!=null){echo 'checked';}?>/>  School</a></li>
-                        <li style="margin-left:15px"><a><input type="checkbox" class="minimal"<?php if(($tags->where('tagName','=', 'Work')->first())!=null){echo 'checked';}?>/>  Work</a></li>
-                        <li style="margin-left:15px"><a><input type="checkbox" class="minimal"<?php if(($tags->where('tagName','=', 'Personal')->first())!=null){echo 'checked';}?>/>  Personal</a></li>
-                        <li style="margin-left:15px"><a><input type="checkbox" class="minimal"<?php if(($tags->where('tagName','=', 'Business')->first())!=null){echo 'checked';}?>/>  Business</a></li>
-                        <li style="margin-left:15px"><a><input type="checkbox" class="minimal"<?php if(($tags->where('tagName','=', 'Miscellaneous')->first())!=null){echo 'checked';}?>/>  Miscellaneous</a></li>
+                        <?php $tags;?>
+                        <li style="margin-left:15px"><a><input type="checkbox" class="minimal"<?php if((EchonoteTag::where('noteId', $note->noteId)->where('tagName','=', 'Home')->first())!=null){echo 'checked';}?>/>  Home</a></li>
+                        <li style="margin-left:15px"><a><input type="checkbox" class="minimal"<?php if((EchonoteTag::where('noteId', $note->noteId)->where('tagName','=', 'School')->first())!=null){echo 'checked';}?>/>  School</a></li>
+                        <li style="margin-left:15px"><a><input type="checkbox" class="minimal"<?php if((EchonoteTag::where('noteId', $note->noteId)->where('tagName','=', 'Work')->first())!=null){echo 'checked';}?>/>  Work</a></li>
+                        <li style="margin-left:15px"><a><input type="checkbox" class="minimal"<?php if((EchonoteTag::where('noteId', $note->noteId)->where('tagName','=', 'Personal')->first())!=null){echo 'checked';}?>/>  Personal</a></li>
+                        <li style="margin-left:15px"><a><input type="checkbox" class="minimal"<?php if((EchonoteTag::where('noteId', $note->noteId)->where('tagName','=', 'Business')->first())!=null){echo 'checked';}?>/>  Business</a></li>
+                        <li style="margin-left:15px"><a><input type="checkbox" class="minimal"<?php if((EchonoteTag::where('noteId', $note->noteId)->where('tagName','=', 'Miscellaneous')->first())!=null){echo 'checked';}?>/>  Miscellaneous</a></li>
                     </ul>
                     <div class="user-panel">
                         <button class = "btn-danger btn" data-toggle="modal" data-target="#delete-modal">Delete Note</button>
@@ -182,11 +182,16 @@
                                     echo    '<li>
                                                 <i class="fa  fa-file bg-green"></i>
                                                 <div class="timeline-item" id = "'; echo 'anno'; echo $index; echo'">
+<<<<<<< HEAD
                                                     <span class="time"><i class="fa fa-clock-o"></i> ';echo (floor($annotation->timestamp / 60));echo ":"; echo str_pad(($note->timestamp % 60), 2, "0", STR_PAD_LEFT);echo 
                                                     '</span>
                                                     <h3 id = "title" style = "display:inline;" class="timeline-header">Annotation ';echo $index;echo '</h3>
                                                      <a onclick="scrubToTimestamp('; echo floor($annotation->timestamp);
                                                         echo ','; echo $index; echo ')" class="btn btn-default btn-xs" style = "display:inline;">Jump to here</a>
+=======
+                                                    <span class="time"><i class="fa fa-clock-o"></i>';echo (floor($annotation->timestamp / 60));echo ":"; echo str_pad(($annotation->timestamp % 60), 2, "0", STR_PAD_LEFT);echo '</span>
+                                                    <h3 id = "title" class="timeline-header">Annotation ';echo $index;echo '</h3>
+>>>>>>> FETCH_HEAD
                                                     <div class="timeline-body">';
                                             echo    $annotation->content;
                                             echo    '</div>

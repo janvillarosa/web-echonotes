@@ -14,6 +14,13 @@ class NoteController extends BaseController{
 			$content['5']='';
 			Textannotation::add($note->noteId, $content, Input::get('timestamps.'.$index));
 		}
+
+		$tCount = Input::get('tCount');
+		for($i=0; $i<$tCount; $i++){
+			$index = (string)$i;
+			$note->toggleTag(Input::get('tags.'.$index));
+		}
+
 		return Response::make('Uploaded '.$note->noteName);
 	}
 

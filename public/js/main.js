@@ -194,7 +194,7 @@ function toggleRecording( e ) {
 /*UPLOAD RECORDING*/
 function uploadFile( blob ){
     var title = document.getElementById('title').value;
-    var tags = []''
+    var tags = [];
     form = new FormData(),
     request = new XMLHttpRequest();
     form.append("blob", blob , title);
@@ -202,28 +202,29 @@ function uploadFile( blob ){
     form.append("aCount", aIndex);
     form.append("duration", duration);
 
-    if(document.getElementById('homeTag').checked){
+    if(document.getElementById('homeTag').checked == true){
       tags.push("Home");
     }
-    if(document.getElementById('schoolTag').checked){
+    if(document.getElementById('schoolTag').checked == true){
       tags.push("School");
     }
-    if(document.getElementById('workTag').checked){
+    if(document.getElementById('workTag').checked == true){
       tags.push("Work");
     }
-    if(document.getElementById('personalTag').checked){
+    if(document.getElementById('personalTag').checked == true){
       tags.push("Personal");
     }
-    if(document.getElementById('businessTag').checked){
+    if(document.getElementById('businessTag').checked == true){
       tags.push("Business");
     }
-    if(document.getElementById('miscellaneousTag').checked){
+    if(document.getElementById('miscellaneousTag').checked == true){
       tags.push("Miscellaneous");
     }
-
+    
     for(var i = 0; i < tags.length; i++){
-      form.append("tags["+i+"]", annotations[i]);
+      form.append("tags["+i+"]", tags[i]);
     }
+    form.append("tCount", tags.length);
 
     for(var i = 0; i < aIndex; i++){
       form.append("annotations["+i+"]", annotations[i]);
