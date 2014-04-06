@@ -132,8 +132,6 @@
                     </section>
                     <!-- /.sidebar -->
                 </aside>
-
-<<<<<<< HEAD
                 <!-- Right side column. Contains the navbar and content of the page -->
                 <aside class="right-side">                
                     <!-- Content Header (Page header) -->
@@ -165,12 +163,7 @@
                                     </li>
                                     <!-- /.timeline-label -->
                                     <!-- timeline item -->
-
-<<<<<<< HEAD
                                     <textarea id="edit" style="height:100px"></textarea>
-=======
-                                <textarea id="edit" style="height:100px"></textarea>
->>>>>>> 0766225a5e6637d5168a41c58250c6b828a7b843
 
 
                                     <?php
@@ -181,21 +174,19 @@
                                         echo    '<li>
                                         <i class="fa fa-file bg-green" onclick="scrubToTimestamp('; echo floor($annotation->timestamp);
                                             echo ','; echo $index; echo ')" style = "cursor:pointer"></i>
-<div class="timeline-item" id = "'; echo 'anno'; echo $index; echo'">
-<span class="time"><i class="fa fa-clock-o"></i> ';echo (floor($annotation->timestamp / 60));echo ":"; echo str_pad(($annotation->timestamp % 60), 2, "0", STR_PAD_LEFT);echo 
-'</span>
-<h3 id = "title" class="timeline-header">Annotation ';echo $index;echo '</h3>
-<div class="timeline-body">';
-echo    $annotation->content;
-echo    '</div>
-
-<<<<<<< HEAD
-<div class="timeline-footer" style = "height:40px">
-<a class="btn btn-warning btn-xs editAnnotation" style = "float:left">Edit Annotation</a>
-<a class="btn btn-danger btn-xs" data-toggle="modal" style = "float:right" data-target="#deleteAnnotation-modal">Delete Annotation</a>
-</div>
-</div>
-</li>';
+                                        <div class="timeline-item" id = "'; echo 'anno'; echo $index; echo'">
+                                        <span class="time"><i class="fa fa-clock-o"></i> ';echo (floor($annotation->timestamp / 60));echo ":"; echo str_pad(($annotation->timestamp % 60), 2, "0", STR_PAD_LEFT);echo 
+                                        '</span>
+                                        <h3 id = "title" class="timeline-header">Annotation ';echo $index;echo '</h3>
+                                        <div class="timeline-body">';
+                                        echo    $annotation->content;
+                                        echo    '</div>
+                                        <div class="timeline-footer" style = "height:40px">
+                                        <a class="btn btn-warning btn-xs editAnnotation" style = "float:left">Edit Annotation</a>
+                                        <a class="btn btn-danger btn-xs" data-toggle="modal" style = "float:right" data-target="#deleteAnnotation-modal">Delete Annotation</a>
+                                        </div>
+                                        </div>
+                                        </li>';
 $index++;
 }
 ?>
@@ -213,32 +204,6 @@ $index++;
     <i class="fa fa-crosshairs"></i> Focus Mode
 </a>
 </div><!-- ./wrapper -->
-=======
-                                                    <div class="timeline-footer" style = "height:40px">
-                                                        <a class="btn btn-danger btn-xs" data-toggle="modal" style = "float:right; margin-left: 5px;" data-target="#deleteAnnotation-modal">Delete</a>
-                                                        <a class="btn btn-warning btn-xs editAnnotation" style = "float:right;">Edit Annotation</a>
-                                                    </div>
-                                                </div>
-                                            </li>';
-                                    $index++;
-                                }
-                                ?>
-                                <li>
-                                    <i class="fa fa-clock-o"></i>
-                                </li>
-                            </ul>
-                        </div><!-- /.col -->
-                        </div>
-                    </div>
-                </section><!-- /.content -->
-            </aside><!-- /.right-side -->
-            <a href="#" class="btn btn-default focusmode-toggle" data-toggle="offcanvas" role="button">
-                    <span class="sr-only">Focus Mode</span>
-                    <i class="fa fa-crosshairs"></i> Focus Mode
-            </a>
-        </div><!-- ./wrapper -->
->>>>>>> 0766225a5e6637d5168a41c58250c6b828a7b843
-
 <div class="modal fade" id="share-modal" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
