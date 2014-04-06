@@ -25,25 +25,18 @@
         <!-- Page player core CSS -->
         <script src="player/script/soundmanager2-nodebug-jsmin.js"></script>
         <script>
-            soundManager.setup({
-            url: 'player/swf/',
-            flashVersion: 9,
-            onready: function() {}});
+        soundManager.setup({
+          url: 'player/swf',
+          flashVersion: 9, // optional: shiny features (default = 8)
+          // optional: ignore Flash where possible, use 100% HTML5 mode
+          // preferFlash: false,
+          debugMode:true,
+          onready: function() {
 
-            soundManager.play('aDrumSound', {
-              // allow onfinish() to fire for each "shot", instead of only last shot
-              multiShotEvents: true,
-              onfinish: function() {
-                soundManager.play('test.mp3');
-              }
-            });
+          }
+        });
         </script>
-
-        <link rel="stylesheet" type="text/css" href="player/optional-annotations.css" />
-        <link rel="stylesheet" type="text/css" href="player/optional-themes.css" />
-
-        <script src="player/page-player.js"></script>
-        <script src="player/optional-page-player-metadata.js"></script>
+        <script src="player/customplayer.js"></script>
         <!-- Sound Manager end -->
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -137,7 +130,7 @@
                 <section class="sidebar">
                     <!-- Sidebar user panel -->
                     <div class="user-panel">
-                        <button class = "btn-info btn-lg" style = "width:100%; height:65px" onclick = "pl.playNext()"><i class = "glyphicon glyphicon-play"></i> Play Echonote</button>
+                        <button class = "btn-info btn-lg" id = "playButton" style = "width:100%; height:65px" onclick = "initSound('<?php echo $note->audioURL;?>'); togglePlaying(this);"><i class = "glyphicon glyphicon-play"></i> Play Echonote</button>
                     </div>
                     <!-- search form -->
                     <!-- /.search form -->
@@ -161,8 +154,8 @@
                         <li style="margin-left:15px"><a><input type="checkbox" class="minimal"/>  Miscellaneous</a></li>
                     </ul>
                     <div class="user-panel">
-                        <button class = "btn-warning btn" data-toggle="modal" data-target="#share-modal">Share Note</button>
                         <button class = "btn-danger btn" data-toggle="modal" data-target="#delete-modal">Delete Note</button>
+                        <button class = "btn-warning btn" data-toggle="modal" data-target="#share-modal">Share Note</button>
                     </div>
                 </section>
                 <!-- /.sidebar -->
@@ -171,12 +164,18 @@
             <!-- Right side column. Contains the navbar and content of the page -->
             <aside class="right-side">                
                 <!-- Content Header (Page header) -->
-                <section class="content-header" style = "height:85px">
-                    <h1 style = "padding-bottom: 5px">
-                        <a href="test.mp3"><?php echo $note->noteName;?></a>
+                <section class="content-header" style = "height:90px">
+                    <h1 style = "padding-bottom: 5px; font-size:24px;">
+                        <?php echo $note->noteName;?>
                         <small><?php echo $note->textannotation()->count();?> annotations</small>
                     </h1>
-                    <input type="text" value="" class="slider form-control" data-slider-min="0" data-slider-max="500" data-slider-step="5" data-slider-value="20" data-slider-orientation="horizontal" data-slider-selection="before" data-slider-tooltip="show" data-slider-id="blue"/>
+                    <div>
+                        <div class = "seekbar">
+                            <input id = "slider" type="text" value="" class="slider form-control" data-slider-min="0" data-slider-max="5000" data-slider-step="1" data-slider-value="0" data-slider-orientation="horizontal" data-slider-selection="before" data-slider-tooltip="show" data-slider-id="blue"/>
+                        </div>
+                        <div id = "timer" style ="display:inline-block; float:left; width:50px;">00:00</div>
+                        <div id = "duration" style ="display:inline-block; float:right;"><?php echo (floor($note->duration / 60));echo ":"; echo str_pad(($note->duration % 60), 2, "0", STR_PAD_LEFT);?></div>
+                    </div>
                 </section>
 
                 <!-- Main content -->
