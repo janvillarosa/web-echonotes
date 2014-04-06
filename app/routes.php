@@ -71,6 +71,8 @@ Route::post('/note/share', 'NoteController@share');
 
 Route::post('/note/delete', 'NoteController@delete');
 
+Route::post('/note/deleteAnnotation', 'NoteController@deleteAnnotation');
+
 Route::get('/test', function(){
 	$note = Echonote::find(1);
 	$note->toggleTag('Home');

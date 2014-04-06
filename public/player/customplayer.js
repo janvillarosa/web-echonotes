@@ -43,8 +43,8 @@ function initSound(link){
 
 			//Timed annotation code, check if audio position matches timestamp
 			if(mySound.position/1000>=timestamps[index]){
-				$('#anno'+(index)).find('#title').html("Annotation " + (index));
-				$('#anno'+(index+1)).find('#title').html("Annotation " + (index+1)+ " (Highlighted)");
+				$('#anno'+(index)).css("box-shadow", "0px 1px 3px rgba(0, 0, 0, 0.1)");
+				$('#anno'+(index+1)).css("box-shadow", "0px 0px 15px 5px rgba(26, 135, 192, .75)");
 				index++;
 			}
 		}
@@ -61,7 +61,7 @@ function setTimestamp(ts){
 }
 
 function scrubToTimestamp(time, ind){
-	$('#anno'+(index+1)).find('#title').html("Annotation " + (index+1));
+	$('#anno'+(index+1)).css("box-shadow", "0px 1px 3px rgba(0, 0, 0, 0.1)");
 	index = ind-1;
 	mySound.setPosition(time*1000);
 }

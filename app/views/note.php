@@ -146,13 +146,13 @@
             <!-- Right side column. Contains the navbar and content of the page -->
             <aside class="right-side">                
                 <!-- Content Header (Page header) -->
-                <section class="content-header" style = "height:90px">
+                <section class="content-header note-header">
                     <h1 style = "padding-bottom: 5px; font-size:24px;">
                         <?php echo $note->noteName;?>
                         <small><?php echo $note->textannotation()->count();?> annotations</small>
                     </h1>
                     <div>
-                        <div class = "seekbar">
+                        <div class = "seekbar" style="right:0px;">
                             <input id = "slider" type="text" value="" class="slider form-control" data-slider-min="0" data-slider-max="5000" data-slider-step="1" data-slider-value="0" data-slider-orientation="horizontal" data-slider-selection="before" data-slider-tooltip="show" data-slider-id="blue"/>
                         </div>
                         <div id = "timer" style ="display:inline-block; float:left; width:50px;">00:00</div>
@@ -161,7 +161,7 @@
                 </section>
 
                 <!-- Main content -->
-                <section class="content">
+                <section class="content" style = "padding-top:110px;">
                     <div class="row">
                         <div class="col-md-12">
                             <!-- The time line -->
@@ -181,17 +181,14 @@
                                     echo    '<li>
                                                 <i class="fa  fa-file bg-green"></i>
                                                 <div class="timeline-item" id = "'; echo 'anno'; echo $index; echo'">
-                                                    <span class="time"><i class="fa fa-clock-o"></i> ';echo (floor($annotation->timestamp / 60));echo ":"; echo str_pad(($note->timestamp % 60), 2, "0", STR_PAD_LEFT);echo 
+                                                    <span class="time"><i class="fa fa-clock-o"></i> ';echo (floor($annotation->timestamp / 60));echo ":"; echo str_pad(($annotation->timestamp % 60), 2, "0", STR_PAD_LEFT);echo 
                                                     '</span>
-                                                    <h3 id = "title" style = "display:inline;" class="timeline-header">Annotation ';echo $index;echo '</h3>
-                                                     <a onclick="scrubToTimestamp('; echo floor($annotation->timestamp);
-                                                        echo ','; echo $index; echo ')" class="btn btn-default btn-xs" style = "display:inline;">Jump to here</a>
+                                                    <h3 id = "title" class="timeline-header">Annotation ';echo $index;echo '</h3>
                                                     <div class="timeline-body">';
                                             echo    $annotation->content;
                                             echo    '</div>
-                                                    <div class="timeline-footer">
-                                                        <a class="btn btn-primary btn-xs">Edit Annotation</a>
-                                                        <a class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteAnnotation-modal">Delete</a>
+                                                    <div class="timeline-footer" style = "height:40px">
+                                                        <a class="btn btn-danger btn-xs" data-toggle="modal" style = "float:right" data-target="#deleteAnnotation-modal">Delete Annotation</a>
                                                     </div>
                                                 </div>
                                             </li>';
@@ -266,13 +263,12 @@
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                         <h4 class="modal-title"><i class="fa fa-trash-o"></i> Delete this Annotation</h4>
                     </div>
-                    <form action="/note/delete" method="post">
+                    <form action="/note/deleteAnnotation" method="post">
                         <div class="modal-body">
                             <p>Are you sure you want to delete this annotation? This cannot be undone.</p>
                         </div>
                         <div class="modal-footer clearfix">
                             <input name="annotationid" type="hidden" value="">
-                            <input name="noteid" type="hidden" value="<?php echo $noteId;?>">
                             <button type="submit" class="btn btn-danger pull-right">Delete</button>
                         </div>
                     </form>

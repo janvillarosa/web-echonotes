@@ -22,4 +22,5 @@ class Textannotation extends Eloquent {
 	public function editContent($content){
 		$this->content = $content;
 	}
+
 }

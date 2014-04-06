@@ -31,9 +31,9 @@ class NoteController extends BaseController{
 		return Redirect::to('/');
 	}
 
-	function deleteAnnotation(){
-		$note = Echonote::where('noteid','=', Input::get('noteid'))->firstOrFail();
-		$note->deleteAnnotation();
+	public function deleteAnnotation(){
+		$annotation = Textannotation::where('annotationid','=',Input::get('annotationid'))->first();
+		$annotation->delete();
 
 		return Redirect::to('/');
 
