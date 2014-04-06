@@ -26,6 +26,9 @@ function initSound(link){
 			$slider.slider('setValue', value);
 
 		},
+		onfinish: function(){
+			document.getElementById("playButton").innerHTML = '<i class = "glyphicon glyphicon-play"></i> Play Echonote';
+		},
 		whileplaying: function(){
 			timer.innerHTML = getTime(Math.floor(this.position),true);
 			$slider = $('#slider');
@@ -35,30 +38,21 @@ function initSound(link){
 
 			// Apply setValue to redraw slider
 			$slider.slider('setValue', value);
-
 		}
 	});
-}
-
-function playSound(){
-	mySound.play();
-}
-
-function pauseSound(){
-	mySound.pause();
+	$slider = $('#slider');
+	$('#slider').slider()
+	  .on('slide', function(ev){
+	    mySound.setPosition($slider.data('slider').getValue());
+	  });
 }
 
 function togglePlaying( e ) {
-    if (e.classList.contains("recording")) {
-        // stop recording
-        mySound.pause();
-        e.classList.remove("recording");
-        document.getElementById("playButton").innerHTML = '<i class = "glyphicon glyphicon-play"></i> Play Echonote';
+	mySound.togglePause();
+
+    if (mySound.playState == 0||mySound.paused) {
+    	document.getElementById("playButton").innerHTML = '<i class = "glyphicon glyphicon-play"></i> Play Echonote';
     } else {
-        e.classList.add("recording");
-        mySound.play();
-        document.getElementById("playButton").innerHTML = '<i class = "glyphicon glyphicon-pause"></i> Pause Echonote';
-        updateTime();
-        
+      	document.getElementById("playButton").innerHTML = '<i class = "glyphicon glyphicon-pause"></i> Pause Echonote';
     }
 }

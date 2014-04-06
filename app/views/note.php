@@ -130,7 +130,7 @@
                 <section class="sidebar">
                     <!-- Sidebar user panel -->
                     <div class="user-panel">
-                        <button class = "btn-info btn-lg" id = "playButton" style = "width:100%; height:65px" onclick = "initSound('<?php echo $note->audioURL;?>'); togglePlaying(this);"><i class = "glyphicon glyphicon-play"></i> Play Echonote</button>
+                        <button class = "btn-info btn-lg" id = "playButton" style = "width:100%; height:65px" onclick = "togglePlaying(this);"><i class = "glyphicon glyphicon-play"></i> Play Echonote</button>
                     </div>
                     <!-- search form -->
                     <!-- /.search form -->
@@ -371,6 +371,12 @@
                         //
                     }
                 });
+            }
+            );
+        </script>
+        <script>
+             $(function() {
+                initSound('<?php echo $note->audioURL;?>');
             });
         </script>
 

@@ -16,7 +16,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  * ========================================================= */
- 
+
+function getTime(nMSec, bAsString) {
+    // convert milliseconds to mm:ss, return as object literal or string
+    var nSec = Math.floor(nMSec/1000),
+        min = Math.floor(nSec/60),
+        sec = nSec-(min*60);
+    // if (min === 0 && sec === 0) return null; // return 0:00 as null
+    return (bAsString?(min+':'+(sec<10?'0'+sec:sec)):{'min':min,'sec':sec});
+} 
+
 !function( $ ) {
 
 	var Slider = function(element, options) {
@@ -185,7 +194,7 @@
 				this.tooltip[0].style[this.stylePos] = this.size * (this.percentage[0] + (this.percentage[1] - this.percentage[0])/2)/100 - (this.orientation === 'vertical' ? this.tooltip.outerHeight()/2 : this.tooltip.outerWidth()/2) +'px';
 			} else {
 				this.tooltipInner.text(
-					this.formater(this.value[0])
+					this.formater(getTime(this.value[0],true))
 				);
 				this.tooltip[0].style[this.stylePos] = this.size * this.percentage[0]/100 - (this.orientation === 'vertical' ? this.tooltip.outerHeight()/2 : this.tooltip.outerWidth()/2) +'px';
 			}

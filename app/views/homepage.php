@@ -111,7 +111,7 @@
                     <!-- sidebar menu: : style can be found in sidebar.less -->
                     <ul class="sidebar-menu">
                         <li class="active">
-                            <a href="#">
+                            <a href="/">
                                 <i class="fa fa-book"></i> <span>All my notes</span>
                             </a>
                         </li>
