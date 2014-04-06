@@ -416,7 +416,7 @@
             $(".froala-box").css('display', 'none');
             $(".editAnnotation").click(function(){
                 $(".froala-box").css('display', 'block'); 
-                $(".froala-box").prependTo($(this).closest('li').children('.timeline-body'));
+                $(".froala-box").prependTo($(this).closest('li').children('div:first').children('div:first'));
             });
         });
         </script>
