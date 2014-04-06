@@ -148,19 +148,6 @@
                             </div>
                             <div id = "timer" style ="display:inline-block; float:left; width:50px;">00:00</div>
                             <div id = "duration" style ="display:inline-block; float:right;"><?php echo (floor($note->duration / 60));echo ":"; echo str_pad(($note->duration % 60), 2, "0", STR_PAD_LEFT);?></div>
-=======
-            <!-- Right side column. Contains the navbar and content of the page -->
-            <aside class="right-side">                
-                <!-- Content Header (Page header) -->
-                <section class="content-header note-header">
-                    <h1 style = "padding-bottom: 5px; font-size:24px;">
-                        <?php echo $note->noteName;?>
-                        <small><?php echo $note->textannotation()->count();?> annotations</small>
-                    </h1>
-                    <div>
-                        <div class = "seekbar">
-                            <input id = "slider" type="text" value="" class="slider form-control" data-slider-min="0" data-slider-max="5000" data-slider-step="1" data-slider-value="0" data-slider-orientation="horizontal" data-slider-selection="before" data-slider-tooltip="show" data-slider-id="blue"/>
->>>>>>> 0766225a5e6637d5168a41c58250c6b828a7b843
                         </div>
                     </section>
 
