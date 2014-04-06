@@ -52,7 +52,6 @@ CREATE TABLE ImageAnnotations(
 
 CREATE TABLE Tags(
 	tagName char(255) NOT NULL,
-	color char(64),
 	PRIMARY KEY (tagName)
 );
 
