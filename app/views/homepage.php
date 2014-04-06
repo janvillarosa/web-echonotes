@@ -155,7 +155,7 @@
 
                 <!-- Main content -->
                 <section class="content">
-                    <div class="row">
+                    <div class="row" style = "padding:0 10px 0 13px">
                         <?php
                             if($q!=null){
                                 $notes = Echonote::where('userid','=',Auth::user()->email)->where('noteName','like','%'.$q.'%')->orderBy('updated_at', 'desc')->get();
