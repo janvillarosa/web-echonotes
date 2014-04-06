@@ -30,6 +30,8 @@ function initSound(link){
 		},
 		onfinish: function(){
 			document.getElementById("playButton").innerHTML = '<i class = "glyphicon glyphicon-play"></i> Play Echonote';
+			$('#anno'+(index)).css("box-shadow", "0px 1px 3px rgba(0, 0, 0, 0.1)");
+			index=0;
 		},
 		whileplaying: function(){
 			timer.innerHTML = getTime(Math.floor(this.position),true);
@@ -62,6 +64,8 @@ function setTimestamp(ts){
 
 function scrubToTimestamp(time, ind){
 	$('#anno'+(index+1)).css("box-shadow", "0px 1px 3px rgba(0, 0, 0, 0.1)");
+	$('#anno'+(index)).css("box-shadow", "0px 1px 3px rgba(0, 0, 0, 0.1)");
+	$('#anno'+(index-1)).css("box-shadow", "0px 1px 3px rgba(0, 0, 0, 0.1)");
 	index = ind-1;
 	mySound.setPosition(time*1000);
 }

@@ -179,7 +179,8 @@
                                 $index = 1;
                                 foreach($annotations as $annotation){
                                     echo    '<li>
-                                                <i class="fa  fa-file bg-green"></i>
+                                                <i class="fa fa-file bg-green" onclick="scrubToTimestamp('; echo floor($annotation->timestamp);
+                                                        echo ','; echo $index; echo ')" style = "cursor:pointer"></i>
                                                 <div class="timeline-item" id = "'; echo 'anno'; echo $index; echo'">
                                                     <span class="time"><i class="fa fa-clock-o"></i> ';echo (floor($annotation->timestamp / 60));echo ":"; echo str_pad(($annotation->timestamp % 60), 2, "0", STR_PAD_LEFT);echo 
                                                     '</span>
