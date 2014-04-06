@@ -269,13 +269,12 @@
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                         <h4 class="modal-title"><i class="fa fa-trash-o"></i> Delete this Annotation</h4>
                     </div>
-                    <form action="/note/delete" method="post">
+                    <form action="/note/deleteAnnotation" method="post">
                         <div class="modal-body">
                             <p>Are you sure you want to delete this annotation? This cannot be undone.</p>
                         </div>
                         <div class="modal-footer clearfix">
-                            <input name="annotationid" type="hidden" value="<?php echo $annotation->annotationid;?>">
-                            <input name="noteid" type="hidden" value="<?php echo $noteId;?>">
+                            <input name="annotationid" type="hidden" value="<?php echo $annotation->annotationId;?>">
                             <button type="submit" class="btn btn-danger pull-right">Delete</button>
                         </div>
                     </form>
