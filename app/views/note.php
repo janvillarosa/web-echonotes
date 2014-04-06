@@ -187,14 +187,8 @@
                                                     <div class="timeline-body">';
                                             echo    $annotation->content;
                                             echo    '</div>
-<<<<<<< HEAD
                                                     <div class="timeline-footer" style = "height:40px">
-                                                        <a class="btn btn-danger btn-xs" style = "float:right">Delete Annotation</a>
-=======
-                                                    <div class="timeline-footer">
-                                                        <a class="btn btn-primary btn-xs">Edit Annotation</a>
-                                                        <a class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteAnnotation-modal">Delete</a>
->>>>>>> FETCH_HEAD
+                                                        <a class="btn btn-danger btn-xs" data-toggle="modal" style = "float:right" data-target="#deleteAnnotation-modal">Delete Annotation</a>
                                                     </div>
                                                 </div>
                                             </li>';
