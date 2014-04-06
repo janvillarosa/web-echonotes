@@ -199,7 +199,7 @@
                                 foreach($annotations as $annotation){
                                     echo    '<li>
                                                 <i class="fa  fa-file bg-green"></i>
-                                                <div class="timeline-item">
+                                                <div class="timeline-item" id = "'; echo 'anno'; echo $index; echo'">
                                                     <span class="time"><i class="fa fa-clock-o"></i> ';echo (floor($annotation->timestamp / 60));echo ":"; echo str_pad(($note->timestamp % 60), 2, "0", STR_PAD_LEFT);echo '</span>
                                                     <h3 class="timeline-header">Annotation ';echo $index;echo '</h3>
                                                     <div class="timeline-body">';
@@ -214,22 +214,6 @@
                                     $index++;
                                 }
                                 ?>
-                                <!--<li>
-                                    <i class="fa  fa-picture-o bg-orange"></i>
-                                    <div class="timeline-item timeline-item-pic">
-                                        <span class="time"><i class="fa fa-clock-o"></i> 00:05</span>
-                                        <h3 class="timeline-header">Annotation 2</h3>
-                                        <div class="timeline-body">
-                                            <center>
-                                            <img src = "img/test copy.png"/>
-                                        </center>
-                                        </div>
-                                        <div class='timeline-footer'>
-                                            <a class="btn btn-primary btn-xs">Edit Annotation</a>
-                                            <a class="btn btn-danger btn-xs">Delete</a>
-                                        </div>
-                                    </div>
-                                </li>-->
                                 <li>
                                     <i class="fa fa-clock-o"></i>
                                 </li>
@@ -378,6 +362,19 @@
              $(function() {
                 initSound('<?php echo $note->audioURL;?>');
             });
+        </script>
+        <script>
+            var timestamps = new Array();
+            <?php
+            $annotations =  $note->textannotation()->get();
+            $index = 1;
+            foreach($annotations as $annotation){
+                echo "timestamps["; echo $index; echo "]="; echo (floor($annotation->timestamp / 60)); echo ";";
+                $index++;
+            }
+            ?>
+            setTimestamp(timestamps);
+
         </script>
 
     </body>

@@ -1,5 +1,6 @@
 var mySound;
 var position;
+var timestamps;
 
 function getTime(nMSec, bAsString) {
     // convert milliseconds to mm:ss, return as object literal or string
@@ -30,6 +31,7 @@ function initSound(link){
 			document.getElementById("playButton").innerHTML = '<i class = "glyphicon glyphicon-play"></i> Play Echonote';
 		},
 		whileplaying: function(){
+			var index = 0;
 			timer.innerHTML = getTime(Math.floor(this.position),true);
 			$slider = $('#slider');
 
@@ -38,6 +40,12 @@ function initSound(link){
 
 			// Apply setValue to redraw slider
 			$slider.slider('setValue', value);
+
+			//Timed annotation code, check if audio position matches timestamp
+			if(mySound.position==timestamps[index]){
+				alert("annotate!")//samplecode
+				index++;
+			}
 		}
 	});
 	$slider = $('#slider');
@@ -45,6 +53,12 @@ function initSound(link){
 	  .on('slide', function(ev){
 	    mySound.setPosition($slider.data('slider').getValue());
 	  });
+}
+
+function setTimestamp(ts){
+
+	timestamps = ts;
+
 }
 
 function togglePlaying( e ) {
