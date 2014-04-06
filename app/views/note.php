@@ -29,9 +29,16 @@
             url: 'player/swf/',
             flashVersion: 9,
             onready: function() {}});
+
+            soundManager.play('aDrumSound', {
+              // allow onfinish() to fire for each "shot", instead of only last shot
+              multiShotEvents: true,
+              onfinish: function() {
+                soundManager.play('test.mp3');
+              }
+            });
         </script>
 
-        <link rel="stylesheet" type="text/css" href="player/page-player.css" />
         <link rel="stylesheet" type="text/css" href="player/optional-annotations.css" />
         <link rel="stylesheet" type="text/css" href="player/optional-themes.css" />
 
@@ -130,7 +137,7 @@
                 <section class="sidebar">
                     <!-- Sidebar user panel -->
                     <div class="user-panel">
-                        <button class = "btn-info btn-lg" style = "width:100%; height:65px" onclick = "pl.playNext()">Play Echonote</button>
+                        <button class = "btn-info btn-lg" style = "width:100%; height:65px" onclick = "pl.playNext()"><i class = "glyphicon glyphicon-play"></i> Play Echonote</button>
                     </div>
                     <!-- search form -->
                     <!-- /.search form -->
@@ -167,7 +174,7 @@
                 <!-- Content Header (Page header) -->
                 <section class="content-header" style = "height:85px">
                     <h1 style = "padding-bottom: 5px">
-                        <a href="<?php echo $note->audioURL;?>"><?php echo $note->noteName;?> (Click to Play)</a>
+                        <a href="<?php echo $note->audioURL;?>"><?php echo $note->noteName;?></a>
                         <small><?php echo $note->textannotation()->count();?> annotations</small>
                     </h1>
                     <input type="text" value="" class="slider form-control" data-slider-min="0" data-slider-max="500" data-slider-step="5" data-slider-value="20" data-slider-orientation="horizontal" data-slider-selection="before" data-slider-tooltip="show" data-slider-id="blue"/>
