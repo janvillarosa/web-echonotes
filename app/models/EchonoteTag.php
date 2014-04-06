@@ -8,7 +8,6 @@ class EchonoteTag extends Eloquent {
 	 * @var string
 	 */
 	protected $table = 'echonote_tag';
-	protected $primaryKey = 'noteName';
 	public $timestamps = false;
 
 	public static function add($noteId, $tagName){

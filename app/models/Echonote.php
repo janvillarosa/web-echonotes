@@ -50,9 +50,12 @@ class Echonote extends Eloquent {
 	public function deleteNote(){
 
 		$annotations = $this->textannotation()->get();
+
 		foreach ($annotations as $annotation){
 			$annotation->delete();
 		}
+
+		DB::table('Echonote_Tag')->where('noteId', '=', $this->noteId)->delete();
 
 		$this->delete();
 	}

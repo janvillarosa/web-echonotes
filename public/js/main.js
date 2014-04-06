@@ -221,6 +221,10 @@ function uploadFile( blob ){
       tags.push("Miscellaneous");
     }
 
+    for(var i = 0; i < tags.length; i++){
+      form.append("tags["+i+"]", annotations[i]);
+    }
+
     for(var i = 0; i < aIndex; i++){
       form.append("annotations["+i+"]", annotations[i]);
       form.append("timestamps["+i+"]", timestamps[i]);

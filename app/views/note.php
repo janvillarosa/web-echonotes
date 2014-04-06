@@ -262,10 +262,12 @@
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                         <h4 class="modal-title"><i class="fa fa-trash-o"></i> Delete this Note</h4>
                     </div>
+                    <form action="/note/delete" method="post">
                         <div class="modal-body">
                             <p>Are you sure you want to delete this note? This cannot be undone.</p>
                         </div>
                         <div class="modal-footer clearfix">
+                            <input name="noteid" type="hidden" value="<?php echo $noteId;?>">
                             <button type="submit" class="btn btn-danger pull-right">Delete</button>
                         </div>
                     </form>

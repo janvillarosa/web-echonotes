@@ -21,7 +21,7 @@ class NoteController extends BaseController{
 		$note = Echonote::where('noteid','=', Input::get('noteid'))->firstOrFail();
 		$note->deleteNote();
 
-		return Response::make('Deleted');
+		return Redirect::to('/');
 	}
 
 	function share(){
