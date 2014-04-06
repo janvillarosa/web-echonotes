@@ -1,6 +1,7 @@
 var mySound;
 var position;
 var timestamps;
+var index = 0;
 
 function getTime(nMSec, bAsString) {
     // convert milliseconds to mm:ss, return as object literal or string
@@ -12,7 +13,6 @@ function getTime(nMSec, bAsString) {
 }
 
 function initSound(link){
-	var index = 0;
 	mySound = soundManager.createSound({
 		id: 'aSound',
 		url: link,
@@ -43,7 +43,7 @@ function initSound(link){
 
 			//Timed annotation code, check if audio position matches timestamp
 			if(mySound.position/1000>=timestamps[index]){
-				$('#anno'+(index)).find('#title').html("Annotation " + (index+1));
+				$('#anno'+(index)).find('#title').html("Annotation " + (index));
 				$('#anno'+(index+1)).find('#title').html("Annotation " + (index+1)+ " (Highlighted)");
 				index++;
 			}
@@ -57,9 +57,13 @@ function initSound(link){
 }
 
 function setTimestamp(ts){
-
 	timestamps = ts;
+}
 
+function scrubToTimestamp(time, ind){
+	$('#anno'+(index+1)).find('#title').html("Annotation " + (index+1));
+	index = ind-1;
+	mySound.setPosition(time*1000);
 }
 
 function togglePlaying( e ) {

@@ -1802,12 +1802,14 @@ Component: timeline
 }
 .timeline > li > .timeline-item > .timeline-header {
   margin: 0;
+  height: 40px;
   color: #555;
   border-bottom: 1px solid #f4f4f4;
   padding: 5px;
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1.1;
   font-family: "Roboto Slab";
+  vertical-align:middle;
 }
 .timeline > li > .timeline-item > .timeline-header > a {
   font-weight: 600;

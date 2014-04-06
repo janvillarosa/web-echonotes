@@ -182,8 +182,11 @@
                                     echo    '<li>
                                                 <i class="fa  fa-file bg-green"></i>
                                                 <div class="timeline-item" id = "'; echo 'anno'; echo $index; echo'">
-                                                    <span class="time"><i class="fa fa-clock-o"></i> ';echo (floor($annotation->timestamp / 60));echo ":"; echo str_pad(($note->timestamp % 60), 2, "0", STR_PAD_LEFT);echo '</span>
-                                                    <h3 id = "title" class="timeline-header">Annotation ';echo $index;echo '</h3>
+                                                    <span class="time"><i class="fa fa-clock-o"></i> ';echo (floor($annotation->timestamp / 60));echo ":"; echo str_pad(($note->timestamp % 60), 2, "0", STR_PAD_LEFT);echo 
+                                                    '</span>
+                                                    <h3 id = "title" style = "display:inline;" class="timeline-header">Annotation ';echo $index;echo '</h3>
+                                                     <a onclick="scrubToTimestamp('; echo floor($annotation->timestamp);
+                                                        echo ','; echo $index; echo ')" class="btn btn-default btn-xs" style = "display:inline;">Jump to here</a>
                                                     <div class="timeline-body">';
                                             echo    $annotation->content;
                                             echo    '</div>

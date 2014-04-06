@@ -126,9 +126,6 @@
                                 <li><a href=""><i class="fa fa-tags"></i> School</a></li>
                                 <li><a href=""><i class="fa fa-tags"></i> Work</a></li>
                                 <li><a href=""><i class="fa fa-tags"></i> Personal</a></li>
-                                <li><a href=""><i class="fa fa-tags"></i> Leisure</a></li>
-                                <li><a href=""><i class="fa fa-tags"></i> Hobbies</a></li>
-                                <li><a href=""><i class="fa fa-tags"></i> Travel</a></li>
                                 <li><a href=""><i class="fa fa-tags"></i> Business</a></li>
                                 <li><a href=""><i class="fa fa-tags"></i> Miscellaneous</a></li>
                             </ul>
