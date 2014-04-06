@@ -146,12 +146,13 @@
                                 <i class="fa fa-tag"></i> <span><b>Tag this note</b></span>
                             </a>
                         </li>
-                        <li style="margin-left:15px"><a><input type="checkbox" class="minimal"/>  Home</a></li>
-                        <li style="margin-left:15px"><a><input type="checkbox" class="minimal"/>  School</a></li>
-                        <li style="margin-left:15px"><a><input type="checkbox" class="minimal"/>  Work</a></li>
-                        <li style="margin-left:15px"><a><input type="checkbox" class="minimal"/>  Personal</a></li>
-                        <li style="margin-left:15px"><a><input type="checkbox" class="minimal"/>  Business</a></li>
-                        <li style="margin-left:15px"><a><input type="checkbox" class="minimal"/>  Miscellaneous</a></li>
+                        <?php $tags = EchonoteTag::where('noteId', $note->noteId);?>
+                        <li style="margin-left:15px"><a><input type="checkbox" class="minimal"<?php if(($tags->where('tagName','=', 'Home')->first())!=null){echo 'checked';}?>/>  Home</a></li>
+                        <li style="margin-left:15px"><a><input type="checkbox" class="minimal"<?php if(($tags->where('tagName','=', 'School')->first())!=null){echo 'checked';}?>/>  School</a></li>
+                        <li style="margin-left:15px"><a><input type="checkbox" class="minimal"<?php if(($tags->where('tagName','=', 'Work')->first())!=null){echo 'checked';}?>/>  Work</a></li>
+                        <li style="margin-left:15px"><a><input type="checkbox" class="minimal"<?php if(($tags->where('tagName','=', 'Personal')->first())!=null){echo 'checked';}?>/>  Personal</a></li>
+                        <li style="margin-left:15px"><a><input type="checkbox" class="minimal"<?php if(($tags->where('tagName','=', 'Business')->first())!=null){echo 'checked';}?>/>  Business</a></li>
+                        <li style="margin-left:15px"><a><input type="checkbox" class="minimal"<?php if(($tags->where('tagName','=', 'Miscellaneous')->first())!=null){echo 'checked';}?>/>  Miscellaneous</a></li>
                     </ul>
                     <div class="user-panel">
                         <button class = "btn-danger btn" data-toggle="modal" data-target="#delete-modal">Delete Note</button>
@@ -164,9 +165,15 @@
             <!-- Right side column. Contains the navbar and content of the page -->
             <aside class="right-side">                
                 <!-- Content Header (Page header) -->
+<<<<<<< HEAD
                 <section class="content-header" style = "height:90px">
                     <h1 style = "padding-bottom: 5px; font-size:24px;">
                         <?php echo $note->noteName;?>
+=======
+                <section class="content-header" style = "height:85px">
+                    <h1 style = "padding-bottom: 5px">
+                        <a href="<?php echo $note->audioURL;?>"><?php echo $note->noteName;?></a>
+>>>>>>> FETCH_HEAD
                         <small><?php echo $note->textannotation()->count();?> annotations</small>
                     </h1>
                     <div>

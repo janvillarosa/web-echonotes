@@ -32,5 +32,5 @@ class NoteController extends BaseController{
 		//return Response::make('Shared to '.Input::get('email'));
 		return Redirect::to('/');
 	}
-
+	
 }

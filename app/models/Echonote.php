@@ -14,6 +14,10 @@ class Echonote extends Eloquent {
 		return $this->hasMany('Textannotation', 'noteId');
 	}
 
+	public function tags(){
+		return $this->belongsToMany('Tag', 'Echonote_Tag', 'noteId', 'tagName');
+	}
+
 	public static function add($file, $duration, $email){
 		$name = $file->getClientOriginalName();
 		$destination = 'upload/';
@@ -74,6 +78,24 @@ class Echonote extends Eloquent {
 			$annotation->save();
         }
 
+	}
+
+	private function addTag($tagName){
+		EchonoteTag::add($this->noteId, $tagName);
+	}
+
+	private function deleteTag($tagName){
+		EchonoteTag::deleteFromNote($this->noteId, $tagName);	
+	}
+
+	public function toggleTag($tagName){
+		$tag = EchonoteTag::where('noteId', '=', $this->noteId)->where('tagName', '=', $tagName)->first();
+		if($tag == null){
+			$this->addTag($tagName);
+		}
+		else{
+			$this->deleteTag($tagName);
+		}
 	}
 
 }

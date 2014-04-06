@@ -52,20 +52,24 @@ CREATE TABLE ImageAnnotations(
 
 CREATE TABLE Tags(
 	tagName char(255) NOT NULL,
-	color char(64) NOT NULL,
-	noteId integer NOT NULL,
-	PRIMARY KEY (tagName, color),
-	FOREIGN KEY (noteId)
-		REFERENCES Echonotes (noteId)
+	color char(64),
+	PRIMARY KEY (tagName)
 );
 
 CREATE TABLE Echonote_Tag(
 	noteId integer NOT NULL,
 	tagName char(255) NOT NULL,
-	color char(64) NOT NULL,
-	PRIMARY KEY (noteId, tagName, color),
+	PRIMARY KEY (noteId, tagName),
 	FOREIGN KEY (noteId)
 		REFERENCES Echonotes (noteId),
-	FOREIGN KEY (tagName, color)
-		REFERENCES Tags (tagName, color)
+	FOREIGN KEY (tagName)
+		REFERENCES Tags (tagName)
 );
+
+INSERT INTO Tags VALUES('Home', null);
+INSERT INTO Tags VALUES('School', null);
+INSERT INTO Tags VALUES('Work', null);
+INSERT INTO Tags VALUES('Personal', null);
+INSERT INTO Tags VALUES('Business', null);
+INSERT INTO Tags VALUES('Miscellaneous', null);
+INSERT INTO Tags VALUES('Shared', null);

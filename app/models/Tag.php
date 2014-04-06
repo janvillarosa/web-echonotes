@@ -8,7 +8,10 @@ class Tag extends Eloquent {
 	 * @var string
 	 */
 	protected $table = 'tags';
+	protected $primaryKey = 'tagName';
 	public $timestamps = false;
 
-	
+	public function Echonotes(){
+		return $this->belongsToMany('Echonote', 'Echonote_Tag', 'noteId', 'tagName');
+	}
 }
