@@ -121,12 +121,12 @@
                                     <i class="fa fa-tag"></i> <span><b>Tag this note</b></span>
                                 </a>
                             </li>
-                            <li style="margin-left:15px"><a><input type="checkbox" class="minimal"/>  Home</a></li>
-                            <li style="margin-left:15px"><a><input type="checkbox" class="minimal"/>  School</a></li>
-                            <li style="margin-left:15px"><a><input type="checkbox" class="minimal"/>  Work</a></li>
-                            <li style="margin-left:15px"><a><input type="checkbox" class="minimal"/>  Personal</a></li>
-                            <li style="margin-left:15px"><a><input type="checkbox" class="minimal"/>  Business</a></li>
-                            <li style="margin-left:15px"><a><input type="checkbox" class="minimal"/>  Miscellaneous</a></li>
+                            <li style="margin-left:15px"><a><input id="homeTag" type="checkbox" class="minimal"/>  Home</a></li>
+                            <li style="margin-left:15px"><a><input id="schoolTag" type="checkbox" class="minimal"/>  School</a></li>
+                            <li style="margin-left:15px"><a><input id="workTag" type="checkbox" class="minimal"/>  Work</a></li>
+                            <li style="margin-left:15px"><a><input id="personalTag" type="checkbox" class="minimal"/>  Personal</a></li>
+                            <li style="margin-left:15px"><a><input id="businessTag" type="checkbox" class="minimal"/>  Business</a></li>
+                            <li style="margin-left:15px"><a><input id="miscellaneousTag" type="checkbox" class="minimal"/>  Miscellaneous</a></li>
                         </ul>
                     </section>
                     <!-- /.sidebar -->

@@ -194,12 +194,32 @@ function toggleRecording( e ) {
 /*UPLOAD RECORDING*/
 function uploadFile( blob ){
     var title = document.getElementById('title').value;
+    var tags = []''
     form = new FormData(),
     request = new XMLHttpRequest();
     form.append("blob", blob , title);
     form.append("title", title);
     form.append("aCount", aIndex);
     form.append("duration", duration);
+
+    if(document.getElementById('homeTag').checked){
+      tags.push("Home");
+    }
+    if(document.getElementById('schoolTag').checked){
+      tags.push("School");
+    }
+    if(document.getElementById('workTag').checked){
+      tags.push("Work");
+    }
+    if(document.getElementById('personalTag').checked){
+      tags.push("Personal");
+    }
+    if(document.getElementById('businessTag').checked){
+      tags.push("Business");
+    }
+    if(document.getElementById('miscellaneousTag').checked){
+      tags.push("Miscellaneous");
+    }
 
     for(var i = 0; i < aIndex; i++){
       form.append("annotations["+i+"]", annotations[i]);
