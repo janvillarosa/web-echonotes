@@ -420,6 +420,7 @@ body > .header .navbar .nav > li > a > .label {
   line-height: 1.0em;
   text-align: center;
   padding: 2px;
+  padding-left:4px;
 }
 body > .header .navbar .nav > li > a:hover > .label {
   top: 3px;

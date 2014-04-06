@@ -178,13 +178,13 @@
                                 echo $note->noteName;
                                 echo '</h1>
                                         <div class="box-tools pull-right">';
-                                            if((EchonoteTag::where('noteId', $note->noteId)->where('tagName','=', 'Home')->first())!=null){echo '<div class="label bg-aqua">Home</div>';}
-                                            if((EchonoteTag::where('noteId', $note->noteId)->where('tagName','=', 'School')->first())!=null){echo '<div class="label bg-green">School</div>';}
-                                            if((EchonoteTag::where('noteId', $note->noteId)->where('tagName','=', 'Work')->first())!=null){echo '<div class="label bg-teal">Work</div>';}
-                                            if((EchonoteTag::where('noteId', $note->noteId)->where('tagName','=', 'Personal')->first())!=null){echo '<div class="label bg-yellow">Personal</div>';}
-                                            if((EchonoteTag::where('noteId', $note->noteId)->where('tagName','=', 'Business')->first())!=null){echo '<div class="label bg-red">Business</div>';}
-                                            if((EchonoteTag::where('noteId', $note->noteId)->where('tagName','=', 'Miscellaneous')->first())!=null){echo '<div class="label bg-fuchsia">Miscellaneous</div>';}
-                                            if((EchonoteTag::where('noteId', $note->noteId)->where('tagName','=', 'Shared')->first())!=null){echo '<div class="label bg-navy">Shared</div>';}
+                                            if((EchonoteTag::where('noteId', $note->noteId)->where('tagName','=', 'Home')->first())!=null){echo '<div class="label bg-aqua" style="margin-right:2px">Home</div>';}
+                                            if((EchonoteTag::where('noteId', $note->noteId)->where('tagName','=', 'School')->first())!=null){echo '<div class="label bg-green" style="margin-right:2px">School</div>';}
+                                            if((EchonoteTag::where('noteId', $note->noteId)->where('tagName','=', 'Work')->first())!=null){echo '<div class="label bg-teal" style="margin-right:2px">Work</div>';}
+                                            if((EchonoteTag::where('noteId', $note->noteId)->where('tagName','=', 'Personal')->first())!=null){echo '<div class="label bg-yellow" style="margin-right:2px">Personal</div>';}
+                                            if((EchonoteTag::where('noteId', $note->noteId)->where('tagName','=', 'Business')->first())!=null){echo '<div class="label bg-red" style="margin-right:2px">Business</div>';}
+                                            if((EchonoteTag::where('noteId', $note->noteId)->where('tagName','=', 'Miscellaneous')->first())!=null){echo '<div class="label bg-fuchsia" style="margin-right:2px">Miscellaneous</div>';}
+                                            if((EchonoteTag::where('noteId', $note->noteId)->where('tagName','=', 'Shared')->first())!=null){echo '<div class="label bg-navy" style="margin-right:2px">Shared</div>';}
                                 echo    '</div>
                                     </div>
                                     <div class="box-body" style = "font-size:18px; color:#444;">';
