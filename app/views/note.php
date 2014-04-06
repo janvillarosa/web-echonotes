@@ -182,8 +182,8 @@
                                         echo    $annotation->content;
                                         echo    '</div>
                                         <div class="timeline-footer" style = "height:40px">
-                                        <a class="btn btn-warning btn-xs editAnnotation" style = "float:left">Edit Annotation</a>
-                                        <a class="btn btn-danger btn-xs" data-toggle="modal" style = "float:right" data-target="#deleteAnnotation-modal">Delete Annotation</a>
+                                        <a class="btn btn-danger btn-xs" data-toggle="modal" style = "float:right; margin-left:5px;" data-target="#deleteAnnotation-modal">Delete Annotation</a>
+                                        <a class="btn btn-warning btn-xs editAnnotation" style = "float:right">Edit Annotation</a>
                                         </div>
                                         </div>
                                         </li>';
