@@ -87,6 +87,9 @@ body > .header {
   .focusmode-toggle{
     visibility:visible;
   }
+  .note-header{
+  left:220px;
+}
 }
 /*Give content full width on xs screens*/
 @media screen and (max-width: 992px) {
@@ -122,8 +125,16 @@ body.fixed .wrapper {
   background: #f9f9f9;
 }
 .content-header{
+  position: relative;
   padding: 20px 15px;
   background: #f9f9f9;
+}
+.note-header{
+  height:90px; 
+  position:fixed;
+  right:0px;
+  left:220px; 
+  z-index:100;
 }
 /* Utility */
 /* H1 - H6 font */
@@ -426,7 +437,6 @@ body > .header .logo .icon {
   margin-right: 10px;
 }
 .right-side > .content-header {
-  position: relative;
   padding: 15px 15px 10px 20px;
 }
 .right-side > .content-header > h1 {
@@ -664,6 +674,9 @@ body > .header .logo .icon {
   }
   body.fixed .row-offcanvas-left.active .sidebar-offcanvas {
     left: 0px;
+  }
+  .note-header{
+  left:0px;
   }
 }
 /* 
@@ -1802,7 +1815,6 @@ Component: timeline
 }
 .timeline > li > .timeline-item > .timeline-header {
   margin: 0;
-  height: 40px;
   color: #555;
   border-bottom: 1px solid #f4f4f4;
   padding: 5px;

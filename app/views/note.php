@@ -147,13 +147,13 @@
             <!-- Right side column. Contains the navbar and content of the page -->
             <aside class="right-side">                
                 <!-- Content Header (Page header) -->
-                <section class="content-header" style = "height:90px">
+                <section class="content-header note-header">
                     <h1 style = "padding-bottom: 5px; font-size:24px;">
                         <?php echo $note->noteName;?>
                         <small><?php echo $note->textannotation()->count();?> annotations</small>
                     </h1>
                     <div>
-                        <div class = "seekbar">
+                        <div class = "seekbar" style="right:0px;">
                             <input id = "slider" type="text" value="" class="slider form-control" data-slider-min="0" data-slider-max="5000" data-slider-step="1" data-slider-value="0" data-slider-orientation="horizontal" data-slider-selection="before" data-slider-tooltip="show" data-slider-id="blue"/>
                         </div>
                         <div id = "timer" style ="display:inline-block; float:left; width:50px;">00:00</div>
@@ -162,7 +162,7 @@
                 </section>
 
                 <!-- Main content -->
-                <section class="content">
+                <section class="content" style = "padding-top:110px;">
                     <div class="row">
                         <div class="col-md-12">
                             <!-- The time line -->
@@ -182,17 +182,14 @@
                                     echo    '<li>
                                                 <i class="fa  fa-file bg-green"></i>
                                                 <div class="timeline-item" id = "'; echo 'anno'; echo $index; echo'">
-                                                    <span class="time"><i class="fa fa-clock-o"></i> ';echo (floor($annotation->timestamp / 60));echo ":"; echo str_pad(($note->timestamp % 60), 2, "0", STR_PAD_LEFT);echo 
+                                                    <span class="time"><i class="fa fa-clock-o"></i> ';echo (floor($annotation->timestamp / 60));echo ":"; echo str_pad(($annotation->timestamp % 60), 2, "0", STR_PAD_LEFT);echo 
                                                     '</span>
-                                                    <h3 id = "title" style = "display:inline;" class="timeline-header">Annotation ';echo $index;echo '</h3>
-                                                     <a onclick="scrubToTimestamp('; echo floor($annotation->timestamp);
-                                                        echo ','; echo $index; echo ')" class="btn btn-default btn-xs" style = "display:inline;">Jump to here</a>
+                                                    <h3 id = "title" class="timeline-header">Annotation ';echo $index;echo '</h3>
                                                     <div class="timeline-body">';
                                             echo    $annotation->content;
                                             echo    '</div>
-                                                    <div class="timeline-footer">
-                                                        <a class="btn btn-primary btn-xs">Edit Annotation</a>
-                                                        <a class="btn btn-danger btn-xs">Delete</a>
+                                                    <div class="timeline-footer" style = "height:40px">
+                                                        <a class="btn btn-danger btn-xs" style = "float:right">Delete Annotation</a>
                                                     </div>
                                                 </div>
                                             </li>';
