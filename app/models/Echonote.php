@@ -89,7 +89,7 @@ class Echonote extends Eloquent {
 			$annotation->save();
         }
 
-        $this->addTag('Shared');
+        $note->addTag('Shared');
 
 	}
 

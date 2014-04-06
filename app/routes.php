@@ -74,6 +74,12 @@ Route::post('/note/delete', 'NoteController@delete');
 Route::post('/note/deleteAnnotation', 'NoteController@deleteAnnotation');
 
 Route::get('/test', function(){
-	$note = Echonote::find(1);
-	$note->toggleTag('Home');
+	$note = Echonote::find(3);
+	$tag = Tag::whereHas("Echonote", function($q){
+                            $q->where('Echonotes.noteId', '=', 3);
+                        })->get();
+
+	foreach($tags as $tag){
+		echo $tag->tagName;
+	}
 });
