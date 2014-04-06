@@ -152,7 +152,7 @@
                         <small><?php echo $note->textannotation()->count();?> annotations</small>
                     </h1>
                     <div>
-                        <div class = "seekbar" style="right:0px;">
+                        <div class = "seekbar">
                             <input id = "slider" type="text" value="" class="slider form-control" data-slider-min="0" data-slider-max="5000" data-slider-step="1" data-slider-value="0" data-slider-orientation="horizontal" data-slider-selection="before" data-slider-tooltip="show" data-slider-id="blue"/>
                         </div>
                         <div id = "timer" style ="display:inline-block; float:left; width:50px;">00:00</div>
@@ -175,7 +175,7 @@
                                 <!-- /.timeline-label -->
                                 <!-- timeline item -->
 
-                                                                                  <textarea id="edit" style="height:100px"></textarea>
+                                <textarea id="edit" style="height:100px"></textarea>
 
 
                                 <?php
@@ -195,8 +195,8 @@
                                             echo    '</div>
 
                                                     <div class="timeline-footer" style = "height:40px">
-                                                        <a class="btn btn-warning btn-xs editAnnotation" style = "float:left">Edit Annotation</a>
-                                                        <a class="btn btn-danger btn-xs" data-toggle="modal" style = "float:right" data-target="#deleteAnnotation-modal">Delete Annotation</a>
+                                                        <a class="btn btn-danger btn-xs" data-toggle="modal" style = "float:right; margin-left: 5px;" data-target="#deleteAnnotation-modal">Delete</a>
+                                                        <a class="btn btn-warning btn-xs editAnnotation" style = "float:right;">Edit Annotation</a>
                                                     </div>
                                                 </div>
                                             </li>';
