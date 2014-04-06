@@ -31,6 +31,14 @@ class NoteController extends BaseController{
 		return Redirect::to('/');
 	}
 
+	function deleteAnnotation(){
+		$note = Echonote::where('noteid','=', Input::get('noteid'))->firstOrFail();
+		$note->deleteAnnotation();
+
+		return Redirect::to('/');
+
+	}
+
 	function share(){
 		$note = Echonote::where('noteid','=', Input::get('noteid'))->firstOrFail();
 
