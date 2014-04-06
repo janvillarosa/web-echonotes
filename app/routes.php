@@ -15,10 +15,13 @@ Route::get('/', function()
 {
 	if(Auth::check()){
 		if(Input::has('q')){
-			return View::make('homepage')->with('q', Input::get('q'));	
+			return View::make('homepage')->with('q', Input::get('q'))->with('tag', null);	
+		}
+		else if(Input::has('tag')){
+			return View::make('homepage')->with('q', null)->with('tag', Input::get('tag'));
 		}
 		else{
-			return View::make('homepage')->with('q', null);
+			return View::make('homepage')->with('q', null)->with('tag', null);
 		}
 	}
 	else{

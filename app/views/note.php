@@ -128,7 +128,6 @@
                                 <i class="fa fa-tag"></i> <span><b>Tag this note</b></span>
                             </a>
                         </li>
-                        <?php $tags;?>
                         <li style="margin-left:15px"><a><input type="checkbox" class="minimal"<?php if((EchonoteTag::where('noteId', $note->noteId)->where('tagName','=', 'Home')->first())!=null){echo 'checked';}?>/>  Home</a></li>
                         <li style="margin-left:15px"><a><input type="checkbox" class="minimal"<?php if((EchonoteTag::where('noteId', $note->noteId)->where('tagName','=', 'School')->first())!=null){echo 'checked';}?>/>  School</a></li>
                         <li style="margin-left:15px"><a><input type="checkbox" class="minimal"<?php if((EchonoteTag::where('noteId', $note->noteId)->where('tagName','=', 'Work')->first())!=null){echo 'checked';}?>/>  Work</a></li>
