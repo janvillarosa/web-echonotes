@@ -69,8 +69,6 @@ Route::post('/note/share', 'NoteController@share');
 Route::post('/note/delete', 'NoteController@delete');
 
 Route::get('/test', function(){
-	$cloneNote = Echonote::where('noteid','=', 1)->firstOrFail();
-	$cloneNote->deleteNote();
-	//$file = File::copy("upload/1-Test note 1-rhettbuzon@gmail.com.wav", "upload/2-Test note 1-test@gmail.com.wav");
-	return "true";
+	$note = Echonote::find(1);
+	$note->toggleTag('Home');
 });
