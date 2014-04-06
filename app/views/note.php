@@ -112,7 +112,7 @@
                 <section class="sidebar">
                     <!-- Sidebar user panel -->
                     <div class="user-panel">
-                        <button class = "btn-info btn-lg" id = "playButton" style = "width:100%; height:65px" onclick = "togglePlaying(this);"><i class = "glyphicon glyphicon-play"></i> Play Echonote</button>
+                        <button class = "btn-info btn-lg" id = "playButton" style = "width:100%; height:70px" onclick = "togglePlaying(this);"><i class = "glyphicon glyphicon-play"></i> Play Echonote</button>
                     </div>
                     <!-- search form -->
                     <!-- /.search form -->
@@ -128,12 +128,12 @@
                                 <i class="fa fa-tag"></i> <span><b>Tag this note</b></span>
                             </a>
                         </li>
-                        <li style="margin-left:15px"><a><input type="checkbox" class="minimal"<?php if((EchonoteTag::where('noteId', $note->noteId)->where('tagName','=', 'Home')->first())!=null){echo 'checked';}?>/>  Home</a></li>
-                        <li style="margin-left:15px"><a><input type="checkbox" class="minimal"<?php if((EchonoteTag::where('noteId', $note->noteId)->where('tagName','=', 'School')->first())!=null){echo 'checked';}?>/>  School</a></li>
-                        <li style="margin-left:15px"><a><input type="checkbox" class="minimal"<?php if((EchonoteTag::where('noteId', $note->noteId)->where('tagName','=', 'Work')->first())!=null){echo 'checked';}?>/>  Work</a></li>
-                        <li style="margin-left:15px"><a><input type="checkbox" class="minimal"<?php if((EchonoteTag::where('noteId', $note->noteId)->where('tagName','=', 'Personal')->first())!=null){echo 'checked';}?>/>  Personal</a></li>
-                        <li style="margin-left:15px"><a><input type="checkbox" class="minimal"<?php if((EchonoteTag::where('noteId', $note->noteId)->where('tagName','=', 'Business')->first())!=null){echo 'checked';}?>/>  Business</a></li>
-                        <li style="margin-left:15px"><a><input type="checkbox" class="minimal"<?php if((EchonoteTag::where('noteId', $note->noteId)->where('tagName','=', 'Miscellaneous')->first())!=null){echo 'checked';}?>/>  Miscellaneous</a></li>
+                        <li style="margin-left:15px"><a><input type="checkbox" class="minimal"<?php if((EchonoteTag::where('noteId', $note->noteId)->where('tagName','=', 'Home')->first())!=null){echo 'checked';}?>/> <i class="fa fa-tags text-aqua"></i>  Home</a></li>
+                        <li style="margin-left:15px"><a><input type="checkbox" class="minimal"<?php if((EchonoteTag::where('noteId', $note->noteId)->where('tagName','=', 'School')->first())!=null){echo 'checked';}?>/> <i class="fa fa-tags text-green"></i>  School</a></li>
+                        <li style="margin-left:15px"><a><input type="checkbox" class="minimal"<?php if((EchonoteTag::where('noteId', $note->noteId)->where('tagName','=', 'Work')->first())!=null){echo 'checked';}?>/> <i class="fa fa-tags text-teal"></i>  Work</a></li>
+                        <li style="margin-left:15px"><a><input type="checkbox" class="minimal"<?php if((EchonoteTag::where('noteId', $note->noteId)->where('tagName','=', 'Personal')->first())!=null){echo 'checked';}?>/> <i class="fa fa-tags text-yellow"></i>  Personal</a></li>
+                        <li style="margin-left:15px"><a><input type="checkbox" class="minimal"<?php if((EchonoteTag::where('noteId', $note->noteId)->where('tagName','=', 'Business')->first())!=null){echo 'checked';}?>/> <i class="fa fa-tags text-red"></i>  Business</a></li>
+                        <li style="margin-left:15px"><a><input type="checkbox" class="minimal"<?php if((EchonoteTag::where('noteId', $note->noteId)->where('tagName','=', 'Miscellaneous')->first())!=null){echo 'checked';}?>/> <i class="fa fa-tags text-fuchsia"></i> Miscellaneous</a></li>
                     </ul>
                     <div class="user-panel">
                         <button class = "btn-danger btn" data-toggle="modal" data-target="#delete-modal">Delete Note</button>

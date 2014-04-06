@@ -122,12 +122,12 @@
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="/?tag=Home"><i class="fa fa-tags"></i> Home</a></li>
-                                <li><a href="/?tag=School"><i class="fa fa-tags"></i> School</a></li>
-                                <li><a href="/?tag=Work"><i class="fa fa-tags"></i> Work</a></li>
-                                <li><a href="/?tag=Personal"><i class="fa fa-tags"></i> Personal</a></li>
-                                <li><a href="/?tag=Business"><i class="fa fa-tags"></i> Business</a></li>
-                                <li><a href="/?tag=Miscellaneous"><i class="fa fa-tags"></i> Miscellaneous</a></li>
+                                <li><a href="/?tag=Home"><i class="fa fa-tags text-aqua"></i> Home</a></li>
+                                <li><a href="/?tag=School"><i class="fa fa-tags text-green"></i> School</a></li>
+                                <li><a href="/?tag=Work"><i class="fa fa-tags text-teal"></i> Work</a></li>
+                                <li><a href="/?tag=Personal"><i class="fa fa-tags text-yellow"></i> Personal</a></li>
+                                <li><a href="/?tag=Business"><i class="fa fa-tags text-red"></i> Business</a></li>
+                                <li><a href="/?tag=Miscellaneous"><i class="fa fa-tags text-fuchsia"></i> Miscellaneous</a></li>
                             </ul>
                         </li>
                         <li class="active">
@@ -182,13 +182,13 @@
                                 echo '<div class="col-md-4">
                                             <a href = "/';
                                 echo  $note->noteId;
-                                echo '"><div class="box box-info">
+                                echo '"><div class="box box-default">
                                     <div class="box-header">
                                         <h1 class="box-title" style = "font-size:25px">';
                                 echo $note->noteName;
                                 echo '</h1>
                                         <div class="box-tools pull-right">
-                                            <div class="label bg-aqua">Home</div>
+                                            <div class="label bg-aqua">Home</div> <!--for tags, use bg-<color>. for list of colors, see tags sidebar code.-->
                                         </div>
                                     </div>
                                     <div class="box-body" style = "font-size:18px; color:#444;">';
