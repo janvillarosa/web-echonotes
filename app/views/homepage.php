@@ -170,6 +170,9 @@
                             if($q!=null){
                                 $notes = Echonote::where('userid','=',Auth::user()->email)->where('noteName','like','%'.$q.'%')->orderBy('updated_at', 'desc')->get();
                             }
+                            // else if($tag!=null){
+                            //     $notes = EchonoteTag::find($tag)->echonotes();
+                            // }
                             else{
                                 $notes = Echonote::where('userid','=',Auth::user()->email)->orderBy('updated_at', 'desc')->get();
                             }

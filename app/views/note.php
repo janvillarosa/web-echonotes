@@ -128,7 +128,6 @@
                                 <i class="fa fa-tag"></i> <span><b>Tag this note</b></span>
                             </a>
                         </li>
-                        <?php $tags;?>
                         <li style="margin-left:15px"><a><input type="checkbox" class="minimal"<?php if((EchonoteTag::where('noteId', $note->noteId)->where('tagName','=', 'Home')->first())!=null){echo 'checked';}?>/>  Home</a></li>
                         <li style="margin-left:15px"><a><input type="checkbox" class="minimal"<?php if((EchonoteTag::where('noteId', $note->noteId)->where('tagName','=', 'School')->first())!=null){echo 'checked';}?>/>  School</a></li>
                         <li style="margin-left:15px"><a><input type="checkbox" class="minimal"<?php if((EchonoteTag::where('noteId', $note->noteId)->where('tagName','=', 'Work')->first())!=null){echo 'checked';}?>/>  Work</a></li>
@@ -188,8 +187,14 @@
                                                     <div class="timeline-body">';
                                             echo    $annotation->content;
                                             echo    '</div>
+<<<<<<< HEAD
                                                     <div class="timeline-footer" style = "height:40px">
                                                         <a class="btn btn-danger btn-xs" style = "float:right">Delete Annotation</a>
+=======
+                                                    <div class="timeline-footer">
+                                                        <a class="btn btn-primary btn-xs">Edit Annotation</a>
+                                                        <a class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteAnnotation-modal">Delete</a>
+>>>>>>> FETCH_HEAD
                                                     </div>
                                                 </div>
                                             </li>';
@@ -249,6 +254,27 @@
                             <p>Are you sure you want to delete this note? This cannot be undone.</p>
                         </div>
                         <div class="modal-footer clearfix">
+                            <input name="noteid" type="hidden" value="<?php echo $noteId;?>">
+                            <button type="submit" class="btn btn-danger pull-right">Delete</button>
+                        </div>
+                    </form>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div>
+
+         <div class="modal fade" id="deleteAnnotation-modal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title"><i class="fa fa-trash-o"></i> Delete this Annotation</h4>
+                    </div>
+                    <form action="/note/delete" method="post">
+                        <div class="modal-body">
+                            <p>Are you sure you want to delete this annotation? This cannot be undone.</p>
+                        </div>
+                        <div class="modal-footer clearfix">
+                            <input name="annotationid" type="hidden" value="<?php echo $annotation->annotationid;?>">
                             <input name="noteid" type="hidden" value="<?php echo $noteId;?>">
                             <button type="submit" class="btn btn-danger pull-right">Delete</button>
                         </div>
