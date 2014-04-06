@@ -165,15 +165,9 @@
             <!-- Right side column. Contains the navbar and content of the page -->
             <aside class="right-side">                
                 <!-- Content Header (Page header) -->
-<<<<<<< HEAD
                 <section class="content-header" style = "height:90px">
                     <h1 style = "padding-bottom: 5px; font-size:24px;">
                         <?php echo $note->noteName;?>
-=======
-                <section class="content-header" style = "height:85px">
-                    <h1 style = "padding-bottom: 5px">
-                        <a href="<?php echo $note->audioURL;?>"><?php echo $note->noteName;?></a>
->>>>>>> FETCH_HEAD
                         <small><?php echo $note->textannotation()->count();?> annotations</small>
                     </h1>
                     <div>
