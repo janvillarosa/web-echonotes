@@ -14,7 +14,7 @@ class Echonote extends Eloquent {
 		return $this->hasMany('Textannotation', 'noteId');
 	}
 
-	public function tags(){
+	public function tag(){
 		return $this->belongsToMany('Tag', 'Echonote_Tag', 'noteId', 'tagName');
 	}
 

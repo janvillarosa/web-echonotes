@@ -20,5 +20,4 @@ class EchonoteTag extends Eloquent {
 	public static function deleteFromNote($noteId, $tagName){
 		DB::table('Echonote_Tag')->where('noteId', '=', $noteId)->where('tagName', '=', $tagName)->delete();
 	}
-
 }

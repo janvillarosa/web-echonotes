@@ -271,7 +271,7 @@
                             <p>Are you sure you want to delete this annotation? This cannot be undone.</p>
                         </div>
                         <div class="modal-footer clearfix">
-                            <input name="annotationid" type="hidden" value="<?php echo $annotation->annotationid;?>">
+                            <input name="annotationid" type="hidden" value="">
                             <input name="noteid" type="hidden" value="<?php echo $noteId;?>">
                             <button type="submit" class="btn btn-danger pull-right">Delete</button>
                         </div>

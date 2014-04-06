@@ -122,16 +122,16 @@
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href=""><i class="fa fa-tags"></i> Home</a></li>
-                                <li><a href=""><i class="fa fa-tags"></i> School</a></li>
-                                <li><a href=""><i class="fa fa-tags"></i> Work</a></li>
-                                <li><a href=""><i class="fa fa-tags"></i> Personal</a></li>
-                                <li><a href=""><i class="fa fa-tags"></i> Business</a></li>
-                                <li><a href=""><i class="fa fa-tags"></i> Miscellaneous</a></li>
+                                <li><a href="/?tag=Home"><i class="fa fa-tags"></i> Home</a></li>
+                                <li><a href="/?tag=School"><i class="fa fa-tags"></i> School</a></li>
+                                <li><a href="/?tag=Work"><i class="fa fa-tags"></i> Work</a></li>
+                                <li><a href="/?tag=Personal"><i class="fa fa-tags"></i> Personal</a></li>
+                                <li><a href="/?tag=Business"><i class="fa fa-tags"></i> Business</a></li>
+                                <li><a href="/?tag=Miscellaneous"><i class="fa fa-tags"></i> Miscellaneous</a></li>
                             </ul>
                         </li>
                         <li class="active">
-                            <a href="#">
+                            <a href="/?tag=Shared">
                                 <i class="fa fa-share-square-o"></i> <span>Notes shared with me</span>
                             </a>
                         </li>
@@ -170,9 +170,11 @@
                             if($q!=null){
                                 $notes = Echonote::where('userid','=',Auth::user()->email)->where('noteName','like','%'.$q.'%')->orderBy('updated_at', 'desc')->get();
                             }
-                            // else if($tag!=null){
-                            //     $notes = EchonoteTag::find($tag)->echonotes();
-                            // }
+                            else if($tag!=null){
+                                $notes = Echonote::whereHas("Tag", function($q) use($tag){
+                                    $q->where('Tags.tagName', '=', $tag);
+                                })->get();
+                            }
                             else{
                                 $notes = Echonote::where('userid','=',Auth::user()->email)->orderBy('updated_at', 'desc')->get();
                             }

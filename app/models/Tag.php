@@ -11,7 +11,7 @@ class Tag extends Eloquent {
 	protected $primaryKey = 'tagName';
 	public $timestamps = false;
 
-	public function echonotes(){
-		return $this->belongsToMany('Echonote', 'Echonote_Tag', 'tagName', 'noteId');
+	public function echonote(){
+		return $this->belongsToMany('Echonote', 'Echonote_Tag', 'noteId', 'tagName');
 	}
 }
