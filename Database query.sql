@@ -65,10 +65,10 @@ CREATE TABLE Echonote_Tag(
 		REFERENCES Tags (tagName)
 );
 
-INSERT INTO Tags VALUES('Home', null);
-INSERT INTO Tags VALUES('School', null);
-INSERT INTO Tags VALUES('Work', null);
-INSERT INTO Tags VALUES('Personal', null);
-INSERT INTO Tags VALUES('Business', null);
-INSERT INTO Tags VALUES('Miscellaneous', null);
-INSERT INTO Tags VALUES('Shared', null);
+INSERT INTO Tags VALUES('Home');
+INSERT INTO Tags VALUES('School');
+INSERT INTO Tags VALUES('Work');
+INSERT INTO Tags VALUES('Personal');
+INSERT INTO Tags VALUES('Business');
+INSERT INTO Tags VALUES('Miscellaneous');
+INSERT INTO Tags VALUES('Shared');
