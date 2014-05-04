@@ -127,7 +127,7 @@
                         </ul>
                         <div class="user-panel">
                             <button class = "btn-danger btn" data-toggle="modal" data-target="#delete-modal">Delete Note</button>
-                            <button class = "btn-warning btn" data-toggle="modal" data-target="#share-modal">Share Note</button>
+                            <button class = "btn-warning btn" data-toggle="modal" data-target="#share-modal">Send Note</button>
                         </div>
                     </section>
                     <!-- /.sidebar -->
@@ -157,8 +157,8 @@
                                 <ul class="timeline">
                                     <!-- timeline time label -->
                                     <li class="time-label">
-                                        <span class="bg-green">
-                                            Start Echonote
+                                        <span class="bg-aqua">
+                                            Start - 00:00
                                         </span>
                                     </li>
                                     <!-- /.timeline-label -->
@@ -190,8 +190,10 @@
 $index++;
 }
 ?>
-<li>
-    <i class="fa fa-clock-o"></i>
+<li class="time-label">
+    <span class="bg-aqua">
+        End - <?php echo (floor($note->duration / 60));echo ":"; echo str_pad(($note->duration % 60), 2, "0", STR_PAD_LEFT);?>
+    </span>
 </li>
 </ul>
 </div><!-- /.col -->
@@ -209,14 +211,14 @@ $index++;
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title"><i class="fa fa-share-square-o"></i> Share this Note</h4>
+                <h4 class="modal-title"><i class="fa fa-share-square-o"></i> Send this Note</h4>
             </div>
             <form action="/note/share" method="post">
                 <div class="modal-body image-div">
-                    <p>Share this note to a friend. The note will be duplicated for the recipient.</p>
+                    <p>Send this note to a friend. The note will be duplicated for the recipient.</p>
                     <div class="form-group">
                         <div class="input-group">
-                            <span class="input-group-addon">Share to:</span>
+                            <span class="input-group-addon">Send to:</span>
                             <input name="email" type="email" class="form-control" placeholder="Recipient's E-mail" style="width:480px">
                             <input name="noteid" type="hidden" value="<?php echo $noteId;?>">
                         </div>

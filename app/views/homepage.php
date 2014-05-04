@@ -122,7 +122,7 @@
                         </li>
                         <li class="active">
                             <a href="/?tag=Shared">
-                                <i class="fa fa-share-square-o"></i> <span>Notes shared with me</span>
+                                <i class="fa fa-share-square-o"></i> <span>Notes sent to me</span>
                             </a>
                         </li>
                         <li class="active">
