@@ -13,52 +13,19 @@
 
 Route::get('/', function()
 {
-	if(Auth::check()){
-		if(Input::has('q')){
-			return View::make('homepage')->with('q', Input::get('q'))->with('tag', null);	
-		}
-		else if(Input::has('tag')){
-			return View::make('homepage')->with('q', null)->with('tag', Input::get('tag'));
-		}
-		else{
-			return View::make('homepage')->with('q', null)->with('tag', null);
-		}
-	}
-	else{
-		return View::make('frontpage');
-	}
+	return Redirect::route('home');
 });
 
-Route::post('/', 'UserController@login');
+Route::get('/', array('as' => 'home', 'before' => 'auth', 'uses' => 'NoteController@home'));
 
-Route::get('/logout', 'UserController@logout');
+Route::post('/register', array('as' => 'register', 'before' => 'csrf', 'uses' => 'UserController@register'));
+Route::post('/', array('as' => 'login', 'before' => 'csrf', 'uses' => 'UserController@login'));
+Route::get('/logout', array('as' => 'logout', 'uses' => 'UserController@logout'));
 
-Route::post('/register', 'UserController@register');
+Route::get('/record', array('as' => 'record', 'before' => 'auth', 'uses' => 'NoteController@record'));
+Route::get('/{noteId}', array('as' => 'view_note', 'before' => 'auth', 'uses' => 'NoteController@viewNote'))->where('noteId', '[0-9]+');
 
-Route::get('/record', function()
-{
-	return View::make('record');
-});
-
-Route::get('/note', function()
-{
-	return View::make('note');
-});
-
-Route::get('/{noteId}', function($noteId)
-{
-	if((Echonote::where('noteId', '=', $noteId)->where('userId', '=', Auth::user()->email)->first())!=null){
-		return View::make('note')->with('noteId', $noteId);
-	}
-	else{
-		return Redirect::to('/');
-	}
-})->where('noteId', '[0-9]+');
-
-Route::post('/record/upload', 'NoteController@upload');
-
-Route::post('/note/share', 'NoteController@share');
-
-Route::post('/note/delete', 'NoteController@delete');
-
-Route::post('/note/deleteAnnotation', 'NoteController@deleteAnnotation');
+Route::post('/record/upload', array('as' => 'upload_note', 'uses' => 'NoteController@upload'));
+Route::post('/note/share', array('as' => 'share_note', 'before' => 'csrf', 'uses' => 'NoteController@share'));
+Route::post('/note/delete', array('as' => 'delete_note', 'before' => 'csrf', 'uses' => 'NoteController@delete'));
+Route::post('/note/deleteAnnotation', array('as' => 'delete_annotation', 'before' => 'csrf', 'uses' => 'NoteController@deleteAnnotation'));

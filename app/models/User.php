@@ -3,7 +3,9 @@
 use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableInterface;
 
-class User extends Eloquent implements UserInterface, RemindableInterface {
+use LaravelBook\Ardent\Ardent;
+
+class User extends Ardent implements UserInterface, RemindableInterface {
 
 	/**
 	 * The database table used by the model.
@@ -11,8 +13,16 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	 * @var string
 	 */
 	protected $table = 'users';
-	protected $primaryKey = 'email';
-	public $timestamps = false;
+
+	protected $fillable = array('email', 'name');
+	protected $guarded = array('id', 'password');
+
+	public static $rules = array(
+		'email' => array('required','email','unique:users,email'),
+		'name' => array('required', 'alpha_num'),
+		'password' => array('required', 'min:6', 'confirmed'),
+		'password_confirmation' => array('required', 'min:6')
+	);
 
 	/**
 	 * The attributes excluded from the model's JSON form.
@@ -55,16 +65,22 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 		return $this->email;
 	}
 
+	public function getRememberToken()
+	{
+	    return $this->remember_token;
+	}
+
+	public function setRememberToken($value)
+	{
+	    $this->remember_token = $value;
+	}
+
+	public function getRememberTokenName()
+	{
+	    return 'remember_token';
+	}
+		
 	public function echonotes(){
-		return $this->hasMany('Echonote', 'noteId');
+		return $this->hasMany('Echonote');
 	}
-
-	public static function register($email, $username, $password){
-		$user = new User;
-		$user->email = Input::get('email');
-		$user->name = Input::get('username');
-		$user->setAuthPassword(Input::get('password'));
-		$user->save();
-	}
-
 }

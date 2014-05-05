@@ -1,6 +1,8 @@
 <?php
 
-class Tag extends Eloquent {
+use LaravelBook\Ardent\Ardent;
+
+class Tag extends Ardent {
 
 	/**
 	 * The database table used by the model.
@@ -8,10 +10,8 @@ class Tag extends Eloquent {
 	 * @var string
 	 */
 	protected $table = 'tags';
-	protected $primaryKey = 'tagName';
-	public $timestamps = false;
 
 	public function echonote(){
-		return $this->belongsToMany('Echonote', 'Echonote_Tag', 'noteId', 'tagName');
+		return $this->belongsToMany('Echonote');
 	}
 }

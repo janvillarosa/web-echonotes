@@ -3,29 +3,14 @@
 class UserController extends BaseController{
 
 	function register(){
-		$email = Input::get('email');
-		$name = Input::get('username');
-		$password = Input::get('password');
-		$cPassword = Input::get('confirm_password');
+		$user = new User;
+		$user->email = Input::get('email');
+		$user->name = Input::get('username');
+		$user->setAuthPassword(Input::get('password'));
+		$user->password_confirmation = Input::get('confirm_password');
 
-		$validator = Validator::make(
-		    array(
-		    	'email' => $email,
-		        'name' => $name,
-		        'password' => $password,
-		        'password_confirmation' => $cPassword
-		    ),
-		    array(
-		    	'email' => 'required|email|unique:users',
-		        'name' => 'required',
-		        'password' => 'required|min:6|confirmed'
-		        'password_confirmation' =>'required'
-		    )
-		);
-
-		if (!$validator->fails())
+		if ($user->save())
 		{
-			User::register($email, $name, $password);
 			$this->login();
 		}
 		//note: implement if validation fails
@@ -35,9 +20,14 @@ class UserController extends BaseController{
 	function login(){
 		$email = Input::get('email');
 		$password = Input::get('password');
-		Auth::attempt(array('email' => $email, 'password' => $password));
-		return Redirect::to('/');
-		//Implement redirect to incorrect error
+		$remembered = Input::get('remembered')=="remembered" ? 'true' : 'false';
+		if(Auth::attempt(array('email' => $email, 'password' => $password), $remembered)){
+			return Redirect::route('home');
+		}
+		else{
+			return View::make('frontpage')->with('loginError', 'true');
+		}
+		
 	}
 
 	function logout(){
