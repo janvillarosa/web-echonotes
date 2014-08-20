@@ -2,6 +2,7 @@
 
 use LaravelBook\Ardent\Ardent;
 
+
 class Echonote extends Ardent {
 
 	/**
@@ -10,6 +11,10 @@ class Echonote extends Ardent {
 	 * @var string
 	 */
 	protected $table = 'echonotes';
+	protected $softDelete = true;
+
+	protected $fillable = array('title', 'url', 'duration','user_id');
+
 
 
 	protected $fillable = array('title', 'url', 'duration','user_id');
@@ -19,7 +24,7 @@ class Echonote extends Ardent {
 		'title' => array('required','min:1','max:255'),
 		'url' => array('required','min:1','max:255'),
 		'duration' => array('required','integer'),
-		'user_id' => array('required','min:6', 'exists:users'),
+		'user_id' => array('required'),
 	);
 
 	public function textannotations(){
@@ -27,7 +32,10 @@ class Echonote extends Ardent {
 	}
 
 	public function tags(){
-		return $this->belongsToMany('Tag');
+		return $this->belongsToMany('Tag', 'echonote_tag', 'echonote_id', 'tag_id');
 	}
 
+	public function user(){
+		return $this->belongsTo('User');
+	}
 }

@@ -43,5 +43,4 @@ class HomeController extends BaseController {
 	function record(){
 		return View::make('record');
 	}
-
 }

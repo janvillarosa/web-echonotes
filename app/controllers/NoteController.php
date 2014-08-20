@@ -11,9 +11,11 @@ class NoteController extends BaseController{
 		$note = new Echonote;
 		$note->title =  Input::get('title');
 		$note->url = $destination.$note->title.'-'.$email.'.wav';
-		$note->duration =  Input::get('duration');;
-		$note->users_id = Auth::user()->id;
-		$note->save();
+		$note->duration =  Input::get('duration');
+		$note->user_id = Auth::user()->id;
+		if(!$note->save()){
+			return $note->errors()->first();
+		}
 
 		//create file
 		$filename = $note->id.'-'.$note->title.'-'.$email.'.wav';
@@ -21,7 +23,9 @@ class NoteController extends BaseController{
 
 		//resave
 		$note->url = $destination.$filename;
-		$note->save();
+		if(!$note->save()){
+			return $note->errors()->first();
+		}
 
 		//save annotations
 		$aCount = Input::get('annotation_count');
@@ -38,7 +42,7 @@ class NoteController extends BaseController{
 		$tCount = Input::get('tCount');
 		for($i=0; $i<$tCount; $i++){
 			$index = (string)$i;
-			$note->toggleTag(Input::get('tags.'.$index));
+			$note->tags()->attach(Input::get('tags.'.$index));
 		}
 
 		return Response::make('Uploaded '.$note->title);

@@ -13,6 +13,7 @@ class User extends Ardent implements UserInterface, RemindableInterface {
 	 * @var string
 	 */
 	protected $table = 'users';
+	protected $softDelete = true;
 
 	protected $fillable = array('email', 'name', 'password_confirmation');
 	protected $guarded = array('id', 'password');
@@ -94,6 +95,6 @@ class User extends Ardent implements UserInterface, RemindableInterface {
 	}
 		
 	public function echonotes(){
-		return $this->hasMany('Echonote');
+		return $this->hasMany('Echonote', 'user_id');
 	}
 }
