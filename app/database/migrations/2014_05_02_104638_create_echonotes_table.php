@@ -18,6 +18,7 @@ class CreateEchonotesTable extends Migration {
 			$table->string('url');
 			$table->unsignedInteger('duration');
 			$table->unsignedInteger('users_id');
+			$table->softDeletes();
 			$table->timestamps();
 			$table->engine = 'MyISAM';
 		});

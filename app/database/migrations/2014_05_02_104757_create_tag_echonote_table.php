@@ -16,6 +16,7 @@ class CreateTagEchonoteTable extends Migration {
 			$table->increments('id');
 			$table->string('tag_id');
 			$table->unsignedInteger('echonote_id');
+			$table->softDeletes();
 			$table->timestamps();
 			$table->engine = 'MyISAM';
 		});

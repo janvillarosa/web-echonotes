@@ -15,9 +15,32 @@ class HomeController extends BaseController {
 	|
 	*/
 
-	public function showWelcome()
-	{
-		return View::make('hello');
+	function home(){                              
+		if(Input::has('q')){
+			$notes = Auth::user()->echonotes()->where('title','like','%'.$q.'%')->orderBy('updated_at', 'desc')->get();
+		}
+		else if(Input::has('tag')){
+			$notes = Auth::user()->echonotes()->whereHas("Tags", function($q){
+                                    $q->where('Tags.id', '=', Input::get('tag'));
+                                })->orderBy('updated_at', 'desc')->get();
+		}
+		else{
+			$notes = Auth::user()->echonotes()->orderBy('updated_at', 'desc')->get();
+		}
+		return View::make('homepage')->withNotes($notes);
 	}
 
+	function viewNote($noteId){
+		$note = Echonote::findOrFail($noteId);
+		if($note->user_id === Auth::user()->id){
+			return View::make('note')->withNote($note);
+		}
+		else{
+			return Redirect::to('/');
+		}
+	}
+
+	function record(){
+		return View::make('record');
+	}
 }

@@ -14,6 +14,7 @@ class CreateTagsTable extends Migration {
 	{
 		Schema::create('tags', function($table){
 			$table->string('id')->unique();
+			$table->softDeletes();
 			$table->timestamps();
 			$table->engine = 'MyISAM';
 		});

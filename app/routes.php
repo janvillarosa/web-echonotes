@@ -16,14 +16,13 @@ Route::get('/', function()
 	return Redirect::route('home');
 });
 
-Route::get('/', array('as' => 'home', 'before' => 'auth', 'uses' => 'NoteController@home'));
+Route::get('/', array('as' => 'home', 'before' => 'auth', 'uses' => 'HomeController@home'));
+Route::get('/record', array('as' => 'record', 'before' => 'auth', 'uses' => 'HomeController@record'));
+Route::get('/{noteId}', array('as' => 'view_note', 'before' => 'auth', 'uses' => 'HomeController@viewNote'))->where('noteId', '[0-9]+');
 
 Route::post('/register', array('as' => 'register', 'before' => 'csrf', 'uses' => 'UserController@register'));
 Route::post('/', array('as' => 'login', 'before' => 'csrf', 'uses' => 'UserController@login'));
 Route::get('/logout', array('as' => 'logout', 'uses' => 'UserController@logout'));
-
-Route::get('/record', array('as' => 'record', 'before' => 'auth', 'uses' => 'NoteController@record'));
-Route::get('/{noteId}', array('as' => 'view_note', 'before' => 'auth', 'uses' => 'NoteController@viewNote'))->where('noteId', '[0-9]+');
 
 Route::post('/record/upload', array('as' => 'upload_note', 'uses' => 'NoteController@upload'));
 Route::post('/note/share', array('as' => 'share_note', 'before' => 'csrf', 'uses' => 'NoteController@share'));

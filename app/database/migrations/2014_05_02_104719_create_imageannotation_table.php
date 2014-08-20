@@ -17,6 +17,7 @@ class CreateImageannotationTable extends Migration {
 			$table->unsignedInteger('timestamp');
 			$table->string('url');
 			$table->unsignedInteger('echonotes_id');
+			$table->softDeletes();
 			$table->timestamps();
 			$table->engine = 'MyISAM';
 		});
