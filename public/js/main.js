@@ -218,7 +218,7 @@ function uploadFile( blob ){
       tags.push("Business");
     }
     if(document.getElementById('miscellaneousTag').checked == true){
-      tags.push("Mischellaneous");
+      tags.push("Miscellaneous");
     }
 
     form.append("tCount", tags.length);
