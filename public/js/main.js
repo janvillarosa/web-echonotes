@@ -218,17 +218,13 @@ function uploadFile( blob ){
       tags.push("Business");
     }
     if(document.getElementById('miscellaneousTag').checked == true){
-      tags.push("Miscellaneous");
+      tags.push("Mischellaneous");
     }
-    
+
+    form.append("tCount", tags.length);
     for(var i = 0; i < tags.length; i++){
       form.append("tags["+i+"]", tags[i]);
     }
-
-    
-
-    form.append("aCount", aIndex);
-    form.append("tCount", tags.length);
 
     $.ajax({
                 url: "/record/upload",

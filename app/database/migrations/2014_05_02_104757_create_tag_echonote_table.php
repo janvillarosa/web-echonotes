@@ -29,7 +29,7 @@ class CreateTagEchonoteTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::dropIfExists('tag_echonote');
+		Schema::dropIfExists('echonote_tag');
 	}
 
 }

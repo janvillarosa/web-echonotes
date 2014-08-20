@@ -17,7 +17,7 @@ class PopulateTags extends Migration {
 		DB::table('tags')->insert(array('id'=>'Work'));
 		DB::table('tags')->insert(array('id'=>'Personal'));
 		DB::table('tags')->insert(array('id'=>'Business'));
-		DB::table('tags')->insert(array('id'=>'Mischellaneous'));
+		DB::table('tags')->insert(array('id'=>'Miscellaneous'));
 		DB::table('tags')->insert(array('id'=>'Shared'));
 	}
 

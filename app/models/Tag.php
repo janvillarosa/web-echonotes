@@ -12,6 +12,6 @@ class Tag extends Ardent {
 	protected $table = 'tags';
 
 	public function echonote(){
-		return $this->belongsToMany('Echonote');
+		return $this->belongsToMany('Echonote', 'echonote_tag', 'echonote_id', 'tag_id');
 	}
 }
