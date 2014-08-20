@@ -6,14 +6,18 @@ class UserController extends BaseController{
 		$user = new User;
 		$user->email = Input::get('email');
 		$user->name = Input::get('username');
-		$user->setAuthPassword(Input::get('password'));
+		$user->password = Input::get('password');
 		$user->password_confirmation = Input::get('confirm_password');
 
 		if ($user->save())
 		{
 			$this->login();
 		}
+		else{
 		//note: implement if validation fails
+			return $user->errors()->first();
+		}
+
 		return Redirect::to('/');
 	}
 

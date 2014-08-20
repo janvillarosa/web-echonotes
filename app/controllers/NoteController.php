@@ -2,21 +2,6 @@
 
 class NoteController extends BaseController{
 
-	function home(){                              
-		if(Input::has('q')){
-			$notes = Auth::user()->echonotes()->where('title','like','%'.$q.'%')->orderBy('updated_at', 'desc')->get();
-		}
-		else if(Input::has('tag')){
-			$notes = Auth::user()->echonotes()->whereHas("Tags", function($q){
-                                    $q->where('Tags.id', '=', Input::get('tag'));
-                                })->orderBy('updated_at', 'desc')->get();
-		}
-		else{
-			$notes = Auth::user()->echonotes()->orderBy('updated_at', 'desc')->get();
-		}
-		return View::make('homepage')->withNotes($notes);
-	}
-
 	function upload(){
 		$destination = 'upload/';
 		$file = Input::file('blob');
@@ -27,7 +12,7 @@ class NoteController extends BaseController{
 		$note->title =  Input::get('title');
 		$note->url = $destination.$note->title.'-'.$email.'.wav';
 		$note->duration =  Input::get('duration');;
-		$note->user_id = Auth::user()->id;
+		$note->users_id = Auth::user()->id;
 		$note->save();
 
 		//create file
@@ -42,10 +27,19 @@ class NoteController extends BaseController{
 		$aCount = Input::get('annotation_count');
 		for($i=0; $i<$aCount; $i++){
 			$index = (string)$i;
-			Textannotation::add($note->id, $content, Input::get('timestamps.'.$index));
+			$annotation = new Textannotation;
+			$annotation->timestamp = Input::get('timestamps.'.$index);
+			$annotation->content = Input::get('annotations.'.$index);
+			$annotation->echonote_id = $note->id;
+
+			$annotation->save();
 		}
 
-		$note->tags()->sync(Input::get('tags'));
+		$tCount = Input::get('tCount');
+		for($i=0; $i<$tCount; $i++){
+			$index = (string)$i;
+			$note->toggleTag(Input::get('tags.'.$index));
+		}
 
 		return Response::make('Uploaded '.$note->title);
 	}
@@ -101,19 +95,5 @@ class NoteController extends BaseController{
         $note->tags()->attach('Shared');
 
 		return Redirect::to('/');
-	}
-	
-	function viewNote($noteId){
-		$note = Echonote::findOrFail($noteId);
-		if($note->user_id === Auth::user()->id){
-			return View::make('note')->withNote($note);
-		}
-		else{
-			return Redirect::to('/');
-		}
-	}
-
-	function record(){
-		return View::make('record');
 	}
 }

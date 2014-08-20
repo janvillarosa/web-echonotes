@@ -14,15 +14,28 @@ class User extends Ardent implements UserInterface, RemindableInterface {
 	 */
 	protected $table = 'users';
 
-	protected $fillable = array('email', 'name');
+	protected $fillable = array('email', 'name', 'password_confirmation');
 	protected $guarded = array('id', 'password');
+
+	public $autoPurgeRedundantAttributes = true;
 
 	public static $rules = array(
 		'email' => array('required','email','unique:users,email'),
-		'name' => array('required', 'alpha_num'),
+		'name' => array('required'),
 		'password' => array('required', 'min:6', 'confirmed'),
 		'password_confirmation' => array('required', 'min:6')
 	);
+
+	public function beforeSave( $forced )
+	{
+	    // if there's a new password, hash it
+	    if($this->isDirty('password'))
+	    {
+	        $this->password = Hash::make($this->password);
+	    }
+
+	    return true;
+	}
 
 	/**
 	 * The attributes excluded from the model's JSON form.

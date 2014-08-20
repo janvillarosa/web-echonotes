@@ -228,6 +228,7 @@ function uploadFile( blob ){
     
 
     form.append("aCount", aIndex);
+    form.append("tCount", tags.length);
 
     $.ajax({
                 url: "/record/upload",

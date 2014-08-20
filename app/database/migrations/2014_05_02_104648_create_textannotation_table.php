@@ -17,6 +17,7 @@ class CreateTextannotationTable extends Migration {
 			$table->unsignedInteger('timestamp');
 			$table->text('context');
 			$table->unsignedInteger('echonotes_id');
+			$table->softDeletes();
 			$table->timestamps();
 			$table->engine = 'MyISAM';
 		});
