@@ -121,8 +121,8 @@
                             </ul>
                         </li>
                         <li class="active">
-                            <a href="{{route('home',array('tag' => 'Shared'))}}">
-                                <i class="fa fa-share-square-o"></i> <span>Notes shared with me</span>
+                            <a href="/?tag=Shared">
+                                <i class="fa fa-share-square-o"></i> <span>Notes sent to me</span>
                             </a>
                         </li>
                         <li class="active">

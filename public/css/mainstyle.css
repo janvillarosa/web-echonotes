@@ -1766,7 +1766,7 @@ Component: timeline
   content: '';
   position: absolute;
   top: 0px;
-  bottom: 0;
+  bottom: 8px;
   width: 5px;
   background: #ddd;
   left: 45px;
