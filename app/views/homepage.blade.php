@@ -75,7 +75,7 @@
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
                                     <div class="pull-left">
-                                        <a href="/settings" class="btn btn-default btn-flat">Settings</a>
+                                        <a href="{{route('settings')}}" class="btn btn-default btn-flat">Settings</a>
                                     </div>
                                     <div class="pull-right">
                                         <a href="{{route('logout')}}" class="btn btn-default btn-flat">Sign out</a>
@@ -94,7 +94,7 @@
                 <section class="sidebar">
                     <!-- Sidebar user panel -->
                     <div class="user-panel">
-                        <a href = "/record"><button class = "btn-success btn-lg" style = "width:100%; height:95px">Start A New Echonote</button></a>
+                        <a href = "{{route('record')}}"><button class = "btn-success btn-lg" style = "width:100%; height:95px">Start A New Echonote</button></a>
                     </div>
                     <!-- search form -->
                     <!-- /.search form -->

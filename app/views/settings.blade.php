@@ -62,14 +62,14 @@
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="glyphicon glyphicon-user"></i>
-                                <span><?php echo Auth::user()->name; ?><i class="caret"></i></span>
+                                <span>{{{Auth::user()->name}}}<i class="caret"></i></span>
                             </a>
                             <ul class="dropdown-menu">
                                 <!-- User image -->
                                 <li class="user-header">
                                     <p>
-                                        <?php echo Auth::user()->name; ?>
-                                        <small><?php echo Auth::user()->email; ?></small>
+                                        {{{Auth::user()->name}}}
+                                        <small>{{{Auth::user()->email}}}</small>
                                     </p>
                                 </li>
                                 <!-- Menu Footer-->
@@ -93,24 +93,24 @@
                 <!-- sidebar: style can be found in sidebar.less -->
                 <section class="sidebar">
                     <!-- Sidebar user panel -->
-                    <div class="user-panel">
+                    <!-- search form -->
+                <div class="user-panel">
                         <div class="pull-left image">
                             <img src="../../img/avatar3.png" class="img-circle" alt="User Image" />
                         </div>
                         <div class="pull-left info">
-                            <p><?php echo Auth::user()->name; ?></p>
+                            <p>{{{Auth::user()->name}}}</p>
 
-                            <?php echo Auth::user()->email; ?>
+                            {{{Auth::user()->email}}}
                         </div>
                     </div>
-                    <!-- search form -->
                     <!-- /.search form -->
                     <!-- sidebar menu: : style can be found in sidebar.less -->
                     <ul class="sidebar-menu">
                         <li class="active">
-                            <a href="/">
-                                <i class="fa fa-book"></i> <span>Go back to my notes</span>
-                            </a>
+                              <a href="{{URL::route('home')}}">
++                                <i class="fa fa-book"></i> <span>Go back to my notes</span>
++                            </a>
                         </li>
                     </ul>
                 </section>
@@ -120,10 +120,10 @@
             <!-- Right side column. Contains the navbar and content of the page -->
             <aside class="right-side">                
                 <!-- Content Header (Page header) -->
-                <section class="content-header">
+                <section class="content-header" style="padding: 15px 15px 16px 20px;">
                     <h1>
-                        Settings
-                        <small></small>
+                        User Settings
+                    </h1>
                 </section>
 
                 <!-- Main content -->
@@ -184,7 +184,6 @@
                     </div>
 
                     </div>
-
                 </section><!-- /.content -->
             </aside><!-- /.right-side -->
         </div><!-- ./wrapper -->
@@ -208,6 +207,7 @@
     </div><!-- /.modal-dialog -->
 </div>
 
+
         <!-- jQuery 2.0.2 -->
         <script src="js/jquery-2.1.0.min.js"></script>
         <!-- Bootstrap -->
@@ -216,6 +216,3 @@
         <script src="js/AdminLTE/app.js" type="text/javascript"></script>
 
         <script src="js/jquery-ui-1.10.3.min.js" type="text/javascript"></script>
-
-    </body>
-</html>
