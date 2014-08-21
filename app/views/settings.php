@@ -100,36 +100,6 @@
                     <!-- /.search form -->
                     <!-- sidebar menu: : style can be found in sidebar.less -->
                     <ul class="sidebar-menu">
-                        <li class="active">
-                            <a href="/">
-                                <i class="fa fa-book"></i> <span>All my notes</span>
-                            </a>
-                        </li>
-                        <li class="treeview">
-                            <a href="#">
-                                <i class="fa fa-tags"></i>
-                                <span>My Note Tags</span><small class = "badge pull-right bg-yellow">6</small>
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li><a href="/?tag=Home"><i class="fa fa-tags text-aqua"></i> Home</a></li>
-                                <li><a href="/?tag=School"><i class="fa fa-tags text-green"></i> School</a></li>
-                                <li><a href="/?tag=Work"><i class="fa fa-tags text-teal"></i> Work</a></li>
-                                <li><a href="/?tag=Personal"><i class="fa fa-tags text-yellow"></i> Personal</a></li>
-                                <li><a href="/?tag=Business"><i class="fa fa-tags text-red"></i> Business</a></li>
-                                <li><a href="/?tag=Miscellaneous"><i class="fa fa-tags text-fuchsia"></i> Miscellaneous</a></li>
-                            </ul>
-                        </li>
-                        <li class="active">
-                            <a href="/?tag=Shared">
-                                <i class="fa fa-share-square-o"></i> <span>Notes sent to me</span>
-                            </a>
-                        </li>
-                        <li class="active">
-                            <a href="/settings">
-                                <i class="fa fa-cog"></i> <span>Settings</span>
-                            </a>
-                        </li>
                     </ul>
                 </section>
                 <!-- /.sidebar -->
@@ -140,68 +110,13 @@
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <h1>
-                        My Echonotes
-                        <small>Sorted by Newest</small>
+                        Settings
+                        <small></small>
                     </h1>
-                    <form action="/" method="get" class="sidebar-form">
-                        <div class="input-group">
-                            <input type="text" name="q" class="form-control" placeholder="Search for your notes..."/>
-                            <span class="input-group-btn">
-                                <button type='submit' id='search-btn' class="btn btn-flat" style = "background-color:#5cb85c; color:white;"><i class="fa fa-search"></i></button>
-                            </span>
-                        </div>
-                    </form>
                 </section>
 
                 <!-- Main content -->
                 <section class="content">
-                    <div class="row" style = "padding:0 10px 0 13px">
-                        <?php
-                            if($q!=null){
-                                $notes = Echonote::where('userid','=',Auth::user()->email)->where('noteName','like','%'.$q.'%')->orderBy('updated_at', 'desc')->get();
-                            }
-                            else if($tag!=null){
-                                $notes = Echonote::where('userid','=',Auth::user()->email)->whereHas("Tag", function($q) use($tag){
-                                    $q->where('Tags.tagName', '=', $tag);
-                                })->orderBy('updated_at', 'desc')->get();
-                            }
-                            else{
-                                $notes = Echonote::where('userid','=',Auth::user()->email)->orderBy('updated_at', 'desc')->get();
-                            }
-                            foreach($notes as $note){
-                                echo '<div class="col-md-4">
-                                            <a href = "/';
-                                echo  $note->noteId;
-                                echo '"><div class="box box-default">
-                                    <div class="box-header">
-                                        <h1 class="box-title" style = "font-size:25px">';
-                                echo $note->noteName;
-                                echo '</h1>
-                                        <div class="box-tools pull-right">';
-                                            if((EchonoteTag::where('noteId', $note->noteId)->where('tagName','=', 'Home')->first())!=null){echo '<div class="label bg-aqua" style="margin-right:2px">Home</div>';}
-                                            if((EchonoteTag::where('noteId', $note->noteId)->where('tagName','=', 'School')->first())!=null){echo '<div class="label bg-green" style="margin-right:2px">School</div>';}
-                                            if((EchonoteTag::where('noteId', $note->noteId)->where('tagName','=', 'Work')->first())!=null){echo '<div class="label bg-teal" style="margin-right:2px">Work</div>';}
-                                            if((EchonoteTag::where('noteId', $note->noteId)->where('tagName','=', 'Personal')->first())!=null){echo '<div class="label bg-yellow" style="margin-right:2px">Personal</div>';}
-                                            if((EchonoteTag::where('noteId', $note->noteId)->where('tagName','=', 'Business')->first())!=null){echo '<div class="label bg-red" style="margin-right:2px">Business</div>';}
-                                            if((EchonoteTag::where('noteId', $note->noteId)->where('tagName','=', 'Miscellaneous')->first())!=null){echo '<div class="label bg-fuchsia" style="margin-right:2px">Miscellaneous</div>';}
-                                            if((EchonoteTag::where('noteId', $note->noteId)->where('tagName','=', 'Shared')->first())!=null){echo '<div class="label bg-navy" style="margin-right:2px">Shared</div>';}
-                                echo    '</div>
-                                    </div>
-                                    <div class="box-body" style = "font-size:18px; color:#444;">';
-                                echo $note->textannotation()->count();
-                                echo " annotations";
-                                echo '<br>
-                                        <b>Duration: </b>';echo (floor($note->duration / 60));echo ":"; echo str_pad(($note->duration % 60), 2, "0", STR_PAD_LEFT);
-                                echo    '</div>
-                                    <div class="box-footer" style = "color:#444;">
-                                        Modified on '; echo $note->updated_at;
-                                echo '</div>
-                                </div>
-                                </a>
-                            </div>';
-                            }
-                        ?>
-                    </div>
                 </section><!-- /.content -->
             </aside><!-- /.right-side -->
         </div><!-- ./wrapper -->

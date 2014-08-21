@@ -40,6 +40,11 @@ Route::get('/record', function()
 	return View::make('record');
 });
 
+Route::get('/settings', function()
+{
+	return View::make('settings');
+});
+
 Route::get('/note', function()
 {
 	return View::make('note');
