@@ -22,8 +22,11 @@ Route::get('/settings', array('as' => 'settings', 'before' => 'auth', 'uses' => 
 Route::get('/{noteId}', array('as' => 'view_note', 'before' => 'auth', 'uses' => 'HomeController@viewNote'))->where('noteId', '[0-9]+');
 
 Route::post('/register', array('as' => 'register', 'before' => 'csrf', 'uses' => 'UserController@register'));
+Route::post('/update_info', array('as' => 'update_info', 'before' => 'csrf', 'uses' => 'UserController@updateInfo'));
+Route::post('/update_password', array('as' => 'update_password', 'before' => 'csrf','uses' => 'UserController@updatePassword'));
 Route::post('/login', array('as' => 'login', 'before' => 'csrf', 'uses' => 'UserController@login'));
 Route::get('/logout', array('as' => 'logout', 'uses' => 'UserController@logout'));
+Route::post('/deactivate', array('as' => 'deactivate', 'before' => 'csrf', 'uses' => 'UserController@deactivate'));
 
 Route::post('/record/upload', array('as' => 'upload_note', 'uses' => 'NoteController@upload'));
 Route::post('/note/share', array('as' => 'share_note', 'before' => 'csrf', 'uses' => 'NoteController@share'));

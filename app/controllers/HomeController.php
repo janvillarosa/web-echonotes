@@ -17,7 +17,7 @@ class HomeController extends BaseController {
 
 	function home(){                              
 		if(Input::has('q')){
-			$notes = Auth::user()->echonotes()->where('title','like','%'.$q.'%')->orderBy('updated_at', 'desc')->get();
+			$notes = Auth::user()->echonotes()->where('title','like','%'.Input::get('q').'%')->orderBy('updated_at', 'desc')->get();
 		}
 		else if(Input::has('tag')){
 			$notes = Auth::user()->echonotes()->whereHas("Tags", function($q){

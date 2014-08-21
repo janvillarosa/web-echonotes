@@ -49,7 +49,7 @@ class NoteController extends BaseController{
 	}
 
 	function delete(){
-		$note = Echonote::findOrFail(Input::get('noteId'));
+		$note = Auth::user()->echonotes()->where('id',Input::get('noteId'));
 		$note->delete();
 
 		return Redirect::to('/');

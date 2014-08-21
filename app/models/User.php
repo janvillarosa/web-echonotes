@@ -15,6 +15,9 @@ class User extends Ardent implements UserInterface, RemindableInterface {
 	protected $table = 'users';
 	protected $softDelete = true;
 
+	public static $passwordAttributes  = array('password');
+  	public $autoHashPasswordAttributes = true;
+
 	protected $fillable = array('email', 'name', 'password_confirmation');
 	protected $guarded = array('id', 'password');
 
@@ -26,17 +29,6 @@ class User extends Ardent implements UserInterface, RemindableInterface {
 		'password' => array('required', 'min:6', 'confirmed'),
 		'password_confirmation' => array('required', 'min:6')
 	);
-
-	public function beforeSave( $forced )
-	{
-	    // if there's a new password, hash it
-	    if($this->isDirty('password'))
-	    {
-	        $this->password = Hash::make($this->password);
-	    }
-
-	    return true;
-	}
 
 	/**
 	 * The attributes excluded from the model's JSON form.

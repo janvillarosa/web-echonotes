@@ -109,8 +109,8 @@
                     <ul class="sidebar-menu">
                         <li class="active">
                               <a href="{{URL::route('home')}}">
-+                                <i class="fa fa-book"></i> <span>Go back to my notes</span>
-+                            </a>
+                                <i class="fa fa-book"></i> <span>Go back to my notes</span>
+                            </a>
                         </li>
                     </ul>
                 </section>
@@ -131,24 +131,26 @@
                     <div class="row" style = "padding:0 10px 0 13px">
                     <div class="col-md-6">
                         <div class="box box-info">
+                            {{ Form::model(Auth::user(), array('method' => 'post', 'route' => array('update_info'), 'role' => 'form')) }}
                                 <div class="box-header">
                                     <h3 class="box-title">Change User Information</h3>
                                 </div><!-- /.box-header -->
                                 <div class="box-body">
-                                    <form role="form">
                                         <!-- text input -->
                                         <div class="form-group">
                                             <label>Change Account Name</label>
-                                            <input type="text" class="form-control" placeholder="What your friends call you..."/>
+                                            {{ Form::text('name', null, array('class' => 'form-control', 'autocomplete' => 'off', 'placeholder' => 'What your friends call you...', 'required')) }}
+                                            <!-- <input type="text" name="username" class="form-control" placeholder="What your friends call you..."/> -->
                                         </div>
-                                        <div class="form-group">
+                                        <!-- <div class="form-group">
                                             <label>Change E-mail Address</label>
                                             <input type="text" class="form-control" placeholder="Your often used e-mail address..."/>
-                                        </div>
+                                        </div> -->
                                 </div>
                                 <div class="box-footer">
                                         <button type="submit" class="btn btn-primary">Change Info</button>
                                     </div>
+                            {{ Form::close() }}
                         </div>
                         <div class="box box-danger">
                                 <div class="box-header">
@@ -162,24 +164,29 @@
                         </div>
                         <div class="col-md-6">
                         <div class="box box-info">
+                            {{ Form::open(array('method' => 'post', 'route' => array('update_password'))) }}
                                 <div class="box-header">
                                     <h3 class="box-title">Change Password</h3>
                                 </div><!-- /.box-header -->
                                 <div class="box-body">
-                                    <form role="form">
                                         <!-- text input -->
                                         <div class="form-group">
-                                            <label>Change Account Name</label>
-                                            <input type="text" class="form-control" placeholder="What your friends call you..."/>
+                                            <label>Old Password</label>
+                                            <input type="password" name="password" class="form-control" placeholder="Password"/>
                                         </div>
                                         <div class="form-group">
-                                            <label>Change E-mail Address</label>
-                                            <input type="text" class="form-control" placeholder="Your often used e-mail address..."/>
+                                            <label>New Password</label>
+                                            <input type="password" name="new_password" class="form-control" placeholder="New Password"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Confirm Password</label>
+                                            <input type="password" name="confirm_password" class="form-control" placeholder="Confirm Password"/>
                                         </div>
                                 </div>
                                 <div class="box-footer">
                                         <button type="submit" class="btn btn-primary">Change Password</button>
-                                    </div>
+                                </div>
+                            {{ Form::close() }}
                         </div>
                     </div>
 
@@ -195,14 +202,16 @@
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 <h4 class="modal-title"><i class="fa fa-trash-o"></i> Are you really sure?</h4>
             </div>
-            <form action="/note/delete" method="post">
+            {{ Form::open(array('method' => 'post', 'route' => array('deactivate'))) }}
                 <div class="modal-body">
                     <p>Are you sure you want to delete your account forever? This cannot be undone!</p>
+                    <p>Enter password to confirm: <input id="password" type="password" name="password" placeholder="Password" required><p>
                 </div>
+                
                 <div class="modal-footer clearfix">
                     <button type="submit" class="btn btn-danger pull-right">Delete my account</button>
                 </div>
-            </form>
+            {{ Form::close() }}
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div>

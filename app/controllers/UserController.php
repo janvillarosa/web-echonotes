@@ -21,6 +21,41 @@ class UserController extends BaseController{
 		return Redirect::to('/');
 	}
 
+	function updateInfo(){
+		$user = Auth::user();
+
+		$user->name = Input::get('name');
+		$user->password_confirmation = $user->password;
+
+		if($user->updateUniques()){
+			return Redirect::route('settings');
+		}
+		else{
+		//note: implement if validation fails
+			return $user->errors()->first();
+		}
+	}
+
+	function updatePassword(){
+		$user = Auth::user();
+
+		if(Hash::check(Input::get('password'), $user->password)) {
+				$user->password = Input::get('new_password');
+				$user->password_confirmation = Input::get('confirm_password');
+
+				if($user->updateUniques()){
+					return Redirect::route('settings');
+				}
+				else{
+				//note: implement if validation fails
+					return $user->errors()->first();
+				}
+		}
+		else{
+			return "Password Incorrect";
+		}
+	}
+
 	function login(){
 		$email = Input::get('email');
 		$password = Input::get('password');
@@ -37,5 +72,14 @@ class UserController extends BaseController{
 	function logout(){
 		Auth::logout();
 		return Redirect::to('/');
+	}
+
+	function deactivate(){
+		$user = Auth::user();
+		if(Hash::check(Input::get('password'), $user->password)) {
+			Auth::logout();
+			$user->delete();
+		}
+		return Redirect::to('/');	
 	}
 }

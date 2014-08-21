@@ -13,6 +13,8 @@ class Echonote extends Ardent {
 	protected $table = 'echonotes';
 	protected $softDelete = true;
 
+	public $autoPurgeRedundantAttributes = true;
+
 	protected $fillable = array('title', 'url', 'duration','user_id');
 
 	public static $rules = array(
