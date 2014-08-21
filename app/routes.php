@@ -16,12 +16,12 @@ Route::get('/', function()
 	return Redirect::route('home');
 });
 
-Route::get('/', array('as' => 'home', 'before' => 'auth', 'uses' => 'HomeController@home'));
+Route::get('/home', array('as' => 'home', 'before' => 'auth', 'uses' => 'HomeController@home'));
 Route::get('/record', array('as' => 'record', 'before' => 'auth', 'uses' => 'HomeController@record'));
 Route::get('/{noteId}', array('as' => 'view_note', 'before' => 'auth', 'uses' => 'HomeController@viewNote'))->where('noteId', '[0-9]+');
 
 Route::post('/register', array('as' => 'register', 'before' => 'csrf', 'uses' => 'UserController@register'));
-Route::post('/', array('as' => 'login', 'before' => 'csrf', 'uses' => 'UserController@login'));
+Route::post('/login', array('as' => 'login', 'before' => 'csrf', 'uses' => 'UserController@login'));
 Route::get('/logout', array('as' => 'logout', 'uses' => 'UserController@logout'));
 
 Route::post('/record/upload', array('as' => 'upload_note', 'uses' => 'NoteController@upload'));
