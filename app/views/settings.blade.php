@@ -108,9 +108,14 @@
                     <!-- sidebar menu: : style can be found in sidebar.less -->
                     <ul class="sidebar-menu">
                         <li class="active">
-                              <a href="{{URL::route('home')}}">
-+                                <i class="fa fa-book"></i> <span>Go back to my notes</span>
-+                            </a>
+                            <a href="{{URL::route('record')}}">
+                                <i class="fa fa-microphone"></i> <span>Start a new Echonote</span>
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a href="{{URL::route('home')}}">
+                                <i class="fa fa-book"></i> <span>Go back to my notes</span>
+                            </a>
                         </li>
                     </ul>
                 </section>
@@ -169,12 +174,16 @@
                                     <form role="form">
                                         <!-- text input -->
                                         <div class="form-group">
-                                            <label>Change Account Name</label>
-                                            <input type="text" class="form-control" placeholder="What your friends call you..."/>
+                                            <label>Old Password</label>
+                                            <input type="password" class="form-control" placeholder="Your old password..."/>
                                         </div>
                                         <div class="form-group">
-                                            <label>Change E-mail Address</label>
-                                            <input type="text" class="form-control" placeholder="Your often used e-mail address..."/>
+                                            <label>New Password (Must be 6 characters long)</label>
+                                            <input type="password" class="form-control" placeholder="Your new password..."/>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Confirm New Password</label>
+                                            <input type="password" class="form-control" placeholder="Repeat that again please..."/>
                                         </div>
                                 </div>
                                 <div class="box-footer">
