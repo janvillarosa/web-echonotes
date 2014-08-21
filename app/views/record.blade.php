@@ -95,7 +95,7 @@
                     <section class="sidebar">
                         <!-- Sidebar user panel -->
                         <div class="user-panel">
-                            <button id = "recordButton" class = "btn-danger btn-lg" style = "width:100%; height:65px" onclick="toggleRecording(this)">Start Recording</button>
+                            <button id = "recordButton" class = "btn-danger btn-lg" style = "width:100%; height:65px" onclick="toggleRecording(this)"><i class="fa fa-microphone"></i> <span> Start Recording</span></button>
                         </div>
                         <!-- search form -->
                         <!-- /.search form -->

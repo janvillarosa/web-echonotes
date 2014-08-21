@@ -135,7 +135,7 @@
                 <section class="content">
                     <div class="row" style = "padding:0 10px 0 13px">
                     <div class="col-md-6">
-                        <div class="box box-info">
+                        <div class="box box-solid box-info">
                                 <div class="box-header">
                                     <h3 class="box-title">Change User Information</h3>
                                 </div><!-- /.box-header -->
@@ -155,7 +155,7 @@
                                         <button type="submit" class="btn btn-primary">Change Info</button>
                                     </div>
                         </div>
-                        <div class="box box-danger">
+                        <div class="box box-solid box-danger">
                                 <div class="box-header">
                                     <h3 class="box-title">Delete my Account</h3>
                                 </div><!-- /.box-header -->
@@ -166,7 +166,7 @@
                         </div>
                         </div>
                         <div class="col-md-6">
-                        <div class="box box-info">
+                        <div class="box box-solid box-info">
                                 <div class="box-header">
                                     <h3 class="box-title">Change Password</h3>
                                 </div><!-- /.box-header -->

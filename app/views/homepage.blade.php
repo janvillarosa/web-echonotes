@@ -94,7 +94,7 @@
                 <section class="sidebar">
                     <!-- Sidebar user panel -->
                     <div class="user-panel">
-                        <a href = "{{route('record')}}"><button class = "btn-success btn-lg" style = "width:100%; height:95px">Start A New Echonote</button></a>
+                        <a href = "{{route('record')}}"><button class = "btn-success btn-lg" style = "font-size:20px width:100%; height:95px"><i class="fa fa-microphone"></i> <span>Start A New Echonote</span></button></a>
                     </div>
                     <!-- search form -->
                     <!-- /.search form -->
