@@ -191,10 +191,16 @@ function uploadFile( blob ){
     var tags = [];
     form = new FormData(),
     request = new XMLHttpRequest();
-    form.append("blob", blob , title);
+
     form.append("title", title);
-    form.append("aCount", aIndex);
+    form.append("blob", blob , title);
     form.append("duration", duration);
+
+    form.append("annotation_count", aIndex);
+    for(var i = 0; i < aIndex; i++){
+      form.append("annotations["+i+"]", annotations[i]);
+      form.append("timestamps["+i+"]", timestamps[i]);
+    }
 
     if(document.getElementById('homeTag').checked == true){
       tags.push("Home");
@@ -214,18 +220,11 @@ function uploadFile( blob ){
     if(document.getElementById('miscellaneousTag').checked == true){
       tags.push("Miscellaneous");
     }
-    
+
+    form.append("tCount", tags.length);
     for(var i = 0; i < tags.length; i++){
       form.append("tags["+i+"]", tags[i]);
     }
-    form.append("tCount", tags.length);
-
-    for(var i = 0; i < aIndex; i++){
-      form.append("annotations["+i+"]", annotations[i]);
-      form.append("timestamps["+i+"]", timestamps[i]);
-    }
-
-    form.append("aCount", aIndex);
 
     $.ajax({
                 url: "/record/upload",

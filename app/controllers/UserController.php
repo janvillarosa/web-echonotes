@@ -3,17 +3,35 @@
 class UserController extends BaseController{
 
 	function register(){
-		User::register(Input::get('email'), Input::get('username'), Input::get('password'));
-		$this->login();
+		$user = new User;
+		$user->email = Input::get('email');
+		$user->name = Input::get('username');
+		$user->password = Input::get('password');
+		$user->password_confirmation = Input::get('confirm_password');
+
+		if ($user->save())
+		{
+			$this->login();
+		}
+		else{
+		//note: implement if validation fails
+			return $user->errors()->first();
+		}
+
 		return Redirect::to('/');
 	}
 
 	function login(){
 		$email = Input::get('email');
 		$password = Input::get('password');
-		Auth::attempt(array('email' => $email, 'password' => $password));
-		return Redirect::to('/');
-		//Implement redirect to incorrect error
+		$remembered = Input::get('remembered')=="remembered" ? 'true' : 'false';
+		if(Auth::attempt(array('email' => $email, 'password' => $password), $remembered)){
+			return Redirect::route('home');
+		}
+		else{
+			return View::make('frontpage')->with('loginError', 'true');
+		}
+		
 	}
 
 	function logout(){
