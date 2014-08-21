@@ -108,7 +108,12 @@
                     <!-- sidebar menu: : style can be found in sidebar.less -->
                     <ul class="sidebar-menu">
                         <li class="active">
-                              <a href="{{URL::route('home')}}">
+                            <a href="{{URL::route('record')}}">
+                                <i class="fa fa-microphone"></i> <span>Start a new Echonote</span>
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a href="{{URL::route('home')}}">
                                 <i class="fa fa-book"></i> <span>Go back to my notes</span>
                             </a>
                         </li>
@@ -152,7 +157,7 @@
                                     </div>
                             {{ Form::close() }}
                         </div>
-                        <div class="box box-danger">
+                        <div class="box box-solid box-danger">
                                 <div class="box-header">
                                     <h3 class="box-title">Delete my Account</h3>
                                 </div><!-- /.box-header -->
@@ -175,8 +180,8 @@
                                             <input type="password" name="password" class="form-control" placeholder="Password"/>
                                         </div>
                                         <div class="form-group">
-                                            <label>New Password</label>
-                                            <input type="password" name="new_password" class="form-control" placeholder="New Password"/>
+                                            <label>New Password (Must be 6 characters long)</label>
+                                            <input type="password" name="new_password" class="form-control" placeholder="Your new password..."/>
                                         </div>
                                         <div class="form-group">
                                             <label>Confirm Password</label>

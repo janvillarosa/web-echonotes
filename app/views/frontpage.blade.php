@@ -202,7 +202,7 @@
                             <input name="username" class="form-control" type="text" placeholder="Full Name">
                             <b>Email<br>
                             <input name="email" class="form-control" type="email" placeholder="example@email.com">
-                            <b>Password<br>
+                            <b>Password (must be 6 characters long)<br>
                             <input name="password"class="form-control" type="password" placeholder="Password">
                             <b>Confirm Password<br>
                             <input name="confirm_password" class="form-control" type="password" placeholder="Confirm Password">

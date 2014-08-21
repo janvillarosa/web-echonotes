@@ -181,7 +181,7 @@ function toggleRecording( e ) {
         e.classList.add("recording");
         audioRecorder.clear();
         audioRecorder.record();
-        document.getElementById("recordButton").innerHTML = "Stop Recording";
+        document.getElementById("recordButton").innerHTML = "<i class='fa fa-stop'></i> <span> Stop Recording</span>";
     }
 }
 
