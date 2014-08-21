@@ -13,7 +13,20 @@
 
 Route::get('/', function()
 {
-	return Redirect::route('home');
+	if(Auth::check()){
+		if(Input::has('q')){
+			return View::make('homepage')->with('q', Input::get('q'))->with('tag', null);	
+		}
+		else if(Input::has('tag')){
+			return View::make('homepage')->with('q', null)->with('tag', Input::get('tag'));
+		}
+		else{
+			return View::make('homepage')->with('q', null)->with('tag', null);
+		}
+	}
+	else{
+		return View::make('frontpage');
+	}
 });
 
 Route::get('/home', array('as' => 'home', 'before' => 'auth', 'uses' => 'HomeController@home'));
@@ -24,7 +37,3 @@ Route::post('/register', array('as' => 'register', 'before' => 'csrf', 'uses' =>
 Route::post('/login', array('as' => 'login', 'before' => 'csrf', 'uses' => 'UserController@login'));
 Route::get('/logout', array('as' => 'logout', 'uses' => 'UserController@logout'));
 
-Route::post('/record/upload', array('as' => 'upload_note', 'uses' => 'NoteController@upload'));
-Route::post('/note/share', array('as' => 'share_note', 'before' => 'csrf', 'uses' => 'NoteController@share'));
-Route::post('/note/delete', array('as' => 'delete_note', 'before' => 'csrf', 'uses' => 'NoteController@delete'));
-Route::post('/note/deleteAnnotation', array('as' => 'delete_annotation', 'before' => 'csrf', 'uses' => 'NoteController@deleteAnnotation'));

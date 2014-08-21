@@ -1,8 +1,6 @@
 <?php
 
-use LaravelBook\Ardent\Ardent;
-
-class Textannotation extends Ardent {
+class Textannotation extends Eloquent {
 
 	/**
 	 * The database table used by the model.
@@ -10,13 +8,19 @@ class Textannotation extends Ardent {
 	 * @var string
 	 */
 	protected $table = 'textannotations';
-	protected $softDelete = true;
+	protected $primaryKey = 'annotationId';
+	public $timestamps = false;
 
-	protected $fillable = array('timestamp', 'content', 'echonote_id');
+	public static function add($noteId, $content, $timestamp){
+		$annotation = new Textannotation;
+		$annotation->content = $content;
+		$annotation->timestamp = $timestamp;
+		$annotation->noteid = $noteId;
+		$annotation->save();
+	}
 
-	public static $rules = array(
-		'timestamp' => array('required', 'integer'),
-		'content' => array('required'),
-		'echonote_id' => array('required', 'integer'),
-	);
+	public function editContent($content){
+		$this->content = $content;
+	}
+
 }

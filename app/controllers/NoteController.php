@@ -3,60 +3,36 @@
 class NoteController extends BaseController{
 
 	function upload(){
-		$destination = 'upload/';
-		$file = Input::file('blob');
-		$email = Auth::user()->email;
+		$note = Echonote::add(Input::file('blob'), Input::get('duration'), Auth::user()->email);
 
-		//save model to db
-		$note = new Echonote;
-		$note->title =  Input::get('title');
-		$note->url = $destination.$note->title.'-'.$email.'.wav';
-		$note->duration =  Input::get('duration');
-		$note->user_id = Auth::user()->id;
-		if(!$note->save()){
-			return $note->errors()->first();
-		}
-
-		//create file
-		$filename = $note->id.'-'.$note->title.'-'.$email.'.wav';
-		$file->move($destination, $filename);
-
-		//resave
-		$note->url = $destination.$filename;
-		if(!$note->save()){
-			return $note->errors()->first();
-		}
-
-		//save annotations
-		$aCount = Input::get('annotation_count');
+		$aCount = Input::get('aCount');
 		for($i=0; $i<$aCount; $i++){
 			$index = (string)$i;
-			$annotation = new Textannotation;
-			$annotation->timestamp = Input::get('timestamps.'.$index);
-			$annotation->content = Input::get('annotations.'.$index);
-			$annotation->echonote_id = $note->id;
-
-			$annotation->save();
+			$content = Input::get('annotations.'.$index);
+			$content['3']='';
+			$content['4']='';
+			$content['5']='';
+			Textannotation::add($note->noteId, $content, Input::get('timestamps.'.$index));
 		}
 
 		$tCount = Input::get('tCount');
 		for($i=0; $i<$tCount; $i++){
 			$index = (string)$i;
-			$note->tags()->attach(Input::get('tags.'.$index));
+			$note->toggleTag(Input::get('tags.'.$index));
 		}
 
-		return Response::make('Uploaded '.$note->title);
+		return Response::make('Uploaded '.$note->noteName);
 	}
 
 	function delete(){
-		$note = Echonote::findOrFail(Input::get('noteId'));
-		$note->delete();
+		$note = Echonote::where('noteid','=', Input::get('noteid'))->firstOrFail();
+		$note->deleteNote();
 
 		return Redirect::to('/');
 	}
 
-	public function deleteAnnotation($annotationId){
-		$annotation = findOrFail($annotationId);
+	public function deleteAnnotation(){
+		$annotation = Textannotation::where('annotationid','=',Input::get('annotationid'))->first();
 		$annotation->delete();
 
 		return Redirect::to('/');
@@ -64,40 +40,11 @@ class NoteController extends BaseController{
 	}
 
 	function share(){
-		$noteToBeShared = Echonote::findOrFail(Input::get('noteId'));
-		$emailDestination = Input::get('email');
+		$note = Echonote::where('noteid','=', Input::get('noteid'))->firstOrFail();
 
-		$destination = 'upload/';
-
-		//save model to db
-		$note = new Echonote;
-		$note->title =  $noteToBeShared->title;
-		$note->url = $destination.$note->title.'-'.$emailDestination.'.wav';
-		$note->duration =  $noteToBeShared->duration;
-		$note->user_id = User::where('email', $emailDestination)->first()->id;
-		$note->save();	
-
-		//create file
-		$filename = $note->id.'-'.$note->title.'-'.$emailDestination.'.wav';
-		File::copy($noteToBeShared->url, $destination.$filename);
-
-		//resave
-		$note->url = $destination.$filename;
-		$note->save();
-
-		//clone annotations
-		$annotations = $noteToBeShared->textannotations()->get();
-
-		foreach($annotations as $annotation){
-			$a = new Textannotation;
-			$a->content = $annotation->content;
-			$a->timestamp = -$annotation->timestamp;
-			$note->textannotations()->save($a);
-        }
-
-        $note->tags()->sync($noteToBeShared->tags);
-        $note->tags()->attach('Shared');
+		$note->shareNote(Input::get('email'));
 
 		return Redirect::to('/');
 	}
+	
 }
