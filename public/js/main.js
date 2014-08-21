@@ -212,7 +212,7 @@ function uploadFile( blob ){
       tags.push("Business");
     }
     if(document.getElementById('miscellaneousTag').checked == true){
-      tags.push("Miscellaneous");
+      tags.push("Mischellaneous");
     }
     
     for(var i = 0; i < tags.length; i++){
