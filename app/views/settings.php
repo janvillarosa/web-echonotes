@@ -120,10 +120,10 @@
             <!-- Right side column. Contains the navbar and content of the page -->
             <aside class="right-side">                
                 <!-- Content Header (Page header) -->
-                <section class="content-header" style="padding: 15px 15px 16px 20px;">
+                <section class="content-header">
                     <h1>
-                        User Settings
-                    </h1>
+                        Settings
+                        <small></small>
                 </section>
 
                 <!-- Main content -->
@@ -184,6 +184,7 @@
                     </div>
 
                     </div>
+
                 </section><!-- /.content -->
             </aside><!-- /.right-side -->
         </div><!-- ./wrapper -->
@@ -206,7 +207,6 @@
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div>
-
 
         <!-- jQuery 2.0.2 -->
         <script src="js/jquery-2.1.0.min.js"></script>
