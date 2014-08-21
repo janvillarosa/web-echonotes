@@ -45,6 +45,10 @@ Route::get('/note', function()
 	return View::make('note');
 });
 
+Route::get('/settings', function()
+{
+	return View::make('settings');
+});
 Route::get('/{noteId}', function($noteId)
 {
 	if((Echonote::where('noteId', '=', $noteId)->where('userId', '=', Auth::user()->email)->first())!=null){

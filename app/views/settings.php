@@ -75,7 +75,7 @@
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
                                     <div class="pull-left">
-                                        <a href="/settings" class="btn btn-default btn-flat">Settings</a>
+                                        <a href="#" class="btn btn-default btn-flat">Settings</a>
                                     </div>
                                     <div class="pull-right">
                                         <a href="/logout" class="btn btn-default btn-flat">Sign out</a>
@@ -93,42 +93,15 @@
                 <!-- sidebar: style can be found in sidebar.less -->
                 <section class="sidebar">
                     <!-- Sidebar user panel -->
-                    <div class="user-panel">
-                        <a href = "/record"><button class = "btn-success btn-lg" style = "width:100%; height:95px">Start A New Echonote</button></a>
-                    </div>
                     <!-- search form -->
                     <!-- /.search form -->
                     <!-- sidebar menu: : style can be found in sidebar.less -->
                     <ul class="sidebar-menu">
                         <li class="active">
-                            <a href="/">
-                                <i class="fa fa-book"></i> <span>All my notes</span>
-                            </a>
-                        </li>
-                        <li class="treeview">
-                            <a href="#">
-                                <i class="fa fa-tags"></i>
-                                <span>My Note Tags</span><small class = "badge pull-right bg-yellow">6</small>
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li><a href="/?tag=Home"><i class="fa fa-tags text-aqua"></i> Home</a></li>
-                                <li><a href="/?tag=School"><i class="fa fa-tags text-green"></i> School</a></li>
-                                <li><a href="/?tag=Work"><i class="fa fa-tags text-teal"></i> Work</a></li>
-                                <li><a href="/?tag=Personal"><i class="fa fa-tags text-yellow"></i> Personal</a></li>
-                                <li><a href="/?tag=Business"><i class="fa fa-tags text-red"></i> Business</a></li>
-                                <li><a href="/?tag=Miscellaneous"><i class="fa fa-tags text-fuchsia"></i> Miscellaneous</a></li>
-                            </ul>
                         </li>
                         <li class="active">
-                            <a href="/?tag=Shared">
-                                <i class="fa fa-share-square-o"></i> <span>Notes sent to me</span>
-                            </a>
                         </li>
                         <li class="active">
-                            <a href="/settings">
-                                <i class="fa fa-cog"></i> <span>Settings</span>
-                            </a>
                         </li>
                     </ul>
                 </section>
@@ -140,15 +113,10 @@
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <h1>
-                        My Echonotes
-                        <small>Sorted by Newest</small>
+                        User Settings
                     </h1>
                     <form action="/" method="get" class="sidebar-form">
                         <div class="input-group">
-                            <input type="text" name="q" class="form-control" placeholder="Search for your notes..."/>
-                            <span class="input-group-btn">
-                                <button type='submit' id='search-btn' class="btn btn-flat" style = "background-color:#5cb85c; color:white;"><i class="fa fa-search"></i></button>
-                            </span>
                         </div>
                     </form>
                 </section>
@@ -156,55 +124,83 @@
                 <!-- Main content -->
                 <section class="content">
                     <div class="row" style = "padding:0 10px 0 13px">
-                        <?php
-                            if($q!=null){
-                                $notes = Echonote::where('userid','=',Auth::user()->email)->where('noteName','like','%'.$q.'%')->orderBy('updated_at', 'desc')->get();
-                            }
-                            else if($tag!=null){
-                                $notes = Echonote::where('userid','=',Auth::user()->email)->whereHas("Tag", function($q) use($tag){
-                                    $q->where('Tags.tagName', '=', $tag);
-                                })->orderBy('updated_at', 'desc')->get();
-                            }
-                            else{
-                                $notes = Echonote::where('userid','=',Auth::user()->email)->orderBy('updated_at', 'desc')->get();
-                            }
-                            foreach($notes as $note){
-                                echo '<div class="col-md-4">
-                                            <a href = "/';
-                                echo  $note->noteId;
-                                echo '"><div class="box box-default">
-                                    <div class="box-header">
-                                        <h1 class="box-title" style = "font-size:25px">';
-                                echo $note->noteName;
-                                echo '</h1>
-                                        <div class="box-tools pull-right">';
-                                            if((EchonoteTag::where('noteId', $note->noteId)->where('tagName','=', 'Home')->first())!=null){echo '<div class="label bg-aqua" style="margin-right:2px">Home</div>';}
-                                            if((EchonoteTag::where('noteId', $note->noteId)->where('tagName','=', 'School')->first())!=null){echo '<div class="label bg-green" style="margin-right:2px">School</div>';}
-                                            if((EchonoteTag::where('noteId', $note->noteId)->where('tagName','=', 'Work')->first())!=null){echo '<div class="label bg-teal" style="margin-right:2px">Work</div>';}
-                                            if((EchonoteTag::where('noteId', $note->noteId)->where('tagName','=', 'Personal')->first())!=null){echo '<div class="label bg-yellow" style="margin-right:2px">Personal</div>';}
-                                            if((EchonoteTag::where('noteId', $note->noteId)->where('tagName','=', 'Business')->first())!=null){echo '<div class="label bg-red" style="margin-right:2px">Business</div>';}
-                                            if((EchonoteTag::where('noteId', $note->noteId)->where('tagName','=', 'Miscellaneous')->first())!=null){echo '<div class="label bg-fuchsia" style="margin-right:2px">Miscellaneous</div>';}
-                                            if((EchonoteTag::where('noteId', $note->noteId)->where('tagName','=', 'Shared')->first())!=null){echo '<div class="label bg-navy" style="margin-right:2px">Shared</div>';}
-                                echo    '</div>
-                                    </div>
-                                    <div class="box-body" style = "font-size:18px; color:#444;">';
-                                echo $note->textannotation()->count();
-                                echo " annotations";
-                                echo '<br>
-                                        <b>Duration: </b>';echo (floor($note->duration / 60));echo ":"; echo str_pad(($note->duration % 60), 2, "0", STR_PAD_LEFT);
-                                echo    '</div>
-                                    <div class="box-footer" style = "color:#444;">
-                                        Modified on '; echo $note->updated_at;
-                                echo '</div>
+                    <div class="col-md-6">
+                        <div class="box box-info">
+                                <div class="box-header">
+                                    <h3 class="box-title">Change User Information</h3>
+                                </div><!-- /.box-header -->
+                                <div class="box-body">
+                                    <form role="form">
+                                        <!-- text input -->
+                                        <div class="form-group">
+                                            <label>Change Account Name</label>
+                                            <input type="text" class="form-control" placeholder="What your friends call you..."/>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Change E-mail Address</label>
+                                            <input type="text" class="form-control" placeholder="Your often used e-mail address..."/>
+                                        </div>
                                 </div>
-                                </a>
-                            </div>';
-                            }
-                        ?>
+                                <div class="box-footer">
+                                        <button type="submit" class="btn btn-primary">Change Info</button>
+                                    </div>
+                        </div>
+                        <div class="box box-danger">
+                                <div class="box-header">
+                                    <h3 class="box-title">Delete my Account</h3>
+                                </div><!-- /.box-header -->
+                                <div class="box-body">
+                                    <p>Doing this will make your account disappear, together with the notes you made. Please be careful!</p>
+                                    <button class = "btn-danger btn" data-toggle="modal" data-target="#delete-modal">Delete my account forever</button>
+                                </div>
+                        </div>
+                        </div>
+                        <div class="col-md-6">
+                        <div class="box box-info">
+                                <div class="box-header">
+                                    <h3 class="box-title">Change Password</h3>
+                                </div><!-- /.box-header -->
+                                <div class="box-body">
+                                    <form role="form">
+                                        <!-- text input -->
+                                        <div class="form-group">
+                                            <label>Change Account Name</label>
+                                            <input type="text" class="form-control" placeholder="What your friends call you..."/>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Change E-mail Address</label>
+                                            <input type="text" class="form-control" placeholder="Your often used e-mail address..."/>
+                                        </div>
+                                </div>
+                                <div class="box-footer">
+                                        <button type="submit" class="btn btn-primary">Change Password</button>
+                                    </div>
+                        </div>
+                    </div>
+
                     </div>
                 </section><!-- /.content -->
             </aside><!-- /.right-side -->
         </div><!-- ./wrapper -->
+
+        <div class="modal fade" id="delete-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title"><i class="fa fa-trash-o"></i> Are you really sure?</h4>
+            </div>
+            <form action="/note/delete" method="post">
+                <div class="modal-body">
+                    <p>Are you sure you want to delete your account forever? This cannot be undone!</p>
+                </div>
+                <div class="modal-footer clearfix">
+                    <button type="submit" class="btn btn-danger pull-right">Delete my account</button>
+                </div>
+            </form>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
 
 
         <!-- jQuery 2.0.2 -->
