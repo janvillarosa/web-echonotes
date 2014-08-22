@@ -371,7 +371,7 @@ $(function() {
 </script>
 <script>
 $(function() {
-    initSound('{{{$note->url}}}');
+    initSound("{{{route('get_note', $note->id)}}}");
 });
 </script>
 

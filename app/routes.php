@@ -20,6 +20,7 @@ Route::get('/', array('as' => 'home', 'before' => 'auth', 'uses' => 'HomeControl
 Route::get('/record', array('as' => 'record', 'before' => 'auth', 'uses' => 'HomeController@record'));
 Route::get('/settings', array('as' => 'settings', 'before' => 'auth', 'uses' => 'HomeController@settings'));
 Route::get('/{noteId}', array('as' => 'view_note', 'before' => 'auth', 'uses' => 'HomeController@viewNote'))->where('noteId', '[0-9]+');
+Route::get('note/{noteId}', array('as' => 'get_note', 'before' => 'auth', 'uses' => 'NoteController@getNote'))->where('noteId', '[0-9]+');
 
 Route::post('/register', array('as' => 'register', 'before' => 'csrf', 'uses' => 'UserController@register'));
 Route::post('/update_info', array('as' => 'update_info', 'before' => 'csrf', 'uses' => 'UserController@updateInfo'));

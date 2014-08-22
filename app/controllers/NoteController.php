@@ -55,12 +55,28 @@ class NoteController extends BaseController{
 		return Redirect::to('/');
 	}
 
+	public function getNote($noteId){
+		$note = Echonote::findOrFail($noteId);
+		if($note->user_id === Auth::user()->id){
+			$name = $note->title;
+			$file = public_path().'/'.$note->url;
+			$headers = array(
+		        'Content-Type' => 'audio/wav',
+		        'Content-lenght' => filesize($file),
+		        'filename' => $name,
+	    	);
+        	return Response::download($file, $name, $headers);
+		}
+		else{
+			return Redirect::to('/');
+		}
+	}
+
 	public function deleteAnnotation($annotationId){
 		$annotation = findOrFail($annotationId);
 		$annotation->delete();
 
 		return Redirect::to('/');
-
 	}
 
 	function share(){
