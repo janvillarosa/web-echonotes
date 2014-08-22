@@ -160,11 +160,13 @@ var tagTimestamp = function() {
 timeFunc = tagTimestamp;
 
 var aIndex = 0;
+var recording = false;
 
 /*TOGGLE RECORDING*/
 function toggleRecording( e ) {
     if (e.classList.contains("recording")) {
         // stop recording
+        recording = false;
         audioRecorder.stop();
         duration = timestamp;
         Timer.stop();
@@ -181,6 +183,7 @@ function toggleRecording( e ) {
         e.classList.add("recording");
         audioRecorder.clear();
         audioRecorder.record();
+        recording = true;
         document.getElementById("recordButton").innerHTML = "<i class='fa fa-stop'></i> <span> Stop Recording</span>";
     }
 }
@@ -280,17 +283,19 @@ function removeNotification(){
 }
 
 function submitAnnotation(){
-    var cusid_ele = document.getElementsByClassName('froala-element f-basic');
-    var item = cusid_ele[0];
+    if(recording == true){
+      var cusid_ele = document.getElementsByClassName('froala-element f-basic');
+      var item = cusid_ele[0];
 
-    annotations.push(item.innerHTML);
-    timestamps.push(timestamp);
-    aIndex = aIndex + 1;
+      annotations.push(item.innerHTML);
+      timestamps.push(timestamp);
+      aIndex = aIndex + 1;
 
-    createAnnotationCard();
+      createAnnotationCard();
 
-    item.innerHTML = '';
-    timeFunc = tagTimestamp;
+      item.innerHTML = '';
+      timeFunc = tagTimestamp;
+    }
 }
 
 function convertToMono( input ) {

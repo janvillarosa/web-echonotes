@@ -3,7 +3,7 @@
 class NoteController extends BaseController{
 
 	function upload(){
-		$destination = 'upload/';
+		$destination = '/upload/';
 		$file = Input::file('blob');
 		$email = Auth::user()->email;
 
@@ -19,7 +19,7 @@ class NoteController extends BaseController{
 
 		//create file
 		$filename = $note->id.'-'.$note->title.'-'.$email.'.wav';
-		$file->move($destination, $filename);
+		$file->move(storage_path().$destination, $filename);
 
 		//resave
 		$note->url = $destination.$filename;
@@ -59,7 +59,7 @@ class NoteController extends BaseController{
 		$note = Echonote::findOrFail($noteId);
 		if($note->user_id === Auth::user()->id){
 			$name = $note->title;
-			$file = public_path().'/'.$note->url;
+			$file = storage_path().'/'.$note->url;
 			$headers = array(
 		        'Content-Type' => 'audio/wav',
 		        'Content-lenght' => filesize($file),
